@@ -1,21 +1,17 @@
-# EC320S24
-Course repository for EC320: Introduction to Econometrics at the University of Oregon for Spring term 2024. Contains course materials including slides, homework assignments, and notes.
+# EC 320, Spring 2024:   
 
-# EC 320, Spring 2023:   
-
-Welcome to Economics 320: Introduction to Econometrics taught by [Andrew Dickinson](https://economics.uoregon.edu/profile/adickin3/) and [Colleen O'Briant](https://economics.uoregon.edu/profile/cobriant/).
+Welcome to Economics 320: Introduction to Econometrics taught by [Andrew Dickinson](https://economics.uoregon.edu/profile/adickin3/) and [Dante Yasui](https://cas.uoregon.edu/directory/economics/all/dyasui).
 
 ## Schedule
 
-**Lecture** Monday and Wednesday, 2:00p–3:20p (PST), [101 Knight Library](https://map.uoregon.edu/08a3b9892)
+**Lecture** Tuesdays and Thursdays, 12:00p–1:20p (PST), [141 Tykeson Hall](https://map.uoregon.edu/8f5f1a72c)
 
 **Lab** Asynchonous. See Canvas for links to the most recent lab
 
 **Office hours**
 
-- **Andrew Dickinson** Tuesdays and Thursdays, 4:00p–5:00p, 
-- **Colleen O'Briant** Wednesdays, 4:00p-5:20p and Fridays, 8:00a-9:00a
-
+- **Andrew Dickinson** TBD 
+- **Dante Yasui** TBD
 Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S23/syllabus/syllabus.pdf)
 
 ## Books
