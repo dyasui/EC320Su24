@@ -1,0 +1,183 @@
+---
+title: "Introduction to Econometrics"
+subtitle: "Syllabus, Spring 2024"
+author: "Andrew Dickinson"
+format: PrettyPDF-pdf
+---
+
+
+# Basics
+
+|                 | **Lecture**                                             | **Lab**            |
+|-----------------|---------------------------------------------------------|--------------------|
+| **when**        | T & Th 12:00p--1:20p                                    | 4:00-4:50p W       |
+| **where**       | [Tykeson Hall 140](https://map.uoregon.edu/8f5f1a72c)   | [Zoom](https://canvas.uoregon.edu/)         | <!-- TODO: Add Canvas link--> 
+| **who**         | **Andrew Dickinson**                                    | **Dante Yasui**    |
+|  \hfill {{< fa paper-plane >}} | [adickin3@uoregon.edu](mailto:adickin3@uoregon.edu)     | [dyasui@uoregon.edu](mailto:dyasui@uoregon.edu) | (Use "EC320:" in email subject.) |
+|  \hfill {{< fa cloud >}}               | [ajdickinson.github.io](https://ajdickinson.github.io)  | [cas.uoregon.edu](https://cas.uoregon.edu/directory/economics/all/dyasui) |
+| **office hours**| TBA                                                     | TBA                | (Or by appointment) |
+| **materials**   | [1. Introduction to Econometrics](http://smile.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/) | |
+|                 | [2. Mastering 'Metrics](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/) | |
+| **repository**  | [github.com/ajdickinson/EC320S24](https://github.com/ajdickinson/EC320S24) | |
+
+
+# Course summary
+
+This course introduces statistical techniques that economists use to test economic theories and to estimate the relationships between economic variables. Econometrics combines economics and statistics with data to analyze and measure economic phenomena. In this class, we will focus our attention on regression analysis--the workhorse of applied econometrics. Using calculus and introductory statistics, we will cultivate a working understanding of the theory underpinning regression analysis, emphasizing the assumptions we must make to make causal statements. Statistical programming is fundamental to practicing applied econometrics. Thus we will teach the statistical programming language \texttt{R} to apply insights from theory and learn how to work with data. To the extent that you invest the requisite time and effort, you can leave this course with marketable skills in data analysis and---most importantly---a more sophisticated understanding of the notion that *correlation does not necessarily imply causation*. 
+
+## Software
+
+* We will use the statistical programming language \texttt{R}.
+* We will use \textbf{RStudio} to interact with \texttt{R}.
+
+Learning \texttt{R} is challenging, but well worth the effort. \texttt{R} is a powerful and versatile tool for data analysis and visualization, which makes it popular among employers. If you dedicate the time and effort necessary to learn the language, you are likely to reap a handsome return on the job market. I expect that you install \texttt{R} and \textbf{RStudio} on your own computer. Don’t worry, both are free. I also recommend that you be thoughtful of how you choose to organize your saved scripts, data, and assignments (e.g. Home > Documents > Classes > EC320). For convenience, I make material available through Github.
+
+## Textbooks and other readings
+
+**Econometrics books:** There are two required textbooks for this course:
+
+1. [Introduction to Econometrics, 5\textsuperscript{th} ed.](http://www.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/) by Christopher Dougherty (**ItE**)
+2. [Mastering `Metrics: The Path from Cause to Effect](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/) by Angrist and Pischke (**MM**)
+
+You can purchase them at the UO duckstore or your preferred online bookseller. I recommend that you read (or at least skim) the assigned readings from the textbooks _before_ lecture. The lectures and the readings are meant to _complement_ one another. The tentative course schedule (below) lists the assigned readings for each topic.
+
+
+**R books:** For learning \texttt{R}, a classic is Garrett Grolemund and Hadley Wickham's [R for Data Science](http://r4ds.had.co.nz). If you have previous experience coding in \texttt{R}, you may want to check out Hadley Wickham's [Advanced R](http://adv-r.had.co.nz/). 
+
+## Prerequisites: 
+
+Math 242 (Calculus) and Math 243 (Introduction to Statistics) or equivalent.
+
+# Labs, homework, and exams
+
+## Lab
+
+<!-- TODO: Update this section. Are all labs asynchronous? TBD. -->
+
+Labs will be delivered *asynchronously* this quarter. The scheduled Wednesday lab section will serve as an in depth help session where you may ask for help on lab assignments or ask general \texttt{R} questions. In lab section, you will learn to apply the concepts discussed in lecture using \texttt{R}. The main focus is on the practical application of statistical techniques and computational components of the bi-weekly problem sets. Lab section is *crucial* for learning the material and passing the course. Our GE Colleen will hold **additional office hours** on Friday mornings, **several hours before** labs assignments are due, to provide additional time to ask questions before lab assignments are due.
+
+## Problem sets and lab assignments
+
+Most weeks throughout the quarter, there will be two short form assignments: 
+
+**Problem sets**
+  will primarily focus on analytical problems but may include a computational component. Submissions **must be your own work**. You will receive **zero points** for copied work.
+
+- Due on Tuesday evenings at 11:59p each week. See Canvas for exceptions
+- \textbf{PDF} and \textbf{html} are the only file types accepted for problem sets on Canvas
+- Your lowest problem set score will be dropped
+- Presentation matters. You may lose points for poor penmanship, scans, and presentation
+
+**Lab assignments**
+  Lab assignments will be strictly focused on developing your computational skills in R. They will be short and if you are actively keeping up with the lab section, it should not take long to complete them.
+
+- Due on Friday evenings at 5:00p each week. See Canvas for exceptions
+- \textbf{html} is the only file type accepted for lab assignments on Canvas
+- Lab assignments will directly relate to topics covered in lab section. Use the lab section recordings as a resource to complete these assignments
+- Your lowest lab assignment score will be dropped
+
+
+Feel free to work together on the assignments. Unless explicitly stated, **each student is required to write and submit independent answers**. This means that word-for-word copies will not be accepted and will be viewed as academic dishonesty. In other words: You must place answers **in your own words and code**. Copying from other people (even if you worked with them) or from previous assignments is considered cheating. Both will be submitted on Canvas under the "Assignments" tab.
+
+## Late policy
+
+- Late assignments will be accepted **up to 48 hours late** with a penalty of **2% per hour late**
+- For example, when submitted 10 hours late, an assignment with a 90% score would be penalized by 20%, and the resulting final grade would be a 70%
+- One lab assignment and one problem set will be dropped at the end of the term
+
+## Exams
+
+- The **Midterm** will \textit{likely} take place in class on **Monday, May 07 2024 @ 12:00-1:20p**
+- The **Final** will be on  **Thursday, June 13, 2024 @ 8:00-10:00a**
+- A **Take-Home Final** will be assigned during week 10 and will be due on the day of the final exam
+
+There will be no option to take exams early or remotely. Adjust your travel schedule accordingly. Please bring your _scientific calculator_ and _student ID_ for each exam. You will not be allowed to use your phone or any other electronic device during the exam. No cheatsheet will be allowed for exams, however, you will be provided with a list of formulas.
+
+The **Midterm** will be in-class and will cover material from the beginning of the term through the week before the exam. The **Final** exam will be comprehensive and will cover all material from the term. The **Take-Home Final** will be assigned during the last week of class and will be designed to test your ability to apply concepts from the course to conduct analysis on real data using \texttt{R}.
+
+## Makeup assignments
+
+I do not give makeup assignments. In extreme circumstances that lead you to miss the midterm exam, I will consider re-weighting your grade toward the final. To qualify for re-weighting, you will need to notify me no later than two days after the exam.
+
+# Grades
+
+Grades for this class will be assigned based on the following assignments: (approximately) biweekly homework assignments, one midterm exam, one final exam. Final grades will be determined based on your rank-ordered position within the class (i.e., the course is curved)^[The economics department has a uniform grading standard. In 300 and 400 level classes, roughly 65% of the class will receive A’s and B’s. I will not be able to tell you what your exact letter grade is at any point in time, because it depends on the scores of everyone else at the end of the course, but I will be able to give an assessment of your relative standing.]. The weights for the final grade:
+
+| Component           | Percentage |
+|---------------------|------------|
+| Problem sets        | 10%        |
+| Lab assignments     |  5%        |
+| Midterm exam        | 35%        |
+| Take-final exam     | 15%        |
+| Final exam          | 35%        |
+
+
+# Recommendations^[Inspired from Professor Ed Rubin]
+
+1. Be kind
+
+2. __Take responsibility__ for your own education and try to __learn__ as much as you can
+
+3. __Do your own work__
+
+4. Develop your own __intuition__
+
+5. Learn \texttt{R}. Struggle while you try and use Google or LLMs to figure things out
+
+6. Come to __office hours__
+
+7. Don't wait until the end of the term to ask for help
+
+8. Start problem sets __early__---so you can come ask for help 
+
+
+## Academic integrity
+
+I will not tolerate cheating, plagiarism, and other violations of the \href{https://studentlife.uoregon.edu/conduct}{Student Conduct Code}. If you are caught cheating or plagiarizing on any component of this course, you will receive a failing grade for the term and I will report your offense to the university. 
+
+
+## Accommodations
+
+Notify me if there are aspects of this course that pose disability-related barriers to your participation. If you require special accommodations for a documented disability, then you will need to provide me a letter from the \href{https://aec.uoregon.edu/}{Accessible Education Center} (AEC) that verifies your need and details the appropriate accommodations. Please make arrangements with the AEC by the end of Week 1. If your accommodations include exam proctoring at the AEC, then you are responsible for scheduling those exams with the AEC _at least seven days in advance_.
+
+## Etiquette
+
+Please respect those around you by turning off your phone and other potentially distracting devices. I ask that you stay for the entire lecture: getting up and leaving distracts your fellow classmates. If you must leave early, please position yourself near the door when you get to class.
+
+## Acknowledgements
+
+Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/)([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference.
+
+<!-- TODO: Acknowledge Koans from Colleen -->
+
+HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the "slides" directory of this repository. PDFs of the slides are generated using the \texttt{renderthis} package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
+
+
+\clearpage
+
+# Tentative schedule
+
+| **Class** | **Date**   | **Topic**                               | **Reading**                                |
+|-----------|------------|-----------------------------------------|--------------------------------------------|
+| \texttt{01}        | \texttt{04/02}      | Introduction                            |                                            |
+| \texttt{02}        | \texttt{04/04}      | Statistics Review I                     | ItE Review                                 |
+| \texttt{03}        | \texttt{04/09}      | Statistics Review II                    | ItE Review; MM 1 (appendix)                |
+| \texttt{04}        | \texttt{04/11}      | Fundamental Econometric Problem         | MM 1                                       |
+| \texttt{05}        | \texttt{04/16}      | The Logic of Regression                 | MM 2                                       |
+| \texttt{06}        | \texttt{04/18}      | Linear Regression: Estimation I  | ItE 1                                      |
+| \texttt{07}        | \texttt{04/23}      | Linear Regression: Estimation II | ItE 1                                      |
+| \texttt{08}        | \texttt{04/25}      | Classical Assumptions                   | ItE 2                                      |
+| \texttt{09}        | \texttt{04/30}      | Simple Linear Regression: Inference     | ItE 2                                      |
+| \texttt{10}        | \texttt{05/02}      | Midterm Review                          |                                            |
+| \texttt{11}        | \texttt{05/07}      | **Midterm Exam (in-class)**             |                                            |
+| \texttt{12}        | \texttt{05/09}      | Multiple Linear Regression: Estimation  | ItE 3, 6.2; MM 2 (appendix)                |
+| \texttt{13}        | \texttt{05/14}      | Multiple Linear Regression: Inference   | ItE 3, 6.3; MM 2 (appendix)                |
+| \texttt{14}        | \texttt{05/16}      | Nonlinear Relationships                 | ItE 4                                      |
+| \texttt{15}        | \texttt{05/21}      | Qualitative Variables                   | ItE 5                                      |
+| \texttt{16}        | \texttt{05/23}      | Interactive Relationships               | ItE 4                                      |
+| \texttt{17}        | \texttt{05/28}      | Interactive Relationships               | ItE 4                                      |
+| \texttt{18}        | \texttt{05/30}      | Model Specification                     | ItE 6                                      |
+| \texttt{19}        | \texttt{06/04}      | Heteroskedasticity                      | ItE 7                                      |
+| \texttt{20}        | \texttt{06/06}      | Final Review                            |                                            |
+| \texttt{F}         | **\texttt{06/13}**  | **Final Exam, 08:00a** (see [schedule](https://registrar.uoregon.edu/calendars/examinations#complete-final-exam-schedule)) | |
+

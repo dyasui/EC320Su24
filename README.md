@@ -74,7 +74,7 @@ The HTML versions of the lecture slides allow you to view animations and interac
 
 Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/)([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference.
 
-HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the `slides` directory of this repository. PDFs of the slides are generated using the `XXX` package in R, which is built on top of the `xxx` package. PDF Documents are compiled in quarto and use the quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
+HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the `slides` directory of this repository. PDFs of the slides are generated using the `renderthis` package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
 
 ## License
 
