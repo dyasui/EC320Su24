@@ -1,10 +1,10 @@
-# EC 320, Spring 2024:   
+# EC320, Spring 2024:   
 
-Welcome to Economics 320: Introduction to Econometrics taught by [Andrew Dickinson](https://economics.uoregon.edu/profile/adickin3/) and [Dante Yasui](https://cas.uoregon.edu/directory/economics/all/dyasui).
+Welcome to EC320: Introduction to Econometrics taught by [Andrew Dickinson](https://economics.uoregon.edu/profile/adickin3/) and [Dante Yasui](https://cas.uoregon.edu/directory/economics/all/dyasui).
 
 ## Schedule
 
-**Lecture** Tuesdays and Thursdays, 12:00p–1:20p (PST), [141 Tykeson Hall](https://map.uoregon.edu/8f5f1a72c)
+**Lecture** Tuesdays and Thursdays, 12:00p–1:20p (PST), [140 Tykeson Hall](https://map.uoregon.edu/8f5f1a72c)
 
 **Lab** Asynchonous. See Canvas for links to the most recent lab
 
@@ -12,7 +12,7 @@ Welcome to Economics 320: Introduction to Econometrics taught by [Andrew Dickins
 
 - **Andrew Dickinson** TBD 
 - **Dante Yasui** TBD
-Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S23/syllabus/syllabus.pdf)
+Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/syllabus.pdf)
 
 ## Books
 
@@ -70,7 +70,13 @@ The HTML versions of the lecture slides allow you to view animations and interac
 
 - Readings: *ItE 6*
 
-## Contributors
+## Acknowledgements
 
-Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/)([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public. I also source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference.
+Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/)([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference.
+
+HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the `slides` directory of this repository. PDFs of the slides are generated using the `XXX` package in R, which is built on top of the `xxx` package. PDF Documents are compiled in quarto and use the quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
+
+## License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
