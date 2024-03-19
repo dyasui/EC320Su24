@@ -12,18 +12,23 @@ Welcome to EC320: Introduction to Econometrics taught by [Andrew Dickinson](http
 
 - **Andrew Dickinson** TBD 
 - **Dante Yasui** TBD
+
 Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/syllabus.pdf)
 
 ## Books
 
 ### Required books
 
-- [Introduction to Econometrics, 5th ed.](http://smile.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/) 
-- [Mastering 'Metrics](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/)
+- [Introduction to Econometrics, 5th ed.](http://smile.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/) (ItE)
+- [Mastering 'Metrics](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/) (MM)
 
-### Suggested books
+### Suggested (free) books
 
-- [R for Data Science](https://r4ds.had.co.nz/)
+[Introduction to Econometrics with R](https://www.econometrics-with-r.org/)
+- __Summary__: This book is a free, open-source resource that covers many of the same topics as our required text, but with a focus on using R for data analysis. It's a great resource if you want to learn more about R, or if you want to see how the concepts we cover in class can be applied using R.
+
+[R for Data Science](https://r4ds.had.co.nz/)
+- __Summary__: This book will help you learn R, which is a powerful tool for data analysis and visualization. It's free to read online, and you can also purchase a hard copy if you prefer.
 
 ## Slides 
 

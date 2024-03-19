@@ -10,7 +10,7 @@ format: PrettyPDF-pdf
 
 |                 | **Lecture**                                             | **Lab**            |
 |-----------------|---------------------------------------------------------|--------------------|
-| **when**        | T & Th 12:00p--1:20p                                    | 4:00-4:50p W       |
+| **when**        | T & Th 12:00p--1:20p                                    | W 4:00-4:50p       |
 | **where**       | [Tykeson Hall 140](https://map.uoregon.edu/8f5f1a72c)   | [Zoom](https://canvas.uoregon.edu/)         | <!-- TODO: Add Canvas link--> 
 | **who**         | **Andrew Dickinson**                                    | **Dante Yasui**    |
 |  \hfill {{< fa paper-plane >}} | [adickin3@uoregon.edu](mailto:adickin3@uoregon.edu)     | [dyasui@uoregon.edu](mailto:dyasui@uoregon.edu) | (Use "EC320:" in email subject.) |
