@@ -5,20 +5,39 @@ author: "Andrew Dickinson"
 format: PrettyPDF-pdf
 ---
 
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false
+
+# Create short cuts for links in the markdown table
+andrew_site = "https://ajdickinson.github.io"
+andrew_email = "mailto:adickin3@uoregon.edu"
+dante_email = "mailto:dyasui@uoregon.edu"
+dante_site = "https://cas.uoregon.edu/directory/economics/all/dyasui"
+
+# Textbook links
+dougherty = "http://smile.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/"
+angrist = "https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/"
+
+# Course repository
+repo = "https://github.com/ajdickinson/EC320S24"
+```
 
 # Basics
 
-|                 | **Lecture**                                             | **Lab**            |
-|-----------------|---------------------------------------------------------|--------------------|
-| **when**        | T & Th 12:00p--1:20p                                    | W 4:00-4:50p       |
-| **where**       | [Tykeson Hall 140](https://map.uoregon.edu/8f5f1a72c)   | [Zoom](https://canvas.uoregon.edu/)         | <!-- TODO: Add Canvas link--> 
-| **who**         | **Andrew Dickinson**                                    | **Dante Yasui**    |
-|  \hfill {{< fa paper-plane >}} | [adickin3@uoregon.edu](mailto:adickin3@uoregon.edu)     | [dyasui@uoregon.edu](mailto:dyasui@uoregon.edu) | (Use "EC320:" in email subject.) |
-|  \hfill {{< fa cloud >}}               | [ajdickinson.github.io](https://ajdickinson.github.io)  | [cas.uoregon.edu](https://cas.uoregon.edu/directory/economics/all/dyasui) |
-| **office hours**| TBA                                                     | TBA                | (Or by appointment) |
-| **materials**   | [1. Introduction to Econometrics](http://smile.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/) | |
-|                 | [2. Mastering 'Metrics](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/) | |
-| **repository**  | [github.com/ajdickinson/EC320S24](https://github.com/ajdickinson/EC320S24) | |
+|                                | **Lecture**                                      | **Lab**                               |
+|--------------------------------|--------------------------------------------------|---------------------------------------|
+| **when**                       | T & Th 12:00p--1:20p                             | W 4:00-4:50p                          |
+| **who**                        | **Andrew Dickinson**                             | **Dante Yasui**                       |
+|  \hfill {{< fa paper-plane >}} | [adickin3@uoregon.edu](`r andrew_email`)         | [dyasui@uoregon.edu](`r dante_email`) |
+|  \hfill {{< fa cloud >}}       | [ajdickinson.github.io](`r andrew_site`)         | [cas.uoregon.edu](`r dante_site`)     |
+| **office hours**               | TBA                                              | TBA (Or by appointment)               |
+| **materials**                  | [1. Introduction to Econometrics](`r dougherty`) |                                       |
+|                                | [2. Mastering 'Metrics](`r angrist`)             |                                       |
+| **repository**                 | [github.com/ajdickinson/EC320S24](`r repo`)      |                                       |
 
 
 # Course summary
@@ -111,6 +130,7 @@ Grades for this class will be assigned based on the following assignments: (appr
 | Take-final exam     | 15%        |
 | Final exam          | 35%        |
 
+_Note:_ While assignments will be submitted on Canvas, due to any potential curving of final grades, the gradebook on Canvas may not be accurate---only an approximation. All adjustments of final grades will be done in a local spreadsheet.
 
 # Recommendations^[Inspired from Professor Ed Rubin]
 

@@ -22,13 +22,16 @@ Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/sy
 - [Introduction to Econometrics, 5th ed.](http://smile.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/) (ItE)
 - [Mastering 'Metrics](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/) (MM)
 
-### Suggested (free) books
+### Suggested (free) resources
 
 [Introduction to Econometrics with R](https://www.econometrics-with-r.org/)
 - __Summary__: This book is a free, open-source resource that covers many of the same topics as our required text, but with a focus on using R for data analysis. It's a great resource if you want to learn more about R, or if you want to see how the concepts we cover in class can be applied using R.
 
 [R for Data Science](https://r4ds.had.co.nz/)
 - __Summary__: This book will help you learn R, which is a powerful tool for data analysis and visualization. It's free to read online, and you can also purchase a hard copy if you prefer.
+
+[The Tidy Econometrics Workbook](https://colleen.quarto.pub/the-tidy-econometrics-workbook/)
+- __Summary__: This book is a free, open-source resource that covers many of the same topics as our required text, but with a focus on using R for data analysis. It is a companion text for Colleen O'Briant's EC421 course at the University of Oregon. It's a great resource if you want to learn more about R, or if you want to see how the concepts we cover in class can be applied using R.
 
 ## Slides 
 
