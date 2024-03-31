@@ -15,14 +15,14 @@ Welcome to EC320: Introduction to Econometrics taught by [Andrew Dickinson](http
 
 Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/syllabus.pdf)
 
-## Books
+## Materials
 
-### Required books
+### Required texts
 
 - [Introduction to Econometrics, 5th ed.](http://smile.amazon.com/Introduction-Econometrics-Christopher-Dougherty/dp/0199676828/) (ItE)
 - [Mastering 'Metrics](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/) (MM)
 
-### Suggested (free) resources
+### Suggested (_free_) resources
 
 [Introduction to Econometrics with R](https://www.econometrics-with-r.org/)
 - __Summary__: This book is a free, open-source resource that covers many of the same topics as our required text, but with a focus on using R for data analysis. It's a great resource if you want to learn more about R, or if you want to see how the concepts we cover in class can be applied using R.
@@ -37,40 +37,48 @@ Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/sy
 
 The HTML versions of the lecture slides allow you to view animations and interactive features, provided that you have an internet connection. The PDF slides don't require an internet connection, but they cannot display the animations or interactive features.
 
-**000 - Introduction:** <!--[html](https://ajdickinson.github.io/EC320S23/slides/000-intro/000-main.html) | [PDF](https://ajdickinson.github.io/EC320S23/slides/000-intro/000-main.pdf) -->
+**000 - Introduction:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.pdf) -->
 
 - Readings: Introduction in *ItE Review* & *MM 1 (appendix)*
+- Koans: K01_vector.R (_due 04/12_)
 
-**001 - Review:** <!--[html](https://ajdickinson.github.io/EC320S23/slides/001-review/010-main.html) | [PDF](https://ajdickinson.github.io/EC320S23/slides/001-review/010-main.pdf) -->
+**001 - Review:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.pdf) -->
 
 - Readings: Introduction in *ItE Review* & *MM 1 (appendix)*
+- Koans: K02_tibble.R and K03_pipe.R (_due 04/12_)
 
-**002 - The fundamental problem of causal inference:** <!--[html](https://ajdickinson.github.io/EC320S23/slides/002-fundamental-problem/020-main.html) | [PDF](https://ajdickinson.github.io/EC320S23/slides/002-fundamental-problem/020-main.pdf) -->
+**002 - The fundamental problem of causal inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.pdf) -->
 
 - Readings: *MM 1*
+- Koans: K04_dplyr1.R and K05_dplyr2.R (_due 04/19_)
 
-**003 - Simple linear regression I:** <!--[html](https://ajdickinson.github.io/EC320S23/slides/003-ols/030-main.html) | [PDF](https://ajdickinson.github.io/EC320S23/slides/003-ols/030-main.pdf) -->
+**003 - Simple linear regression I:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/003-ols/030-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/003-ols/030-main.pdf) -->
 
-<!-- - Deriving OLS handout: [html](https://ajdickinson.github.io/EC320S23/slides/003-ols/ols-handout.html) | [PDF](https://ajdickinson.github.io/EC320S23/resources/ols-derived-inclass.pdf) _(in class)_ -->
+<!-- - Deriving OLS handout: [html](https://ajdickinson.github.io/EC320S24/slides/003-ols/ols-handout.html) | [PDF](https://ajdickinson.github.io/EC320S24/resources/ols-derived-inclass.pdf) _(in class)_ -->
 - Readings: *ItE 1*, *MM 2*
+- Koans: K06_dplyr3.R and K11_lm.R (_due 04/26_)
 
-**004 - Simple linear regression II:** <!--[html](https://ajdickinson.github.io/EC320S23/slides/004-ols-ii/040-main.html)-->
+**004 - Simple linear regression II:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/004-ols-ii/040-main.html)-->
 
 - Readings: *ItE 1*, *MM 2*
+- Koans: K07_left_join.R and K08_qplot_to_ggplot.R (_due 05/10_)
 
-**005 - Inference:** <!--[html](https://ajdickinson.github.io/EC320S23/slides/005-inference/050-main.html) -->
+**005 - Inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/005-inference/050-main.html) -->
 
 - Readings: *ItE 2*
+- Koans: K09_ggplot_aes.R and K12_stats.R (_due 05/17_)
 
-**006 - Mulitple variable regression** <!-- [html](https://ajdickinson.github.io/EC320S23/slides/006-multiple/060-main.html) -->
+**006 - Mulitple variable regression** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html) -->
 
 - Readings: *ItE 3, 6.2; MM 2 (appendix)*
+- Koans: K10_ggplot_facet.R (_due 05/24_)
 
-**007 - Nonlinear relationships** <!-- [html](https://ajdickinson.github.io/EC320S23/slides/007-nonlinear/070-main.html) -->
+**007 - Nonlinear relationships** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html) -->
 
 - Readings: *ItE 4*
+- Koans: K13_functions.R (_due 05/31_)
 
-**008 - Categorical variables** <!-- [html](https://ajdickinson.github.io/EC320S23/slides/008-categorical/080-main.html) -->
+**008 - Categorical variables** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html) -->
 
 - Readings: *ItE 5*
 
@@ -78,13 +86,23 @@ The HTML versions of the lecture slides allow you to view animations and interac
 
 - Readings: *ItE 6*
 
+
 ## Koans
 
- <!--  TODO: Write a short introduction about how to use koans and submit them for grading -->
+R programming is an important part of this class. To help you learn R, this course will be using a tool called koans. Koans are small, interactive exercises that help you learn by doing. 
+
+R Koans are inspired by the concept of Zen koans, which are short stories or questions that provoke deep thinking. In the context of programming, Koans are practical coding exercises that challenge you to think critically about how code works. They are designed to lead you through a series of tasks that progressively build upon one another, each highlighting a specific aspect of the R programming language.
+
+The primary goal of using R Koans is to provide you with hands-on experience with R’s syntax--specifically we will focus on R packages that are contained in the tidyverse.
+
+- **Weekly Exercises:** Starting from the second week, each student will be assigned a set of koans that cover the topics discussed in the lectures. These exercises will be part of your lab assignments.
+- **Interactive Sessions:** During lab sessions, there will be dedicated time to work on your koans. 
+
+You don't need to know how to program to do these koans. They get gradually harder as you go along, and are meant to be a way to learn about all the data analytics skills that an economist might need. For more information about learning R, I recommend reading through the following passage in [The Tidy Econometrics Workbook](https://colleen.quarto.pub/the-tidy-econometrics-workbook/#programming-in-r). 
 
 ## Acknowledgements
 
-Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/)([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference, and [Ben Lambert](https://ben-lambert.com/econometrics/) and his [undergradaute course in econometrics](.https://www.youtube.com/playlist?list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU) that helped me learn this material as a student and to teach this material as an instructor.
+Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/)([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference, and [Ben Lambert](https://ben-lambert.com/econometrics/) and his [undergradaute course in econometrics](.https://www.youtube.com/playlist?list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU) that helped me learn this material as a student and to teach this material as an instructor. Finally, I would like to thank [Colleen O'Briant](https://cobriant.github.io/) for making available her [tidyverse_koans](https://github.com/cobriant/tidyverse_koans) materials for use in this course.
 
 HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the `slides` directory of this repository. PDFs of the slides are generated using the `renderthis` package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
 
