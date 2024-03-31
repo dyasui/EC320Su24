@@ -10,7 +10,7 @@ Welcome to EC320: Introduction to Econometrics taught by [Andrew Dickinson](http
 
 **Office hours**
 
-- **Andrew Dickinson** TBD 
+- **Andrew Dickinson** T & Th 1:20-2:00p | F 10:00-11:00a | Or by appointment 
 - **Dante Yasui** TBD
 
 Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/syllabus.pdf)
