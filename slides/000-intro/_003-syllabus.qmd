@@ -2,7 +2,7 @@
 name: syllabus
 ---
 
-## In EC 320
+## In EC320
 
 <br>
 
@@ -52,7 +52,7 @@ This course will focus _almost_ exclusively on a particular method that is commo
 
 <br>
 
-[Final:]{.hii} [Tuesday, June 13 @ 2:45](https://registrar.uoregon.edu/calendars/examinations#complete-final-exam-schedule)
+[Final:]{.hii} [Thursday, June 13 @ 08:00a](https://registrar.uoregon.edu/calendars/examinations#complete-final-exam-schedule)
 
 
 # Syllabus {.inverse}
@@ -63,9 +63,9 @@ This course will focus _almost_ exclusively on a particular method that is commo
 
 ## Course site
 
-I use [GitHub]{.mono} to host a separate site with all the course materials
+I use [GitHub]{.hi} to host a separate site with all the course materials
 
-You can find a link to it [here](https://github.com/ajdickinson/EC320S23) or on the Canvas homepage
+You can find a link to it [here](https://github.com/ajdickinson/EC320S24) or on the Canvas homepage
 
 . . .
 
@@ -95,7 +95,7 @@ Please call me [Andrew]{.hii .big}
 
 ::: {.column width="55%"}
 - [Office:]{.hi} [PLC 523](https://map.uoregon.edu/7c6d0ffbd)
-- [Office hours:]{.hi} T & Th 4:00p-5:00p 
+- [Office hours:]{.hi} After class 1:20-2:00p and F 10:00-11:00a
 :::
 
 ::: {.column width="45%"}
@@ -111,9 +111,9 @@ Please call me [Andrew]{.hii .big}
 [> Metrics]{.hi .big}
 
 - I love studying econometrics
-- My first time teaching EC 320
-- [TA'd:]{.hii} EC 421 (x2), EC 422/522, EC 423/523, EC 424/524
-- [Instructed:]{.hii} EC 330 (x3)
+- My second time teaching EC320
+- [TA'd:]{.hii} EC421 (x2), EC422/522, EC423/523, EC424/524
+- [Instructed:]{.hii} EC320, EC330 (x3)
 
 ---
 
@@ -180,7 +180,7 @@ Please call me [Andrew]{.hii .big}
 
 ---
 
-## In EC 320
+## In EC320
 
 An applied econometrician^[Applied econometrician = Practitioner of econometrics, e.g., analyst, consultant, data scientist.] needs a solid grasp on (at least) three areas:
 
@@ -194,6 +194,6 @@ This course aims to deepen your knowledge in each of these three areas.
 
 ::: incremental
 - 1: Analytical skills [([Math]{.hi-red})]{.fragment}
-- 2-3: Computational tools [([R]{.mono .big})]{.fragment}
+- 2-3: Computational tools [([ ]{.nf})]{.fragment}
 :::
 

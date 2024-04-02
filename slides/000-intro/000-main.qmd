@@ -1,6 +1,6 @@
 ---
 title: "Introduction and Overview"
-subtitle: "EC 320, Set 01"
+subtitle: "EC320, Set 01"
 author: Andrew Dickinson
 date: last-modified
 date-format: "Spring YYYY"
@@ -16,21 +16,21 @@ title-slide-attributes:
   data-background-position: left
 ---
 
-# Prologue{.inverse .note}
+# Prologue {.inverse .note}
 
 ---
 
 {{< include _001-prologue.qmd >}}
 
-# Causal identification {.inverse .note}
+# Causal Identification {.inverse .note}
 
 {{< include _002-causation.qmd >}}
 
-# EC 320 {.inverse .note}
+# EC320 {.inverse .note}
 
 {{< include _003-syllabus.qmd >}}
 
-# [R]{.mono .huge} {.inverse}
+# [ ]{.nf} {.inverse}
 
 {{< include _004-R.qmd >}}
 
@@ -40,10 +40,30 @@ title-slide-attributes:
 
 # Next class: Statistics review {.inverse .note}
 
-<!---->
-<!-- ```{r} -->
-<!-- #| include: false -->
-<!-- #| echo: false -->
-<!---->
-<!-- renderthis::to_pdf(from = "./slides/000-intro/000-main.html", to = "./slides/000-intro/000-main.pdf") -->
-<!-- ``` -->
+---
+
+## Table of contents
+
+:::: {.columns}
+
+::: {.column width="50%"}
+1. [Prologue](#prologue)
+1. [Causal Identification](#causal-identification)
+1. [EC320](#ec320)
+1. [[ ]{.nf}](#nf)
+1. [Chat GPT](#chat-gpt)
+:::
+
+::: {.column width="50%"}
+
+:::
+
+::::
+
+
+<!-- 
+ ```{r}
+ #| include: false 
+ #| echo: false 
+ renderthis::to_pdf(from = "./slides/000-intro/000-main.html", to = "./slides/000-intro/000-main.pdf")
+ ```  -->

@@ -75,7 +75,7 @@ Why should [you]{.hi} study econometrics?
 [IMO]{.hii}^[Please take this with a grain of salt. I am a single data point. Others may disagree], of all the courses in a typical economics major, [econometrics is the most translatable]{.hi} to a job
 
 - Data is the new oil
-- Extracting meaningful analysis from _big data_ is a sought after skill in the job market of 2023
+- Extracting meaningful analysis from _big data_ is a sought after skill in the job market of 2024
 
 ---
 

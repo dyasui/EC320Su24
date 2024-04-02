@@ -37,7 +37,7 @@ Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/sy
 
 The HTML versions of the lecture slides allow you to view animations and interactive features, provided that you have an internet connection. The PDF slides don't require an internet connection, but they cannot display the animations or interactive features.
 
-**000 - Introduction:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.pdf) -->
+**000 - Introduction:** [html](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.pdf) -->
 
 - Readings: Introduction in *ItE Review* & *MM 1 (appendix)*
 - Koans: K01_vector.R (_due 04/12_)
