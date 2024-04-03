@@ -1,0 +1,227 @@
+---
+title: "**Lab 01 - Intro to R and RStudio**"
+author: "Dante Yasui"
+date: "2024/04/03"
+--- 
+
+# Welcome to Lab!
+
+Goals for this week:
+
+- Install R and RStudio 
+- Learn about R basics and vectors 
+- Install the tidyverse package
+- Learn how to use and complete Koans  
+- **Complete and submit `K01_vector.R`**
+  * not due until next Friday
+  
+---
+
+# Setting up our R environment
+
+## Step 1. Download and install R 
+
+follow instructions from: <https://cran.r-project.org/>
+
+- choose latest release for your OS
+- Mac users: 
+  * know if your device has Apple silicon (M1-3 macs) or Intel cpu
+  * also install xquartz: <https://www.xquartz.org/>
+
+## Step 2. Download and install RStudio
+
+Go here: <https://posit.co/download/rstudio-desktop/>
+
+- click on the link under **2. Install RStudio**
+- follow the installer instructions
+
+Open RStudio 
+
+You should see the default panes layout
+
+- find the `Console` in the bottom left pane
+- you can use this to run R code
+
+---
+
+#### R as a fancy calculator
+
+```{r}
+1 + 2
+```
+```{r}
+sqrt(64)
+```
+#### Everything is an object to R
+
+Objects have a name and value(s)
+
+```{r}
+# we can define variables with either `<-` or `=`
+a <- 9
+b = 3
+a / b
+```
+
+This is useful to for all sorts of reasons
+
+  * labeling things with memorable names
+  * having functions call on values which might change
+  * using shorter names for long values
+
+e.g.,
+```{r}
+pi <- 3.141593
+```
+
+#### There are different *types* of objects
+```{r}
+name     = 'dante'
+age      = 25
+hometown = "Davis, CA"
+```
+
+```{r}
+typeof(name)
+```
+```{r}
+typeof(age)
+```
+
+```{r}
+typeof(hometown)
+```
+
+#### Vectors are lists
+
+To `combine` things into a vector, use the `c()` syntax:
+```{r}
+c(1,2,3)
+```
+
+Vectors are also objects:
+```{r}
+stooges <- c("larry", "moe", "curly")
+stooges
+```
+
+
+#### Functions do things with objects
+```{r}
+secret_message = "hello world!"
+print(secret_message)
+```
+
+You can also define your own functions:
+```{r}
+my_addition <- function(a, b) {
+  return (a + b - 1)
+}
+```
+  
+R is really good at doing things with vector objects
+
+```{r}
+long_vector <- 1:100
+long_vector
+```
+```{r}
+long_vector ^ 2
+```
+
+---
+
+## Step 3. Install packages
+
+User-defined functions come in **Packages**
+
+#### Install the tidyverse
+
+Use the R function `install.packages()` to install the tidyverse from CRAN
+```{r, eval=FALSE}
+install.packages("tidyverse", dependencies = TRUE)
+```
+
+Don't forget to always load your package before using:
+```{r}
+library(tidyverse)
+```
+
+#### Get beginner-friendly help from `qelp`
+
+Created by Colleen O'Briant: <https://github.com/cobriant/qelp>
+
+```{r, eval=F}
+# we need these to install qelp:
+install.packages("Rcpp", dependencies = TRUE)
+install.packages("devtools", dependencies = TRUE)
+```
+
+answer `'yes'` when prompted in the console
+
+Now you can install qelp:
+```{r, message=FALSE}
+library(devtools)
+install_github("cobriant/qelp")
+```
+
+Test that it worked:
+```{r}
+?qelp::install.packages
+```
+
+You can also use the default `R` documentation:
+```{r}
+?install.packages
+```
+
+See the difference?
+
+## Step 4. Download the Koans
+
+Go to the github page: <https://github.com/ajdickinson/tidyverse_koans>
+
+Click the `<> Code` button, then `Download ZIP`.
+
+Unzip the files wherever you want them on your personal machine. 
+This will be where you will keep all of your lab work for this class.
+
+Double-click the file called `tidyverse_koans-master.Rproj`.
+
+This should open a new `Project` in RStudio with all of the R files you need.
+
+Open the `R` folder from the files you downloaded
+by clicking it in the `Files` tab in RStudio.
+Now click on the first lab assignment, `K01_vector.R`,
+and it will open in your `source` tab where you can view and edit it.
+
+---
+
+# Complete Koan 1 - Vectors
+
+You can use the hotkey `Ctrl/Cmd Shift C` to comment out the lines of code
+in between each set of question markers (e.g., from `#1@` to `@#1`).
+
+Fill in the blanks by following the instructions. 
+
+#### Test your answers
+
+Use the shortcut `Shift Ctrl/Cmd T` to check whether your code is correct.
+
+#### Compile and submit to Canvas
+
+Once your code has passed all of the tests,
+you will compile the R script as an html formatted output
+which you will upload to Canvas.
+
+In the RStudio menu bar, go to *Tools*, then *Modify Keyboard Shortcuts*.
+Set the shortcut for *Compile Notebook* to be `Shift Ctrl/Cmd K`
+(or whatever shortcut you will remember).
+
+You can also use the menu option in `File` for `Knit Document`.
+
+Once RStudio is done compiling,
+you will have a file called `K01_vector.html` 
+in the same folder as the original `.R` file.
+
+Upload this to Canvas to get credit for this lab.
