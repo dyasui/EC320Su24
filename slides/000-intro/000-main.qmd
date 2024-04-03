@@ -30,7 +30,7 @@ title-slide-attributes:
 
 {{< include _003-syllabus.qmd >}}
 
-# [ ]{.nf} {.inverse}
+# {{< fa brands r-project >}} {.inverse}
 
 {{< include _004-R.qmd >}}
 
@@ -50,7 +50,7 @@ title-slide-attributes:
 1. [Prologue](#prologue)
 1. [Causal Identification](#causal-identification)
 1. [EC320](#ec320)
-1. [[ ]{.nf}](#nf)
+1. [{{< fa brands r-project >}}](#nf)
 1. [Chat GPT](#chat-gpt)
 :::
 

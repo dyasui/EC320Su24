@@ -49,7 +49,7 @@ Suppose we have a [discrete random variable]{.hi} named $A$. The probability dis
 
 What would the expected value $E[A]$ be?
 
-::: {.answer style="display: none;"}
+::: {.answer style="display: inherit;"}
 
 The expected value is calculated as follows:
 
@@ -64,7 +64,7 @@ Therefore, the expected value E[A] is 1.2
 Consider the function $g(A) = A^2$, where $A$ is the same random variable as in [Q01]{.hi}. Compute the expected value of $g(A)$. Show the work you use to arrive at your answer.
 
 
-::: {.answer style="display: none;"}
+::: {.answer style="display: inherit;"} 
 
 To find the expected value of g(A), we follow these steps:
 

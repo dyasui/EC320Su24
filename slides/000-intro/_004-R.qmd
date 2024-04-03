@@ -4,9 +4,9 @@ name: R
 
 ---
 
-## What is [ ]{.nf}?
+## What is {{< fa brands r-project >}}?
 
-To quote the [[ ]{.nf} project website](https://www.r-project.org)^[[[R]{.mono} wikipedia](https://en.wikipedia.org/wiki/R_(programming_language))]
+To quote the [{{< fa brands r-project >}} project website](https://www.r-project.org)^[[[R]{.mono} wikipedia](https://en.wikipedia.org/wiki/R_(programming_language))]
 
 > R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
 
@@ -14,39 +14,39 @@ To quote the [[ ]{.nf} project website](https://www.r-project.org)^[[[R]{.mon
 
 What does that mean?
 
-- [ ]{.nf} was created for the statistical and graphical work required by econometrics--written by statistical programmers
+- {{< fa brands r-project >}} was created for the statistical and graphical work required by econometrics--written by statistical programmers
 
-- [ ]{.nf} has a vibrant, thriving online community. ([stack overflow](https://stackoverflow.com/questions/tagged/r))
+- {{< fa brands r-project >}} has a vibrant, thriving online community. ([stack overflow](https://stackoverflow.com/questions/tagged/r))
 
 - Plus it's [free]{.hi}  and [open source]{.hi}
 
 ---
 
-## Why are we using [ ]{.nf}?
+## Why are we using {{< fa brands r-project >}}?
 
-1\. [ ]{.nf} is [free]{.hi} and [open source]{.hi}—saving both you and the university money.
-
-<br>
-
-2\. _Related:_ Outside of a small group of economists, private- and public-sector [employers favor [ ]{.nf}]{.blue} over [Stata]{.hi} and most competing softwares.
+1\. {{< fa brands r-project >}} is [free]{.hi} and [open source]{.hi}—saving both you and the university money.
 
 <br>
 
-3\. [ ]{.nf} is very [flexible and powerful]{.hi}—adaptable to nearly any task, _e.g._, 'metrics, spatial data analysis, machine learning, web scraping, data cleaning, website building, teaching. I write all my slides, problem sets, and exams in [R]{.mono}.
+2\. _Related:_ Outside of a small group of economists, private- and public-sector [employers favor {{< fa brands r-project >}}]{.blue} over [Stata]{.hi} and most competing softwares.
+
+<br>
+
+3\. {{< fa brands r-project >}} is very [flexible and powerful]{.hi}—adaptable to nearly any task, _e.g._, 'metrics, spatial data analysis, machine learning, web scraping, data cleaning, website building, teaching. I write all my slides, problem sets, and exams in [R]{.mono}.
 
 ---
 
-## Why are we using [ ]{.nf}?
+## Why are we using {{< fa brands r-project >}}?
 
-4\. _Related:_ [ ]{.nf} imposes [no artificial restrictions]{.hi} on your amount of observations, variables, memory, or processing power.
-
-<br>
-
-5\. If you put in the work,^[Learning [ ]{.nf} definitely requires time and effort.] you will come away with a [valuable and marketable]{.hi} tool.
+4\. _Related:_ {{< fa brands r-project >}} imposes [no artificial restrictions]{.hi} on your amount of observations, variables, memory, or processing power.
 
 <br>
 
-6\. I 💖 [ ]{.nf}
+5\. If you put in the work,^[Learning {{< fa brands r-project >}} definitely requires time and effort.] you will come away with a [valuable and marketable]{.hi} tool.
+
+<br>
+
+6\. I 💖 {{< fa brands r-project >}}
 
 ---
 
@@ -90,17 +90,17 @@ theme(legend.position = "bottom",
       plot.title = element_text(size = 48))
 ```
 
-# Getting started with [ ]{.nf} {.inverse}
+# Getting started with {{< fa brands r-project >}} {.inverse}
 
 ---
 
-## [ ]{.nf} setup for EC 320
+## {{< fa brands r-project >}} setup for EC 320
 
 [Installation]{.hi}
 
 You need to install [2]{.hi} pieces of software:
 
-- [[ ]{.nf}](https://cran.r-project.org/)
+- [{{< fa brands r-project >}}](https://cran.r-project.org/)
 - [[RStudio]{.hi}](https://posit.co/download/rstudio-desktop/)  
 
 . . .
@@ -111,14 +111,14 @@ For explicit instructions for how to install, follow [this tutorial](https://lea
 
 <br>
 
-[Note:]{.note} [ ]{.nf}/[RStudio]{.hi} installations differ by operating system
+[Note:]{.note} {{< fa brands r-project >}}/[RStudio]{.hi} installations differ by operating system
 
 ---
 
 ## [R]{.mono .realbig} setup for EC 320 
 
 ::: {.align-center}
-[ ]{.nf} [v.]{.small} [RStudio]{.hi}
+{{< fa brands r-project >}} [v.]{.small} [RStudio]{.hi}
 :::
 
 :::: {.columns}
@@ -138,13 +138,15 @@ For explicit instructions for how to install, follow [this tutorial](https://lea
 
 . . .
 
-[ ]{.nf} works without [RStudio]{.hi}, but [RStudio]{.hi} doesn't work without [ ]{.nf}
+{{< fa brands r-project >}} works without [RStudio]{.hi}
+
+[RStudio]{.hi} doesn't work without {{< fa brands r-project >}}
 
 ---
 
 ## R basics
 
-You will dive deeper in lab, but here six big points about [ ]{.nf}:
+You will dive deeper in lab, but here six big points about {{< fa brands r-project >}}:
 
 :::: {.columns}
 
