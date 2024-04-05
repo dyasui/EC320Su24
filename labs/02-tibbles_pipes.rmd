@@ -1,0 +1,176 @@
+---
+title: "**Lab 02 - Tibbles and Pipes**"
+author: "Dante Yasui"
+date: "2024/04/10"
+--- 
+
+# Welcome Back!
+
+Goals for Week 2:
+
+  - learn how to combine vectors in *tibbles*
+  - learn how to combine functions with *pipes*
+  - Submit Koans 1, 2, & 3 by Friday
+  
+---
+
+# Intro to Tibbles
+
+```{r, message=FALSE}
+# tibbles are part of the tidyverse
+library(tidyverse)
+?qelp::tibble
+```
+
+## **Tibbles** are like tables 
+
+Suppose I have some weather data that come in a table like this:
+
+```{r, echo=FALSE}
+weather <- tibble(
+  Date     = c("1/1/23", "1/2/23", "1/3/23"),
+  HighTemp = c(46, 46, 47),
+  LowTemp  = c(37, 35, 34),
+  Rainfall = c(0.07, 0.00, 0.08),
+)
+weather %>% knitr::kable(align = "cccc")
+```
+
+Each *column* represents a different *variable*, 
+with the first row containing the variable names.
+
+Each *row* besides the first contains a single *observation*.
+
+This is a pretty natural and clean way of organizing data. 
+In `R`, this is called the **Tidied Data Format**. 
+
+Everything in our `tidyverse` environment is built to use **tidied data**.
+
+## **Tibbles** are collections of *vectors*
+
+You can define each column of a tibbble as a vector with its own name.
+
+Here is an example of how you could write up the data from the table above into a *tibble*:
+```{r}
+weather <- tibble(
+  Date     = as.Date(c("2023-01-01", "2023-01-02", "2023-01-03")),
+  HighTemp = c(46, 46, 47),
+  LowTemp  = c(37, 35, 34),
+  Rainfall = c(0.07, 0.00, 0.08),
+)
+```
+
+And you can print out your tibble in the console by calling its name.
+```{r}
+weather
+```
+
+Notice that each column also has a label with the type of each vector. 
+
+All objects within a *vector* must be of the *same type*, 
+but we can have *vectors of different types* within the same *tibble*.
+
+## **Tibbles** are like spreadsheets
+
+You can also use the `view()` function or click on its name in the `environment` tab
+to view your tibble in RStudio's built in data viewer. 
+
+**Note:** leave any `view()` functions uncommented in the Koan files. 
+They will mess with the tests. 
+
+## **Rules for Tibbles**
+
+### 1. Each column has a name.
+
+Even if you don't create a name, `R` will generate a name for you.
+
+But they probably won't look very nice:
+```{r}
+tibble(
+             as.Date(c("2023-01-01", "2023-01-02", "2023-01-03")),
+  HighTemp = c(46, 46, 47),
+  LowTemp  = c(37, 35, 34),
+  Rainfall = c(0.07, 0.00, 0.08),
+)
+```
+
+### 2. Columns have the *same number of rows*
+
+See what happens if we leave out one date from the `weather` tibble:
+```{r, eval=FALSE}
+tibble(
+  Date     = as.Date(c("2023-01-02", "2023-01-03")),
+  HighTemp = c(46, 46, 47),
+  LowTemp  = c(37, 35, 34),
+  Rainfall = c(0.07, 0.00, 0.08),
+)
+```
+
+Or if we only define a column as a single element:
+```{r}
+tibble(
+  Date     = as.Date("2023-01-01"),
+  HighTemp = c(46, 46, 47),
+  LowTemp  = c(37, 35, 34),
+  Rainfall = c(0.07, 0.00, 0.08),
+)
+```
+
+---
+
+# Intro to pipes
+
+In tidyverse, a pipe looks like `%>%`.
+
+In RStudio, you can use the hotkey `Ctrl/Cmd Shift M` to type it out.
+
+```{r, eval=FALSE}
+# qelp page:
+?qelp::`%>%`
+# the pipe we will be using comes from the `magrittr` package:
+?magrittr::`%>%`
+```
+
+## What is a *pipe*?
+
+A pipe passes the result of one function (or object) to the input of another. 
+
+Suppose I have a vector of incomes in Dollars:
+```{r}
+incomes <- c(75000, 120000, 99999, 29500)
+```
+but I want to know the average log income in Euros. 
+
+One way to do this would be:
+```{r}
+# calculate the average of the log of incomes converted to euros
+mean(log(incomes * 0.92))
+```
+
+Or you could do the same thing with pipes: 
+```{r}
+(incomes * 0.92) %>% # multiply by exchange rate
+  log() %>%          # then take natural log
+  mean()             # then take the average
+```
+
+This example is fairly simple, 
+but as you start doing more complicated tasks, pipes will make your life easier.
+
+  - easier to read (grammatical structure of subject, then verbs)
+  - easier to debug (comment/uncomment and run one line at a time)
+
+---
+
+# Next time: combining tibbles and pipes with dplyr verbs
+
+The basic workflow of dplyr: 
+
+```{r, eval=FALSE}
+tidy_data %>% 
+  dplyr_function1() %>% 
+  dplyr_functoin2() %>% 
+  ... %>% 
+  save or view data, or estimate relationship
+```
+
