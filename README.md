@@ -44,10 +44,11 @@ The HTML versions of the lecture slides allow you to view animations and interac
 - [Warmup](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-warmup.html)
 - [R and RStudio Install Tutorial](https://learnr-examples.shinyapps.io/ex-setup-r/#section-install-r)
 
-**001 - Review:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.pdf) -->
+**001 - Review:** [html](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.pdf) -->
 
 - Readings: Introduction in *ItE Review* & *MM 1 (appendix)*
 - Koans: K02_tibble.R and K03_pipe.R (_due 04/12_)
+- [Warmup](https://ajdickinson.github.io/EC320S24/slides/001-review/001-warmup.html)
 
 **002 - The fundamental problem of causal inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.pdf) -->
 
