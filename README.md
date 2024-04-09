@@ -89,6 +89,9 @@ The HTML versions of the lecture slides allow you to view animations and interac
 
 - Readings: *ItE 6*
 
+## Problem Sets 
+
+PS01: [html](https://ajdickinson.github.io/EC320S24/ps/ps01/ps01.html) | [PDF](https://ajdickinson.github.io/EC320S24/ps/ps01/ps01.pdf) (_due 04/16 @ 11:59p_)
 
 ## Koans
 

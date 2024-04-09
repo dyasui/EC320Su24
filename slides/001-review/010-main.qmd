@@ -22,8 +22,6 @@ title-slide-attributes:
 hideFootnotes: true
 ---
 
-# Prologue{.inverse .note}
-
 
 ```{r}
 pacman::p_load(hrbrthemes, fastverse, tidyverse, magrittr, wooldridge, here, kableExtra, nord, latex2exp)
@@ -90,6 +88,11 @@ $$
 :::
 
 ::::
+
+[Stopping point after lecture 02](#moments)
+
+---
+
 {{< include _011-prologue.qmd >}}
 
 # Notation {.inverse .note}
