@@ -50,44 +50,44 @@ The HTML versions of the lecture slides allow you to view animations and interac
 - Koans: K02_tibble.R and K03_pipe.R (_due 04/12_)
 - [Warmup](https://ajdickinson.github.io/EC320S24/slides/001-review/001-warmup.html)
 
-**002 - The fundamental problem of causal inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.pdf) -->
+**002 - Simple linear regression I:** [html](https://ajdickinson.github.io/EC320S24/slides/002-ols/020-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-ols/020-main.pdf) -->
 
-- Readings: *MM 1*
+- Deriving OLS handout: [html](https://ajdickinson.github.io/EC320S24/slides/002-ols/ols-handout.html) | [PDF](https://ajdickinson.github.io/EC320S24/resources/ols-derived-inclass.pdf) _(in class)_
+- Readings: *ItE 1*
 - Koans: K04_dplyr1.R and K05_dplyr2.R (_due 04/19_)
 
-**003 - Simple linear regression I:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/003-ols/030-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/003-ols/030-main.pdf) -->
-
-<!-- - Deriving OLS handout: [html](https://ajdickinson.github.io/EC320S24/slides/003-ols/ols-handout.html) | [PDF](https://ajdickinson.github.io/EC320S24/resources/ols-derived-inclass.pdf) _(in class)_ -->
-- Readings: *ItE 1*, *MM 2*
-- Koans: K06_dplyr3.R and K11_lm.R (_due 04/26_)
-
-**004 - Simple linear regression II:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/004-ols-ii/040-main.html)-->
+**003 - Simple linear regression II:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/004-ols-ii/040-main.html)-->
 
 - Readings: *ItE 1*, *MM 2*
 - Koans: K07_left_join.R and K08_qplot_to_ggplot.R (_due 05/10_)
 
-**005 - Inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/005-inference/050-main.html) -->
+**004 - Inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/005-inference/050-main.html) -->
 
 - Readings: *ItE 2*
 - Koans: K09_ggplot_aes.R and K12_stats.R (_due 05/17_)
 
-**006 - Mulitple variable regression** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html) -->
+**005 - Mulitple variable regression** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html) -->
 
 - Readings: *ItE 3, 6.2; MM 2 (appendix)*
 - Koans: K10_ggplot_facet.R (_due 05/24_)
 
-**007 - Nonlinear relationships** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html) -->
+**006 - Nonlinear relationships** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html) -->
 
 - Readings: *ItE 4*
 - Koans: K13_functions.R (_due 05/31_)
 
-**008 - Categorical variables** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html) -->
+**007 - Categorical variables** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html) -->
 
 - Readings: *ItE 5*
 
-**009 - Model specification**
+**008 - Model specification**
 
 - Readings: *ItE 6*
+
+**009 - The fundamental problem of causal inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.pdf) -->
+<!-- - Readings: *MM 1* -->
+
+
 
 ## Problem Sets 
 
