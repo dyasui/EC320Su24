@@ -1,0 +1,34 @@
+---
+title: "Warm Up"
+subtitle: "Andrew Dickinson"
+date: last-modified
+self-contained: TRUE
+format:
+  html:
+    theme: 
+      - cosmo
+      - doc-styles.scss
+    toc: true
+    toc-depth: 3
+    html-math-method: mathjax
+    number-sections: false
+---
+
+[Q01.]{.question} What is the [sampling distribution]{.hi} of an [estimator]{.hii}? 
+
+::: {.answer style="display: none;"}
+
+The [sampling distribution]{.hi} of an [estimator]{.hii} is the distribution of the [estimator]{.hii}'s values over many samples. In other words, the [sampling distribution]{.hi} is the distribution of the estimates that would be obtained if the [estimator]{.hii} were calculated for many different samples of the same size from the same population.
+
+:::
+
+[Q02.]{.question} What are two criteria of a a good [estimator]{.hii}? Describe the properties of [sampling distributions]{.hi} that match these two criteria.
+
+::: {.answer style="display: none;"}
+
+- **Unbiasedness**: An [estimator]{.hii} is unbiased if the expected value of the [estimator]{.hii} is equal to the true value of the parameter being estimated. In other words, the [estimator]{.hii} is unbiased if the average of the estimates is equal to the true value of the parameter. The [sampling distribution]{.hi} of an unbiased [estimator]{.hii} is centered around the true value of the parameter being estimated.
+
+- **Efficiency**: An [estimator]{.hii} is efficient if it has the smallest variance of all unbiased [estimators]{.hii}. In other words, the [estimator]{.hii} is efficient if it is the most precise [estimator]{.hii} among all unbiased [estimators]{.hii}. The [sampling distribution]{.hi} of an efficient estimator has the smallest spread around the true value of the parameter being estimated.
+
+:::
+

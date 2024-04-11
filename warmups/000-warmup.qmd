@@ -1,0 +1,88 @@
+---
+title: "Warm Up"
+subtitle: "Andrew Dickinson"
+date: last-modified
+self-contained: TRUE
+format:
+  html:
+    theme: 
+      - cosmo
+      - doc-styles.scss
+    toc: true
+    toc-depth: 3
+    html-math-method: mathjax
+    number-sections: false
+---
+
+I would like you all to group up. Talk to your peers around you. Discuss the following:
+
+- What is your name?
+- How was your spring break?
+- What is your major?
+- What is your class standing? (e.g., freshman, sophomore, etc.)
+- What is econometrics, as you understand it and what do you expect this course is about?
+
+<br>
+
+---
+
+The following two question use the following definition:
+
+[Expected values]{.hi}
+
+> The [expected value]{.hi} $E[X]$ of a [discrete random variable]{.hi} $X$ is defined as:
+>  $$
+>  E[X] = \sum_{i} x_i P(x_i)
+>  $$
+>  where $x_i$ are the possible values of $X$, and $P(x_i)$ is the probability that $X$ equals $x_i$. This equation computes the average value of $X$ by weighing each possible value by its probability of occurrence.
+
+
+## Q01
+Suppose we have a [discrete random variable]{.hi} named $A$. The probability distribution for $A$ is:
+
+| Value of $A$ | Probability |
+|--------------|-------------|
+| -4           | 0.20        |
+| 0            | 0.10        |
+| 2            | 0.40        |
+| 4            | 0.30        |
+
+What would the expected value $E[A]$ be?
+
+::: {.answer style="display: inherit;"}
+
+The expected value is calculated as follows:
+
+$E[A] = (-4 \cdot 0.20) + (0 \cdot 0.10) + (2 \cdot 0.40) + (4 \cdot 0.30) = 1.2$
+
+Therefore, the expected value E[A] is 1.2
+:::
+
+
+## Q02
+
+Consider the function $g(A) = A^2$, where $A$ is the same random variable as in [Q01]{.hi}. Compute the expected value of $g(A)$. Show the work you use to arrive at your answer.
+
+
+::: {.answer style="display: inherit;"} 
+
+To find the expected value of g(A), we follow these steps:
+
+1. **Calculate g(A) for each value of A:**
+   * $g(-4) = (-4)^2 = 16$
+   * $g(0) = 0^2 = 0$
+   * $g(2) = 2^2 = 4$
+   * $g(4) = 4^2 = 16$
+
+2. **Multiply each g(A) value by its corresponding probability:**
+   * $16 \cdot 0.20 = 3.2$
+   * $0 \cdot 0.10 = 0$
+   * $4 \cdot 0.40 = 1.6$
+   * $16 \cdot 0.30 = 4.8$
+
+3. **Sum the results:**
+   * $3.2 + 0 + 1.6 + 4.8 = 9.6$
+
+Therefore, the expected value of g(A) is 9.6.
+:::
+
