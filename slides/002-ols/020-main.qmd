@@ -80,7 +80,7 @@ data2 = get(data(campus)) %>%
   select(crime, police)
 ```
 
-{{< include _021-prologue.qmd >}}
+<!-- {{< include _021-prologue.qmd >}} -->
 
 # Regression logic {.inverse .note}
 
