@@ -4,6 +4,7 @@ subtitle: "EC 320, Set 03"
 author: "Andrew Dickinson"
 date: last-modified
 date-format: "Spring YYYY"
+self-contained: TRUE
 format: 
   revealjs:
     theme: [default, ../styles.scss]
