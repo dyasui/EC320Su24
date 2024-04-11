@@ -52,6 +52,7 @@ The HTML versions of the lecture slides allow you to view animations and interac
 
 **002 - Simple linear regression I:** [html](https://ajdickinson.github.io/EC320S24/slides/002-ols/020-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-ols/020-main.pdf) -->
 
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/warmup03.html)
 - Deriving OLS handout: [html](https://ajdickinson.github.io/EC320S24/slides/002-ols/ols-handout.html) | [PDF](https://ajdickinson.github.io/EC320S24/resources/ols-derived-inclass.pdf) _(in class)_
 - Readings: *ItE 1*
 - Koans: K04_dplyr1.R and K05_dplyr2.R (_due 04/19_)
