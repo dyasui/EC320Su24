@@ -1,0 +1,158 @@
+---
+title: "**Lab 03 - Intro to dplyr:**"
+subtitle: "filter, select, mutate, summarize, group_by"
+author: "Dante Yasui"
+date: "2024/04/17"
+--- 
+
+# Welcome Back!
+
+Goals for Week 3:
+
+  - introduce you to the dplyr toolkit
+  - learn how to subset, modify, and summarize data
+  - **Problem Set 1 due Tuesday night**
+  - koans 4 & 5 due Friday 5 pm
+  
+---
+
+# Intro to Dplyr
+
+```{r, message=FALSE}
+# dplyr is part of the tidyverse
+library(tidyverse)
+```
+
+from [tidyverse.org](https://dplyr.tidyverse.org/):
+
+> dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:
+
+> - `mutate()` adds new variables that are functions of existing variables
+> - `select()` picks variables based on their names.
+> - `filter()` picks cases based on their values.
+> - `summarise()` reduces multiple values down to a single summary.
+> - `arrange()` changes the ordering of the rows.
+
+> These all combine naturally with `group_by()` which allows you to perform any operation “by group”.
+
+Feel free to read through the qelp pages at any time:
+
+```{r, eval=FALSE}
+?qelp::filter
+?qelp::select
+?qelp::mutate
+?qelp::summarize
+?qelp::group_by
+```
+
+## dplyr is your set of pliers for data
+
+Let's take a look at an example data set that comes with dplyr:
+
+```{r}
+starwars
+```
+
+Notice how there are too many rows and colums to all be printed here?
+
+### use `filter()` to subset **rows** 
+
+```{r}
+# subset of all characters who are droids
+starwars %>% 
+  filter(species == "Droid")
+```
+
+The resulting tibble only contains rows which match the condition `species == "Droid"` 
+
+Another condition could be:
+
+```{r}
+# subset of all characters who are shorter than 100 (cm?)
+starwars %>% 
+  filter(height <= 100)
+```
+
+You can also filter for multiple conditions:
+
+```{r}
+# subset of all characters who are droids shorter than 100 (cm?)
+starwars %>% 
+  filter(
+         species == "Droid" |
+         height <= 100
+  )
+```
+
+### *Side note: logical operators*
+
+You can filter by any logical condition.
+
+We've already been using `==`, but here are some others:
+
+| **`R` condition**    | **Description**                |
+|----------------------|--------------------------------|
+| `==`                 | is equal to                    |
+| `>`, `<`, `>=`, `<=` | greater than, less than , etc. |
+| `&`                  | and                            | 
+| `|`                  | or                             |
+| `%in%`               | in                             |
+| `!`                  | not                            | 
+
+### use `select()` to subset **columns**
+
+`select()` takes the name of column(s) from the starting tibble as inputs:
+
+```{r}
+# only the `name` column from the original tibble
+starwars %>%
+  select(name)
+```
+
+Similar to `filter()`, you can select for multiple conditions:
+
+```{r}
+# select the name column and all columns that end in 'color'
+starwars %>% 
+  select(name, ends_with("color"))
+```
+
+You can combine `select()` and `filter()` with pipes:
+
+```{r}
+# subset all rows that match `species == "Droid"` 
+# and the columns `name`, `height`, and `species`
+starwars %>% 
+  select(name, height, species) %>% 
+  filter(species == "Droid")
+```
+
+### use `mutate()` to create new variables (or modify existing ones)
+
+```{r}
+# create a new variable for BMI and subset by columns
+starwars %>% 
+  mutate(bmi = mass / ((height / 100)  ^ 2)) %>%
+  select(name:mass, bmi)
+```
+
+### use `summarize()` to create summary statistic tables
+
+```{r}
+# create a tibble of a single summary observation
+starwars %>% 
+  summarize(mean_height = mean(height, na.rm = TRUE))
+```
+
+### use `group_by()` to create grouped summaries
+
+```{r}
+# create a grouped summary table
+starwars %>% 
+  group_by(species) %>% 
+  summarize(mean_height = mean(height, na.rm = TRUE))
+```
+
+
+
+
