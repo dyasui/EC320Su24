@@ -1,6 +1,6 @@
 ---
 title: "Simple Linear Regression I"
-subtitle: "EC 320, Set 03"
+subtitle: "EC 320, Set 02"
 author: "Andrew Dickinson"
 date: last-modified
 date-format: "Spring YYYY"
@@ -102,9 +102,9 @@ data2 = get(data(campus)) %>%
 
 {{< include _026-interpretation.qmd >}}
 
-# [OLS]{.hi-white} [Ex.]{.ex} {.inverse}
+<!-- # [OLS]{.hi-white} [Ex.]{.ex} {.inverse} -->
 
-{{< include _027-ex.qmd >}}
+<!-- {{< include _027-ex.qmd >}} -->
 
 
 ```{r}

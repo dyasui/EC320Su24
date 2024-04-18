@@ -57,7 +57,7 @@ The HTML versions of the lecture slides allow you to view animations and interac
 - Readings: *ItE 1*
 - Koans: K04_dplyr1.R and K05_dplyr2.R (_due 04/19_)
 
-**003 - Simple linear regression II:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/004-ols-ii/040-main.html)-->
+**003 - Simple linear regression II:** [html](https://ajdickinson.github.io/EC320S24/slides/004-ols-ii/040-main.html)
 
 - Readings: *ItE 1*, *MM 2*
 - Koans: K07_left_join.R and K08_qplot_to_ggplot.R (_due 05/10_)

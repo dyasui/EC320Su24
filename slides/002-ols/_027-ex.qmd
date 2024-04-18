@@ -50,17 +50,18 @@ Lets calculate the estimated parameters $b_0$ and $b_1$ using the OLS estimator
 
 Recall that OLS focuses on minimizing the RSS. We will take four steps.
 
-1. Calculate the residuals, $\hat{u}_i = Y_i - \hat{Y_i}$
-2. Summate the squared residuals, $RSS = \sum_{i=1}^n \hat{u}_i^2$
-3. Differentiate for $\frac{\partial RSS}{\partial b_j}$ such that our number of unknown parameters is equal to the number of partial differentiation equations
-4. Solve for the unknown parameters
+1. Calculate $\hat{X}$ and $\hat{Y}$
+2. Compute the intercept estimate $\hat{\beta}_0$ with the intercept formula:
 
-. . .
+$$
+\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}
+$$
 
-We'll use the [mini sample]{.hp} to get an idea of the mechanics involved. 
-Given larger datasets and more covariates, [R]{.mono .big} comes to the rescue.
+3. Compute the slope estimate $\hat{\beta_2}$ using the slope formula:
 
-[Warning:]{.note} Check the second derivatives to ensure global minimums. [All]{.hi} the second-order partial derivatives must be greater than zero. 
+$$
+\hat{\beta}_1 = \dfrac{\sum_{i=1}^n (Y_i - \bar{Y})(X_i - \bar{X})}{\sum_{i=1}^n  (X_i - \bar{X})^2}
+$$
 
 ---
 

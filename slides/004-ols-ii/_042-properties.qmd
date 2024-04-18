@@ -1,0 +1,136 @@
+---
+name: properties
+---
+
+---
+
+## OLS Properties
+
+[OLS]{.hi} has [three]{.note} important properties:
+
+<br>
+
+. . .
+
+1. The point $(\bar{X}, \bar{Y})$ is always on the regression line
+
+. . .
+
+2. Residuals sum to zero: $\sum_{i=1}^n \hat{u}_i = 0$
+
+. . .
+
+3. The sample covariance between the independent variable and the residuals is zero: $\sum_{i=1}^n X_i \hat{u}_i = 0$
+
+---
+
+## Property 1. _(proof)_
+
+The point $(\bar{X}, \bar{Y})$ is always on the regression line.
+
+- Start with the regression line: $\hat{Y_i} = \hat{\beta}_1 + \hat{\beta}_2X_i$
+
+. . .
+
+- $\hat{Y_i} = \bar{Y} - \hat{\beta}_2 \bar{X} + \hat{\beta}_2X_i$
+
+. . .
+
+- Plug in $\bar{X}$ for $X_i$:
+
+$$
+\begin{aligned}
+\hat{Y_i} &= \bar{Y} - \hat{\beta}_2 \bar{X} + \hat{\beta}_2\bar{X} \\
+&= \bar{Y}
+\end{aligned}
+$$
+
+---
+
+## Property [2.]{.note} _(proof)_ {.scrollable}
+
+
+Residuals sum to zero: $\sum_{i=1}^n \hat{u}_i = 0$
+
+[Steps]{.note} 
+
+1. Plug in the definition of a residual, $\hat{u}_i = y_i - \hat{\beta}_0 - \hat{\beta}_1x_i$
+
+$$
+\sum_{i=1}^n \hat{u}_i = \sum_{i=1}^n y_i - \hat{\beta}_0 - \hat{\beta}_1x_i
+$$
+
+2. Plug in the OLS formula for $\hat{\beta}_0 = \bar{y}-\hat{\beta}_1\bar{x}$
+
+$$
+\sum_{i=1}^n \hat{u}_i = \sum_{i=1}^n y_i - \sum_{i=1}^n\bar{y} + \hat{\beta}_1\sum_{i=1}^n\bar{x} - \hat{\beta}_1 \sum_{i=1}^n x_i \\
+$$
+
+3. Plug in the definition of sample averages and simplify
+   
+\begin{align*}
+ \sum_{i=1}^n \hat{u}_i & = \sum_{i=1}^n y_i - n \left( \frac{1}{n} \sum_{i=1}^n y_i \right) + \hat{\beta}_1 n \left(\frac{1}{n} \sum_{i=1}^n x_i\right) - \hat{\beta}_1 \sum_{i=1}^n x_i \\
+ &= \sum_{i=1}^n \left(y_i -  y_i\right)  + \hat{\beta}_1 \sum_{i=1}^n\left( x_i - x_i\right) \\
+ &=0
+\end{align*}
+
+
+Thus, the sum of the residuals is zero
+
+---
+
+## Property [2.]{.note} _(Intution)_
+
+_Why is this true?_
+
+. . .
+
+[Intercept Alignment]{.note}: 
+
+- By definition, $\hat{\beta}_0$ ensures the line passes through $\bar{y}$ at $\bar{x}$ 
+- Centers the line in a way that deviations above and below balance out
+
+[Balanced Deviations]{.note}: 
+
+- Positive/negative residuals perfectly offset each other
+- Indicates optimal compromise minimizing distances to all points
+
+. . .
+
+[In one sentence]{.note}:
+
+The fitted line, centered through $\bar{x}$ and $\bar{y}$, balances the positive and negative deviations to minimize the total error
+
+---
+
+## Property 3. _(proof)_ {.scrollable}
+
+Using the covariance formula, and Property 2:
+
+\begin{equation}
+\Cov(x_i,\hat{u}_i) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(\hat{u}_i-\bar{\hat{u}})
+\end{equation}
+
+. . .
+
+Since $\sum_{i=1}^n \hat{u}_i = 0$, the term $\sum_{i=1}^n \bar{\hat{u}} = 0$.
+
+\begin{align*}
+\Cov(x_i,\hat{u}_i) &= \frac{1}{n-1}\sum_{i=1}^nx_i\hat{u}_i-\bar{x}\hat{u}_i\\
+&= \frac{1}{n-1}\sum_{i=1}^nx_i(y_i - \hat{\beta}_0 - \hat{\beta}_1x_i)-\frac{\bar{x}}{n-1}\sum_{i=1}^n\hat{u}_i\\
+&= \frac{1}{n-1}\sum_{i=1}^nx_iy_i - \hat{\beta}_0\sum_{i=1}^nx_i - \hat{\beta}_1\sum_{i=1}^nx_i^2 \\
+&= \frac{1}{2(n-1)}\left(2\sum_{i=1}^nx_iy_i - 2\hat{\beta}_0\sum_{i=1}^nx_i - 2\hat{\beta}_1\sum_{i=1}^nx_i^2 \right)\\
+&= \frac{1}{2(n-1)}\left(0 \right)\\
+&= 0  
+\end{align*}
+
+Where 
+
+$$
+2\sum_{i=1}^nx_iy_i - 2\hat{\beta}_0\sum_{i=1}^nx_i - 2\hat{\beta}_1\sum_{i=1}^nx_i^2=0
+$$ 
+
+is a result from the first order condition of $\hat{\beta_1}$
+
+
+
