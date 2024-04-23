@@ -28,22 +28,35 @@ $$
 
 ## Housekeeping
 
+:::: {.columns}
+
+::: {.column width="50%"}
 [PS02:]{.hi}
 
-- Due _(next)_ Tuesday at 11:59p
-- Covers remaining a bunch of OLS stuff up to today
+- Due tonight at 11:59p
+- [PS03]{.hi} will post today
+:::
 
-. . .
-
-[K04]{.hi} & [K05]{.hi}
-
-- Due Friday at 5:00p
-
-. . .
+::: {.column width="50%"}
 
 [Reading:]{.hi} _(up to this point)_
 
 ItE: R, 1, [2]{.hi}
+
+:::
+
+::::
+
+. . .
+
+[K06]{.hi} & [K06b]{.hi}
+
+- Due Friday at 5:00p
+- K06: Final `dplyr` lesson
+- K06b: linear models (`lm`) lesson
+  - Issue with testing file
+  - To fix, redownload: "tests/testhat/test-K06b_lm.R"
+
 
 # _Prologue_ {.inverse .note}
 
