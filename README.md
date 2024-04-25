@@ -64,10 +64,12 @@ The HTML versions of the lecture slides allow you to view animations and interac
 - Readings: *ItE 1*, *MM 2*
 - Koans: K07_left_join.R and K08_qplot_to_ggplot.R (_due 05/10_)
 
-**004 - Inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/005-inference/050-main.html) -->
+**004 - Inference:** [html](https://ajdickinson.github.io/EC320S24/slides/005-inference/050-main.html)
 
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/005-warmup.html)
 - Readings: *ItE 2*
-- Koans: K09_ggplot_aes.R and K12_stats.R (_due 05/17_)
+- Final topics before MT
+<!-- - Koans: K09_ggplot_aes.R and K12_stats.R (_due 05/17_) -->
 
 **005 - Mulitple variable regression** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html) -->
 

@@ -1,0 +1,609 @@
+---
+name: hypothesis-testing
+---
+
+---
+
+::: {.middle}
+
+Hypothesis testing is an essential tool. [Yet the traditional way of teaching hypothesis testing can be unintuitive.]{.fragment}
+
+[_It took me several tries (classes) to fully understand the concept_]{.fragment}
+:::
+
+---
+
+
+::: {.middle}
+_If you can program, you have direct access to the fundamental ideas in statistics_
+
+[To demonstrate, consider [hypothesis testing]{.note}]{.fragment}
+
+[_In order to do that, we need a problem..._]{.fragment}
+
+[_Does drinking beer make you more attractive to mosquitos?_]{.fragment}
+
+:::
+
+---
+
+## Hypothesis testing
+
+Though it sounds silly, this research question is important
+
+- Malaria is transmitted via mosquito
+- Most model for malaria transmission historically assume equal risk of mosquito bites across individuals
+- Though, good evidence of _heterogenous_ propensity bites exist
+- Understanding which people might have higher propensity for bites may allow for interventions that reduce the impact of malaria
+
+---
+
+![](./image/Screenshot%202023-03-23%20at%203.42.08%20PM.png)
+
+---
+
+```{r}
+#| echo: FALSE
+#| cache: FALSE
+
+ 
+pacman::p_load(hrbrthemes, fastverse, tidyverse, magrittr, wooldridge, here, kableExtra, nord, latex2exp)
+
+beer = c(27, 20, 21, 26, 27, 31, 24, 21, 20, 19, 23, 24, 28, 19, 24, 29, 18, 20, 17, 31, 20, 25, 28, 21, 27)
+
+beer = data.table(
+  count = beer,
+  group = "beer",
+  row = rep(1:5, times = 5),
+  # row = expand.grid()
+  col = rep(1:5, each = 5),
+  t = 1
+)
+
+water = c(21, 22, 15, 12, 21, 16, 19, 15, 22, 24, 19, 23, 13, 22, 20, 24, 18, 20)
+
+water = data.table(
+  count = water,
+  group = "water",
+  row = rep(1:3, times = 6),
+  col = rep(1:6, each = 3),
+  t = 0
+)
+
+dt = rbind(beer, water) %>%
+  as.data.table()
+
+dt[, c("s1", "s2", "s3", "s4") := .(0,0,0,0) ]
+dt[sample(which(s1 == 0), 25), s1 := 1]
+dt[sample(which(s2== 0), 25), s2 := 1]
+dt[sample(which(s3 == 0), 25), s3 := 1]
+dt[sample(which(s4 == 0), 25), s4 := 1]
+
+true_summ = dt[, .(mean = mean(count)), by = group ]
+s1_summ = dt[, .(mean = mean(count)), by = s1 ]
+s2_summ = dt[, .(mean = mean(count)), by = s2 ]
+s3_summ = dt[, .(mean = mean(count)), by = s3 ]
+s4_summ = dt[, .(mean = mean(count)), by = s4 ]
+
+true_list = c(
+    true_summ[group == "beer", mean ],
+    true_summ[group == "water", mean],
+    true_summ[group == "beer", mean ] - true_summ[group == "water", mean]
+  ) |> round(2)
+
+s1_list = c(
+    s1_summ[s1 == 1, mean ],
+    s1_summ[s1 == 0, mean],
+    s1_summ[s1 == 1, mean ] - s1_summ[s1 == 0, mean]
+  ) |> round(2)
+
+s2_list = c(
+    s2_summ[s2 == 1, mean ],
+    s2_summ[s2 == 0, mean],
+    s2_summ[s2 == 1, mean ] - s2_summ[s2 == 0, mean]
+  ) |> round(2)
+
+s3_list = c(
+    s3_summ[s3 == 1, mean ],
+    s3_summ[s3 == 0, mean],
+    s3_summ[s3 == 1, mean ] - s3_summ[s3 == 0, mean]
+  ) |> round(2)
+
+s4_list = c(
+    s4_summ[s4 == 1, mean ],
+    s4_summ[s4 == 0, mean],
+    s4_summ[s4 == 1, mean ] - s4_summ[s4 == 0, mean]
+  ) |> round(2)
+
+iter_fun <- function(iter) {
+  # Sample 25 observations
+  dt[, s := 0 ]
+  dt[sample(which(s == 0), 25), s := 1]
+  # Find mean of both groups and group differences
+  summ = dt[, .(mean = mean(count)), by = s ]
+  # Create list of means
+  table = data.table(
+    i = iter,
+    mu1 = summ[s == 1 , mean ],
+    mu0 = summ[s == 0, mean ],
+    diff = summ[s == 1 , mean ] - summ[s == 0, mean]
+  ) |> round(2)
+  # Return list
+  return(table)
+}
+
+sim_dt = parallel::mclapply(mc.cores = 8, 1:1e4, iter_fun) %>%
+    rbindlist()
+```
+
+```{r}
+#| fig.height: 5
+#| fig.align: "center"
+
+# leg_cols <- c(" " = "black", " " = "green")
+
+dat = ggplot(dt, aes(x = row, y = col), group = group, color = group) +
+  # geom_point(shape = 15, size = 30) +
+  geom_label(
+    aes(
+      label = count
+      , vjust = 0.5
+      , hjust = 0.5
+      , color = 'white'
+      , fill = group
+      , group = group
+      ),
+    , color = 'white'
+    , size = 6
+    , label.size = 1
+    , label.padding	= unit(.9, "lines")
+    , position = position_nudge(x = -0.5, y = -0.2)
+      ) +
+  scale_x_continuous(limits = c(-0.5, 5)) +
+  theme_void() +
+  theme(
+    legend.position = "bottom"
+    , panel.spacing = unit(5, "cm")
+    , strip.text = element_blank()
+    , title = element_text(family = "Fira Sans")
+    , plot.margin = margin(t = 30, r = 5, b = 5, l = 5, unit = "pt")
+  ) +
+  coord_cartesian(clip = 'off') +
+  facet_wrap(~group) +
+  scale_fill_manual(values = c(hii, "grey50"), guide = "none")
+
+```
+
+Here is the data. [Treatment group in [blue]{.hii}.]{.fragment}
+
+```{r}
+#| echo: FALSE
+#| fig.height: 5
+#| fig.align: "center"
+dat
+```
+
+. . . 
+
+::: {.align-center}
+[Treatment mean:]{.hii} `r paste0(true_list[1])` [Control mean:]{.hi-grey} `r paste0(true_list[2])`
+:::
+
+. . .
+
+::: {.align-center}
+Difference in means: [`r paste0(true_list[3])`]{.hi-red}
+:::
+
+
+---
+
+Plot the true difference
+
+```{r}
+#| fig.height: 7
+#| fig.align: "center"
+
+ggplot() +
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = true_list[3], color = hired, size = 1.5) +
+  geom_label(aes(x = 5.25, y = 8.5, label = "Truth = 4.38"), color = hired) +
+  scale_x_continuous(limits = c(-6, 6)) +
+  scale_y_continuous(limits = c(0, 10)) +
+  theme_ipsum() +
+  labs(
+    x = "Effect size",
+    y = ""
+  ) +
+  theme(
+    axis.text.y = element_blank()
+  )
+```
+
+---
+
+[Suppose the [difference]{.hi} is coincidental.]{.fragment} [Then the labels don't matter]{.fragment}
+
+```{r}
+#| fig.height: 5
+#| fig.align: "center"
+
+dat 
+
+```
+
+
+::: {.align-center}
+[Treatment mean:]{.hii} `r paste0(true_list[1])` [Control mean:]{.hi-grey} `r paste0(true_list[2])`
+:::
+
+. . .
+
+::: {.align-center}
+Difference in means: [`r paste0(true_list[3])`]{.hi-red}
+:::
+
+---
+
+Suppose the [difference]{.hi} is coincidental. Then the labels don't matter
+
+```{r}
+#| fig.height: 5
+#| fig.align: "center"
+
+dat = ggplot(dt, aes(x = row, y = col), group = group, color = group) +
+  # geom_point(shape = 15, size = 30) +
+  geom_label(
+    aes(
+      label = count
+      , vjust = 0.5
+      , hjust = 0.5
+      , color = 'white'
+      , fill = as.factor(s1)
+      , group = as.factor(s1)
+      ),
+    , color = 'white'
+    , size = 6
+    , label.size = 1
+    , label.padding	= unit(.9, "lines")
+    , position = position_nudge(x = -0.5, y = -0.2)
+      ) +
+  scale_x_continuous(limits = c(-0.5, 5)) +
+  theme_void() +
+  theme(
+    legend.position = "bottom"
+    , panel.spacing = unit(5, "cm")
+    , strip.text = element_blank()
+    , title = element_text(family = "Fira Sans")
+    , plot.margin = margin(t = 30, r = 5, b = 5, l = 5, unit = "pt")
+  ) +
+  coord_cartesian(clip = 'off') +
+  facet_wrap(~group) +
+  scale_fill_manual(values = c(hii, "grey50"), guide = "none")
+
+  dat
+
+```
+
+. . .
+
+::: {.align-center}
+[Treatment mean:]{.hii} `r paste0(s1_list[1])`
+[Control mean:]{.hi-grey} `r paste0(s1_list[2])`
+:::
+
+. . .
+
+::: {.align-center}
+_False_ difference in means : [`r paste0(s1_list[3])`]{.hi}
+:::
+
+---
+
+Plot the _"fake"_ difference
+
+```{r}
+#| echo: FALSE
+#| fig.height: 7
+#| fig.align: "center"
+
+diffs = c(s1_list[3], s2_list[3], s3_list[3],
+     s4_list[3]) 
+
+diff_dt = data.table(
+  diffs = diffs
+)
+
+ggplot(data = diff_dt |> head(1), aes(x = diffs)) +
+  geom_dotplot(dotsize = 5, binwidth = 0.05, color = 'white', fill = hi) +
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = true_list[3], color = hired, size = 1.5) +
+  geom_label(aes(x = 5.25, y = 8.5, label = "Truth = 4.38"), color = hired) +
+  scale_x_continuous(limits = c(-6, 6)) +
+  scale_y_continuous(limits = c(0, 10)) +
+  theme_ipsum() +
+  labs(
+    x = "Effect size",
+    y = ""
+  ) +
+  theme(
+    axis.text.y = element_blank()
+  )
+```
+
+# _And do it again_
+
+---
+
+Labels don't matter. Assign treatment randomly. Find the difference.
+
+```{r}
+#| fig.height: 5
+#| fig.align: "center"
+
+dat = ggplot(dt, aes(x = row, y = col), group = group, color = group) +
+  # geom_point(shape = 15, size = 30) +
+  geom_label(
+    aes(
+      label = count
+      , vjust = 0.5
+      , hjust = 0.5
+      , color = 'white'
+      , fill = as.factor(s2)
+      , group = as.factor(s2)
+      ),
+    , color = 'white'
+    , size = 6
+    , label.size = 1
+    , label.padding	= unit(.9, "lines")
+    , position = position_nudge(x = -0.5, y = -0.2)
+      ) +
+  scale_x_continuous(limits = c(-0.5, 5)) +
+  theme_void() +
+  theme(
+    legend.position = "bottom"
+    , panel.spacing = unit(5, "cm")
+    , strip.text = element_blank()
+    , title = element_text(family = "Fira Sans")
+    , plot.margin = margin(t = 30, r = 5, b = 5, l = 5, unit = "pt")
+  ) +
+  coord_cartesian(clip = 'off') +
+  facet_wrap(~group) +
+  scale_fill_manual(values = c(hii, "grey50"), guide = "none")
+
+  dat
+
+```
+
+::: {.align-center}
+[Treatment mean:]{.hii} `r paste0(s2_list[1])`
+[Control mean:]{.hi-grey} `r paste0(s2_list[2])`
+:::
+
+. . .
+
+::: {.align-center}
+_False_ difference in means : [`r paste0(s2_list[3])`]{.hi}
+:::
+
+---
+
+Plot the difference
+
+```{r}
+#| echo: FALSE
+#| fig.height: 7
+#| fig.align: "center"
+
+ggplot(data = diff_dt |> head(2), aes(x = diffs)) +
+  geom_dotplot(dotsize = 5, binwidth = 0.05, color = 'white', fill = hi) +
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = true_list[3], color = hired, size = 1.5) +
+  geom_label(aes(x = 5.25, y = 8.5, label = "Truth = 4.38"), color = hired) +
+  scale_x_continuous(limits = c(-6, 6)) +
+  scale_y_continuous(limits = c(0, 10)) +
+  theme_ipsum() +
+  labs(
+    x = "Effect size",
+    y = ""
+  ) +
+  theme(
+    axis.text.y = element_blank()
+  )
+```
+
+# _And do it again (3 times)_
+
+
+---
+
+Labels don't matter. Assign treatment randomly. Find the difference.
+
+```{r}
+#| fig.height: 5
+#| fig.align: "center"
+
+dat = ggplot(dt, aes(x = row, y = col), group = group, color = group) +
+  # geom_point(shape = 15, size = 30) +
+  geom_label(
+    aes(
+      label = count
+      , vjust = 0.5
+      , hjust = 0.5
+      , color = 'white'
+      , fill = as.factor(s3)
+      , group = as.factor(s3)
+      ),
+    , color = 'white'
+    , size = 6
+    , label.size = 1
+    , label.padding	= unit(.9, "lines")
+    , position = position_nudge(x = -0.5, y = -0.2)
+      ) +
+  scale_x_continuous(limits = c(-0.5, 5)) +
+  theme_void() +
+  theme(
+    legend.position = "bottom"
+    , panel.spacing = unit(5, "cm")
+    , strip.text = element_blank()
+    , title = element_text(family = "Fira Sans")
+    , plot.margin = margin(t = 30, r = 5, b = 5, l = 5, unit = "pt")
+  ) +
+  coord_cartesian(clip = 'off') +
+  facet_wrap(~group) +
+  scale_fill_manual(values = c(hii, "grey50"), guide = "none")
+
+  dat
+
+```
+
+
+::: {.align-center}
+[Treatment mean:]{.hii} `r paste0(s3_list[1])`
+[Control mean:]{.hi-grey} `r paste0(s3_list[2])`
+:::
+
+. . .
+
+::: {.align-center}
+_False_ difference in means : [`r paste0(s3_list[3])`]{.hi}
+:::
+
+---
+
+Plot the differences
+
+```{r}
+#| echo: FALSE
+#| fig.height: 7
+#| fig.align: "center"
+
+ggplot(data = diff_dt |> head(3), aes(x = diffs)) +
+  geom_dotplot(dotsize = 5, binwidth = 0.05, color = 'white', fill = hi) +
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = true_list[3], color = hired, size = 1.5) +
+  geom_label(aes(x = 5.25, y = 8.5, label = "Truth = 4.38"), color = hired) +
+  scale_x_continuous(limits = c(-6, 6)) +
+  scale_y_continuous(limits = c(0, 10)) +
+  theme_ipsum() +
+  labs(
+    x = "Effect size",
+    y = ""
+  ) +
+  theme(
+    axis.text.y = element_blank()
+  )
+```
+
+# _And do it again (4 times)_
+
+
+---
+
+Labels don't matter. Assign treatment randomly. Find the difference.
+
+```{r}
+#| fig.height: 5
+#| fig.align: "center"
+
+dat = ggplot(dt, aes(x = row, y = col), group = group, color = group) +
+  # geom_point(shape = 15, size = 30) +
+  geom_label(
+    aes(
+      label = count
+      , vjust = 0.5
+      , hjust = 0.5
+      , color = 'white'
+      , fill = as.factor(s4)
+      , group = as.factor(s4)
+      ),
+    , color = 'white'
+    , size = 6
+    , label.size = 1
+    , label.padding	= unit(.9, "lines")
+    , position = position_nudge(x = -0.5, y = -0.2)
+      ) +
+  scale_x_continuous(limits = c(-0.5, 5)) +
+  theme_void() +
+  theme(
+    legend.position = "bottom"
+    , panel.spacing = unit(5, "cm")
+    , strip.text = element_blank()
+    , title = element_text(family = "Fira Sans")
+    , plot.margin = margin(t = 30, r = 5, b = 5, l = 5, unit = "pt")
+  ) +
+  coord_cartesian(clip = 'off') +
+  facet_wrap(~group) +
+  scale_fill_manual(values = c(hii, "grey50"), guide = "none")
+
+  dat
+
+```
+
+::: {.align-center}
+[Treatment mean:]{.hii} `r paste0(s4_list[1])`
+[Control mean:]{.hi-grey} `r paste0(s4_list[2])`
+:::
+
+. . .
+
+::: {.align-center}
+_False_ difference in means : [`r paste0(s4_list[3])`]{.hi}
+:::
+
+---
+
+Plot the differences
+
+```{r}
+#| echo: FALSE
+#| fig.height: 7
+#| fig.align: "center"
+
+ggplot(data = diff_dt |> head(4), aes(x = diffs)) +
+  geom_dotplot(dotsize = 5, binwidth = 0.05, color = 'white', fill = hi) +
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = true_list[3], color = hired, size = 1.5) +
+  geom_label(aes(x = 5.25, y = 8.5, label = "Truth = 4.38"), color = hired) +
+  scale_x_continuous(limits = c(-6, 6)) +
+  scale_y_continuous(limits = c(0, 10)) +
+  theme_ipsum() +
+  labs(
+    x = "Effect size",
+    y = ""
+  ) +
+  theme(
+    axis.text.y = element_blank()
+  )
+```
+
+# _And do it again (2,500 times)_
+
+---
+
+Plot all 2,500 differences. 
+
+```{r}
+#| fig.height: 7
+#| fig.align: "center"
+
+ggplot(data = sim_dt %>% head(2500), aes(x = diff)) +
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_dotplot(
+    alpha = 1,
+    dotsize = 2,
+    binwidth = 0.05,
+    color = "white",
+    fill = hi) +
+  geom_vline(xintercept = true_list[3], color = hired, size = 1.5) +
+  geom_label(aes(x = 5.25, y = 8.5, label = "Truth = 4.38"), color = hired) +
+  scale_x_continuous(limits = c(-6, 6)) +
+  theme_ipsum() +
+  labs(
+    x = "Effect size",
+    y = ""
+  ) +
+  theme(
+    axis.text.y = element_blank()
+  )
+```
