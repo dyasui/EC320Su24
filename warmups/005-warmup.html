@@ -3226,7 +3226,7 @@ window.Quarto = {
 <ol type="a">
 <li><strong>Interpret the Estimates</strong>: Interpret the intercept and slope coefficients in the context of the model.</li>
 </ol>
-<div class="answer" style="display: inherit;">
+<div class="answer" style="display: none;">
 <ol type="a">
 <li>The intercept coefficient (<span class="math inline">\(\beta_0 = 50\)</span>) suggests that a student who sleeps zero hours before an exam is expected to score 50% of the maximum possible score on average. The slope coefficient (<span class="math inline">\(\beta_1 = 5\)</span>) indicates that for each additional hour of sleep, a student’s exam performance is expected to increase by 5% on average.</li>
 </ol>
@@ -3234,7 +3234,7 @@ window.Quarto = {
 <ol start="2" type="a">
 <li><strong>Predicted Outcome</strong>: If a student sleeps for 8 hours, what is the predicted exam performance according to the model?</li>
 </ol>
-<div class="answer" style="display: inherit;">
+<div class="answer" style="display: none;">
 <ol start="2" type="a">
 <li>Using the model, if a student sleeps for 8 hours, the predicted exam performance is <span class="math inline">\(50 + 5 \times 8 = 90%\)</span> of the maximum possible score.</li>
 </ol>
@@ -3242,7 +3242,7 @@ window.Quarto = {
 <ol start="3" type="a">
 <li><strong>Effect of Changing X</strong>: Suppose a student is considering adjusting their sleeping habits. They currently sleep 6 hours and are thinking of sleeping 8 hours instead. What would the model predict the change in their exam performance to be? In other words, what is the expected increase in exam performance if they sleep for 2 more hours?</li>
 </ol>
-<div class="answer" style="display: inherit;">
+<div class="answer" style="display: none;">
 <ol start="3" type="a">
 <li>If a student increases their sleep from 6 to 8 hours, the model predicts an increase in exam performance by <span class="math inline">\(5 \times 2 = 10%\)</span>. This means that by sleeping 2 more hours, their performance could increase from 80% to 90% of the maximum possible score.</li>
 </ol>
@@ -3250,7 +3250,7 @@ window.Quarto = {
 <ol start="4" type="a">
 <li><strong>Two-Sided Hypothesis Test</strong>: Test the hypothesis that additional hours of sleep have no effect on exam performance against the alternative that they do have an effect. Use a significance level of 0.05. The critical t-value for with appropriate degrees of freedom is approximately 1.96 for a two-tailed test.</li>
 </ol>
-<div class="answer" style="display: inherit;">
+<div class="answer" style="display: none;">
 <ol start="4" type="a">
 <li>For the two-sided hypothesis test <span class="math inline">\(H_0: \beta_1 = 0\)</span> against <span class="math inline">\(H_1: \beta_1 \neq 0\)</span>, calculate the t-statistic:</li>
 </ol>
@@ -3262,7 +3262,7 @@ t = \frac{\beta_1 - 0}{\text{SE}_{\beta_1}} = \frac{5 - 0}{1.5} \approx 3.33
 <ol start="5" type="a">
 <li><strong>One-Sided Hypothesis Test with Minimum Effect Size</strong>: Test the hypothesis that additional hours of sleep increase exam performance by no more than 3% per hour against the alternative that each additional hour of sleep increases exam performance by more than 3%. Use a significance level of 0.05. The critical value for a significance level of 0.05 with appropriate degrees of freedom is approximately 1.645.</li>
 </ol>
-<div class="answer" style="display: inherit;">
+<div class="answer" style="display: none;">
 <ol start="5" type="a">
 <li>For this one-sided hypothesis test, we use the null hypothesis <span class="math inline">\(H_0: \beta_1 \leq 3\)</span> against the alternative hypothesis <span class="math inline">\(H_1: \beta_1 &gt; 3\)</span>. The test statistic is calculated as follows:</li>
 </ol>
@@ -3274,7 +3274,7 @@ t = \frac{\beta_1 - 3}{\text{SE}_{\beta_1}} = \frac{5 - 3}{1.5} \approx 1.33
 <ol start="6" type="a">
 <li><strong>Confidence Intervals</strong>: Calculate the 95% confidence interval for <span class="math inline">\(\beta_1\)</span>. Does your confidence interval satisfy the hypothesis test from part d?</li>
 </ol>
-<div class="answer" style="display: inherit;">
+<div class="answer" style="display: none;">
 <ol start="6" type="a">
 <li>To calculate the 95% confidence interval for <span class="math inline">\(\beta_1\)</span>, we use the formula:</li>
 </ol>
