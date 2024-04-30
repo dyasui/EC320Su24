@@ -35,7 +35,7 @@ $$
 
 [PS03:]{.hi}
 
-- Due Tuesday
+- Due Today (@11:59p)
 
 
 [Reading:]{.hi} _(up to this point)_
@@ -48,19 +48,21 @@ ItE: R, 1, [2]{.hi}
 
 [Koans]{.hi}
 
-- K06 and K06b due Friday at 5p
 - No new koans next week
 
 :::
 
 ::::
 
-. . .
+## Midterm
+
+
 
 [Midterm]{.hi-red}: Tuesday, May 7th (_next next week_)
 
-- Review lecture next Thursday
-- Old exam will be posted next week
+- Review lecture Thursday
+- Last years exam will be posted later today
+  - [_Note:_]{.note} A few questions on last years exam we did not cover
 
 # _Prologue_ {.inverse .note}
 
@@ -107,7 +109,7 @@ campus <- get(data(campus)) %>%
 
 # _Inference_ {.inverse .note}
 
-<!-- {{< include _052-inference.qmd >}} -->
+{{< include _052-inference.qmd >}}
 
 # _Hypothesis testing_ {.inverse .note}
 
@@ -117,11 +119,9 @@ campus <- get(data(campus)) %>%
 
 {{< include _054-ci.qmd >}}
 
-# _Inference via simulation_ {.inverse .note}
+# _An alternative_ {.inverse .note}
 
 {{< include _019-hytesting.qmd >}}
-
-<!-- TODO: This lecture kind of sucked. I think a major revamp is necessary. -->
 
 ```{r}
 #| include: false
