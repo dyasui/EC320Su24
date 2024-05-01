@@ -100,6 +100,12 @@ PS01: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps01/ps01.html)
 
 PS02: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps02/ps02.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps02/ps02.pdf) (_due 04/23 @ 11:59p_)
 
+PS03: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.pdf) (_due 04/30 @ 11:59p_)
+
+## Practice midterm 
+
+[PDF](https://ajdickinson.github.io/EC320S24/exams/practice-mt.pdf)
+
 ## Koans
 
 R programming is an important part of this class. To help you learn R, this course will be using a tool called koans. Koans are small, interactive exercises that help you learn by doing. 
