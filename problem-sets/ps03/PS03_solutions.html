@@ -3239,8 +3239,23 @@ RSS = \sum_{i=1}^n \hat{u}_i^2
 </div>
 </div>
 <p><span class="number">a.</span> In words, what do <span class="math inline">\(TSS\)</span>, <span class="math inline">\(ESS\)</span>, and <span class="math inline">\(RSS\)</span> describe?</p>
+<div class="proof solution" style="display: inherit;">
+<p><span class="proof-title"><em>Solution</em>. </span>TSS measures the total variation in the dependent variable. ESS represents the portion of the total variability that can be attributed to the model, capturing the difference between the predicted values and the mean of the dependent variable. RSS measures the unexplained variation, which is the difference between the actual values and the predicted values from the model.</p>
+</div>
 <p><span class="number">b.</span> Show that <span class="math inline">\(TSS = ESS + RSS\)</span>.</p>
 <p><em>Hint: The following property of the residuals may be useful: <span class="math inline">\(\sum_{i=1}^n \hat{u}_i = 0\)</span>.</em></p>
+<div class="proof solution" style="display: inherit;">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[\begin{align*}
+\text{TSS} &amp;= \sum_{i=1}^n (Y_i - \bar{Y})^2 \\
+           &amp;= \sum_{i=1}^n ([\hat{Y_i} + \hat{u}_i] - [\bar{\hat{Y}} + \bar{\hat{u}}])^2 \\
+           &amp;= \sum_{i=1}^n \left( [\hat{Y_i} - \bar{Y}] + \hat{u}_i \right)^2 \quad \quad \text{Since $\bar{\hat{u}}=0$ which implies $\bar{Y} = \bar{\hat{Y}}$} \\
+           &amp;= \sum_{i=1}^n (\hat{Y_i} - \bar{Y})^2 + \sum_{i=1}^n \hat{u}_i^2 + 2 \sum_{i=1}^n \left( (\hat{Y_i} - \bar{Y})\hat{u}_i \right) \\
+           &amp;= \text{ESS} + \text{RSS} + 2 \sum_{i=1}^n \hat{Y_i}\hat{u}_i - 2 \bar{Y}\sum_{i=1}^n \hat{u}_i
+\end{align*}\]</span> Now we must show that <span class="math inline">\(2 \sum_{i=1}^n \hat{Y_i}\hat{u}_i - 2 \bar{Y}\sum_{i=1}^n \hat{u}_i = 0\)</span>. We must do so by using the following properties of OLS, <span class="math inline">\(\sum_{i=1}^n \hat{u}_i=0\)</span> and <span class="math inline">\(\sum_{i=1}^n X_i \hat{u}_i=0\)</span>. Thus, notice that by the first property, <span class="math inline">\(- 2 \bar{Y}\sum_{i=1}^n \hat{u}_i=0\)</span> since <span class="math inline">\(\sum_{i=1}^n \hat{u}_i=0\)</span>. Now substitute for <span class="math inline">\(\hat{Y}_i=\hat{\beta}_0 + \hat{\beta}_1X_i\)</span>. <span class="math display">\[\begin{align*}
+2 \sum_{i=1}^n \hat{Y_i}\hat{u}_i - 2 \bar{Y}\sum_{i=1}^n \hat{u}_i &amp;= 2 \sum_{i=1}^n (\hat{\beta}_0 + \hat{\beta}_1X_i)\hat{u}_i \\
+&amp;= 2 \hat{\beta}_0 \sum_{i=1}^n \hat{u}_i + 2 \hat{\beta}_1 \sum_{i=1}^n X_i\hat{u}_i = 0
+\end{align*}\]</span></p>
+</div>
 </section>
 <section id="q02.-wage-regression" class="level3">
 <h3 class="anchored" data-anchor-id="q02.-wage-regression">Q02. <em>Wage Regression</em></h3>
