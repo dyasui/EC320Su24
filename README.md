@@ -71,7 +71,7 @@ The HTML versions of the lecture slides allow you to view animations and interac
 - Final topics before MT
 <!-- - Koans: K09_ggplot_aes.R and K12_stats.R (_due 05/17_) -->
 
-**005 - Mulitple variable regression** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html) -->
+**005 - Mulitple variable regression** [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html)
 
 - Readings: *ItE 3, 6.2; MM 2 (appendix)*
 - Koans: K10_ggplot_facet.R (_due 05/24_)
