@@ -108,6 +108,8 @@ PS03: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.html)
 
 _Solutions_: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/PS03_solutions.html)
 
+PS04: [Repository](https://ajdickinson.github.io/EC320S24_PS04/) (_due 05/23 @ 11:59p_)
+
 ## Practice midterm 
 
 [PDF](https://ajdickinson.github.io/EC320S24/exams/practice-mt.pdf)
