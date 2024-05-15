@@ -1,19 +1,17 @@
 # EC320, Spring 2024:   
 
-Welcome to EC320: Introduction to Econometrics taught by [Andrew Dickinson](https://economics.uoregon.edu/profile/adickin3/) and [Dante Yasui](https://cas.uoregon.edu/directory/economics/all/dyasui).
+Welcome to EC320: Introduction to Econometrics taught by [Dante Yasui](https://cas.uoregon.edu/directory/economics/all/dyasui).
 
 ## Schedule
 
-**Lecture** Tuesdays and Thursdays, 12:00p–1:20p (PST), [140 Tykeson Hall](https://map.uoregon.edu/8f5f1a72c)
+**Lecture** Online asynchronous 
 
-**Lab** Asynchonous. See Canvas for links to the most recent lab
+**Lab** (Optional) Online Synchronous. 
+Time: *TBA*
 
 **Office hours**
 
-- **Andrew Dickinson** T & Th 1:20-2:00p | F 10:00-11:00a | Or by appointment 
-- **Dante Yasui** W 4:00-4:50p | Or by appointment
-
-Find the syllabus here: [PDF](https://ajdickinson.github.io/EC320S24/syllabus/syllabus.pdf)
+Zoom - Time: *TBA*
 
 ## Materials
 
@@ -128,6 +126,11 @@ You don't need to know how to program to do these koans. They get gradually hard
 The koans for this course are found in the following repository: [tidyverse_koans](https://github.com/ajdickinson/tidyverse_koans). 
 
 ## Acknowledgements
+
+This course was originally created by [Andrew Dickinson](https://ajdickinson.github.io/). 
+This repoisitory is a fork of the class taught by him in Spring 2024.
+The original repository is [here](https://github.com/ajdickinson/EC320S24).
+Andrew's original acknolegements are replicated below:
 
 Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/)([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference, and [Ben Lambert](https://ben-lambert.com/econometrics/) and his [undergradaute course in econometrics](.https://www.youtube.com/playlist?list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU) that helped me learn this material as a student and to teach this material as an instructor. Finally, I would like to thank [Colleen O'Briant](https://cobriant.github.io/) for making available her [tidyverse_koans](https://github.com/cobriant/tidyverse_koans) materials for use in this course.
 

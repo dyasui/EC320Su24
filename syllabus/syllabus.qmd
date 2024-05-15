@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Econometrics"
-subtitle: "Syllabus, Spring 2024"
-author: "Andrew Dickinson"
+subtitle: "Syllabus, Summjer 2024"
+author: "Dante Yasui"
 format: PrettyPDF-pdf
 ---
 
@@ -27,24 +27,22 @@ dougherty = "http://smile.amazon.com/Introduction-Econometrics-Christopher-Dough
 angrist = "https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845/"
 
 # Course repository
-repo = "https://github.com/ajdickinson/EC320S24"
+repo = "https://github.com/dyasui/EC320Su24"
 ```
 
 # Basics
 
 |                  | **Lecture**                                      | **Lab**                            |
 |------------------|--------------------------------------------------|------------------------------------|
-| **when**         | **T & Th 12:00p--1:20p**                         | _asynchronous_                     |
-| **where**        | [140 Tykeson Hall](`r class_link`)               | Canvas                             |
-| **who**          | **Andrew Dickinson**                             | **Dante Yasui**                    |
-|                  | adickin3@uoregon.edu `r andrew_email`            | dyasui@uoregon.edu `r dante_email` |
-|                  | ajdickinson.github.io `r andrew_site`            |                                    |
-| **office hours** | **T & Th 1:20--2:00p**                           | TBA                                | 
-|                  | **F 10:00-11:00a**                               |                                    |
+| **when**         | _asynchronous_                                   | _TBA_                              |
+| **where**        | Canvas                                           | Zoom                               |
+| **who**          | **Dante Yasui**                                  | **Dante Yasui**                    |
+|                  | dyasui@uoregon.edu `r dante_email`               |                                    |
+| **office hours** | **TBA**                                          |                                    | 
 |                  | (Or by appointment)                              | (Or by appointment)                |
 | **materials**    | [1. Introduction to Econometrics](`r dougherty`) |                                    |
 |                  | [2. Mastering 'Metrics](`r angrist`)             |                                    |
-| **repository**   | [github.com/ajdickinson/EC320S24](`r repo`)      |                                    |
+| **repository**   | [github.com/dyasui/EC320Su24](`r repo`)          |                                    |
 
 
 # Course Summary
@@ -78,17 +76,19 @@ Math 242 (Calculus) and Math 243 (Introduction to Statistics) or equivalent.
 
 ## Lab
 
-Labs will be delivered *asynchronously* this quarter. The scheduled Wednesday lab section will serve as an in depth help session where you may ask for help on Koans or ask general \texttt{R} questions. In lab section, you will learn to apply the concepts discussed in lecture using \texttt{R}. The main focus is on the practical application of statistical techniques and computational components of the bi-weekly problem sets. Lab section is *crucial* for learning the material and passing the course. 
-<!-- Our GE Dante will hold **additional office hours** on Friday mornings, **several hours before** labs assignments are due, to provide additional time to ask questions before Koans are due. -->
+Although this class is officially asynchronous, I will also be offering optional *syncronous* lab sections.
+This will be a time scheduled every week where you can join a Zoom meeting and be placed in breakout rooms where you can work on assignments or quizes collaboratively with other class members, or get direct help from me.
+I recommend participating in these lab sessions if you are able. Between the amount of math we used in this class and learning to code in \texttt{R}, there will be a lot of potentially challenging material for you to tackle on your own.
+Even if you are fairly comfortable with math and coding, I have found that it can be rewarding to work together with peers who might not have as much experience as having to explain things in your own words can help solidify your own understanding.
 
 ## Problem Sets and Koans
 
-Most weeks throughout the quarter, there will be two short form assignments: 
+Every week, you will have around *five koan assignments* and *one Canvas quiz* to complete. 
 
 **Problem sets**
   will primarily focus on analytical problems but may include a computational component. Submissions **must be your own work**. You will receive **zero points** for copied work.
 
-- Due on Tuesday evenings at 11:59p each week. See Canvas for exceptions
+- Due on Sunday midnight every week.
 - \textbf{PDF} and \textbf{html} are the only file types accepted for problem sets on Canvas
 - One file per problem set is permitted
 - Your lowest problem set score will be dropped
@@ -97,7 +97,7 @@ Most weeks throughout the quarter, there will be two short form assignments:
 **Koans**
   will be strictly focused on developing your computational skills in R. They will be short and if you are actively keeping up with the lab section, it should not take long to complete them.
 
-- Due on Friday evenings at 5:00p each week. See Canvas for exceptions
+- All koans assigned for a given week will be due Sunday midgight, but I recommend submitting one per day.
 - \textbf{html} is the only file type accepted for Koans on Canvas
 - Koans will directly relate to topics covered in lab section. Use the lab section recordings as a resource to complete these assignments
 - Your lowest koan score will be dropped
@@ -115,11 +115,12 @@ Feel free to work together on the assignments. Unless explicitly stated, **each 
 
 ## Exams
 
-- The **Midterm** will \textit{likely} take place in class on **Monday, May 07 2024 @ 12:00-1:20p**
-- The **Final** will be on  **Thursday, June 13, 2024 @ 8:00-10:00a**
-- A **Take-Home Final** will be assigned during week 10 and will be due on the day of the final exam
+- The **Midterm** will be a timed Canvas quiz which will be released **Friday, July 5**. You will have 2 hours to complete and upload it.
+- The **Final** will be on  **Friday, July 19, 2024**
+- A **Take-Home Final** will be assigned during the last week and will be due **Sunday, July 21**
 
-There will be no option to take exams early or remotely. Adjust your travel schedule accordingly. Please bring your _scientific calculator_ and _student ID_ for each exam. You will not be allowed to use your phone or any other electronic device during the exam. No cheatsheet will be allowed for exams, however, you will be provided with a list of formulas.
+Canvas exams will be open-note, but you will not be allowed to access other internet resources.
+All work should be completed independently in your own words.
 
 The **Midterm** will be in-class and will cover material from the beginning of the term through the week before the exam. The **Final** exam will be comprehensive and will cover all material from the term. The **Take-Home Final** will be assigned during the last week of class and will be designed to test your ability to apply concepts from the course to conduct analysis on real data using \texttt{R}.
 
@@ -131,7 +132,7 @@ I do not give makeup assignments. In extreme circumstances that lead you to miss
 
 # Grades
 
-Grades for this class will be assigned based on the following assignments: (approximately) biweekly homework assignments, one midterm exam, one final exam. Final grades will be determined based on your rank-ordered position within the class (i.e., the course is curved)^[The economics department has a uniform grading standard. In 300 and 400 level classes, roughly 65% of the class will receive A’s and B’s. I will not be able to tell you what your exact letter grade is at any point in time, because it depends on the scores of everyone else at the end of the course, but I will be able to give an assessment of your relative standing.]. The weights for the final grade:
+Grades for this class will be assigned based on the following assignments: weekly homework assignments, one midterm exam, one final exam. Final grades will be determined based on your rank-ordered position within the class (i.e., the course is curved)^[The economics department has a uniform grading standard. In 300 and 400 level classes, roughly 65% of the class will receive A’s and B’s. I will not be able to tell you what your exact letter grade is at any point in time, because it depends on the scores of everyone else at the end of the course, but I will be able to give an assessment of your relative standing.]. The weights for the final grade:
 
 | Component            | Percentage |
 |----------------------|------------|
@@ -177,6 +178,10 @@ Please respect those around you by turning off your phone and other potentially 
 
 ## Acknowledgements
 
+This class was originally created by [Andrew Dickinson](https://ajdickinson.github.io/). 
+All class materials for this class were forked from his original repository [here](https://github.com/ajdickinson/EC320S24).
+His original acknowledgment section is replicated below:
+
 Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/) ([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference, and [Ben Lambert](https://ben-lambert.com/econometrics/) and his [undergradaute course in econometrics](.https://www.youtube.com/playlist?list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU) that helped me learn this material as a student and to teach this material as an instructor. Finally, I would like to thank [Colleen O'Briant](https://cobriant.github.io/) ([@cobriant](https://github.com/cobriant)) for making available her [tidyverse_koans](https://github.com/cobriant/tidyverse_koans) materials for use in this course.
 
 HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the "slides" directory of this repository. PDFs of the slides are generated using the \texttt{renderthis} package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
@@ -186,27 +191,27 @@ HTML slides are generated using the [quarto](https://quarto.org/). Source code f
 
 # Tentative Schedule
 
-| **Class** | **Date**   | **Topic**                               | **Reading**                                |
-|-----------|------------|-----------------------------------------|--------------------------------------------|
-| \texttt{01}        | \texttt{04/02}      | Introduction                            |                                            |
-| \texttt{02}        | \texttt{04/04}      | Statistics Review I                     | ItE Review                                 |
-| \texttt{03}        | \texttt{04/09}      | Statistics Review II                    | ItE Review; MM 1 (appendix)                |
-| \texttt{04}        | \texttt{04/11}      | Fundamental Econometric Problem         | MM 1                                       |
-| \texttt{05}        | \texttt{04/16}      | The Logic of Regression                 | MM 2                                       |
-| \texttt{06}        | \texttt{04/18}      | Linear Regression: Estimation I  | ItE 1                                      |
-| \texttt{07}        | \texttt{04/23}      | Linear Regression: Estimation II | ItE 1                                      |
-| \texttt{08}        | \texttt{04/25}      | Classical Assumptions                   | ItE 2                                      |
-| \texttt{09}        | \texttt{04/30}      | Simple Linear Regression: Inference     | ItE 2                                      |
-| \texttt{10}        | \texttt{05/02}      | Midterm Review                          |                                            |
-| \texttt{11}        | \texttt{05/07}      | **Midterm Exam (in-class)**             |                                            |
-| \texttt{12}        | \texttt{05/09}      | Multiple Linear Regression: Estimation  | ItE 3, 6.2; MM 2 (appendix)                |
-| \texttt{13}        | \texttt{05/14}      | Multiple Linear Regression: Inference   | ItE 3, 6.3; MM 2 (appendix)                |
-| \texttt{14}        | \texttt{05/16}      | Nonlinear Relationships                 | ItE 4                                      |
-| \texttt{15}        | \texttt{05/21}      | Qualitative Variables                   | ItE 5                                      |
-| \texttt{16}        | \texttt{05/23}      | Interactive Relationships               | ItE 4                                      |
-| \texttt{17}        | \texttt{05/28}      | Interactive Relationships               | ItE 4                                      |
-| \texttt{18}        | \texttt{05/30}      | Model Specification                     | ItE 6                                      |
-| \texttt{19}        | \texttt{06/04}      | Heteroskedasticity                      | ItE 7                                      |
-| \texttt{20}        | \texttt{06/06}      | Final Review                            |                                            |
-| \texttt{F}         | **\texttt{06/13}**  | **Final Exam, 08:00a** (see [schedule](https://registrar.uoregon.edu/calendars/examinations#complete-final-exam-schedule)) | |
+|  **Class**  | **Date**       | **Topic**                               | **Reading**                                |
+|-------------|----------------|-----------------------------------------|--------------------------------------------|
+| \texttt{01} | \texttt{06/24} | Introduction                            |                                            |
+| \texttt{02} | \texttt{06/25} | Statistics Review I                     | ItE Review                                 |
+| \texttt{03} | \texttt{06/26} | Statistics Review II                    | ItE Review; MM 1 (appendix)                |
+| \texttt{04} | \texttt{06/27} | Fundamental Econometric Problem         | MM 1                                       |
+| \texttt{05} | \texttt{06/28} | The Logic of Regression                 | MM 2                                       |
+| \texttt{06} | \texttt{07/01} | Linear Regression: Estimation I         | ItE 1                                      |
+| \texttt{07} | \texttt{07/02} | Linear Regression: Estimation II        | ItE 1                                      |
+| \texttt{08} | \texttt{07/03} | Classical Assumptions                   | ItE 2                                      |
+| \texttt{09} | \texttt{07/04} | Simple Linear Regression: Inference     | ItE 2                                      |
+| \texttt{10} | \texttt{07/05} | Midterm Review                          |                                            |
+| \texttt{11} | \texttt{07/08} | **Midterm Exam (in-class)**             |                                            |
+| \texttt{12} | \texttt{07/09} | Multiple Linear Regression: Estimation  | ItE 3, 6.2; MM 2 (appendix)                |
+| \texttt{13} | \texttt{07/10} | Multiple Linear Regression: Inference   | ItE 3, 6.3; MM 2 (appendix)                |
+| \texttt{14} | \texttt{07/11} | Nonlinear Relationships                 | ItE 4                                      |
+| \texttt{15} | \texttt{07/12} | Qualitative Variables                   | ItE 5                                      |
+| \texttt{16} | \texttt{07/15} | Interactive Relationships               | ItE 4                                      |
+| \texttt{17} | \texttt{07/16} | Interactive Relationships               | ItE 4                                      |
+| \texttt{18} | \texttt{07/17} | Model Specification                     | ItE 6                                      |
+| \texttt{19} | \texttt{07/18} | Heteroskedasticity                      | ItE 7                                      |
+| \texttt{20} | \texttt{07/19} | Final Review                            |                                            |
+| \texttt{F}  | \texttt{07/19 - 07/21}  | **Final Exam** Take-Home | |
 
