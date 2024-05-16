@@ -21,53 +21,400 @@ name: ovb
 
 [Solution:]{.hii} [_"Control"_]{.note} for the omitted variable(s).
 
+
+
 ---
+
+## {data-visibility="uncounted"}
+
+Class funding ([U]{.hi}) [confounds]{.note} our estimates of smaller class sizes ([X]{.hi}) on test scores ([Y]{.hi}). 
+<br>
+<br>
+
+
+<!-- DAG SLIDE -->
 
 ```{r}
-#| fig-cap: Fitting OLS
-#| echo: false
-#| fig.align: center
-#| fig.height: 6.75
+#| label: dag-ex-ovb-022-again
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
 
-ggplot(data = schools_dt, aes(x = stratio, y = score4)) +
-  geom_point(color = hi) +
-  geom_smooth(method = 'lm', se = FALSE, color = hp) +
-  labs(
-    title = "Relationship between test scores and class size",
-    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
-    y = "Test scores",
-    x = "Class size"
-  ) +
-  mytheme
-
+# Plot the full DAG
+ggplot(
+  data = dag_dt,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
 ```
 
+_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$.
+
 ---
+
+## {data-visibility="uncounted"}
+
+Class funding ([U]{.hi}) [confounds]{.note} our estimates of smaller class sizes ([X]{.hi}) on test scores ([Y]{.hi}). Including data on school funding ([U]{.hi}) in a multiple linear regression allows us to close this backdoor path.
 
 ```{r}
-#| echo: false
-#| fig.align: center
-#| fig.height: 6.75
+#| label: dag-ex-ovb-033
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
 
-ggplot(data = schools_dt, aes(x = stratio, y = score4, group = expgroup, color = expgroup)) +
-  geom_point() +
-  scale_color_manual(values = c(hi, hii), labels = c("Per student expenditure < $6,000", "Per student expenditure > $6,000")) +
-  # scale_x_log10() + scale_y_log10() +
-  labs(
-    title = "Relationship between test scores and class size",
-    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
-    y = "Test scores",
-    x = "Class size",
-    color = NULL
-  ) +
-  mytheme +
-  theme(
-    legend.position = c(0.8, 0.9),
-    legend.text = element_text(size = 12),
-    legend.background = element_rect(color = hi, size = 0.5)
-  )
+# Add indicators for paths
+dag_dt[, `:=`(
+  path1 = (name == "X" & to == "Y") | (name == "Y"),
+  path2 = (name == "X" & to == "U") | (name == "U" & to == "Y") | (name == "Y")
+)]
 
+# Add alpha level
+dag_dt[, `:=`(
+  alpha = ifelse((name == "X" & to == "U") | (name == "U" & to == "X"), 0.3, 1)
+)]
+
+# Continue with the rest of your code...
+
+
+# Plot the full DAG
+ggplot(
+  data = dag_dt,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb, alpha = alpha),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
 ```
+
+. . .
+
+With all backdoor paths closed, [point estimates]{.note} of $\beta_1$ will no longer be biased and will return the population parameter of interest
 
 ---
 
+::: {.middle}
+_In a little more detail, we can derive the bias mathematically._
+:::
+
+---
+
+## Omitted Variable Bias
+
+Imagine we have a population model of the form:
+
+$$
+Y_i = \beta_0 + \beta_1 X_i + \beta_2 Z_i + u_i
+$$
+
+where $Z_i$ is a relevant variable that is omitted from the model.
+
+and suppose we estimate the following model:
+
+$$
+Y_i = \hat{\beta}_0 + \hat{\beta}_1 X_i + v_i
+$$
+
+where $v_i$ is the new error term that absorbs the effect of $Z_i$
+
+
+---
+
+## Omitted Variable Bias
+
+To derive the bias of $\hat{\beta}_1$, we need to understand the relationship between $Z_i$ and $X_i$. Assume that:
+
+$$
+Z_i = \gamma_0 + \gamma_1 X_i + \varepsilon_i
+$$
+
+where $\varepsilon_i$ is the part of $Z_i$ that is uncorrelated with $X_i$
+
+. . .
+
+<br>
+
+If we substitute $Z_i$ into the population model, we get:
+
+$$
+\begin{align*}
+Y_i &= \beta_0 + \beta_1 X_i + \beta_2 \left( \gamma_0 + \gamma_1 X_i + \varepsilon_i \right) + u_i \\
+    &= \beta_0 + \beta_2 \gamma_0 + \left( \beta_1 + \beta_2 \gamma_1 \right) X_i + \beta_2 \varepsilon_i + u_i
+\end{align*}
+$$
+
+---
+
+## Omitted Variable Bias
+
+We can rewrite this expression:
+
+$$
+\begin{align*}
+Y_i &= \beta_0 + \beta_1 X_i + \beta_2 \left( \gamma_0 + \gamma_1 X_i + \varepsilon_i \right) + u_i \\
+    &= \beta_0 + \beta_2 \gamma_0 + \left( \beta_1 + \beta_2 \gamma_1 \right) X_i + \beta_2 \varepsilon_i + u_i
+\end{align*}
+$$
+
+as:
+
+$$
+Y_i = \widehat{\beta}_0 + \widehat{\beta}_1 X_i + v_i
+$$
+
+where:
+
+- $\widehat{\beta}_0 = \beta_0 + \beta_2 \gamma_0$
+- $\widehat{\beta}_1 = \beta_1 + \beta_2 \gamma_1$
+- $v_i = \beta_2 \varepsilon_i + u_i$
+
+Thus, we can see how $Z_i$ will bias our estimate of $\beta_1$
+
+---
+
+## Omitted Variable Bias
+
+Recall that we define the bias of an estimator as:
+
+$$
+\mathop{\text{Bias}}_\theta \left( W \right) = \mathop{\boldsymbol{E}}\left[ W \right] - \theta
+$$
+
+. . .
+
+The bias of the estimator $\hat{\beta}_1$ is given by:
+
+$$
+\begin{align*}
+\mathop{\text{Bias}}_{\beta_1} \left( \hat{\beta}_1 \right) &= \mathop{\boldsymbol{E}}\left[ \hat{\beta}_1 \right] - \beta_1 \\
+&= \mathop{\boldsymbol{E}}\left[ \beta_1 + \beta_2 \gamma_1 \right] - \beta_1 \\
+&= \beta_2 \gamma_1
+\end{align*}
+$$
+
+---
+
+## Omitted Variable Bias
+
+Finally, we can write the bias of $\hat{\beta}_1$ in terms of the correlation between $X_i$ and $Z_i$:
+
+$$
+\gamma_1 = \frac{\text{Cov}\left( X_i, Z_i \right)}{\text{Var}\left( X_i \right)}
+$$
+
+. . .
+
+Therefore, we can write the bias of $\hat{\beta}_1$ as:
+
+$$
+\mathop{\text{Bias}}_{\beta_1} \left( \hat{\beta}_1 \right) = \beta_2 \frac{\text{Cov}\left( X_i, Z_i \right)}{\text{Var}\left( X_i \right)}
+$$
+
+Sure, let's convert the explanation to use the expectation \(\mathop{\boldsymbol{E}}\) instead of the probability limit \(\mathop{\text{plim}}\).
+
+---
+
+## Signing the Bias
+
+Sometimes we're stuck with omitted variable bias.
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+When this happens, we can often at least know the direction of the bias.
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 > 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) > 0}$. Then
+
+. . .
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(+)} \dfrac{\color{#EBCB8B}{(+)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] > \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased upward** (estimates are too large).
+
+. . .
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} &  \\
+ \color{#81A1C1}{\beta_2 < 0} &  &
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 < 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) > 0}$. Then
+
+. . .
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(-)} \dfrac{\color{#EBCB8B}{(+)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] < \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased downward** (estimates are too small).
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} &  \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} &
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 > 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) < 0}$. Then
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(+)} \dfrac{\color{#EBCB8B}{(-)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] < \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased downward** (estimates are too small).
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} & \text{Downward} \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} &
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 < 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) < 0}$. Then
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(-)} \dfrac{\color{#EBCB8B}{(-)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] > \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased upward** (estimates are too large).
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} & \text{Downward} \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} & \text{Upward}
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias
+
+Thus, in cases where we have a sense of
+
+1. the sign of $\mathop{\text{Cov}} \left( X_i,\,Z_i \right)$
+
+2. the sign of $\beta_2$
+
+we know in which direction bias pushes our estimates.
+
+**Direction of Bias**
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} & \text{Downward} \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} & \text{Upward}
+\end{matrix}
+$$

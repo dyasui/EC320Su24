@@ -4,7 +4,7 @@ name: prologue
 
 ---
 
-::: {.vertical-center}
+::: {.middle}
 _First, a quick recap of what we've done thus far._
 :::
 
