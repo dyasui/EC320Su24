@@ -269,8 +269,6 @@ $$
 \mathop{\text{Bias}}_{\beta_1} \left( \hat{\beta}_1 \right) = \beta_2 \frac{\text{Cov}\left( X_i, Z_i \right)}{\text{Var}\left( X_i \right)}
 $$
 
-Sure, let's convert the explanation to use the expectation \(\mathop{\boldsymbol{E}}\) instead of the probability limit \(\mathop{\text{plim}}\).
-
 ---
 
 ## Signing the Bias
