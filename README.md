@@ -74,12 +74,12 @@ The HTML versions of the lecture slides allow you to view animations and interac
 **005 - Mulitple variable regression** [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html)
 
 - Readings: *ItE 3, 6.2; MM 2 (appendix)*
-- Koans: K10_ggplot_facet.R (_due 05/24_)
+<!-- - Koans: K10_ggplot_facet.R (_due 05/24_) -->
 
-**006 - Nonlinear relationships** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html) -->
+**006 - Nonlinear relationships** [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html)
 
 - Readings: *ItE 4*
-- Koans: K13_functions.R (_due 05/31_)
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/006-warmup.html)
 
 **007 - Categorical variables** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html) -->
 
