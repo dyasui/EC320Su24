@@ -108,7 +108,9 @@ PS03: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.html)
 
 _Solutions_: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/PS03_solutions.html)
 
-PS04: [repo](https://github.com/ajdickinson/EC320S24_PS04/) (_due 05/23 @ 11:59p_)
+PS04: [repo](https://github.com/ajdickinson/EC320S24_PS04/) (_due 05/24 @ 11:59p_)
+
+PS05: [repo](https://github.com/ajdickinson/EC320S24_PS05/) (_due 05/30 @ 11:59p_)
 
 ## Practice midterm 
 
