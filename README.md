@@ -81,7 +81,7 @@ The HTML versions of the lecture slides allow you to view animations and interac
 - Readings: *ItE 4*
 - [Warmup](https://ajdickinson.github.io/EC320S24/warmups/006-warmup.html)
 
-**007 - Categorical variables** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html) -->
+**007 - Categorical variables** [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html)
 
 - Readings: *ItE 5*
 
