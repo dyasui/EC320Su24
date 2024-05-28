@@ -83,6 +83,7 @@ The HTML versions of the lecture slides allow you to view animations and interac
 
 **007 - Categorical variables** [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html)
 
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/007-warmup.html)
 - Readings: *ItE 5*
 
 **008 - Model specification**
