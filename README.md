@@ -86,14 +86,10 @@ The HTML versions of the lecture slides allow you to view animations and interac
 - [Warmup](https://ajdickinson.github.io/EC320S24/warmups/007-warmup.html)
 - Readings: *ItE 5*
 
-**008 - Model specification**
+**008 - The fundamental problem of causal inference:** [html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) 
 
-- Readings: *ItE 6*
-
-**009 - The fundamental problem of causal inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.pdf) -->
-<!-- - Readings: *MM 1* -->
-
-
+- Readings: *MM 1*
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/008-warmup.html)
 
 ## Problem Sets 
 
