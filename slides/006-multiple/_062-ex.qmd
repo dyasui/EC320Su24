@@ -651,22 +651,3 @@ ggplot(data = schools_dt, aes(x = stratio, y = exptot)) +
 ::: {.middle}
 This violation has a name. [We call it [omitted variable bias]{.note}]{.fragment}
 :::
-
----
-
-## Omitted variable bias
-
-> Bias that occurs in statistical models when a relevant variable is not included in the model.
-
-
-. . .
-
-<br>
-
-[Consequence:]{.hi-red} Leads to the incorrect estimation of the relationships between variables, which may affect the reliability of the model's predictions and inferences.
-
-<br>
-
-. . .
-
-[Solution:]{.hii} [_"Control"_]{.note} for the omitted variable(s).
