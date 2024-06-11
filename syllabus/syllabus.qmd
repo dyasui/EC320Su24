@@ -36,7 +36,7 @@ repo = "https://github.com/dyasui/EC320Su24"
 |------------------|--------------------------------------------------|------------------------------------|
 | **when**         | _asynchronous_                                   | _TBA_                              |
 | **where**        | Canvas                                           | Zoom                               |
-| **who**          | **Dante Yasui**                                  | **Dante Yasui**                    |
+| **who**          | **Dante Yasui**                                  |                                    |
 |                  | dyasui@uoregon.edu `r dante_email`               |                                    |
 | **office hours** | **TBA**                                          |                                    | 
 |                  | (Or by appointment)                              | (Or by appointment)                |
@@ -171,10 +171,6 @@ I will not tolerate cheating, plagiarism, and other violations of the \href{http
 ## Accommodations
 
 Notify me if there are aspects of this course that pose disability-related barriers to your participation. If you require special accommodations for a documented disability, then you will need to provide me a letter from the \href{https://aec.uoregon.edu/}{Accessible Education Center} (AEC) that verifies your need and details the appropriate accommodations. Please make arrangements with the AEC by the end of Week 1. If your accommodations include exam proctoring at the AEC, then you are responsible for scheduling those exams with the AEC _at least seven days in advance_.
-
-## Etiquette
-
-Please respect those around you by turning off your phone and other potentially distracting devices. I ask that you stay for the entire lecture: getting up and leaving distracts your fellow classmates. If you must leave early, please position yourself near the door when you get to class.
 
 ## Acknowledgements
 
