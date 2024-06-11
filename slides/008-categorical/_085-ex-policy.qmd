@@ -1,0 +1,92 @@
+---
+name: ex-policy
+---
+
+---
+
+## [Ex.]{.ex} Policy intervention
+
+Suppose we are interested in the relationship of some policy intervention that on health outcomes. We estimate the following model: 
+
+$$
+\text{Health Score}_i = \beta_0 + \beta_1 \text{Age}_i + \beta_2 \text{Policy}_i + \beta_3 \text{Age}_i \times \text{Policy}_i + u_i
+$$
+
+Where:
+
+- $\text{Health Score}$: is a continuous variable representing the health of individual $i$.
+- $\text{Age}_i$: the age of individual $i$
+- $\text{Policy}_i$: An indicator for whether the individual $i$ experienced the policy intervention or not.
+
+---
+
+## [Ex.]{.ex} Policy intervention {.scrollable}
+
+OLS output is the following:
+
+```{r}
+#| echo: false
+set.seed(123)
+
+n = 1000
+age = runif(n, min = 40, max = 75)
+income = rnorm(n, mean = 50000, sd = 10000)
+policy = rbinom(n, size = 1, prob = 0.5)
+black = rbinom(n, size = 1, prob = 0.3)
+u = rnorm(n)
+
+beta_0 = 50
+beta_1 = -0.00002
+beta_2 = 10
+beta_3 = 0.1
+beta_4 = -10
+beta_5 = -0.5
+
+
+score = beta_0 + beta_1*income + beta_4*black + beta_2*policy + beta_3*income*policy + u
+
+dt = data.table(
+  score, income, policy
+)
+```
+
+
+```{r}
+lm(score ~ income*policy, data = dt) %>% broom::tidy() 
+```
+
+. . .
+
+[Interpretation:]{.note}
+
+. . .
+
+- $\beta_0$: Expected health score for an individual with income of 0 who was not exposed to the policy
+
+. . .
+
+- $\beta_1$: Expected change in health for an additional dollar of income of for those not exposed to the policy.
+
+. . .
+
+- $\beta_2$: Expected difference in health score between an individual of income of 0 exposed to the policy and an individual of income of 0 not exposed to the policy.
+
+. . .
+
+- $\beta_3$: Expected difference in the effect of income on the health score between those exposed to the policy and those not exposed.
+
+<!-- . . .
+
+- $\beta_0 + \beta_1$: Expected health score for an individual with a given income who was not exposed to the policy. It represents the baseline health score plus the effect of income for those not exposed to the policy.
+
+. . .
+
+- $\beta_0 + \beta_2$: Expected health score for an individual with an income of 0 who was exposed to the policy. It represents the baseline health score plus the effect of the policy for those with no income.
+
+. . .
+
+- $\beta_0 + \beta_1 + \beta_2 + \beta_3$: Expected health score for an individual with a given income who was exposed to the policy. It represents the baseline health score plus the effect of income plus the effect of the policy plus the interaction effect of income and the policy.
+
+. . .
+
+- $\beta_1 + \beta_3$: Expected change in health score for each additional dollar of income for those exposed to the policy. It represents the effect of income for those not exposed to the policy plus the interaction effect of income and the policy. -->

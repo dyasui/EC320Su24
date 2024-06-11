@@ -48,6 +48,65 @@ ggplot(data = schools_dt, aes(x = stratio, y = score4, group = expgroup, color =
 
 ```
 
+
+---
+
+```{r}
+#| echo: false
+#| eval: true
+#| cache: true
+#| fig-height: 8
+#| fig-width: 10
+
+model = lm(score4 ~ stratio + exptot, data = schools_dt)
+
+# Generate points for the regression plane
+stratio_range = seq(min(schools_dt$stratio), max(schools_dt$stratio), length.out = 30)
+exptot_range = seq(min(schools_dt$exptot), max(schools_dt$exptot), length.out = 30)
+grid = expand.grid(stratio = stratio_range, exptot = exptot_range)
+grid$score4 = predict(model, newdata = grid)
+
+# Create 3D scatter plot with regression plane
+plot_ly() %>%
+  add_markers(data = schools_dt, x = ~stratio, y = ~exptot, z = ~score4,
+              marker = list(size = 3), name = 'Data points') %>%
+  add_surface(x = ~stratio_range, y = ~exptot_range, z = matrix(grid$score4, nrow = 30, ncol = 30),
+              opacity = 0.5, showscale = FALSE, name = 'Regression plane') %>%
+  layout(scene = list(
+    xaxis = list(
+      title = 'Class size',
+      backgroundcolor = "white",
+      gridcolor = "lightgrey",
+      showbackground = TRUE,
+      zerolinecolor = "lightgrey"
+    ),
+    yaxis = list(
+      title = 'School Funding',
+      backgroundcolor = "white",
+      gridcolor = "lightgrey",
+      showbackground = TRUE,
+      zerolinecolor = "lightgrey"
+    ),
+    zaxis = list(
+      title = 'Test scores',
+      backgroundcolor = "white",
+      gridcolor = "lightgrey",
+      showbackground = TRUE,
+      zerolinecolor = "lightgrey"
+    ),
+    aspectmode = "manual",
+    aspectratio = list(x = 1, y = 1, z = 0.5)
+  )) %>%
+  layout(
+    scene = list(
+      camera = list(
+        eye = list(x = 1.25, y = 1.25, z = 0.5)
+      )
+    )
+  )
+```
+
+
 ---
 
 ## Multiple linear regression
@@ -150,132 +209,6 @@ tab %>% column_spec(3, bold = T)
 
 ```
 
----
-
-## {data-visibility="uncounted"}
-
-Class funding ([U]{.hi}) [confounds]{.note} our estimates of smaller class sizes ([X]{.hi}) on test scores ([Y]{.hi}). 
-<br>
-<br>
-
-
-<!-- DAG SLIDE -->
-
-```{r}
-#| label: dag-ex-ovb-02-again
-#| echo: FALSE
-#| fig.height: 3
-#| fig.width: 6
-#| fig-align: center
-
-# Plot the full DAG
-ggplot(
-  data = dag_dt,
-  aes(x = x, y = y, xend = xend, yend = yend)
-) +
-geom_point(
-  size = 20,
-  fill = "white",
-  color = hi,
-  shape = 21,
-  stroke = 0.6
-) +
-geom_curve(
-  aes(x = xa, y = ya, xend = xb, yend = yb),
-  curvature = 0,
-  arrow = arrow(length = unit(0.07, "npc")),
-  color = hi,
-  size = 1.2,
-  lineend = "round"
-) +
-geom_text(
-  data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
-  aes(x = x, y = y, label = name),
-  family = "Fira Sans Medium",
-  size = 8,
-  color = hi,
-  fontface = "bold"
-) +
-theme_void() +
-theme(
-  legend.position = "none",
-) +
-coord_cartesian(
-  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
-  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
-)
-```
-
-_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$.
-
----
-
-## {data-visibility="uncounted"}
-
-Class funding ([U]{.hi}) [confounds]{.note} our estimates of smaller class sizes ([X]{.hi}) on test scores ([Y]{.hi}). Including data on school funding ([U]{.hi}) in a multiple linear regression allows us to close this backdoor path.
-
-```{r}
-#| label: dag-ex-ovb-03
-#| echo: FALSE
-#| fig.height: 3
-#| fig.width: 6
-#| fig-align: center
-
-# Add indicators for paths
-dag_dt[, `:=`(
-  path1 = (name == "X" & to == "Y") | (name == "Y"),
-  path2 = (name == "X" & to == "U") | (name == "U" & to == "Y") | (name == "Y")
-)]
-
-# Add alpha level
-dag_dt[, `:=`(
-  alpha = ifelse((name == "X" & to == "U") | (name == "U" & to == "X"), 0.3, 1)
-)]
-
-# Continue with the rest of your code...
-
-
-# Plot the full DAG
-ggplot(
-  data = dag_dt,
-  aes(x = x, y = y, xend = xend, yend = yend)
-) +
-geom_point(
-  size = 20,
-  fill = "white",
-  color = hi,
-  shape = 21,
-  stroke = 0.6
-) +
-geom_curve(
-  aes(x = xa, y = ya, xend = xb, yend = yb, alpha = alpha),
-  curvature = 0,
-  arrow = arrow(length = unit(0.07, "npc")),
-  color = hi,
-  size = 1.2,
-  lineend = "round"
-) +
-geom_text(
-  data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
-  aes(x = x, y = y, label = name),
-  family = "Fira Sans Medium",
-  size = 8,
-  color = hi,
-  fontface = "bold"
-) +
-theme_void() +
-theme(
-  legend.position = "none",
-) +
-coord_cartesian(
-  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
-  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
-)
-```
-
-. . .
-
-With all backdoor paths closed, [point estimates]{.note} of $\beta_1$ will no longer be biased and will return the population parameter of interest. 
 
 ---
 

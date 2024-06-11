@@ -72,25 +72,22 @@ The HTML versions of the lecture slides allow you to view animations and interac
 **005 - Mulitple variable regression** [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html)
 
 - Readings: *ItE 3, 6.2; MM 2 (appendix)*
-- Koans: K10_ggplot_facet.R (_due 05/24_)
+<!-- - Koans: K10_ggplot_facet.R (_due 05/24_) -->
 
-**006 - Nonlinear relationships** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html) -->
+**006 - Nonlinear relationships** [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html)
 
 - Readings: *ItE 4*
-- Koans: K13_functions.R (_due 05/31_)
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/006-warmup.html)
 
-**007 - Categorical variables** <!-- [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html) -->
+**007 - Categorical variables** [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html)
 
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/007-warmup.html)
 - Readings: *ItE 5*
 
-**008 - Model specification**
+**008 - The fundamental problem of causal inference:** [html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) 
 
-- Readings: *ItE 6*
-
-**009 - The fundamental problem of causal inference:** <!--[html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.pdf) -->
-<!-- - Readings: *MM 1* -->
-
-
+- Readings: *MM 1*
+- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/008-warmup.html)
 
 ## Problem Sets 
 
@@ -105,6 +102,10 @@ _Solutions_: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps02/ps0
 PS03: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.pdf) (_due 04/30 @ 11:59p_)
 
 _Solutions_: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/PS03_solutions.html)
+
+PS04: [repo](https://github.com/ajdickinson/EC320S24_PS04/) (_due 05/24 @ 11:59p_)
+
+PS05: [repo](https://github.com/ajdickinson/EC320S24_PS05/) (_due 05/30 @ 11:59p_)
 
 ## Practice midterm 
 

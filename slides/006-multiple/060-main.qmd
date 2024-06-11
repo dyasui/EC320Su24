@@ -30,13 +30,15 @@ $$
 
 [PS04:]{.hi}
 
-- Due date: [TBD]{.hi} (_sometime next next week_)
-- 
+- Due date: Next Thursday (5/23) @ 11:59p
+
 . . .
 
-<!-- [LA05:]{.hi}
+[Koans]{.hi}:
 
-- Due Friday at 5:00p -->
+- Due dates were moved around
+- No koans due this week
+- K08, K09, K10, and K11 are due next week  
 
 . . .
 
@@ -45,6 +47,18 @@ $$
 ItE: R, 1, 2, [3]{.hi}
 
 MM: 1, 2
+
+---
+
+####
+
+![](mt-scores.png)
+
+---
+
+####
+
+![](mt-questions.png)
 
 # _Prologue_ {.inverse .note}
 
@@ -104,6 +118,12 @@ election <- read_csv("election_2016.csv") %>%
 
 {{< include _062-ex.qmd >}}
 
+# [Omitted Variable Bias]{.ex} {.inverse .note}
+
+{{< include _063-ovb.qmd >}}
+
+# _Multiple linear regression_ {.inverse .note}
+
 {{< include _063-multi.qmd >}}
 
 # _Multicollinearity_ {.inverse .note}
@@ -112,7 +132,7 @@ election <- read_csv("election_2016.csv") %>%
 
 # _F Tests_ {.inverse .note}
 
-<!-- {{< include _065-ftest.qmd >}} -->
+{{< include _065-ftest.qmd >}}
 
 # _Fin_ {.inverse .note}
 

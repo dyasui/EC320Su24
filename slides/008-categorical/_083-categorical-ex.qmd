@@ -1,0 +1,327 @@
+---
+name: categorical-ex
+---
+
+
+---
+
+## [Ex.]{.ex} Card (1995)
+
+Education is not randomly assigned across the population, it is a choice. [_"Depending on how these choices are made, measured earnings differences between workers with different levels of schooling may over-state or under-state the true return to education."_]{.fragment}
+
+<br>
+
+. . .
+
+[Card (1995)]{.hii} uses geographic information to causally identify the impact of education earnings by comparing young men who grew up near higher education institutions to those who did not:
+
+<br>
+
+. . .
+
+Findings suggests the greatest earnings increases are among poor men[, suggesting that the presence of a local college lowers the costs/raises the perceived benefits of education.]{.fragment}
+
+---
+
+## [Ex.]{.ex} Card (1995) Abstract
+
+:::{.vertical-center}
+> Although schooling and earnings are highly correlated, social scientists have argued for decades over the causal effect of education. [This paper explores the use of college proximity as an exogenous determinant of schooling.]{.hii} An examination... reveals that [men who grew up in local labor markets with a nearby college have significantly higher education and significantly higher earnings than other men]{.hii}. The education and earnings gains are concentrated among men with poorly- educated parents -- men who would otherwise stop schooling at relatively low levels.
+:::
+
+---
+
+## [Ex.]{.ex} Card (1995) Data {data-visibility="uncounted"}
+
+::: {.tiny}
+| Variable   | Description                                   |
+|------------|-----------------------------------------------|
+| id         | Person identifier                             |
+| nearc4     | =1 if near 4 yr college, 1966                 |
+| educ       | Years of schooling, 1976                      |
+| age        | Age in years                                  |
+| fatheduc   | Father's schooling                            |
+| motheduc   | Mother's schooling                            |
+| weight     | NLS sampling weight, 1976                     |
+| black      | =1 if black                                   |
+| south      | =1 if in south, 1976                          |
+| wage       | Hourly wage in cents, 1976                    |
+| IQ         | IQ score                                      |
+| libcrd14   | =1 if lib. card in home at 14                 |
+:::
+
+---
+
+<!-- ## [Ex.]{.ex} Card (1995) -->
+
+::: {.small}
+
+Regress wages on an indicator for proximity to a four year institution
+
+```{r}
+#| echo: true
+lm(wage ~ nearc4, data = wage_data) %>% tidy()
+```
+
+:::: {.columns .tiny}
+
+::: {.column width="40%"}
+[Q~1~:]{.note} What is the reference category? 
+
+[Q~2~:]{.note} Interpret the coefficients.
+
+<br>
+<br>
+<br>
+<br>
+
+[Q~3~:]{.note} Suppose instead we run^[where `farc4` is an indicator for living far from 4-year institutions] 
+
+```r
+lm(wage ~ farc4, data = wage_data
+```
+
+How does interpretation change?
+
+:::
+
+::: {.column width="60%"}
+[_Men who did not grow up near a 4 year institution_]{.fragment}
+
+---
+
+[$\beta_0$: _On average, men who did not grow up near a 4-year institution earn 516 cents per hour._]{.fragment}
+
+[$\widehat{\beta}_{\text{nearc4}}$: _On average, men who grew up near a 4 year institution earn 89.2 cents more per hour than men who did not._]{.fragment}
+
+---
+
+[$\beta_0$: _On average, men who grow up near a 4-year institution earn $\widehat{\beta}_0$ cents per hour._]{.fragment}
+
+[$\widehat{\beta}_{\text{farc4}}$: _On average, men who grew up far away from a 4 year institution earn $\widehat{\beta}_{farc4}$ cents less per hour than men who did._]{.fragment}
+:::
+
+::::
+
+:::
+
+---
+
+::: {.tiny}
+
+Regress wages on an indicator for proximity to a four year institution and race
+
+```{r}
+#| echo: true
+lm(wage ~ nearc4 + black, data = wage_data) %>% tidy()
+```
+
+:::: {.columns}
+
+::: {.column width="30%"}
+[Q~1~:]{.note} Reference category? 
+
+[Q~2~:]{.note} Interpretation?
+
+
+:::
+
+::: {.column width="70%"}
+[_Non-black men who did not grow up near a 4-year institution_]{.fragment .tiny}
+
+---
+
+[$\beta_0$: _On average, non-black men who grew up far from a 4-year institution earn 562 cents per hour._]{.fragment .tiny}
+
+[$\widehat{\beta}_{\text{nearc4}}$: _On average, men who grew up near a 4-year institution earn 78.1 cents more per hour than men who did not._]{.fragment .tiny}
+
+[$\widehat{\beta}_{\text{black}}$: _On average, black men earn 162 cents less per hour than non-black men, holding proximity to a 4-year institution constant._]{.fragment .tiny}
+
+:::
+
+::::
+
+:::
+
+---
+
+::: {.tiny}
+
+Regress wages on an indicator for proximity to a four year institution and race
+
+```{r}
+#| echo: true
+lm(wage ~ nearc4 + nonblack, data = wage_data) %>% tidy()
+```
+
+:::: {.columns}
+
+::: {.column width="30%"}
+[Q~1~:]{.note} Reference category? 
+
+[Q~2~:]{.note} Interpretation?
+
+:::
+
+::: {.column width="70%"}
+[_Black men who did not grow up near a 4-year institution_]{.fragment .tiny}
+
+---
+
+[$\beta_0$: _On average, black men who did not grow up near a 4-year institution earn 400 cents per hour._]{.fragment .tiny}
+
+[$\widehat{\beta}_{\text{nearc4}}$: _On average, men who grew up near a 4-year institution earn 78.1 cents more per hour than men who did not._]{.fragment .tiny}
+
+[$\widehat{\beta}_{\text{black}}$: _On average, nonblack men earn 162 cents more per hour than non-black men, holding proximity to a 4-year institution constant._]{.fragment .tiny}
+
+:::
+
+::::
+
+:::
+
+---
+
+::: {.middle .tiny}
+_Notice:_
+
+- The coefficient on `nearc4` is the same in both models
+- The interpretation of the coefficient on `black` changes---magnitude is the same
+
+
+::: {.fragment}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+lm(wage ~ nearc4 + black, data = wage_data) %>% 
+  tidy()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+lm(wage ~ nearc4 + nonblack, data = wage_data) %>% 
+  tidy()
+```
+:::
+
+::::
+
+:::
+:::
+
+
+---
+
+## [Ex.]{.ex} Card (1995)
+
+```{r}
+#| echo: true
+
+lm(wage ~ educ + nearc4 + south + black, data = wage_data) %>% tidy()
+```
+
+[Q~1~:]{.note} What is the reference category?
+
+[Q~2~:]{.note} Interpret the coefficients.
+
+---
+
+We considered a model where schooling has the same effect for everyone ([F]{.hp} and [M]{.hi})
+
+```{r}
+#| include: false
+#| cache: true
+
+# Set seed
+set.seed(12345)
+# Sample size
+n <- 1e3
+# Parameters
+beta0 <- 20; beta1 <- 0.5; beta2 <- 10; beta3 <- 3
+# Dataset
+int_df <- tibble(
+  male = sample(x = c(F, T), size = n, replace = T),
+  school = runif(n, 3, 9) - 3 * male,
+  pay = beta0 + beta1 * school + beta2 * male + rnorm(n, sd = 7) + beta3 * male * school
+)
+reg_noint <- lm(pay ~ school + male, int_df)
+reg_int <- lm(pay ~ school + male + school:male, int_df)
+```
+
+```{r}
+#| dev: svg
+#| echo: false
+#| fig.height: 5.5
+
+ggplot(data = int_df, aes(x = school, y = pay)) +
+geom_point(aes(color = male, shape = male), size = 2.5) +
+geom_abline(
+  intercept = reg_noint$coefficients[1] + reg_noint$coefficients[3],
+  slope = reg_noint$coefficients[2],
+  color = hi, size = 1, alpha = 0.8
+) +
+geom_abline(
+  intercept = reg_noint$coefficients[1],
+  slope = reg_noint$coefficients[2],
+  color = hp, size = 1, alpha = 0.8
+) +
+xlab("Schooling") +
+ylab("Pay") +
+coord_cartesian(xlim = c(0, 10), ylim = c(0, 80)) +
+mytheme_s +
+theme(
+  text = element_text(color = hi, family = "Fira Sans"),
+  axis.title = element_text(size = 18),
+  plot.margin = structure(c(0, 0, 0.1, 0), unit = "lines", valid.unit = 3L, class = "unit"),
+) +
+scale_color_manual("", values = c(hp, hi), labels = c("Female", "Male")) +
+scale_shape_manual("", values = c(16, 1), labels = c("Female", "Male"))
+```
+
+---
+
+We will consider models that allow effects to differ by another variable (*e.g.,* by gender: ([F]{.hp} and [M]{.hi})):
+
+```{r}
+#| dev: svg
+#| echo: false
+#| fig.height: 5.5
+ggplot(data = int_df, aes(x = school, y = pay)) +
+geom_point(aes(color = male, shape = male), size = 2.5) +
+geom_abline(
+  intercept = reg_noint$coefficients[1] + reg_noint$coefficients[3],
+  slope = reg_noint$coefficients[2],
+  color = hi, size = 0.75, alpha = 0.2
+) +
+geom_abline(
+  intercept = reg_noint$coefficients[1],
+  slope = reg_noint$coefficients[2],
+  color = hp, size = 0.75, alpha = 0.2
+) +
+geom_abline(
+  intercept = reg_int$coefficients[1] + reg_int$coefficients[3],
+  slope = reg_int$coefficients[2] + reg_int$coefficients[4],
+  color = hi, size = 1, alpha = 0.8
+) +
+geom_abline(
+  intercept = reg_int$coefficients[1],
+  slope = reg_int$coefficients[2],
+  color = hp, size = 1, alpha = 0.8
+) +
+xlab("Schooling") +
+ylab("Pay") +
+coord_cartesian(xlim = c(0, 10), ylim = c(0, 80)) +
+mytheme_s +
+theme(
+  text = element_text(color = hi, family = "Fira Sans"),
+  axis.title = element_text(size = 18),
+  plot.margin = structure(c(0, 0, 0.1, 0), unit = "lines", valid.unit = 3L, class = "unit"),
+) +
+scale_color_manual("", values = c(hp, hi), labels = c("Female", "Male")) +
+scale_shape_manual("", values = c(16, 1), labels = c("Female", "Male"))
+```

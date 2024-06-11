@@ -1,0 +1,179 @@
+---
+title: Intro to RMarkdown 
+date: "`r Sys.Date()`"
+output: html_document
+author: Dante
+---
+
+# Text
+
+You should already be familiar with writing code in files with the `.R` extension like you have been doing for koans.
+In those files, everything not commented with `#` is recognized to be lines of code.
+
+Now we will learn how to write documents using a light-weight markup language called *R Markdown*.
+Files with the extension `.Rmd` are recognized by RStudio as R Markdown documents.
+Everything you write will be recognized as either *text*, *formatting*, *math notation*, or *code*.
+
+This document is written in markdown. 
+Markdown is designed to facilitate *literate programming* which (briefly) means that writing in plain english comes first,
+then code.
+Notice how everything I have written so far (except for the formatting at the top) is compiled as type-set text instead of code?
+
+# Formatting
+
+Markdown provides simple shorthand for your basic formatting that you would find in a menu of options in word processors like Microsoft Word.
+
+## Headings 
+
+# Heading Level 1 
+
+## Heading Level 2 
+
+### Heading Level 3 
+
+#### Heading Level 4 
+
+## Emphasize and link text
+
+*Italicized Text*
+
+**Bold Text**
+
+***Bold and Italicized Text***
+
+[Hyperlinked Text](https://youtu.be/dQw4w9WgXcQ)
+
+## Lists
+
+Enumerated List:
+
+1. First item
+2. Second item
+3. Third item
+
+Bulleted List:
+
+* Item 
+* Another Item
+* Parent Item 
+  * Indented child item
+* Last item
+
+## Horizontal rules
+
+---
+
+# R Code
+
+Unlike in an `.R` file, R Markdown will not recognize text as R code unless you tell it.
+Text inside pairs of backticks (\`\_\`, or \`\`\`\_\`\`\` ) is recognized as code.
+
+## Inline code 
+
+In markdown, I can say something like "2 + 2 = `r 2 + 2`". 
+
+## Code chunks 
+
+I can also add a code chunk with the green '+C' button in Rstudio or the hotkey, `Command Alt I`.
+
+```{r}
+# everything inside a chunk works like in a .R file
+library(tidyverse)
+library(gapminder)
+head(gapminder)
+```
+
+I can also define an object in an `R` object,
+```{r}
+meanGDP = mean(gapminder$gdpPercap)
+```
+
+which I can call upon with the ``r `` syntax to print a result in text:
+The average GDP per capita is `r meanGDP`.
+
+### Chunk options
+Inside of the r chunk heading, you can specify a number of options depending on what you want to appear in your final document.
+
+* If you don't want the code to be *evaluated* and the results printed, you can set `eval = FALSE`
+
+```{r eval=FALSE}
+sample_data <- tibble(
+  X = runif(n = 10, min = 0, max = 10),
+  Y = 1 * X + rnorm(n = 10, mean = 0, sd = 0.1)
+)
+lm(data = sample_data, Y ~ X)
+```
+
+* If you don't want the code itself to show up in the document, set `echo = FALSE`
+
+```{r echo=FALSE}
+sample_data <- tibble(
+  X = runif(n = 10, min = 0, max = 10),
+  Y = 1 * X + rnorm(n = 10, mean = 0, sd = 0.1)
+)
+lm(data = sample_data, Y ~ X)
+```
+
+There are other options like `warning`, `error`, `message`, etc. which you can read about [here](https://yihui.org/knitr/options/).
+
+# Math equations
+
+Markdown includes syntax which comes from the LaTeX set of macros for the TeX type-setting language.
+
+[LaTeX](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes) is its own world which you should read more about if you're interested, but for this class we just need the basics of writing equations.
+
+## Inline math equations
+
+Just like backticks are used to denote code, \$ are used to denote math equations.
+
+I can write math in the middle of a line of text such as $Y = 3 X^2 + \pi$ which will be compiled by RStudio as a nice-looking equation.
+You can write superscripts such as $R^2$, 
+and subscripts such as $Y_i$.
+
+The summation notation has its own command, `\sum`, which can be used to write $\sum_{i=1}^{N} X_i$.
+There are also `\sqrt` for $\sqrt{\cdot}$, `\int` for $\int$, and `\frac` for fractions $\frac{a}{b}$, and many more!
+
+Some characters like \{, \}, will be recognized as LaTeX formatting unless escaped with the \\ symbol.
+Notice the difference between ${ x_1, x_2, x_3 }$ and $\{ x_1, x_2, x_3 \}$.
+
+$$ E = mc^2 $$
+
+### Greek letters
+
+`\alpha` becomes $\alpha$, `\beta` becomes $\beta$, `\gamma` becomes $\gamma$, etc.
+
+### 'Hat' and 'Bar' notation
+
+* `\hat{Y}` becomes $\hat{Y}$
+
+* `\bar{X}` becomes $\bar{X}$
+
+## Display math mode
+
+Equations inside double pairs of $ will be printed on their own line.
+
+### Writing OLS equations
+
+$$ Y_i = \hat{\beta}_0 + \hat{\beta}_1 X_i + \hat{u}_i $$
+
+$$ \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X} $$
+
+$$ 
+\hat{\beta}_1 = 
+\frac{ \sum_{i=1}^n ( Y_i - \bar{Y} )( X_i - \bar{X} ) }{ \sum_{i=1}^n ( X_i - \bar{X} ) ^2 } 
+$$
+
+## Learning LaTeX
+
+Feel free to use the examples in these notes as guidance by comparing the source code to the compiled html output.
+
+You can also copy the code for any equation in lecture slides by finding the appropriate .qmd file in Andrew's github repository.
+
+* ChatGPT knows LaTeX surprisingly well, but you have to be able to tell it what you want it to write and then edit the code it gives you for mistakes.
+
+* [Overleaf](https://www.overleaf.com) is an online LaTeX editor which offers a free trial you can use to play around with writing LaTeX documents.
+They also have great tutorials and template galleries.
+
+## Learning RMarkdown
+
+Consult the official [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)!
