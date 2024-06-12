@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Econometrics"
-subtitle: "Syllabus, Summjer 2024"
+subtitle: "Syllabus, Summer 2024"
 author: "Dante Yasui"
 format: PrettyPDF-pdf
 ---
@@ -13,8 +13,8 @@ format: PrettyPDF-pdf
 #| error: false
 
 # Create short cuts for links in the markdown table
-andrew_site = "[{{< fa cloud >}}](https://ajdickinson.github.io)"
-andrew_email = "[{{< fa paper-plane >}}](mailto:adickin3@uoregon.edu)"
+# andrew_site = "[{{< fa cloud >}}](https://ajdickinson.github.io)"
+# andrew_email = "[{{< fa paper-plane >}}](mailto:adickin3@uoregon.edu)"
 
 dante_email = "[{{< fa paper-plane >}}](mailto:dyasui@uoregon.edu)"
 dante_site = "https://cas.uoregon.edu/directory/economics/all/dyasui"
@@ -83,7 +83,7 @@ Even if you are fairly comfortable with math and coding, I have found that it ca
 
 ## Problem Sets and Koans
 
-Every week, you will have around *five koan assignments* and *one Canvas quiz* to complete. 
+Every week, you will have *one homework sheet*, around *3~4 koans*, and *one Canvas quiz* to complete. 
 
 **Problem sets**
   will primarily focus on analytical problems but may include a computational component. Submissions **must be your own work**. You will receive **zero points** for copied work.
@@ -92,7 +92,6 @@ Every week, you will have around *five koan assignments* and *one Canvas quiz* t
 - \textbf{PDF} and \textbf{html} are the only file types accepted for problem sets on Canvas
 - One file per problem set is permitted
 - Your lowest problem set score will be dropped
-- Presentation matters. You may lose points for poor penmanship, scans, and presentation
 
 **Koans**
   will be strictly focused on developing your computational skills in R. They will be short and if you are actively keeping up with the lab section, it should not take long to complete them.
@@ -102,6 +101,12 @@ Every week, you will have around *five koan assignments* and *one Canvas quiz* t
 - Koans will directly relate to topics covered in lab section. Use the lab section recordings as a resource to complete these assignments
 - Your lowest koan score will be dropped
 
+**Quizes**
+
+- Each quiz will be one long-answer, exam-style question
+- You will have fixed amount of time to complete the quiz, but you can open it at any time during the week
+- You must submit a *handwritten scan* of your work 
+- Presentation matters. You may lose points for poor penmanship, scans, and presentation
 
 Most of the Koans will be assigned in the first half of the course. Toward the later half of the course, the problem sets will become more dependent on R and Koans will be less frequent. These problem sets will be longer and will have more time to complete them.
 
@@ -136,10 +141,10 @@ Grades for this class will be assigned based on the following assignments: weekl
 
 | Component            | Percentage |
 |----------------------|------------|
-| Koans                |         5% |
+| Koans                |        10% |
+| Quizes               |        10% |
 | Problem sets         |        10% |
 | Midterm exam         |        35% |
-| Take-Home Final exam |        15% |
 | Final exam           |        35% |
 
 _Note:_ While assignments will be submitted on Canvas, due to any potential curving of final grades, the gradebook on Canvas may not be accurate---only an approximation. All adjustments of final grades will be done in a local spreadsheet.
@@ -187,27 +192,21 @@ HTML slides are generated using the [quarto](https://quarto.org/). Source code f
 
 # Tentative Schedule
 
-|  **Class**  | **Date**       | **Topic**                               | **Reading**                                |
-|-------------|----------------|-----------------------------------------|--------------------------------------------|
-| \texttt{01} | \texttt{06/24} | Introduction                            |                                            |
-| \texttt{02} | \texttt{06/25} | Statistics Review I                     | ItE Review                                 |
-| \texttt{03} | \texttt{06/26} | Statistics Review II                    | ItE Review; MM 1 (appendix)                |
-| \texttt{04} | \texttt{06/27} | Fundamental Econometric Problem         | MM 1                                       |
-| \texttt{05} | \texttt{06/28} | The Logic of Regression                 | MM 2                                       |
-| \texttt{06} | \texttt{07/01} | Linear Regression: Estimation I         | ItE 1                                      |
-| \texttt{07} | \texttt{07/02} | Linear Regression: Estimation II        | ItE 1                                      |
-| \texttt{08} | \texttt{07/03} | Classical Assumptions                   | ItE 2                                      |
-| \texttt{09} | \texttt{07/04} | Simple Linear Regression: Inference     | ItE 2                                      |
-| \texttt{10} | \texttt{07/05} | Midterm Review                          |                                            |
-| \texttt{11} | \texttt{07/08} | **Midterm Exam (in-class)**             |                                            |
-| \texttt{12} | \texttt{07/09} | Multiple Linear Regression: Estimation  | ItE 3, 6.2; MM 2 (appendix)                |
-| \texttt{13} | \texttt{07/10} | Multiple Linear Regression: Inference   | ItE 3, 6.3; MM 2 (appendix)                |
-| \texttt{14} | \texttt{07/11} | Nonlinear Relationships                 | ItE 4                                      |
-| \texttt{15} | \texttt{07/12} | Qualitative Variables                   | ItE 5                                      |
-| \texttt{16} | \texttt{07/15} | Interactive Relationships               | ItE 4                                      |
-| \texttt{17} | \texttt{07/16} | Interactive Relationships               | ItE 4                                      |
-| \texttt{18} | \texttt{07/17} | Model Specification                     | ItE 6                                      |
-| \texttt{19} | \texttt{07/18} | Heteroskedasticity                      | ItE 7                                      |
-| \texttt{20} | \texttt{07/19} | Final Review                            |                                            |
-| \texttt{F}  | \texttt{07/19 - 07/21}  | **Final Exam** Take-Home | |
+|  **Week**   | **Lectures**                             | **Readings**                | **Assignments**       |
+|-------------|------------------------------------------|-----------------------------|-----------------------|
+| \texttt{1}  | Introduction                             | Syllabus                    | Install R and RStudio |
+| \texttt{1}  | Stats Review                             | ItE Review, MM 1 (appendix) | K01, 02, 03           |
+| \texttt{1}  | Fundamental Econometric Problem          | MM 1                        | HW 1                  |
+| \texttt{1}  | The Logic of Regression                  | MM 2                        | Quiz 1                |
+| \texttt{2}  | Linear Regression: Estimation            | ItE 1                       | K04, 05, 06, 06b      |
+| \texttt{2}  | Classical Assumptions                    | ItE 2                       | HW 2                  |
+| \texttt{2}  | Linear Regression: Inference             | ItE 2                       | Quiz 2                |
+| \texttt{2}  | Linear Regression: Estimation            | ItE 2                       | *Midterm*             |
+| \texttt{3}  | Multiple Linear Regression: Estimation   | ItE 3, 6.2; MM 2 (appendix) | K07, 08, 09, 10       |
+| \texttt{3}  | Multiple Linear Regression: Inference    | ItE 3                       | HW 3                  |
+| \texttt{3}  | Nonlinear Relationships                  | ItE 4                       | Quiz 3                |
+| \texttt{4}  | Qualitative Variables                    | ItE 5                       | K11, 12, 13           |
+| \texttt{4}  | Model Specification                      | ItE 6                       | HW 4                  |
+| \texttt{4}  | Heteroskedasticity                       | ItE 7                       | Quiz 4                |
+| \texttt{4}  | Final Review                             | Review Sheet                | *Final Exam*          |
 
