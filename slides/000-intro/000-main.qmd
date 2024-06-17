@@ -1,13 +1,13 @@
 ---
 title: "Introduction and Overview"
 subtitle: "EC320, Set 01"
-author: Andrew Dickinson
+author: Dante Yasui
 date: last-modified
-date-format: "Spring YYYY"
+date-format: "Summer YYYY"
 self-contained: TRUE
 format: 
   revealjs:
-    theme: [default, ../styles.scss]
+    theme: [default, ./styles.scss]
     slide-number: true
     footer: "EC320, Set 01 | Introduction and Overview"
     preview-links: auto
@@ -30,13 +30,13 @@ title-slide-attributes:
 
 {{< include _003-syllabus.qmd >}}
 
-# {{< fa brands r-project >}} {.inverse}
+# [ ]{.nf} {.inverse}
 
 {{< include _004-R.qmd >}}
 
-# Chat GPT {.inverse .note}
+<!-- # Chat GPT {.inverse .note} -->
 
-{{< include _005-GPT.qmd >}}
+<!-- {{< include _005-GPT.qmd >}} -->
 
 # Next class: Statistics review {.inverse .note}
 
@@ -50,8 +50,8 @@ title-slide-attributes:
 1. [Prologue](#prologue)
 1. [Causal Identification](#causal-identification)
 1. [EC320](#ec320)
-1. [{{< fa brands r-project >}}](#nf)
-1. [Chat GPT](#chat-gpt)
+1. [[ ]{.nf}](#nf)
+<!-- 1. [Chat GPT](#chat-gpt) -->
 :::
 
 ::: {.column width="50%"}

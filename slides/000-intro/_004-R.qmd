@@ -4,9 +4,9 @@ name: R
 
 ---
 
-## What is {{< fa brands r-project >}}?
+## What is [ ]{.nf}?
 
-To quote the [{{< fa brands r-project >}} project website](https://www.r-project.org)^[[[R]{.mono} wikipedia](https://en.wikipedia.org/wiki/R_(programming_language))]
+To quote the [[ ]{.nf} project website](https://www.r-project.org)^[[[R]{.mono} wikipedia](https://en.wikipedia.org/wiki/R_(programming_language))]
 
 > R is a free software environment for statistical computing and graphics.
 > It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
@@ -15,29 +15,29 @@ To quote the [{{< fa brands r-project >}} project website](https://www.r-project
 
 What does that mean?
 
-- {{< fa brands r-project >}} was created for the statistical and graphical work required by econometrics
+- [ ]{.nf} was created for the statistical and graphical work required by econometrics
 --written by statistical programmers
 
-- {{< fa brands r-project >}} has a vibrant, thriving online community. 
+- [ ]{.nf} has a vibrant, thriving online community. 
 ([stack overflow](https://stackoverflow.com/questions/tagged/r))
 
 - Plus it's [free]{.hi}  and [open source]{.hi}
 
 ---
 
-## Why are we using {{< fa brands r-project >}}?
+## Why are we using [ ]{.nf}?
 
-1\. {{< fa brands r-project >}} is [free]{.hi} and [open source]{.hi}
+1\. [ ]{.nf} is [free]{.hi} and [open source]{.hi}
 —saving both you and the university money.
 
 <br>
 
 2\. _Related:_ Outside of a small group of economists, private- and public-sector 
-[employers favor {{< fa brands r-project >}}]{.blue} over [Stata]{.hi} and most competing softwares.
+[employers favor [ ]{.nf}]{.blue} over [Stata]{.hi} and most competing softwares.
 
 <br>
 
-3\. {{< fa brands r-project >}} is very [flexible and powerful]{.hi}
+3\. [ ]{.nf} is very [flexible and powerful]{.hi}
 —adaptable to nearly any task, 
 _e.g._, 'metrics, spatial data analysis, machine learning, web scraping, data cleaning,
 website building, teaching. 
@@ -45,15 +45,15 @@ I write all my slides, problem sets, and exams in [R]{.mono}.
 
 ---
 
-## Why are we using {{< fa brands r-project >}}?
+## Why are we using [ ]{.nf}?
 
-4\. _Related:_ {{< fa brands r-project >}} imposes [no artificial restrictions]{.hi} 
+4\. _Related:_ [ ]{.nf} imposes [no artificial restrictions]{.hi} 
 on your amount of observations, variables, memory, or processing power.
 
 <br>
 
 5\. If you put in the work,
-^[Learning {{< fa brands r-project >}} definitely requires time and effort.] 
+^[Learning [ ]{.nf} definitely requires time and effort.] 
 you will come away with a [valuable and marketable]{.hi} tool.
 
 <br>
@@ -103,17 +103,70 @@ theme(legend.position = "bottom",
       plot.title = element_text(size = 48))
 ```
 
-# Getting started with {{< fa brands r-project >}} {.inverse}
+## Cool examples of what you can do with [ ]{.nf}
+
+```{r}
+#| eval: FALSE
+#| echo: TRUE 
+#| fig-align: "center"
+# The package for animating ggplot2
+library(gganimate); library(gapminder)
+# As before
+ggplot(
+  data = gapminder %>% filter(continent != "Oceania"),
+  aes(gdpPercap, lifeExp, size = pop, color = country)
+) +
+geom_point(alpha = 0.7, show.legend = FALSE) +
+scale_colour_manual(values = country_colors) +
+scale_size(range = c(2, 12)) +
+scale_x_log10("GDP per capita", label = scales::comma) +
+facet_wrap(~continent) +
+# theme_pander(base_size = 16) +
+theme(panel.border = element_rect(color = "grey90", fill = NA)) +
+# Here comes the gganimate-specific bits
+labs(title = "Year: {frame_time}") +
+ylab("Life Expectancy") +
+transition_time(year) +
+ease_aes("linear")
+```
+---
+
+```{r}
+#| eval: TRUE
+#| echo: FALSE 
+#| fig-align: "center"
+# The package for animating ggplot2
+library(gganimate); library(gapminder)
+# As before
+ggplot(
+  data = gapminder %>% filter(continent != "Oceania"),
+  aes(gdpPercap, lifeExp, size = pop, color = country)
+) +
+geom_point(alpha = 0.7, show.legend = FALSE) +
+scale_colour_manual(values = country_colors) +
+scale_size(range = c(2, 12)) +
+scale_x_log10("GDP per capita", label = scales::comma) +
+facet_wrap(~continent) +
+# theme_pander(base_size = 16) +
+theme(panel.border = element_rect(color = "grey90", fill = NA)) +
+# Here comes the gganimate-specific bits
+labs(title = "Year: {frame_time}") +
+ylab("Life Expectancy") +
+transition_time(year) +
+ease_aes("linear")
+```
+
+# Getting started with [ ]{.nf} {.inverse}
 
 ---
 
-## {{< fa brands r-project >}} setup for EC 320
+## [ ]{.nf} setup for EC 320
 
 [Installation]{.hi}
 
 You need to install [2]{.hi} pieces of software:
 
-- [{{< fa brands r-project >}}](https://cran.r-project.org/)
+- [[ ]{.nf}](https://cran.r-project.org/)
 - [[RStudio]{.hi}](https://posit.co/download/rstudio-desktop/)  
 
 . . .
@@ -125,14 +178,14 @@ follow [this tutorial](https://learnr-examples.shinyapps.io/ex-setup-r/#section-
 
 <br>
 
-[Note:]{.note} {{< fa brands r-project >}}/[RStudio]{.hi} installations differ by operating system
+[Note:]{.note} [ ]{.nf}/[RStudio]{.hi} installations differ by operating system
 
 ---
 
 ## [R]{.mono .realbig} setup for EC 320 
 
 ::: {.align-center}
-{{< fa brands r-project >}} [v.]{.small} [RStudio]{.hi}
+[ ]{.nf} [v.]{.small} [RStudio]{.hi}
 :::
 
 :::: {.columns}
@@ -152,15 +205,15 @@ follow [this tutorial](https://learnr-examples.shinyapps.io/ex-setup-r/#section-
 
 . . .
 
-{{< fa brands r-project >}} works without [RStudio]{.hi}
+[ ]{.nf} works without [RStudio]{.hi}
 
-[RStudio]{.hi} doesn't work without {{< fa brands r-project >}}
+[RStudio]{.hi} doesn't work without [ ]{.nf}
 
 ---
 
 ## R basics
 
-You will dive deeper in lab, but here six big points about {{< fa brands r-project >}}:
+You will dive deeper in lab, but here six big points about [ ]{.nf}:
 
 :::: {.columns}
 
