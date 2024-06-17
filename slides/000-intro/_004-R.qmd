@@ -111,7 +111,7 @@ theme(legend.position = "bottom",
 #| fig-align: "center"
 # The package for animating ggplot2
 library(gganimate); library(gapminder)
-# As before
+# the ggplot code used to plot the data
 ggplot(
   data = gapminder %>% filter(continent != "Oceania"),
   aes(gdpPercap, lifeExp, size = pop, color = country)
@@ -154,6 +154,15 @@ labs(title = "Year: {frame_time}") +
 ylab("Life Expectancy") +
 transition_time(year) +
 ease_aes("linear")
+```
+
+## R + Maps
+
+```{r}
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%
+  addMarkers(lng = -123.075, lat = 44.045, popup = "The University of Oregon")
 ```
 
 # Getting started with [ ]{.nf} {.inverse}
