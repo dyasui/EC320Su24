@@ -17,6 +17,7 @@ Why do economists (and others) study econometrics?
 . . .
 
 > Providing answers to important problems. 
+> Gaining confidence in our understanding of the world.
 
 . . .
 
@@ -29,13 +30,14 @@ Why do economists (and others) study econometrics?
 - [Does the death penalty deter violent crime?]{.tiny}
 <!-- - [Does recreational marijuana cross state lines? -->
 - [How will global warming affect the economy?]{.tiny}
-- [How responsive are polluter to a carbon tax?]{.tiny}
+- [How responsive are polluters to a carbon tax?]{.tiny}
 :::
 
 ::: {.column width="45%"}
 - [What explains the gender pay gap?]{.tiny}
-- [Are recessions good for your health?]{.tiny}
+<!--- [Are recessions good for your health?]{.tiny}-->
 - [Can we forecast the next recession?]{.tiny}
+- [Who gains and who loses from globalization?]
 :::
 
 ::::
@@ -69,6 +71,8 @@ Why should [you]{.hi} study econometrics?
 > Develop skills and learn to use tools that are valued by employers.
 >
 > Cultivate a healthy sense of skepticism
+> 
+> Gain confidence in statistical evidence-backed arguments
 
 . . .
 
@@ -96,7 +100,8 @@ Throughout this course, I will try my best to emphasize [why:]{.hi .big}
 
 <br>
 
-Econometrics is built on crucial [fundamentals]{.note}. These [fundamentals]{.note} is the focus of this class.
+Econometrics is built on crucial [fundamentals]{.note}. 
+These [fundamentals]{.note} is the focus of this class.
 
 ---
 
@@ -106,12 +111,17 @@ Most econometric inquiry concerns one of [two]{.hi} distinct goals:
 
 . . .
 
-1. [Prediction:]{.hp} Accurately [predict]{.purple} or [forecast]{.purple} an outcome given a set of predictors. [Given what we know about]{.purple} $x$, [what values do we expect]{.purple} $y$ [to take?]{.purple}
+1. [Prediction:]{.hp} 
+Accurately [predict]{.purple} or [forecast]{.purple} an outcome given a set of predictors.
+[Given what we know about]{.purple} $x$, [what values do we expect]{.purple} $y$ [to take?]{.purple}
 
 . . .
 
-2. [Causal identification:]{.hii} [Estimate]{.blue} the effect of an intervention on an outcome. [How does]{.blue} $y$ [change when we change]{.blue} $x$[?]{.blue}
+2. [Causal identification:]{.hii} 
+[Estimate]{.blue} the effect of an intervention on an outcome. 
+[How does]{.blue} $y$ [change when we change]{.blue} $x$[?]{.blue}
 
 . . .
 
-In this class, and in [EC 421]{.hii}, we will focus on the [later]{.hii}. The [former]{.hp} is the focus of [EC 422]{.hp} and [EC 524]{.hp}
+In this class, and in [EC 421]{.hii}, we will focus on the [later]{.hii}. 
+The [former]{.hp} is the focus of [EC 422]{.hp} and [EC 524]{.hp}

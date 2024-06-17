@@ -10,11 +10,13 @@ We start to build up the fundamentals of [causal analysis]{.blue}
 
 <br>
 
-But first we need to build up the necessary [Theory]{.hi}, [Tools]{.hii}, and [Skills]{.hp}
+But first we need to build up the necessary [Theory]{.hi},
+[Tools]{.hii}, and [Skills]{.hp}
 
 <br>
 
-This course will focus _almost_ exclusively on a particular method that is common in statistics in general:
+This course will focus _almost_ exclusively on a particular method 
+that is common in statistics in general:
 
 . . .
 
@@ -25,6 +27,8 @@ This course will focus _almost_ exclusively on a particular method that is commo
 ---
 
 ## Coursework
+
+* ***TODO*** Fix schedule
 
 [Rough weekly outline:]{.hii}
 
@@ -57,7 +61,7 @@ This course will focus _almost_ exclusively on a particular method that is commo
 
 # Syllabus {.inverse}
 
-[_(click here)_](https://ajdickinson.github.io/EC320S24/syllabus/syllabus.pdf){.white}
+[_(click here)_](https://raw.githack.com/dyasui/EC320S24/syllabus/syllabus.pdf){.white}
 
 ---
 
@@ -65,7 +69,7 @@ This course will focus _almost_ exclusively on a particular method that is commo
 
 I use [GitHub]{.hi} to host a separate site with all the course materials
 
-You can find a link to it [here](https://github.com/ajdickinson/EC320S24) or on the Canvas homepage
+You can find a link to it [here](https://github.com/dyasui/EC320S24) or on the Canvas homepage
 
 . . .
 
@@ -89,17 +93,17 @@ All zoom records will only be available on Canvas
 
 ## About me
 
-Please call me [Andrew]{.hii .big}
+Please call me [Dante]{.hii .big}
 
 :::: {.columns}
 
 ::: {.column width="55%"}
-- [Office:]{.hi} [PLC 523](https://map.uoregon.edu/7c6d0ffbd)
-- [Office hours:]{.hi} After class 1:20-2:00p and F 10:00-11:00a
+<!--- [Office:]{.hi} [PLC 523](https://map.uoregon.edu/7c6d0ffbd)-->
+<!--- [Office hours:]{.hi} After class 1:20-2:00p and F 10:00-11:00a-->
 :::
 
 ::: {.column width="45%"}
-- [Email:]{.hi} [adickin3@uoregon.edu](adickin3@uoregon.edu)
+- [Email:]{.hi} [dyasui@uoregon.edu](dyasui@uoregon.edu)
 :::
 
 ::::
@@ -111,15 +115,14 @@ Please call me [Andrew]{.hii .big}
 [> Metrics]{.hi .big}
 
 - I love studying econometrics
-- My second time teaching EC320
-- [TA'd:]{.hii} EC421 (x2), EC422/522, EC423/523, EC424/524
-- [Instructed:]{.hii} EC320, EC330 (x3)
+- My first time teaching EC320 but I TAed for this class twice
+- [Instructed:]{.hii} EC327 Winter 2024
 
 ---
 
 ## About me {data-visibility="uncounted"}
 
-Please call me [Andrew]{.hii .big}
+Please call me [Dante]{.hii .big}
 
 :::: {.columns}
 
@@ -138,45 +141,23 @@ Please call me [Andrew]{.hii .big}
 
 [> Grad school]{.hi .big}
 
-- 4th year Econ PhD student
-- Applied topics related to environmental economics
+- 3rd year Econ PhD student
+- Applied topics related to migration and historical data
 - Causal inference, statistical learning, and data science
-- Current focus on air pollution
 
 ---
 
 ## About me {data-visibility="uncounted"}
 
-Please call me [Andrew]{.hii .big}
+Please call me [Dante]{.hii .big}
 
-:::: {.columns}
-
-::: {.column width="55%"}
-- [Office:]{.hi} [PLC 523](https://map.uoregon.edu/7c6d0ffbd)
-- [Office hours:]{.hi} T & Th 4:00p-5:00p 
-:::
-
-::: {.column width="45%"}
-- [Email:]{.hi} [adickin3@uoregon.edu](adickin3@uoregon.edu)
-:::
-
-::::
-
-<br>
 
 [> Before grad school]{.hi .big}
 
-- Grew up in San Diego, CA
-- Spent childhood/undergrad summers in the San Juan Islands
-- Studied economics and math at San Diego State University
-- Prior to PhD, researched crime and immigration topics
-
-<!-- . . .
-
-[> Outside of grad school]{.hi .big}
-
-- Getting outside: backpacking, climbing, running, snorkling etc.
--  -->
+- Grew up in Davis, CA
+- Traveled around CA for gymnastics and quizbowl competitions in high school
+- Studied Economics and Japanese at college in Portland, OR
+- Prior to PhD, researched economic history and geography
 
 ---
 

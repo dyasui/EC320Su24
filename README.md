@@ -35,73 +35,75 @@ Zoom - Time: *TBA*
 
 The HTML versions of the lecture slides allow you to view animations and interactive features, provided that you have an internet connection. The PDF slides don't require an internet connection, but they cannot display the animations or interactive features.
 
-**000 - Introduction:** [html](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-main.pdf) -->
+**000 - Introduction:** 
+[html](https://raw.githack.com/dyasui/EC320Su24/slides/000-intro/000-main.html)
+<!-- | [PDF](https://raw.githack.com/dyasui/EC320Su24/slides/000-intro/000-main.pdf) -->
 
 - Readings: Introduction in *ItE Review* & *MM 1 (appendix)*
-- Koans: K01_vector.R (_due 04/12_)
-- [Warmup](https://ajdickinson.github.io/EC320S24/slides/000-intro/000-warmup.html)
+- Koans: K01_vector.R (_due 06/30_)
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/slides/000-intro/000-warmup.html)
 - [R and RStudio Install Tutorial](https://learnr-examples.shinyapps.io/ex-setup-r/#section-install-r)
 
-**001 - Review:** [html](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.pdf) -->
+**001 - Review:** [html](https://raw.githack.com/dyasui/EC320Su24/slides/001-review/010-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/001-review/010-main.pdf) -->
 
 - Readings: Introduction in *ItE Review* & *MM 1 (appendix)*
-- Koans: K02_tibble.R and K03_pipe.R (_due 04/12_)
-- [Warmup](https://ajdickinson.github.io/EC320S24/slides/001-review/001-warmup.html)
+- Koans: K02_tibble.R and K03_pipe.R (_due 06/30)
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/slides/001-review/001-warmup.html)
 
-**002 - Simple linear regression I:** [html](https://ajdickinson.github.io/EC320S24/slides/002-ols/020-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-ols/020-main.pdf) -->
+**002 - Simple linear regression I:** [html](https://raw.githack.com/dyasui/EC320Su24/slides/002-ols/020-main.html) <!-- | [PDF](https://ajdickinson.github.io/EC320S24/slides/002-ols/020-main.pdf) -->
 
-- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/warmup03.html)
-- Deriving OLS handout: [html](https://ajdickinson.github.io/EC320S24/slides/002-ols/ols-handout.html) 
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/warmups/warmup03.html)
+- Deriving OLS handout: [html](https://raw.githack.com/dyasui/EC320Su24/slides/002-ols/ols-handout.html) 
 - Readings: *ItE 1*
-- Koans: K04_dplyr1.R and K05_dplyr2.R (_due 04/19_)
+- Koans: K04_dplyr1.R and K05_dplyr2.R (_due 07/07_)
 
-**003 - Simple linear regression II:** [html](https://ajdickinson.github.io/EC320S24/slides/004-ols-ii/040-main.html)
+**003 - Simple linear regression II:** [html](https://raw.githack.com/dyasui/EC320Su24/slides/004-ols-ii/040-main.html)
 
-- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/003-warmup.html)
-- [Warmup 2](https://ajdickinson.github.io/EC320S24/warmups/004-warmup.html)
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/warmups/003-warmup.html)
+- [Warmup 2](https://raw.githack.com/dyasui/EC320Su24/warmups/004-warmup.html)
 - Readings: *ItE 1*, *MM 2*
 - Koans: K07_left_join.R and K08_qplot_to_ggplot.R (_due 05/10_)
 
-**004 - Inference:** [html](https://ajdickinson.github.io/EC320S24/slides/005-inference/050-main.html)
+**004 - Inference:** [html](https://raw.githack.com/dyasui/EC320Su24/slides/005-inference/050-main.html)
 
-- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/005-warmup.html)
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/warmups/005-warmup.html)
 - Readings: *ItE 2*
 - Final topics before MT
 <!-- - Koans: K09_ggplot_aes.R and K12_stats.R (_due 05/17_) -->
 
-**005 - Mulitple variable regression** [html](https://ajdickinson.github.io/EC320S24/slides/006-multiple/060-main.html)
+**005 - Mulitple variable regression** [html](https://raw.githack.com/dyasui/EC320Su24/slides/006-multiple/060-main.html)
 
 - Readings: *ItE 3, 6.2; MM 2 (appendix)*
 <!-- - Koans: K10_ggplot_facet.R (_due 05/24_) -->
 
-**006 - Nonlinear relationships** [html](https://ajdickinson.github.io/EC320S24/slides/007-nonlinear/070-main.html)
+**006 - Nonlinear relationships** [html](https://raw.githack.com/dyasui/EC320Su24/slides/007-nonlinear/070-main.html)
 
 - Readings: *ItE 4*
-- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/006-warmup.html)
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/warmups/006-warmup.html)
 
-**007 - Categorical variables** [html](https://ajdickinson.github.io/EC320S24/slides/008-categorical/080-main.html)
+**007 - Categorical variables** [html](https://raw.githack.com/dyasui/EC320Su24/slides/008-categorical/080-main.html)
 
-- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/007-warmup.html)
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/warmups/007-warmup.html)
 - Readings: *ItE 5*
 
-**008 - The fundamental problem of causal inference:** [html](https://ajdickinson.github.io/EC320S24/slides/002-fundamental-problem/020-main.html) 
+**008 - The fundamental problem of causal inference:** [html](https://raw.githack.com/dyasui/EC320Su24/slides/002-fundamental-problem/020-main.html) 
 
 - Readings: *MM 1*
-- [Warmup](https://ajdickinson.github.io/EC320S24/warmups/008-warmup.html)
+- [Warmup](https://raw.githack.com/dyasui/EC320Su24/warmups/008-warmup.html)
 
 ## Problem Sets 
 
-PS01: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps01/ps01.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps01/ps01.pdf) (_due 04/16 @ 11:59p_)  
+PS01: [html](https://raw.githack.com/dyasui/EC320Su24/problem-sets/ps01/ps01.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps01/ps01.pdf) (_due 04/16 @ 11:59p_)  
 
-_Solutions_: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps01/ps01_solutions.html)
+_Solutions_: [html](https://raw.githack.com/dyasui/EC320Su24/problem-sets/ps01/ps01_solutions.html)
 
-PS02: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps02/ps02.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps02/ps02.pdf) (_due 04/23 @ 11:59p_)
+PS02: [html](https://raw.githack.com/dyasui/EC320Su24/problem-sets/ps02/ps02.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps02/ps02.pdf) (_due 04/23 @ 11:59p_)
 
-_Solutions_: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps02/ps02_solutions.html)
+_Solutions_: [html](https://raw.githack.com/dyasui/EC320Su24/problem-sets/ps02/ps02_solutions.html)
 
-PS03: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.pdf) (_due 04/30 @ 11:59p_)
+PS03: [html](https://raw.githack.com/dyasui/EC320Su24/problem-sets/ps03/ps03.html) | [PDF](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/ps03.pdf) (_due 04/30 @ 11:59p_)
 
-_Solutions_: [html](https://ajdickinson.github.io/EC320S24/problem-sets/ps03/PS03_solutions.html)
+_Solutions_: [html](https://raw.githack.com/dyasui/EC320Su24/problem-sets/ps03/PS03_solutions.html)
 
 PS04: [repo](https://github.com/ajdickinson/EC320S24_PS04/) (_due 05/24 @ 11:59p_)
 
@@ -109,7 +111,7 @@ PS05: [repo](https://github.com/ajdickinson/EC320S24_PS05/) (_due 05/30 @ 11:59p
 
 ## Practice midterm 
 
-[PDF](https://ajdickinson.github.io/EC320S24/exams/practice-mt.pdf)
+[PDF](https://raw.githack.com/dyasui/EC320Su24/exams/practice-mt.pdf)
 
 ## Koans
 
@@ -119,7 +121,7 @@ R Koans are inspired by the concept of Zen koans, which are short stories or que
 
 The primary goal of using R Koans is to provide you with hands-on experience with R’s syntax--specifically we will focus on R packages that are contained in the tidyverse.
 
-- **Weekly Exercises:** Starting from the second week, each student will be assigned a set of koans that cover the topics discussed in the lectures. These exercises will be part of your lab assignments.
+- **Weekly Exercises:** Each student will be assigned a set of koans that cover the topics discussed in the lectures. These exercises will be part of your lab assignments.
 - **Interactive Sessions:** During lab sessions, there will be dedicated time to work on your koans. 
 
 You don't need to know how to program to do these koans. They get gradually harder as you go along, and are meant to be a way to learn about all the data analytics skills that an economist might need. For more information about learning R, I recommend reading through the following passage in [The Tidy Econometrics Workbook](https://colleen.quarto.pub/the-tidy-econometrics-workbook/#programming-in-r). 

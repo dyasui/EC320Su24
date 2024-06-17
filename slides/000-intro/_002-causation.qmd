@@ -166,7 +166,8 @@ Here are some of the more famous ones:
 1. Vietnam draft lottery
 
 ::: {.notes}
-During the Vietnam War, the U.S. used a lottery system to determine which young men would be drafted into military service. The random assignment of draft numbers created a natural experiment that researchers have used to study the causal effects of military service on various outcomes, including earnings, education, and long-term health.
+During the Vietnam War, the U.S. used a lottery system to determine which young men would be drafted into military service. 
+The random assignment of draft numbers created a natural experiment that researchers have used to study the causal effects of military service on various outcomes, including earnings, education, and long-term health.
 :::
 
 . . .
@@ -174,15 +175,18 @@ During the Vietnam War, the U.S. used a lottery system to determine which young 
 2. The Mariel Boatlift
 
 ::: {.notes}
-The Mariel Boatlift: In 1980, Fidel Castro unexpectedly allowed around 125,000 Cubans to leave for the United States, creating a sudden increase in the supply of low-skilled labor in Miami. This "supply shock" has been used as a natural experiment to study the effects of immigration on the wages and employment opportunities of native workers in the receiving country.
+The Mariel Boatlift: In 1980, Fidel Castro unexpectedly allowed around 125,000 Cubans to leave for the United States, creating a sudden increase in the supply of low-skilled labor in Miami. 
+This "supply shock" has been used as a natural experiment to study the effects of immigration on the wages and employment opportunities of native workers in the receiving country.
 :::
 
 . . .
 
-3. Divorce Law Reforms
+3. Maimonides' Rule and Class Size
 
 ::: {.notes}
-In the 1970s and 1980s, several U.S. states adopted "no-fault" divorce laws, which made it easier for couples to obtain a divorce without having to prove fault or misconduct by either spouse. These reforms created a natural experiment to study the effects of divorce law changes on marriage and divorce rates, labor force participation, and outcomes for children in affected families.
+In Isreal, classes of students are split if they exceed multiples of 40. 
+Students in a class of 80 would have similar outcomes to those in a class of 81,
+except that the class of 81 would benefit from having a higher teacher-to-student ratio.
 :::
 
 . . .
@@ -190,7 +194,9 @@ In the 1970s and 1980s, several U.S. states adopted "no-fault" divorce laws, whi
 4. The Opening of the London Congestion Charge
 
 ::: {.notes}
-In 2003, London introduced a congestion charge for vehicles entering the city center during peak hours. The charge aimed to reduce traffic congestion and improve air quality. The introduction of the charge provided a natural experiment to study its effects on air pollution, traffic congestion, and public transportation use.
+In 2003, London introduced a congestion charge for vehicles entering the city center during peak hours.
+The charge aimed to reduce traffic congestion and improve air quality. 
+The introduction of the charge provided a natural experiment to study its effects on air pollution, traffic congestion, and public transportation use.
 :::
 
 ---
