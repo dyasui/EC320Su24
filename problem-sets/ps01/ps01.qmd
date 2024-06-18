@@ -1,0 +1,89 @@
+---
+title: "PS01"
+subtitle: "Due date: Friday, June 28th @ 11:59pm"
+format: PrettyPDF-pdf
+---
+
+# Instructions 
+Complete the following questions below and show all work. You may either type or hand write your answers.
+However, you must submit your problem set to Canvas as an html or pdf. Meaning any handwritten solutions are
+to be scanned and uploaded. The onus is yours to deliver an organized, clear, and/or legible submission of the
+correct file type that loads properly on Canvas. Do not simply change the file type and submit (e.g. edit name of
+document from .jpg .pdf) Double-check your submissions!
+
+***Integrity:*** If you are suspected of cheating, you will receive a zero—for the assignment and possibly for the course.
+Cheating includes copying work from your classmates, from the internet, and from previous problem sets. You are
+encouraged to work with your peers, but everyone must submit their own answers. Remember, the problem sets
+are designed to help you study for the midterm. By cheating, you do yourself a disservice.
+
+# Questions 
+
+## Q1. *Settlers of Catan* **32 pts**
+
+*Each part is worth 4 pts*
+
+In the board game *"Settlers of Catan"*, 
+two dice are rolled each turn and summed together.
+Let $X$ be a random variable that describes the sum of these two dice.
+
+### (a) What is the sample space of $X$?
+
+### (b) What is the probability density function (PDF) of $X$?
+
+### (c) What are the three most likely outcomes of $X$?
+
+### (d) Find the expected value, $\mathbb{E}[X]$, of random variable $X$ from part (a).
+
+### (e) Find the variance, $Var(X)$, of random variable $X$ from part (a).
+
+Let $X$ be the same random variable from problem 001
+and $Y$ be equal to:
+$$ Y = 5 X + 1 $$
+
+### (f) Calculate $\mathbb{E}[Y]$. Is it the same as $5 \mathbb{E}[X] + 1$?
+
+### (g) Calculate $Var[Y]$. 
+
+Suppose we have random variables $W$ and $Q$,
+and we know $Var(W)=16$, $Var(Q)=36$, and $Cov(W,Q)=2$.
+
+Now, let $A=2W+4Q$. 
+
+### (h) What is $Var(A)$?
+
+
+## Q2. *OLS Estimation* **36 pts**
+
+Suppose we have the following data on a dependent variable (Y)
+and an independent variable (X):
+
+| **Observation Number** | **Y** | **X** |
+|------------------------+-------+-------|
+| 1                      | 20    | 12    |
+| 2                      | 4     | 14    |
+| 3                      | 12    | 16    |
+
+We wish to estimate the simple linear regression model:
+
+$$ Y_i = \beta_0 + \beta_1 X_i + u_i $$
+
+### (a) Calculate the OLS estimates $\hat{\beta_0}$ and $\hat{\beta_1}$. **20 pts**
+  Show your work.
+
+### (b) Calculate the $R^2$ for this regression. **16 pts**
+  Show your work.
+
+## Q3. *Interpretation of OLS Estimates* **32 pts**
+
+```{r}
+#| echo: FALSE
+#| message: FALSE
+library(tidyverse)
+lm(data = mtcars, formula = mpg ~ wt) %>% 
+  broom::tidy()
+```
+
+### (a) Give the interpretation of the two estimates. **16 pts**
+
+### (b) The regression in (a) produced an $R^2$ of 0.75. What does this value tell us? **16 pts**
+
