@@ -125,3 +125,27 @@ Accurately [predict]{.purple} or [forecast]{.purple} an outcome given a set of p
 
 In this class, and in [EC 421]{.hii}, we will focus on the [later]{.hii}. 
 The [former]{.hp} is the focus of [EC 422]{.hp} and [EC 524]{.hp}
+
+## In EC320
+
+<br>
+
+We start to build up the fundamentals of [causal analysis]{.blue}
+
+<br>
+
+But first we need to build up the necessary [Theory]{.hi},
+[Tools]{.hii}, and [Skills]{.hp}
+
+<br>
+
+This course will focus _almost_ exclusively on a particular method 
+that is common in statistics in general:
+
+. . .
+
+<br>
+
+- [Ordinary Least Squares (OLS)]{.note} [(aka linear regression)]{.tiny}
+
+---

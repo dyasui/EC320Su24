@@ -32,22 +32,28 @@ repo = "https://github.com/dyasui/EC320Su24"
 
 # Basics
 
-|                  | **Lecture**                                      | **Lab**                            |
-|------------------|--------------------------------------------------|------------------------------------|
-| **when**         | _asynchronous_                                   | _TBA_                              |
-| **where**        | Canvas                                           | Zoom                               |
-| **who**          | **Dante Yasui**                                  |                                    |
-|                  | dyasui@uoregon.edu `r dante_email`               |                                    |
-| **office hours** | **TBA**                                          |                                    | 
-|                  | (Or by appointment)                              | (Or by appointment)                |
-| **materials**    | [1. Introduction to Econometrics](`r dougherty`) |                                    |
-|                  | [2. Mastering 'Metrics](`r angrist`)             |                                    |
-| **repository**   | [github.com/dyasui/EC320Su24](`r repo`)          |                                    |
+|                  | **Lecture**                                      |
+|------------------|--------------------------------------------------|
+| **lecture**      | Recordings posted on Canvas                      |
+| **office hours** | [Tuesday: 10-11am](https://uoregon.zoom.us/j/98317465628?pwd=YNmQeo7AbiH39x9Vv11w1ACKsO0at9.1)  |
+|                  | [Thursday: 3-4pm](https://uoregon.zoom.us/j/95498739227?pwd=Txgm7ZalzCaZiipZMQZlQ1Uo2ewQ2a.1)   |
+| **Lab**          | [Wednesday: noon-2pm](https://uoregon.zoom.us/j/93947688014?pwd=szWAbYxRIbifx20m7iakzgYzcUN3zw.1) |
+| **materials**    | [1. Introduction to Econometrics](`r dougherty`) |
+|                  | [2. Mastering 'Metrics](`r angrist`)             |
+| **repository**   | [github.com/dyasui/EC320Su24](`r repo`)          |
 
 
 # Course Summary
 
-This course introduces statistical techniques that economists use to test economic theories and to estimate the relationships between economic variables. Econometrics combines economics and statistics with data to analyze and measure economic phenomena. In this class, we will focus our attention on regression analysis--the workhorse of applied econometrics. Using calculus and introductory statistics, we will cultivate a working understanding of the theory underpinning regression analysis, emphasizing the assumptions we must make to make causal statements. Statistical programming is fundamental to practicing applied econometrics. Thus we will teach the statistical programming language \texttt{R} to apply insights from theory and learn how to work with data. To the extent that you invest the requisite time and effort, you can leave this course with marketable skills in data analysis and---most importantly---a more sophisticated understanding of the notion that *correlation does not necessarily imply causation*. 
+This course introduces statistical techniques that economists use to test economic theories and to estimate the relationships between economic variables.
+Econometrics combines economics and statistics with data to analyze and measure economic phenomena.
+In this class, we will focus our attention on regression analysis--the workhorse of applied econometrics.
+Using calculus and introductory statistics, we will cultivate a working understanding of the theory underpinning regression analysis,
+emphasizing the assumptions we must make to make causal statements.
+Statistical programming is fundamental to practicing applied econometrics.
+Thus we will teach the statistical programming language \texttt{R} to apply insights from theory and learn how to work with data.
+To the extent that you invest the requisite time and effort, you can leave this course with marketable skills in data analysis 
+and---most importantly---a more sophisticated understanding of the notion that *correlation does not necessarily imply causation*. 
 
 ## Software
 
@@ -77,40 +83,48 @@ Math 242 (Calculus) and Math 243 (Introduction to Statistics) or equivalent.
 ## Lab
 
 Although this class is officially asynchronous, I will also be offering optional *syncronous* lab sections.
-This will be a time scheduled every week where you can join a Zoom meeting and be placed in breakout rooms where you can work on assignments or quizes collaboratively with other class members, or get direct help from me.
-I recommend participating in these lab sessions if you are able. Between the amount of math we used in this class and learning to code in \texttt{R}, there will be a lot of potentially challenging material for you to tackle on your own.
-Even if you are fairly comfortable with math and coding, I have found that it can be rewarding to work together with peers who might not have as much experience as having to explain things in your own words can help solidify your own understanding.
+This will be a time scheduled every week where you can join a Zoom meeting and be placed in breakout rooms 
+where you can work on assignments or quizes collaboratively with other class members, or get direct help from me.
+I recommend participating in these lab sessions if you are able.
+Between the amount of math we used in this class and learning to code in \texttt{R},
+there will be a lot of potentially challenging material for you to tackle on your own.
+Even if you are fairly comfortable with math and coding,
+I have found that it can be rewarding to work with peers and explaining things in your own words can help solidify your own understanding.
+
+- While Lab sessions are optional, I will give an **extra credit point for every session you attend and actively particpate during.**
 
 ## Problem Sets and Koans
 
-Every week, you will have *one homework sheet*, around *3~4 koans*, and *one Canvas quiz* to complete. 
+Every week, you will have *one problem set* as well as around *3~4 koans* and *4 Canvas quizzes* to complete. 
 
-**Problem sets**
-  will primarily focus on analytical problems but may include a computational component. Submissions **must be your own work**. You will receive **zero points** for copied work.
+**Problem sets** will primarily focus on analytical problems but may include a computational component.
+Submissions **must be your own work**. You will receive **zero points** for copied work.
 
-- Due on Sunday midnight every week.
+- Due on Friday midnight every week.
 - \textbf{PDF} and \textbf{html} are the only file types accepted for problem sets on Canvas
 - One file per problem set is permitted
 - Your lowest problem set score will be dropped
 
-**Koans**
-  will be strictly focused on developing your computational skills in R. They will be short and if you are actively keeping up with the lab section, it should not take long to complete them.
+Feel free to work together on the assignments. Unless explicitly stated, **each student is required to write and submit independent answers**. This means that word-for-word copies will not be accepted and will be viewed as academic dishonesty. In other words: You must place answers **in your own words and code**. Copying from other people (even if you worked with them) or from previous assignments is considered cheating. Both will be submitted on Canvas under the "Assignments" tab.
 
-- All koans assigned for a given week will be due Sunday midgight, but I recommend submitting one per day.
+**Koans** will be strictly focused on developing your computational skills in R.
+They will be short and if you are actively keeping up with learning R, it should not take long to complete them.
+
+- All koans assigned for a given week will be due Friday midgight, but I recommend submitting one per day.
 - \textbf{html} is the only file type accepted for Koans on Canvas
-- Koans will directly relate to topics covered in lab section. Use the lab section recordings as a resource to complete these assignments
 - Your lowest koan score will be dropped
-
-**Quizes**
-
-- Each quiz will be one long-answer, exam-style question
-- You will have fixed amount of time to complete the quiz, but you can open it at any time during the week
-- You must submit a *handwritten scan* of your work 
-- Presentation matters. You may lose points for poor penmanship, scans, and presentation
 
 Most of the Koans will be assigned in the first half of the course. Toward the later half of the course, the problem sets will become more dependent on R and Koans will be less frequent. These problem sets will be longer and will have more time to complete them.
 
-Feel free to work together on the assignments. Unless explicitly stated, **each student is required to write and submit independent answers**. This means that word-for-word copies will not be accepted and will be viewed as academic dishonesty. In other words: You must place answers **in your own words and code**. Copying from other people (even if you worked with them) or from previous assignments is considered cheating. Both will be submitted on Canvas under the "Assignments" tab.
+**Quizes** will be short multiple choice or numeric questions to help you check your understanding.
+
+- They will be graded based on completion only to make sure you are following along.
+
+**Exams** will be timed, open-note, but individual and closed-internet.
+
+- You will have fixed amount of time to complete the quiz, but you can open it at any time from the Friday when it is posted to Sunday midnight.
+- You must submit a *handwritten scan* of your work 
+- Presentation matters. You may lose points for poor penmanship, scans, and presentation
 
 ## Late Policy
 
@@ -120,18 +134,18 @@ Feel free to work together on the assignments. Unless explicitly stated, **each 
 
 ## Exams
 
-- The **Midterm** will be a timed Canvas quiz which will be released **Friday, July 5**. You will have 2 hours to complete and upload it.
+- The **Midterm** will be a timed Canvas quiz which will be released **Friday, July 5**.
+You will have 2 hours to complete, scan, and upload it.
 - The **Final** will be on  **Friday, July 19, 2024**
-- A **Take-Home Final** will be assigned during the last week and will be due **Sunday, July 21**
 
 Canvas exams will be open-note, but you will not be allowed to access other internet resources.
 All work should be completed independently in your own words.
 
-The **Midterm** will be in-class and will cover material from the beginning of the term through the week before the exam. The **Final** exam will be comprehensive and will cover all material from the term. The **Take-Home Final** will be assigned during the last week of class and will be designed to test your ability to apply concepts from the course to conduct analysis on real data using \texttt{R}.
-
 ## Makeup Assignments
 
-I do not give makeup assignments. In extreme circumstances that lead you to miss the midterm exam, I will consider re-weighting your grade toward the final. To qualify for re-weighting, you will need to notify me no later than two days after the exam.
+I do not give makeup assignments.
+In extreme circumstances that lead you to miss the midterm exam, I will consider re-weighting your grade toward the final.
+To qualify for re-weighting, you will need to notify me no later than two days after the exam.
 
 \clearpage
 
@@ -170,12 +184,16 @@ _Note:_ While assignments will be submitted on Canvas, due to any potential curv
 
 ## Academic Integrity
 
-I will not tolerate cheating, plagiarism, and other violations of the \href{https://studentlife.uoregon.edu/conduct}{Student Conduct Code}. If you are caught cheating or plagiarizing on any component of this course, you will receive a failing grade for the term and I will report your offense to the university. 
-
+I will not tolerate cheating, plagiarism, and other violations of the \href{https://studentlife.uoregon.edu/conduct}{Student Conduct Code}.
+If you are caught cheating or plagiarizing on any component of this course, you will receive a failing grade for the term and I will report your offense to the university. 
 
 ## Accommodations
 
-Notify me if there are aspects of this course that pose disability-related barriers to your participation. If you require special accommodations for a documented disability, then you will need to provide me a letter from the \href{https://aec.uoregon.edu/}{Accessible Education Center} (AEC) that verifies your need and details the appropriate accommodations. Please make arrangements with the AEC by the end of Week 1. If your accommodations include exam proctoring at the AEC, then you are responsible for scheduling those exams with the AEC _at least seven days in advance_.
+Notify me if there are aspects of this course that pose disability-related barriers to your participation.
+If you require special accommodations for a documented disability,
+then you will need to provide me a letter from the \href{https://aec.uoregon.edu/}{Accessible Education Center} (AEC) that verifies your need and details the appropriate accommodations.
+Please make arrangements with the AEC by the end of Week 1.
+If your accommodations include exam proctoring at the AEC, then you are responsible for scheduling those exams with the AEC _at least seven days in advance_.
 
 ## Acknowledgements
 
@@ -185,8 +203,8 @@ His original acknowledgment section is replicated below:
 
 Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/) ([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference, and [Ben Lambert](https://ben-lambert.com/econometrics/) and his [undergradaute course in econometrics](.https://www.youtube.com/playlist?list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU) that helped me learn this material as a student and to teach this material as an instructor. Finally, I would like to thank [Colleen O'Briant](https://cobriant.github.io/) ([@cobriant](https://github.com/cobriant)) for making available her [tidyverse_koans](https://github.com/cobriant/tidyverse_koans) materials for use in this course.
 
-HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the "slides" directory of this repository. PDFs of the slides are generated using the \texttt{renderthis} package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
-
+HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the "slides" directory of this repository.
+PDFs of the slides are generated using the \texttt{renderthis} package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
 
 \clearpage
 

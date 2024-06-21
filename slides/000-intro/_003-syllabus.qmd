@@ -2,35 +2,15 @@
 name: syllabus
 ---
 
-## In EC320
+# Syllabus {.inverse}
 
-<br>
-
-We start to build up the fundamentals of [causal analysis]{.blue}
-
-<br>
-
-But first we need to build up the necessary [Theory]{.hi},
-[Tools]{.hii}, and [Skills]{.hp}
-
-<br>
-
-This course will focus _almost_ exclusively on a particular method 
-that is common in statistics in general:
-
-. . .
-
-<br>
-
-- [Ordinary Least Squares (OLS)]{.note} [(aka linear regression)]{.tiny}
+[_(click here)_](https://raw.githack.com/dyasui/EC320S24/syllabus/syllabus.pdf){.white}
 
 ---
 
 ## Coursework
 
-* ***TODO*** Fix schedule
-
-[Rough weekly outline:]{.hii}
+[Rough outline of topics:]{.hii}
 
 :::: {.columns}
 
@@ -38,16 +18,18 @@ that is common in statistics in general:
 - [01:]{.hi} Introduction and review
 - [02:]{.hi} The econometric problem
 - [03:]{.hi} SLR estimation
-- [04:]{.hi} SLR assumption
+- [04:]{.hi} SLR assumptions
 - [05:]{.hi} SLR inference
+- [Midterm]{.hii} after 2nd week
 :::
 
 ::: {.column width="50%"}
-- [06:]{.hi} [Midterm]{.hii}
-- [07:]{.hi} MLR estimate and inference
+- [06:]{.hi} MLR estimation 
+- [07:]{.hi} MLR inference
 - [08:]{.hi} Transformations
-- [09:]{.hi} Quantitative variables
-- [10:]{.hi} Exogeniety and final review
+- [09:]{.hi} Qualitative variables
+- [10:]{.hi} Heteroskedasticity 
+- [Final]{.hii} after 4th week
 :::
 
 ::::
@@ -56,14 +38,8 @@ that is common in statistics in general:
 
 <br>
 
-[Final:]{.hii} [Thursday, June 13 @ 08:00a](https://registrar.uoregon.edu/calendars/examinations#complete-final-exam-schedule)
+[Final Due:]{.hii} Sunday, July 21st @ 08:00a
 
-
-# Syllabus {.inverse}
-
-[_(click here)_](https://raw.githack.com/dyasui/EC320S24/syllabus/syllabus.pdf){.white}
-
----
 
 ## Course site
 
@@ -77,17 +53,18 @@ You can find a link to it [here](https://github.com/dyasui/EC320S24) or on the C
 
 I use it because:
 
-1. it is convenient for me to post slides
-2. it allows me to post class materials on my website
-3. acts as a secondary site in case Canvas poops out
+1. I am adapting from previous class github repo
+2. it is convenient to track changes and keep everything up to date
+3. acts as a secondary site in case Canvas dies
 
 . . .
 
-[EVERYTHING](.hi) will be posted to both Canvas and GitHub except one thing... [the slides]{.fragment}
+I will try my best to keep Canvas up to date,
+but if you can't find something there check the github.
 
 . . .
 
-All zoom records will only be available on Canvas
+All video recordings will only be available on Canvas
 
 ---
 
@@ -98,8 +75,11 @@ Please call me [Dante]{.hii .big}
 :::: {.columns}
 
 ::: {.column width="55%"}
-<!--- [Office:]{.hi} [PLC 523](https://map.uoregon.edu/7c6d0ffbd)-->
-<!--- [Office hours:]{.hi} After class 1:20-2:00p and F 10:00-11:00a-->
+- [Office hours:]{.hi} 
+  - Tuesdays: 10-11am PST
+  - Thursdays: 3-4pm 
+- [Lab:]{.hi}
+  - Wednesdays: noon-2pm
 :::
 
 ::: {.column width="45%"}
@@ -116,7 +96,7 @@ Please call me [Dante]{.hii .big}
 
 - I love studying econometrics
 - My first time teaching EC320 but I TAed for this class twice
-- [Instructed:]{.hii} EC327 Winter 2024
+- [Instructor:]{.hii} EC327 Winter 2024
 
 ---
 
