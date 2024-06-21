@@ -91,6 +91,8 @@ there will be a lot of potentially challenging material for you to tackle on you
 Even if you are fairly comfortable with math and coding,
 I have found that it can be rewarding to work with peers and explaining things in your own words can help solidify your own understanding.
 
+- While Lab sessions are optional, I will give an **extra credit point for every session you attend and actively particpate during.**
+
 ## Problem Sets and Koans
 
 Every week, you will have *one problem set* as well as around *3~4 koans* and *4 Canvas quizzes* to complete. 
@@ -182,12 +184,16 @@ _Note:_ While assignments will be submitted on Canvas, due to any potential curv
 
 ## Academic Integrity
 
-I will not tolerate cheating, plagiarism, and other violations of the \href{https://studentlife.uoregon.edu/conduct}{Student Conduct Code}. If you are caught cheating or plagiarizing on any component of this course, you will receive a failing grade for the term and I will report your offense to the university. 
-
+I will not tolerate cheating, plagiarism, and other violations of the \href{https://studentlife.uoregon.edu/conduct}{Student Conduct Code}.
+If you are caught cheating or plagiarizing on any component of this course, you will receive a failing grade for the term and I will report your offense to the university. 
 
 ## Accommodations
 
-Notify me if there are aspects of this course that pose disability-related barriers to your participation. If you require special accommodations for a documented disability, then you will need to provide me a letter from the \href{https://aec.uoregon.edu/}{Accessible Education Center} (AEC) that verifies your need and details the appropriate accommodations. Please make arrangements with the AEC by the end of Week 1. If your accommodations include exam proctoring at the AEC, then you are responsible for scheduling those exams with the AEC _at least seven days in advance_.
+Notify me if there are aspects of this course that pose disability-related barriers to your participation.
+If you require special accommodations for a documented disability,
+then you will need to provide me a letter from the \href{https://aec.uoregon.edu/}{Accessible Education Center} (AEC) that verifies your need and details the appropriate accommodations.
+Please make arrangements with the AEC by the end of Week 1.
+If your accommodations include exam proctoring at the AEC, then you are responsible for scheduling those exams with the AEC _at least seven days in advance_.
 
 ## Acknowledgements
 
@@ -197,8 +203,8 @@ His original acknowledgment section is replicated below:
 
 Material for this course has contributions from [Ed Rubin](http://edrub.in/) ([@edrubin](https://github.com/edrubin)), [Kyle Raze](https://kyleraze.com/) ([@kyleraze](https://github.com/kyleraze)), [Philip Economides](https://philip-economides.com/) ([@peconomi](https://github.com/peconomi)), and [Emmett Saulnier](https://www.emmettsaulnier.com/), who have taught the class prior to me and graciously made their work public and inspired me to pay it forward. Additionally I source some material from [Nick Huntington-Klein](https://nickchk.com/) ([@NickCH-K](https://github.com/NickCH-K)), who maintains a [trove of resources](https://nickchk.com/causalgraphs.html) for learning causal inference, and [Ben Lambert](https://ben-lambert.com/econometrics/) and his [undergradaute course in econometrics](.https://www.youtube.com/playlist?list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU) that helped me learn this material as a student and to teach this material as an instructor. Finally, I would like to thank [Colleen O'Briant](https://cobriant.github.io/) ([@cobriant](https://github.com/cobriant)) for making available her [tidyverse_koans](https://github.com/cobriant/tidyverse_koans) materials for use in this course.
 
-HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the "slides" directory of this repository. PDFs of the slides are generated using the \texttt{renderthis} package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
-
+HTML slides are generated using the [quarto](https://quarto.org/). Source code for the slides is available in the "slides" directory of this repository.
+PDFs of the slides are generated using the \texttt{renderthis} package in R. PDF Documents are compiled in quarto and using the wonderful quarto extension [PrettyPDF](https://github.com/nrennie/PrettyPDF) by [Nicola Rennie](https://nrennie.rbind.io/).
 
 \clearpage
 
