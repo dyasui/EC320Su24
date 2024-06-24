@@ -28,16 +28,14 @@ Why do economists (and others) study econometrics?
 ::: {.column width="55%"}
 - [Do minimum wage policies reduce poverty?]{.tiny}
 - [Does the death penalty deter violent crime?]{.tiny}
-<!-- - [Does recreational marijuana cross state lines? -->
-- [How will global warming affect the economy?]{.tiny}
-- [How responsive are polluters to a carbon tax?]{.tiny}
+- [What are the harms of toxic pollutants like lead?]{.tiny}
 :::
 
 ::: {.column width="45%"}
 - [What explains the gender pay gap?]{.tiny}
 <!--- [Are recessions good for your health?]{.tiny}-->
 - [Can we forecast the next recession?]{.tiny}
-- [Who gains and who loses from globalization?]
+- [Who gains and who loses from globalization?]{.tiny}
 :::
 
 ::::
@@ -72,7 +70,7 @@ Why should [you]{.hi} study econometrics?
 >
 > Cultivate a healthy sense of skepticism
 > 
-> Gain confidence in statistical evidence-backed arguments
+> Develop and feed your own curiosity about the world.
 
 . . .
 
@@ -148,4 +146,3 @@ that is common in statistics in general:
 
 - [Ordinary Least Squares (OLS)]{.note} [(aka linear regression)]{.tiny}
 
----

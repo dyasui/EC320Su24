@@ -78,11 +78,11 @@ Please call me [Dante]{.hii .big}
 - [Office hours:]{.hi} 
   - Tuesdays: 10-11am PST
   - Thursdays: 3-4pm 
-- [Lab:]{.hi}
-  - Wednesdays: noon-2pm
 :::
 
 ::: {.column width="45%"}
+- [Lab:]{.hi}
+  - Wednesdays: noon-2pm
 - [Email:]{.hi} [dyasui@uoregon.edu](dyasui@uoregon.edu)
 :::
 
@@ -94,7 +94,7 @@ Please call me [Dante]{.hii .big}
 
 [> Metrics]{.hi .big}
 
-- I love studying econometrics
+- I ❤️ studying econometrics
 - My first time teaching EC320 but I TAed for this class twice
 - [Instructor:]{.hii} EC327 Winter 2024
 
@@ -107,12 +107,15 @@ Please call me [Dante]{.hii .big}
 :::: {.columns}
 
 ::: {.column width="55%"}
-- [Office:]{.hi} [PLC 523](https://map.uoregon.edu/7c6d0ffbd)
-- [Office hours:]{.hi} T & Th 4:00p-5:00p 
+- [Office hours:]{.hi} 
+  - Tuesdays: 10-11am PST
+  - Thursdays: 3-4pm 
 :::
 
 ::: {.column width="45%"}
-- [Email:]{.hi} [adickin3@uoregon.edu](adickin3@uoregon.edu)
+- [Lab:]{.hi}
+  - Wednesdays: noon-2pm
+- [Email:]{.hi} [dyasui@uoregon.edu](dyasui@uoregon.edu)
 :::
 
 ::::

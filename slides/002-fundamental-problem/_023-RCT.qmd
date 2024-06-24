@@ -153,6 +153,7 @@ coord_equal()
 ```{r}
 #| label: plot3_1
 #| echo: FALSE
+library(emojifont)
 
 set.seed(246)
 ggplot(data = med_df, aes(x, y)) +

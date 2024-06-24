@@ -4,7 +4,8 @@ name: prologue
 
 ## Motivation
 
-The focus of our course is [regression analysis]{.hii}--part of the fundamental toolkit for learning from data.
+The focus of our course is [regression analysis]{.hii}--
+part of the fundamental toolkit for learning from data.
 
 <br>
 
@@ -25,7 +26,8 @@ The [underlying theory]{.hi} is critical to grasp the mechanics and pitfalls
 # [Warning.]{.note}
 
 ::: {.middle}
-The following review is a lot packed in very briefly though you _should_ have learned much of it before. But that being said, it will be overwhelming for most.
+The following review is a lot packed in very briefly though you _should_ have learned much of it before.
+But that being said, it will be overwhelming for most.
 ::: 
 
 

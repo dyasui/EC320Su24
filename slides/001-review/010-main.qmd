@@ -1,9 +1,9 @@
 ---
 title: "Statistics Review"
 subtitle: "EC320, Set 02"
-author: Andrew Dickinson
+author: Dante Yasui
 date: last-modified
-date-format: "Spring YYYY"
+date-format: "MM YYYY"
 self-contained: TRUE
 format: 
   revealjs:
@@ -52,46 +52,6 @@ $$
 $$
 :::
 
-# Admin {.note}
-
----
-
-## Admin
-
-:::: {.columns}
-
-::: {.column width="50%"}
-1. [{{< fa brands r-project >}} and RStudio Install]{.hi}
-
-2. [Lab]{.hi}
-
-- Lab module on Canvas homepage
-- First recording available now
-
-1. [Koans]{.hi}
-
-- First Koans due next Friday
-- Get started now
-
-
-:::
-
-::: {.column width="50%"}
-1. [PS01]{.hi}
-
-- First problem set will be assigned next week
-- Due next Tuesday (04/16)
-
-1. [Textbook]{.hi}
-
-
-:::
-
-::::
-
-[Stopping point after lecture 02](#moments)
-
----
 
 {{< include _011-prologue.qmd >}}
 

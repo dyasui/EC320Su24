@@ -1,15 +1,15 @@
 ---
 title: "The fundamental problem of causal inference"
 subtitle: "EC 320, Set 03"
-author: "Andrew Dickinson"
+author: "Dante Yasui"
 date: last-modified
-date-format: "Spring YYYY"
+date-format: "MM YYYY"
 format: 
   revealjs:
     theme: [default, ../styles.scss]
     monobackgroundcolor: #F5F5F5
     slide-number: true
-    footer: "EC320, Set 03 | Statistics Review"
+    footer: "EC320, Set 03 | Fundamental Problem"
     preview-links: auto
     code-fold: FALSE
     code-copy: TRUE
@@ -20,9 +20,6 @@ title-slide-attributes:
   data-background-position: left
 hideFootnotes: true
 ---
-
-## Housekeeping
-
 
 
 # Prologue {.inverse .note}
@@ -41,7 +38,7 @@ higreen = nord_palettes$aurora[4]
 hiorange = nord_palettes$aurora[2]
 hired = nord_palettes$aurora[1]
 
-mytheme = theme_ipsum(base_family = "Fira Sans Book", base_size = 20) +
+mytheme = theme_ipsum( base_size = 20) +
  theme(panel.grid.minor.x = element_blank(),
        axis.title.x = element_text(size = 28),
        axis.title.y = element_text(size = 28))

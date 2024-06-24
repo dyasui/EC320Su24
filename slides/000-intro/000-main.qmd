@@ -3,7 +3,7 @@ title: "Introduction and Overview"
 subtitle: "EC320, Set 01"
 author: Dante Yasui
 date: last-modified
-date-format: "Summer YYYY"
+date-format: "MM YYYY"
 self-contained: TRUE
 format: 
   revealjs:
