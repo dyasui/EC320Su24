@@ -35,7 +35,7 @@ repo = "https://github.com/dyasui/EC320Su24"
 |                  | **Lecture**                                      |
 |------------------|--------------------------------------------------|
 | **lecture**      | Recordings posted on Canvas                      |
-| **office hours** | [Tuesday: 10-11am](https://uoregon.zoom.us/j/98317465628?pwd=YNmQeo7AbiH39x9Vv11w1ACKsO0at9.1)  |
+| **office hours** | [Tuesday: 11am-12pm](https://uoregon.zoom.us/j/98317465628?pwd=YNmQeo7AbiH39x9Vv11w1ACKsO0at9.1)  |
 |                  | [Thursday: 3-4pm](https://uoregon.zoom.us/j/95498739227?pwd=Txgm7ZalzCaZiipZMQZlQ1Uo2ewQ2a.1)   |
 | **Lab**          | [Wednesday: noon-2pm](https://uoregon.zoom.us/j/93947688014?pwd=szWAbYxRIbifx20m7iakzgYzcUN3zw.1) |
 | **materials**    | [1. Introduction to Econometrics](`r dougherty`) |
