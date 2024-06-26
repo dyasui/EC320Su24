@@ -2,6 +2,7 @@
 title: "**Lab 01 - Intro to R and RStudio**"
 author: "Dante Yasui"
 date: "2024/04/03"
+output: pdf_document
 --- 
 
 # Welcome to Lab!

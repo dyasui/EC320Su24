@@ -1,8 +1,10 @@
 ---
-title: Intro to RMarkdown 
+title: "Intro to RMarkdown"
+author: "Dante"
 date: "`r Sys.Date()`"
-output: html_document
-author: Dante
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 # Text

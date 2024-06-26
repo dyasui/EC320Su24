@@ -10,7 +10,8 @@ The most important assumptions concern the error term $u_i$.
 
 . . .
 
-[Important:]{.hi} An error $u_i$ and a residual $\hat{u}_i$ are related, but different.
+[Important:]{.hi} An error $u_i$ and a residual $\hat{u}_i$ are related,
+but different.
 
 . . .
 
