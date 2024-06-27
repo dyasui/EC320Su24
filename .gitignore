@@ -51,3 +51,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Lab attendence record
+attendence.csv

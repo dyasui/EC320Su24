@@ -5,7 +5,8 @@ format: PrettyPDF-pdf
 ---
 
 # Instructions 
-Complete the following questions below and show all work. You may either type or hand write your answers.
+Complete the following questions below and show all work. 
+You may either type or hand write your answers.
 However, you must submit your problem set to Canvas as an html or pdf. Meaning any handwritten solutions are
 to be scanned and uploaded. The onus is yours to deliver an organized, clear, and/or legible submission of the
 correct file type that loads properly on Canvas. Do not simply change the file type and submit (e.g. edit name of
@@ -37,8 +38,7 @@ Let $X$ be a random variable that describes the sum of these two dice.
 ### (e) Find the variance, $Var(X)$, of random variable $X$ from part (a).
 
 Let $X$ be the same random variable from problem 001
-and $Y$ be equal to:
-$$ Y = 5 X + 1 $$
+and $Y$ be equal to: $Y = 5 X + 1$
 
 ### (f) Calculate $\mathbb{E}[Y]$. Is it the same as $5 \mathbb{E}[X] + 1$?
 
@@ -46,7 +46,6 @@ $$ Y = 5 X + 1 $$
 
 Suppose we have random variables $W$ and $Q$,
 and we know $Var(W)=16$, $Var(Q)=36$, and $Cov(W,Q)=2$.
-
 Now, let $A=2W+4Q$. 
 
 ### (h) What is $Var(A)$?
@@ -74,6 +73,10 @@ $$ Y_i = \beta_0 + \beta_1 X_i + u_i $$
   Show your work.
 
 ## Q3. *Interpretation of OLS Estimates* **32 pts**
+
+The `mtcars` dataset in `R` includes the variables `mpg` which measures a car make's fuel efficiency (in miles per gallon) and `wt` which measures the weight (in 100s of lbs).
+The following is the output of the regression with the equation: 
+$$ mpg_i = \beta_0 + \beta_1 wt_i + u_i $$
 
 ```{r}
 #| echo: FALSE
