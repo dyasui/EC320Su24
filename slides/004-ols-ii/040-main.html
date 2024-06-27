@@ -8,7 +8,7 @@
 <link href="040-main_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="040-main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="040-main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.5.43">
 
   <meta name="author" content="Andrew Dickinson">
   <title>Simple linear regression II</title>
@@ -327,7 +327,7 @@
 
 <section id="title-slide" data-background-position="left" class="quarto-title-block center">
   <h1 class="title">Simple linear regression II</h1>
-  <p class="subtitle">EC 320, Set 03</p>
+  <p class="subtitle">EC 320, Lecture 5</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -337,38 +337,37 @@ Andrew Dickinson
 </div>
 </div>
 
-  <p class="date">Spring 2024</p>
+  <p class="date">06 2024</p>
 </section>
-<section id="housekeeping" class="slide level2">
-<h2>Housekeeping</h2>
+<section class="slide level2">
+
+<!-- ::: {.content-hidden} -->
+<!-- $$ -->
+<!-- {{< include ../_macros.tex >}} -->
+<!-- $$ -->
+<!-- ::: -->
+</section>
+<section id="table-of-contents" class="slide level2">
+<h2>Table of contents</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span class="hi">PS02:</span></p>
-<ul>
-<li>Due tonight at 11:59p</li>
-<li><span class="hi">PS03</span> will post today</li>
-</ul>
+<ol type="1">
+<li><a href="@sec-prologue">Review</a></li>
+<li><a href="@sec-properties">Properties</a></li>
+<li><a href="@sec-rsquared">Goodness of Fit</a></li>
+<li><a href="@sec-example">Returns to Schooling example</a></li>
+<li><a href="@sec-assumptions">Assumptions</a></li>
+<li><a href="@sec-gaussmarkov">Gauss-Markov</a></li>
+<li><a href="@sec-simulation">Simulations</a></li>
+</ol>
 </div><div class="column" style="width:50%;">
-<p><span class="hi">Reading:</span> <em>(up to this point)</em></p>
-<p>ItE: R, 1, <span class="hi">2</span></p>
+
 </div>
-</div>
-<div class="fragment">
-<p><span class="hi">K06</span> &amp; <span class="hi">K06b</span></p>
-<ul>
-<li>Due Friday at 5:00p</li>
-<li>K06: Final <code>dplyr</code> lesson</li>
-<li>K06b: linear models (<code>lm</code>) lesson
-<ul>
-<li>Issue with testing file</li>
-<li>To fix, redownload: “tests/testhat/test-K06b_lm.R”</li>
-</ul></li>
-</ul>
 </div>
 </section>
 <section>
-<section id="prologue" class="title-slide slide level1 inverse note center">
-<h1><em>Prologue</em></h1>
+<section id="sec-prologue" class="title-slide slide level1 center">
+<h1><em>Prologue</em> {.inverse .note}</h1>
 
 </section>
 <section id="last-time" class="slide level2">
@@ -429,13 +428,13 @@ Y_i = \beta_0 + \beta_1X_i + u_i.
 </section>
 <section id="review-1" class="slide level2" data-visibility="uncounted">
 <h2>Review</h2>
-<p>The estimated <span class="hi">intercept</span> is -11.13. What does this tell us?</p>
+<p>The estimated <span class="hi">intercept</span> is -14.85. What does this tell us?</p>
 
 <img data-src="040-main_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p><span class="fragment">With <span class="note">zero</span> years of education, estimate hourly earnings would be –$10.44</span></p>
 </section>
 <section id="review-2" class="slide level2" data-visibility="uncounted">
 <h2>Review</h2>
-<p>The estimated <span class="hp">slope</span> is 2.32. How do we interpret it?</p>
+<p>The estimated <span class="hp">slope</span> is 2.57. How do we interpret it?</p>
 
 <img data-src="040-main_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p><span class="fragment">For each additional year of schooling, hourly earnings increase by $2.32</span></p>
 </section></section>
@@ -537,12 +536,12 @@ Y_i = \beta_0 + \beta_1X_i + u_i.
 <h2>Property 3. <em>(proof)</em></h2>
 <p>Using the covariance formula, and Property 2:</p>
 <p><span class="math display">\[\begin{equation}
-\mathrm{Cov}(x_i,\hat{u}_i) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(\hat{u}_i-\bar{\hat{u}})
+Cov(x_i,\hat{u}_i) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(\hat{u}_i-\bar{\hat{u}})
 \end{equation}\]</span></p>
 <div class="fragment">
 <p>Since <span class="math inline">\(\sum_{i=1}^n \hat{u}_i = 0\)</span>, the term <span class="math inline">\(\sum_{i=1}^n \bar{\hat{u}} = 0\)</span>.</p>
 <p><span class="math display">\[\begin{align*}
-\mathrm{Cov}(x_i,\hat{u}_i) &amp;= \frac{1}{n-1}\sum_{i=1}^nx_i\hat{u}_i-\bar{x}\hat{u}_i\\
+Cov(x_i,\hat{u}_i) &amp;= \frac{1}{n-1}\sum_{i=1}^nx_i\hat{u}_i-\bar{x}\hat{u}_i\\
 &amp;= \frac{1}{n-1}\sum_{i=1}^nx_i(y_i - \hat{\beta}_0 - \hat{\beta}_1x_i)-\frac{\bar{x}}{n-1}\sum_{i=1}^n\hat{u}_i\\
 &amp;= \frac{1}{n-1}\sum_{i=1}^nx_iy_i - \hat{\beta}_0\sum_{i=1}^nx_i - \hat{\beta}_1\sum_{i=1}^nx_i^2 \\
 &amp;= \frac{1}{2(n-1)}\left(2\sum_{i=1}^nx_iy_i - 2\hat{\beta}_0\sum_{i=1}^nx_i - 2\hat{\beta}_1\sum_{i=1}^nx_i^2 \right)\\
@@ -619,7 +618,7 @@ Y_i = \beta_0 + \beta_1X_i + u_i.
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="040-main_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-<figcaption><span class="math inline">\(R^2\)</span> = 0.08</figcaption>
+<figcaption><span class="math inline">\(R^2\)</span> = 0.05</figcaption>
 </figure>
 </div>
 </div>
@@ -800,7 +799,7 @@ Y_i = \hat{Y_i} + \hat{u}_i
 \]</span></p>
 </div><div class="column" style="width:70%;">
 <p><span class="math display">\[
-{\color{#ffffff} \overline{\text{Crime}_i} = 21.05}
+{\color{#ffffff} \overline{\text{mpg}_i} = 20.1}
 \]</span></p>
 </div>
 </div>
@@ -811,7 +810,7 @@ Y_i = \hat{Y_i} + \hat{u}_i
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><span class="math display">\[
-{\color{#B48EAD} \widehat{\text{Crime}_i}} = 18.41 + 1.76 \cdot \text{Police}_i
+{\color{#B48EAD} \widehat{\text{mpg}_i}} = 37.3 - 5.3 \cdot \text{wt}_i
 \]</span></p>
 </div><div class="column" style="width:60%;">
 <p><span class="math display">\[
@@ -830,7 +829,7 @@ Y_i = \hat{Y_i} + \hat{u}_i
 \]</span></p>
 </div><div class="column" style="width:60%;">
 <p><span class="math display">\[
-{\color{#ffffff} \widehat{\text{Crime}_i} = 18.41 + 1.76 \cdot \text{Police}_i}
+{\color{#ffffff} \widehat{\text{mpg}_i}} = 37.3 - 5.3 \cdot \text{wt}_i
 \]</span></p>
 </div>
 </div>
@@ -898,11 +897,12 @@ Y_i = \hat{Y_i} + \hat{u}_i
 <li>Worries about selection bias and omitted variables still apply</li>
 <li>Some ‘powerfully high’ <span class="math inline">\(R^2\)</span> values are the result of simple accounting exercises, and tell us nothing about causality</li>
 </ul>
-<!-- # _Units of measurement_ {.inverse .note}
-
-{{< include _044-units.qmd >}} -->
 </div>
-</section></section>
+</section>
+<section class="slide level2">
+
+
+<img data-src="./images/khoavu-tweet.png" class="r-stretch"></section></section>
 <section>
 <section id="ex.-returns-to-schooling" class="title-slide slide level1 inverse center">
 <h1><span class="ex">Ex.</span> <span class="hi-white">Returns to schooling</span></h1>
@@ -1287,14 +1287,14 @@ Y_i = \beta_1 + \beta_2 X_i + u_i
 <div class="fragment">
 <p>Taking the expectation,</p>
 <p><span class="math display">\[
-\mathrm{E}[\hat{\beta_2}] = \mathrm{E}[\beta] + \mathrm{E}\left[\frac{\sum \hat{u_i} (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} \right]
+\E[\hat{\beta_2}] = \E[\beta] + \E \left[\frac{\sum \hat{u_i} (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} \right]
 \]</span></p>
 </div>
 <div class="fragment">
 <p>By <span class="hi">Rules 01</span> and <span class="hi">02</span> of expected value and <span class="note">A3</span>:</p>
 <p><span class="math display">\[
 \begin{equation*}
-  \mathrm{E}[\hat{\beta_2}] = \beta + \frac{\sum \mathrm{E}[\hat{u_i}] (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} = \beta
+  \E[\hat{\beta_2}] = \beta + \frac{\sum \E[\hat{u_i}] (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} = \beta
 \end{equation*}
 \]</span></p>
 </div>
@@ -1366,7 +1366,7 @@ Y_i = \beta_1 + \beta_2 X_i + u_i
 <p>The error term has the same variance for each value of the independent variable:</p>
 </blockquote>
 <p><span class="math display">\[
-\mathop{\mathrm{Var}}(u|X) = \sigma^2.
+\mathop{\Var}(u|X) = \sigma^2.
 \]</span></p>
 <p><span class="hi">Example:</span></p>
 
@@ -1377,7 +1377,7 @@ Y_i = \beta_1 + \beta_2 X_i + u_i
 <p>The error term has the same variance for each value of the independent variable:</p>
 </blockquote>
 <p><span class="math display">\[
-\mathop{\mathrm{Var}}(u|X) = \sigma^2.
+\mathop{\Var}(u|X) = \sigma^2.
 \]</span></p>
 <p><span class="hi">Violation:</span> <span class="note">Heteroskedasticity</span></p>
 
@@ -1388,7 +1388,7 @@ Y_i = \beta_1 + \beta_2 X_i + u_i
 <p>The error term has the same variance for each value of the independent variable:</p>
 </blockquote>
 <p><span class="math display">\[
-\mathop{\mathrm{Var}}(u|X) = \sigma^2.
+\mathop{\Var}(u|X) = \sigma^2.
 \]</span></p>
 <p><span class="hi">Violation:</span> <span class="note">Heteroskedasticity</span></p>
 
@@ -1592,259 +1592,11 @@ u \sim N(0,\sigma^2)
 <p><span class="note">A4.</span> <span class="hi">Homoskedasticity:</span> The error term has the same variance for each value of the independent variable</p>
 <p><span class="note">A5.</span> <span class="hi">Non-autocorrelation:</span> The values of error terms have independent distributions</p>
 <p><span class="note">A6.</span> <span class="hi">Normality:</span> The population error term in normally distributed with mean zero and variance <span class="math inline">\(\sigma^2\)</span></p>
+<!-- # _Population vs. sample, revisited_ {.inverse .note} {#sec-simulation} -->
+<!-- {{< include _048-sims.qmd >}} -->
 </div>
-</section></section>
-<section>
-<section id="population-vs.-sample-revisited" class="title-slide slide level1 inverse note center">
-<h1><em>Population vs.&nbsp;sample, revisited</em></h1>
-
-</section>
-<section id="population-vs.-sample" class="slide level2">
-<h2>Population <em>vs.</em> Sample</h2>
-<p><span class="note">Q:</span> Why do we care about <em>population vs.&nbsp;sample</em>?</p>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/pop1-1.png" width="960"></p>
-<figcaption>Population</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/scatter1-1.png" width="960"></p>
-<figcaption>Population relationship</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-\begin{align*}
-  y_i &amp;= 2.53 + 0.57 x_i + u_i \\
-\end{align*}
-\]</span></p>
-</div>
-</section>
-<section id="population-vs.-sample-1" class="slide level2" data-visibility="uncounted">
-<h2>Population <em>vs.</em> Sample</h2>
-<p><span class="note">Q:</span> Why do we care about <em>population vs.&nbsp;sample</em>?</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/sample1-1.png" width="960"></p>
-<figcaption>Sample 1: 30 random individuals</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/sample1-scatter-1.png" width="960"></p>
-<figcaption>Sample relationship</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-\begin{align*}
-  y_i       &amp;= 2.53 + 0.57 x_i + u_i \\
-  \hat{y}_i &amp;= 2.36 + 0.61 x_i
-\end{align*}
-\]</span></p>
-</section>
-<section id="population-vs.-sample-2" class="slide level2" data-visibility="uncounted">
-<h2>Population <em>vs.</em> Sample</h2>
-<p><span class="note">Q:</span> Why do we care about <em>population vs.&nbsp;sample</em>?</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/sample2-1.png" width="960"></p>
-<figcaption>Sample 2: 30 random individuals</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/sample2-scatter-1.png" width="960"></p>
-<figcaption>Sample relationship</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>$$ <span class="math display">\[\begin{align*}
-  y_i        &amp;= 2.53 + 0.57 x_i + u_i \\
-  \hat{y}_i &amp;= 2.79 + 0.56 x_i
-
-\end{align*}\]</span> $$</p>
-</section>
-<section id="population-vs.-sample-3" class="slide level2" data-visibility="uncounted">
-<h2>Population <em>vs.</em> Sample</h2>
-<p><span class="note">Q:</span> Why do we care about <em>population vs.&nbsp;sample</em>?</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/sample3-1.png" width="960"></p>
-<figcaption>Sample 3: 30 random individuals</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="040-main_files/figure-revealjs/sample3-scatter-1.png" width="960"></p>
-<figcaption>Sample relationship</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-\begin{align*}
-  y_i &amp;= 2.53 + 0.57 x_i + u_i \\
-  \hat{y}_i = 3.21 + 0.45 x_i
-\end{align*}
-\]</span></p>
 </section>
 <section id="section-21" class="slide level2">
-<h2></h2>
-<div class="vertical-center">
-<p>By now you should know where this is going… <span class="fragment">Repeat <span class="note">10,000</span> times</span></p>
-</div>
-</section>
-<section class="slide level2">
-
-<p><br></p>
-
-<img data-src="040-main_files/figure-revealjs/sim-scatter-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="population-vs.-sample-4" class="slide level2">
-<h2>Population <em>vs.</em> Sample</h2>
-<p><span class="note">Q:</span> Why do we care about <em>population vs.&nbsp;sample</em>?</p>
-<ul>
-<li>On <span class="hi">average</span>, the regression lines match the population line nicely.</li>
-<li>However, <span class="note">individual lines</span> (samples) can miss the mark.</li>
-</ul>
-<p><br></p>
-<div class="fragment">
-<p><span class="hi">Answer:</span> Uncertainty matters.</p>
-<ul>
-<li>This sampling variation creates <span class="hi">uncertainty</span>.</li>
-<li><span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> are random variables that depend on the random sample.</li>
-</ul>
-</div>
-</section>
-<section id="ols-variance" class="slide level2">
-<h2>OLS Variance</h2>
-<p>Variance of the slope estimator:</p>
-<p><span class="math display">\[
-\mathop{\mathrm{Var}}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
-\]</span></p>
-<ul>
-<li>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></li>
-<li>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></li>
-<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\mathrm{Var}}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
-</ul>
-</section>
-<section id="ols-variance-1" class="slide level2" data-visibility="uncounted">
-<h2>OLS Variance</h2>
-<p>Variance of the slope estimator:</p>
-<p><span class="math display">\[
-\mathop{\mathrm{Var}}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
-\]</span></p>
-<ul>
-<li><strong>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></strong></li>
-<li>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></li>
-<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\mathrm{Var}}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p>Same as before <span class="math inline">\(u_i \sim (0,1)\)</span>, <span class="math inline">\(X_i \sim (0,1.5)\)</span>, <span class="math inline">\(n = 30\)</span></p>
-
-<img data-src="040-main_files/figure-revealjs/sim-scatter-again-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section class="slide level2">
-
-<p>Increase variance in error term <span class="math inline">\(u_i \sim (0,2.5)\)</span>, <span class="math inline">\(X_i \sim (0,1.5)\)</span>, <span class="math inline">\(n = 30\)</span></p>
-
-<img data-src="040-main_files/figure-revealjs/sim-scatter-ii-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="ols-variance-2" class="slide level2" data-visibility="uncounted">
-<h2>OLS Variance</h2>
-<p>Variance of the slope estimator:</p>
-<p><span class="math display">\[
-\mathop{\mathrm{Var}}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
-\]</span></p>
-<ul>
-<li>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></li>
-<li><strong>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></strong></li>
-<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\mathrm{Var}}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p>Original simulation <span class="math inline">\(u_i \sim (0,1)\)</span>, <span class="math inline">\(X_i \sim (0,1.5)\)</span>, <span class="math inline">\(n = 30\)</span></p>
-
-<img data-src="040-main_files/figure-revealjs/sim-scatter-againii-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section class="slide level2">
-
-<p>Increase variance in <span class="math inline">\(X_i\)</span> term <span class="math inline">\(u_i \sim (0,1)\)</span>, <span class="math inline">\(X_i \sim (0,3)\)</span>, <span class="math inline">\(n = 30\)</span></p>
-
-<img data-src="040-main_files/figure-revealjs/sim-scatter-iii-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="ols-variance-3" class="slide level2" data-visibility="uncounted">
-<h2>OLS Variance</h2>
-<p>Variance of the slope estimator:</p>
-<p><span class="math display">\[
-\mathop{\mathrm{Var}}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
-\]</span></p>
-<ul>
-<li>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></li>
-<li>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></li>
-<li><strong>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\mathrm{Var}}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</strong></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p>Original simulation <span class="math inline">\(u_i \sim (0,1)\)</span>, <span class="math inline">\(X_i \sim (0,1.5)\)</span>, <span class="math inline">\(n = 30\)</span></p>
-
-<img data-src="040-main_files/figure-revealjs/sim-scatter-againiii-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section class="slide level2">
-
-<p>Increase sample size (<span class="math inline">\(n\)</span>) in <span class="math inline">\(X_i\)</span> term <span class="math inline">\(u_i \sim (0,1)\)</span>, <span class="math inline">\(X_i \sim (0,1)\)</span>, <span class="math inline">\(n = 60\)</span></p>
-
-<img data-src="040-main_files/figure-revealjs/sim-scatter-iv-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-22" class="slide level2">
 <h2></h2>
 <div class="vertical-center">
 <p>We will further this discussion next time to conduct inference.</p>
@@ -1854,7 +1606,7 @@ u \sim N(0,\sigma^2)
 <h1>Fin</h1>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>EC320, Set 03 | Simple linear regression (again)</p>
+<p>EC320, Set 03 | Lecture 5: Properties of OLS</p>
 </div>
 </div>
 </section>
@@ -2140,18 +1892,7 @@ u \sim N(0,\sigma^2)
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -2183,7 +1924,29 @@ u \sim N(0,\sigma^2)
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -2191,7 +1954,7 @@ u \sim N(0,\sigma^2)
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

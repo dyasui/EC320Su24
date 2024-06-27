@@ -108,7 +108,7 @@ The fitted line, centered through $\bar{x}$ and $\bar{y}$, balances the positive
 Using the covariance formula, and Property 2:
 
 \begin{equation}
-\Cov(x_i,\hat{u}_i) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(\hat{u}_i-\bar{\hat{u}})
+Cov(x_i,\hat{u}_i) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(\hat{u}_i-\bar{\hat{u}})
 \end{equation}
 
 . . .
@@ -116,7 +116,7 @@ Using the covariance formula, and Property 2:
 Since $\sum_{i=1}^n \hat{u}_i = 0$, the term $\sum_{i=1}^n \bar{\hat{u}} = 0$.
 
 \begin{align*}
-\Cov(x_i,\hat{u}_i) &= \frac{1}{n-1}\sum_{i=1}^nx_i\hat{u}_i-\bar{x}\hat{u}_i\\
+Cov(x_i,\hat{u}_i) &= \frac{1}{n-1}\sum_{i=1}^nx_i\hat{u}_i-\bar{x}\hat{u}_i\\
 &= \frac{1}{n-1}\sum_{i=1}^nx_i(y_i - \hat{\beta}_0 - \hat{\beta}_1x_i)-\frac{\bar{x}}{n-1}\sum_{i=1}^n\hat{u}_i\\
 &= \frac{1}{n-1}\sum_{i=1}^nx_iy_i - \hat{\beta}_0\sum_{i=1}^nx_i - \hat{\beta}_1\sum_{i=1}^nx_i^2 \\
 &= \frac{1}{2(n-1)}\left(2\sum_{i=1}^nx_iy_i - 2\hat{\beta}_0\sum_{i=1}^nx_i - 2\hat{\beta}_1\sum_{i=1}^nx_i^2 \right)\\

@@ -121,7 +121,7 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 12, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 12, parse = T) +
 xlim(-2.5, 2) +
 ylim(-4.5, 2) +
 coord_equal()
@@ -152,7 +152,7 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 12, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 12, parse = T) +
 xlim(-5, 2) +
 ylim(-5, 2) +
 coord_equal()
@@ -183,7 +183,7 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 12, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 12, parse = T) +
 xlim(-2.5, 2) +
 ylim(-5, 2) +
 coord_equal()
@@ -448,7 +448,7 @@ $$
 
 ::: {.column width="70%"}
 $$
-{\color{#ffffff} \overline{\text{Crime}_i} = 21.05}
+{\color{#ffffff} \overline{\text{mpg}_i} = 20.1}
 $$
 :::
 
@@ -483,7 +483,7 @@ mtcars %>%
 
 ::: {.column width="40%"}
 $$
-{\color{#B48EAD} \widehat{\text{Crime}_i}} = 18.41 + 1.76 \cdot \text{Police}_i 
+{\color{#B48EAD} \widehat{\text{mpg}_i}} = 37.3 - 5.3 \cdot \text{wt}_i 
 $$
 :::
 
@@ -530,7 +530,7 @@ $$
 
 ::: {.column width="60%"}
 $$
-{\color{#ffffff} \widehat{\text{Crime}_i} = 18.41 + 1.76 \cdot \text{Police}_i}
+{\color{#ffffff} \widehat{\text{mpg}_i}} = 37.3 - 5.3 \cdot \text{wt}_i 
 $$
 :::
 
@@ -690,3 +690,6 @@ High $R^2$ doesn't necessarily mean you have a *"good"* regression.
 - Worries about selection bias and omitted variables still apply
 - Some 'powerfully high' $R^2$ values are the result of simple accounting exercises, and tell us nothing about causality
 
+---
+
+![](./images/khoavu-tweet.png){fig-align="center"}

@@ -1,15 +1,15 @@
 ---
 title: "Simple linear regression II"
-subtitle: "EC 320, Set 03"
+subtitle: "EC 320, Lecture 5"
 author: "Andrew Dickinson"
 date: last-modified
-date-format: "Spring YYYY"
+date-format: "MM YYYY"
 format: 
   revealjs:
-    theme: [default, ../styles.scss]
+    theme: [default, ./styles.scss]
     monobackgroundcolor: #F5F5F5
     slide-number: true
-    footer: "EC320, Set 03 | Simple linear regression (again)"
+    footer: "EC320, Set 03 | Lecture 5: Properties of OLS"
     preview-links: auto
     code-fold: FALSE
     # code-copy: TRUE
@@ -20,47 +20,36 @@ title-slide-attributes:
   data-background-position: left
 ---
 
-::: {.content-hidden}
-$$
-{{< include ../_macros.tex >}}
-$$
-:::
+<!-- ::: {.content-hidden} -->
+<!-- $$ -->
+<!-- {{< include ../_macros.tex >}} -->
+<!-- $$ -->
+<!-- ::: -->
 
-## Housekeeping
+## Table of contents
 
 :::: {.columns}
 
 ::: {.column width="50%"}
-[PS02:]{.hi}
-
-- Due tonight at 11:59p
-- [PS03]{.hi} will post today
+1. [Review](@sec-prologue)
+2. [Properties](@sec-properties)
+3. [Goodness of Fit](@sec-rsquared)
+4. [Returns to Schooling example](@sec-example)
+5. [Assumptions](@sec-assumptions)
+6. [Gauss-Markov](@sec-gaussmarkov)
+7. [Simulations](@sec-simulation)
 :::
 
 ::: {.column width="50%"}
-
-[Reading:]{.hi} _(up to this point)_
-
-ItE: R, 1, [2]{.hi}
 
 :::
 
 ::::
 
-. . .
-
-[K06]{.hi} & [K06b]{.hi}
-
-- Due Friday at 5:00p
-- K06: Final `dplyr` lesson
-- K06b: linear models (`lm`) lesson
-  - Issue with testing file
-  - To fix, redownload: "tests/testhat/test-K06b_lm.R"
-
-
-# _Prologue_ {.inverse .note}
+# _Prologue_ {.inverse .note} {#sec-prologue}
 
 ```{r}
+#| echo: false
 pacman::p_load(hrbrthemes, fastverse, tidyverse,
                magrittr, wooldridge, here, kableExtra,
                ggdag, nord, latex2exp, dagitty, viridis,
@@ -117,19 +106,15 @@ lm1 <- lm(crime ~ police, data = data2)
 
 {{< include _041-prologue.qmd >}}
 
-# _OLS properties_ {.inverse .note}
+# _OLS properties_ {.inverse .note} 
 
 {{< include _042-properties.qmd >}}
 
-# _Goodness of fit_ {.inverse .note}
+# _Goodness of fit_ {.inverse .note} 
 
 {{< include _043-goodness.qmd >}}
 
-<!-- # _Units of measurement_ {.inverse .note}
-
-{{< include _044-units.qmd >}} -->
-
-# [Ex.]{.ex} [Returns to schooling]{.hi-white} {.inverse}
+# [Ex.]{.ex} [Returns to schooling]{.hi-white} {.inverse} 
 
 {{< include _045-ex.qmd >}}
 
@@ -137,13 +122,13 @@ lm1 <- lm(crime ~ police, data = data2)
 
 {{< include _046-assumptions.qmd >}}
 
-# _Gauss Markov_ {.inverse .note}
+# _Gauss Markov_ {.inverse .note} 
 
 {{< include _047-gaussmarkov.qmd >}}
 
-# _Population vs. sample, revisited_ {.inverse .note}
+<!-- # _Population vs. sample, revisited_ {.inverse .note} {#sec-simulation} -->
 
-{{< include _048-sims.qmd >}}
+<!-- {{< include _048-sims.qmd >}} -->
 
 ## 
 

@@ -528,7 +528,7 @@ $$
 Taking the expectation, 
 
 $$
-\E[\hat{\beta_2}] = \E[\beta] + \E \left[\frac{\sum \hat{u_i} (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} \right]
+\mathbb{E}[\hat{\beta_2}] = \mathbb{E}[\beta] + \mathbb{E} \left[\frac{\sum \hat{u_i} (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} \right]
 $$
 
 . . .
@@ -537,7 +537,7 @@ By [Rules 01]{.hi} and [02]{.hi} of expected value and [A3]{.note}:
 
 $$
 \begin{equation*}
-  \E[\hat{\beta_2}] = \beta + \frac{\sum \E[\hat{u_i}] (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} = \beta
+  \mathbb{E}[\hat{\beta_2}] = \beta + \frac{\sum \mathbb{E}[\hat{u_i}] (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} = \beta
 \end{equation*}
 $$
 
@@ -637,7 +637,7 @@ The smaller the variance, the closer OLS gets, _on average_, to the true populat
 > The error term has the same variance for each value of the independent variable:
 
 $$
-\mathop{\Var}(u|X) = \sigma^2.
+\mathop{Var}(u|X) = \sigma^2.
 $$
 
 [Example:]{.hi}
@@ -670,7 +670,7 @@ theme(
 > The error term has the same variance for each value of the independent variable:
 
 $$
-\mathop{\Var}(u|X) = \sigma^2.
+\mathop{Var}(u|X) = \sigma^2.
 $$
 
 [Violation:]{.hi} [Heteroskedasticity]{.note}
@@ -703,7 +703,7 @@ theme(
 > The error term has the same variance for each value of the independent variable:
 
 $$
-\mathop{\Var}(u|X) = \sigma^2.
+\mathop{Var}(u|X) = \sigma^2.
 $$
 
 [Violation:]{.hi} [Heteroskedasticity]{.note}
@@ -847,7 +847,7 @@ Let's take a moment to talk about the [variance]{.note} of the [OLS]{.hi} [estim
 By definition
 
 $$
-Var(\hat{\beta}_2) = E\left[\left(\hat{\beta}_2 - E(\hat{\beta}_2)\right)^2\right] = E\left[\left(\hat{\beta}_2 - \beta_2\right)^2\right]
+Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\hat{\beta}_2 - E(\hat{\beta}_2)\right)^2\right] = \mathbb{E}\left[\left(\hat{\beta}_2 - \beta_2\right)^2\right]
 $$
 
 . . .
@@ -881,7 +881,7 @@ $$
 [Step 1:]{.note} Take variance $\hat{\beta}_2 - \beta_2$:
 
 $$
-Var(\hat{\beta}_2) = E\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}\right)^2\right]
+Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}\right)^2\right]
 $$
 
 ---
@@ -889,7 +889,7 @@ $$
 Square the numerator:
 
 $$
-Var(\hat{\beta}_2) = E\left[\frac{\sum(u_i(x_i - \bar{x}))\sum(\epsilon_j(x_j - \bar{x}))}{\left(\sum(x_i - \bar{x})^2\right)^2}\right]
+Var(\hat{\beta}_2) = \mathbb{E}\left[\frac{\sum(u_i(x_i - \bar{x}))\sum(\epsilon_j(x_j - \bar{x}))}{\left(\sum(x_i - \bar{x})^2\right)^2}\right]
 $$
 
 . . .
@@ -897,7 +897,7 @@ $$
 Using [A5]{.note}, we can simplify:
 
 $$
-Var(\hat{\beta}_2) = \frac{1}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum E(u_i^2(x_i - \bar{x})^2)
+Var(\hat{\beta}_2) = \frac{1}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum \mathbb{E}[u_i^2(x_i - \bar{x})^2]
 $$
 
 ---
