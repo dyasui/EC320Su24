@@ -54,3 +54,8 @@ rsconnect/
 
 # Lab attendence record
 attendence.csv
+
+# answer keys
+**_key.qmd
+**_key.pdf
+**_key.html

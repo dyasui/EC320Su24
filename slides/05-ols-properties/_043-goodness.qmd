@@ -340,7 +340,7 @@ $$
 \end{align*}
 $$
 
-_Which you will prove to be true in [PS03]{.hi}_
+<!-- _Which you will prove to be true in [PS03]{.hi}_ -->
 
 ---
 

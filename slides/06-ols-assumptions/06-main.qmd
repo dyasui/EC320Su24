@@ -30,6 +30,8 @@ title-slide-attributes:
 <!-- 1. [Goodness of Fit](@sec-rsquared) -->
 <!-- 1. [Returns to Schooling example](@sec-example) -->
 1. [Assumptions](@sec-assumptions)
+  - Assumptions A1-A3 -> unbiasedness
+  - Assumptions A4-A6: distribution of the errors
 1. [Gauss-Markov](@sec-gaussmarkov)
 1. [Simulations](@sec-simulation)
 :::
@@ -39,8 +41,6 @@ title-slide-attributes:
 :::
 
 ::::
-
-# _Prologue_ {.inverse .note} {#sec-prologue}
 
 ```{r}
 #| echo: false
@@ -100,17 +100,17 @@ lm1 <- lm(crime ~ police, data = data2)
 
 # _Classical assumptions_ {.inverse .note}
 
-{{< include _046-assumptions.qmd >}}
+{{< include 06-1-assumptionsA1-A3.qmd >}}
+
+{{< include 06-2-assumptionsA4-A6.qmd >}}
 
 # _Gauss Markov_ {.inverse .note} 
 
-{{< include _047-gaussmarkov.qmd >}}
+{{< include 06-3-gaussmarkov.qmd >}}
 
 # _Population vs. sample, revisited_ {.inverse .note} 
 
-{{< include _048-sims.qmd >}}
-
-## 
+{{< include 06-4-sims.qmd >}}
 
 ::: {.vertical-center}
 

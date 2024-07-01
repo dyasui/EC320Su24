@@ -1,0 +1,412 @@
+---
+name: assumptionsA4-A6
+---
+
+## Classical Assumptions of OLS {data-visibility="uncounted"}
+
+[A1.]{.note} [Linearity:]{.hi} The population relationship is [_linear in parameters_]{.note} with an additive error term.
+
+[A2.]{.note} [Sample Variation:]{.hi} There is variation in $X$.
+
+[A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
+
+. . .
+
+<br>
+<br>
+
+::: {.align-center}
+The following 2 assumptions are not required for unbiasedness...
+:::
+
+::: {.align-center}
+[But the are important for an efficient estimator]{.fragment}
+:::
+
+---
+
+##
+
+:::{.vertical-center}
+[_Variance matters, too_]{.note}
+:::
+
+---
+
+## Why variance matters
+
+Unbiasedness tells us that OLS gets it right, _on average_. [But we can't tell whether our sample is "typical."]{.fragment}
+
+<br>
+
+. . .
+
+[Variance]{.hi} tells us how far OLS can deviate from the population mean.
+
+- How tight is OLS centered on its expected value?
+- This determines the [efficiency]{.hp} of our estimator.
+
+---
+
+## Why variance matters {data-visibility="uncounted"}
+
+Unbiasedness tells us that OLS gets it right, _on average_. But we can't tell whether our sample is "typical."
+
+<br>
+
+The smaller the variance, the closer OLS gets, _on average_, to the true population parameters _on any sample_.
+
+- Given two unbiased estimators, we want the one with smaller variance.
+- If [two more assumptions]{.note} are satisfied, we are using the [most efficient]{.hp} linear estimator.
+
+---
+
+## Classical Assumptions of OLS {data-visibility="uncounted"}
+
+[A1.]{.note} [Linearity:]{.hi} The population relationship is [_linear in parameters_]{.note} with an additive error term.
+
+[A2.]{.note} [Sample Variation:]{.hi} There is variation in $X$.
+
+[A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
+
+. . .
+
+[A4.]{.note} [Homoskedasticity:]{.hi} The error term has the same variance for each value of the independent variable 
+
+---
+
+## Homoskedasticity ([A4.]{.note})
+
+> The error term has the same variance for each value of the independent variable:
+
+$$
+\mathop{Var}(u|X) = \sigma^2.
+$$
+
+[Example:]{.hi}
+
+```{r}
+#| echo: false
+#| fig.height: 3
+#| fig.align: center
+
+set.seed(12345)
+ggplot(data = tibble(
+  x = runif(1e3, -3, 3),
+  e = rnorm(1e3, 0, sd = 4)
+), aes(x = x, y = e)) +
+geom_point(color = hi, size = 2.75, alpha = 0.5) +
+labs(x = "Independent Variable", y = "Error Term") +
+mytheme_s +
+theme(
+  axis.text.x = element_text(size = 12),
+  axis.title.x = element_text(size = 12),
+  axis.text.y = element_blank()
+)
+
+```
+
+---
+
+## Homoskedasticity ([A4.]{.note})
+
+> The error term has the same variance for each value of the independent variable:
+
+$$
+\mathop{Var}(u|X) = \sigma^2.
+$$
+
+[Violation:]{.hi} [Heteroskedasticity]{.note}
+
+```{r}
+#| echo: false
+#| fig.height: 3
+#| fig.align: center
+
+set.seed(12345)
+ggplot(data = tibble(
+  x = runif(1e3, -3, 3),
+  e = rnorm(1e3, 0, sd = 4 + 1.5 * x)
+), aes(x = x, y = e)) +
+geom_point(color = hi, size = 2.75, alpha = 0.5) +
+labs(x = "Independent Variable", y = "Error Term") +
+mytheme_s +
+theme(
+  axis.text.x = element_text(size = 12),
+  axis.title.x = element_text(size = 12),
+  axis.text.y = element_blank()
+)
+
+```
+
+---
+
+## Homoskedasticity ([A4.]{.note})
+
+> The error term has the same variance for each value of the independent variable:
+
+$$
+\mathop{Var}(u|X) = \sigma^2.
+$$
+
+[Violation:]{.hi} [Heteroskedasticity]{.note}
+
+```{r}
+#| echo: false
+#| fig.height: 3
+#| fig.align: center
+
+set.seed(12345)
+ggplot(data = tibble(
+  x = runif(1e3, -3, 3),
+  e = rnorm(1e3, 0, sd = 2 + x^2)
+), aes(x = x, y = e)) +
+geom_point(color = hi, size = 2.75, alpha = 0.5) +
+labs(x = "Independent Variable", y = "Error Term") +
+mytheme_s +
+theme(
+  axis.text.x = element_text(size = 12),
+  axis.title.x = element_text(size = 12),
+  axis.text.y = element_blank()
+)
+
+```
+
+---
+
+## Heteroskedasticity [Ex.]{.ex}
+
+Suppose we study the following relationship:
+
+$$
+\text{Luxury Expenditure}_i = \beta_1 + \beta_2 \text{Income}_i + u_i
+$$
+
+<br>
+
+As income increases, variation in luxury expenditures [increase]{.hii} 
+
+- Variance of $u_i$ is likely larger for higher-income households
+- Plot of the residuals against the household income would likely reveal a funnel-shaped pattern
+
+--- 
+
+## {data-visibility="uncounted"}
+
+[Common test for heteroskedasticity...]{.fragment} [Plot the residuals across $X$]{.fragment}
+
+```{r}
+#| echo: false
+#| fig.height: 5.75
+#| fig.align: center
+
+set.seed(12345)
+ggplot(data = tibble(
+  x = runif(1e3, 0, 10),
+  e = rnorm(1e3, 0, sd = 4 + 1.5 * x)
+), aes(x = x, y = e)) +
+geom_point(color = hi, size = 2.75, alpha = 0.5) +
+labs(x = "Income", y = "Residuals") +
+scale_x_continuous(breaks = seq(0,10,2)) +
+mytheme_s +
+theme(
+  axis.text.x = element_text(size = 12),
+  axis.title.x = element_text(size = 12),
+  axis.text.y = element_blank()
+)
+
+```
+
+---
+
+## {data-visibility="uncounted"}
+
+::: {.vertical-center}
+[There is more to be said about homo/heteroskedasticity in EC 421]{.note}
+:::
+
+---
+
+## Classical Assumptions of OLS {data-visibility="uncounted"}
+
+[A1.]{.note} [Linearity:]{.hi} The population relationship is [_linear in parameters_]{.note} with an additive error term.
+
+[A2.]{.note} [Sample Variation:]{.hi} There is variation in $X$.
+
+[A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
+
+[A4.]{.note} [Homoskedasticity:]{.hi} The error term has the same variance for each value of the independent variable 
+
+. . .
+
+[A5.]{.note} [Non-autocorrelation:]{.hi} The values of error terms have independent distributions 
+
+---
+
+## Non-Autocorrelation 
+
+> The values of error terms have independent distributions^[[Notes:]{.note} $\forall i = \text{for all} \: i$, $\text{s.t.} = \text{such that}$, $i \neq j \: \text{means} \: i \: \text{is not equal to} \: j$]
+
+$$
+E[u_i u_j]=0, \forall i \text{ s.t. } i \neq j
+$$
+
+. . .
+
+Or...
+
+$$
+\begin{align*}
+\mathop{\text{Cov}}(u_i, u_j) &= E[(u_i - \mu_u)(u_j - \mu_u)]\\
+                              &= E[u_i u_j] = E[u_i] E[u_j]  = 0, \text{where } i \neq j
+\end{align*}
+$$
+
+---
+
+## Non-Autocorrelation 
+
+> The values of error terms have independent distributions 
+
+$$
+E[u_i u_j]=0, \forall i \text{ s.t. } i \neq j
+$$
+
+- Implies no systematic association between pairs of individual $u_i$
+- Almost always some unobserved correlation across individuals^[(e.g. common correlation in unobservables among individuals within a given US state)]
+- Referred to as [clustering]{.hp} problem.
+- An easy solution exists where we can adjust our standard errors
+
+## {data-visibility="uncounted"}
+
+::: {.vertical-center}
+Let's take a moment to talk about the [variance]{.note} of the [OLS]{.hi} [estimator]{.note}
+:::
+
+---
+
+[Proof of the population variance]{.note}
+
+By definition
+
+$$
+Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\hat{\beta}_2 - E(\hat{\beta}_2)\right)^2\right] = \mathbb{E}\left[\left(\hat{\beta}_2 - \beta_2\right)^2\right]
+$$
+
+. . .
+
+[Step 1:]{.note} Derive an expression for $\hat{\beta}_2 - \beta_2$:
+
+$$
+\hat{\beta}_2 - \beta_2 = \frac{\sum(y_i - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_2
+$$
+
+. . .
+
+Substitute for $Y_i$:
+
+$$
+\hat{\beta}_2 - \beta_2 = \frac{\sum((\beta_1 + \beta_2x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_2
+$$
+
+---
+
+[Proof of the population variance]{.note}
+
+Substitute $\bar{y} = \beta_1 + \beta_2\bar{x}$:
+
+$$
+\hat{\beta}_2 - \beta_2 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+$$
+
+. . .
+
+[Step 1:]{.note} Take variance $\hat{\beta}_2 - \beta_2$:
+
+$$
+Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}\right)^2\right]
+$$
+
+---
+
+Square the numerator:
+
+$$
+Var(\hat{\beta}_2) = \mathbb{E}\left[\frac{\sum(u_i(x_i - \bar{x}))\sum(\epsilon_j(x_j - \bar{x}))}{\left(\sum(x_i - \bar{x})^2\right)^2}\right]
+$$
+
+. . .
+
+Using [A5]{.note}, we can simplify:
+
+$$
+Var(\hat{\beta}_2) = \frac{1}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum \mathbb{E}[u_i^2(x_i - \bar{x})^2]
+$$
+
+---
+
+Using [A4]{.note}: $Var(u_i) = \sigma^2$.
+
+$$
+Var(\hat{\beta}_2) = \frac{\sigma^2}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum (x_i - \bar{x})^2
+$$
+
+. . .
+
+<br>
+
+Thus we arrive at the variance of the OLS slope parameter:
+
+$$
+Var(\hat{\beta}_2) = \frac{\sigma^2}{\sum(x_i - \bar{x})^2}
+$$
+
+
+---
+
+## {data-visibility="uncounted"}
+
+::: {.vertical-center}
+If [A4.]{.note} and [A5.]{.note} are satisfied, along with [A1.]{.note}, [A2.]{.note}, and [A3.]{.note}, then we are using the [most efficient]{.hi} linear estimator.
+:::
+
+---
+
+## Classical Assumptions of OLS {data-visibility="uncounted"}
+
+[A1.]{.note} [Linearity:]{.hi} The population relationship is [_linear in parameters_]{.note} with an additive error term.
+
+[A2.]{.note} [Sample Variation:]{.hi} There is variation in $X$.
+
+[A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
+
+[A4.]{.note} [Homoskedasticity:]{.hi} The error term has the same variance for each value of the independent variable 
+
+[A5.]{.note} [Non-autocorrelation:]{.hi} The values of error terms have independent distributions 
+
+. . .
+
+[A6.]{.note} [Normality:]{.hi} The population error term in normally distributed with mean zero and variance $\sigma^2$
+
+---
+
+## Normality ([A6.]{.note})
+
+> The population error term in normally distributed with mean zero and variance $\sigma^2$
+
+Or,
+
+$$
+u \sim N(0,\sigma^2)
+$$
+
+Where $\sim$ stands for [distributed by]{.note} and $N$ stands for [normal distribution]{.note}
+
+. . .
+
+<br>
+
+However, [A6.]{.note} is note required for efficientcy nor unbiasedness
+
+---
+
