@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="06-main_files/libs/revealjs/dist/theme/quarto.css">
   <link href="06-main_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -349,6 +414,12 @@ Andrew Dickinson
 <!-- 1. [Returns to Schooling example](@sec-example) -->
 <ol type="1">
 <li><a href="@sec-assumptions">Assumptions</a></li>
+</ol>
+<ul>
+<li>Assumptions A1-A3 -&gt; unbiasedness</li>
+<li>Assumptions A4-A6: distribution of the errors</li>
+</ul>
+<ol type="1">
 <li><a href="@sec-gaussmarkov">Gauss-Markov</a></li>
 <li><a href="@sec-simulation">Simulations</a></li>
 </ol>
@@ -357,11 +428,6 @@ Andrew Dickinson
 </div>
 </div>
 </section>
-<section id="sec-prologue" class="title-slide slide level1 center">
-<h1><em>Prologue</em> {.inverse .note}</h1>
-
-</section>
-
 <section>
 <section id="classical-assumptions" class="title-slide slide level1 inverse note center">
 <h1><em>Classical assumptions</em></h1>
@@ -586,15 +652,6 @@ Andrew Dickinson
 </div>
 </div>
 </section>
-<section id="required-assumptions" class="slide level2">
-<h2>Required Assumptions</h2>
-<p><span class="note">A1.</span> <span class="hi">Linearity:</span> The population relationship is <span class="note"><em>linear in parameters</em></span> with an additive error term.</p>
-<p><span class="note">A2.</span> <span class="hi">Sample Variation:</span> There is variation in <span class="math inline">\(X\)</span>.</p>
-<p><span class="note">A3.</span> <span class="hi">Exogeniety:</span> The <span class="math inline">\(X\)</span> variable is <span class="note">exogenous</span></p>
-<div class="fragment">
-<p>☛ (3) implies <span class="note">random sampling</span>. <span class="fragment">Without it, our <span class="note">external validity</span> becomes uncertain.<sup>1</sup></span></p>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="note">Internal Validity:</span> Relates to how well a study is conducted (does it satisfy OLS assumptions?). <br> <span class="note">External Validity:</span> Relates to how applicable the findings are to the real world.</p></li></ol></aside></section>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <div class="vertical-center">
@@ -606,69 +663,198 @@ Andrew Dickinson
 <p><span class="note">Proving unbiasedness of simple OLS</span></p>
 <p>Suppose we have the following model</p>
 <p><span class="math display">\[
-Y_i = \beta_1 + \beta_2 X_i + u_i
+Y_i = \beta_0 + \beta_1 X_i + u_i
 \]</span></p>
 <div class="fragment">
 <p>The slope parameter follows as:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}
 \]</span></p>
 </div>
 <div class="fragment">
-<p>(<em>As shown in section 2.3 in ItE</em>) that the estimator <span class="math inline">\(\hat{\beta_2}\)</span>, can be broken up into a nonrandom and a random component:</p>
+<p>(<em>As shown in section 2.3 in ItE</em>) that the estimator <span class="math inline">\(\hat{\beta_1}\)</span>, can be broken up into a nonrandom and a random component:</p>
 </div>
 </section>
 <section class="slide level2">
 
-<p><span class="note">Proving unbiasedness of simple OLS</span></p>
+<!-- [Proving unbiasedness of simple OLS]{.note} -->
 <p>Substitute for <span class="math inline">\(y_i\)</span>:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 = \frac{\sum((\beta_1 + \beta_2x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 = \frac{\sum((\beta_0 + \beta_1x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
 \]</span></p>
 <div class="fragment">
-<p>Substitute <span class="math inline">\(\bar{y} = \beta_1 + \beta_2\bar{x}\)</span>:</p>
+<p>Substitute <span class="math inline">\(\bar{y} = \beta_0 + \beta_1\bar{x}\)</span>:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2} + \frac{\sum(\beta_2x_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+= \frac{\sum(\beta_0 + \beta_1x_i + u_i - \beta_0 - \beta_1\bar{x} - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
 \]</span></p>
 </div>
 <div class="fragment">
-<p>The non-random component, <span class="math inline">\(\beta_2\)</span>, is factored out:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2} + \beta_2\frac{\sum(x_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+= \frac{\sum[\beta_1 (x_i - \bar{x}) + (u_i - \bar{u})](x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+= \frac{ \sum\beta_1(x_i - \bar{x})(x_i-\bar{x}) + \sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
 \]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
-<p><span class="note">Proving unbiasedness of simple OLS</span></p>
-<p><span class="note">Observe</span> that the second term is equal to 1. Thus, we have:</p>
+<p>Now we can apply the summation rules to factor out <span class="math inline">\(\beta_1\)</span>: <span class="math display">\[
+\hat{\beta}_1 = \beta_1 \frac{\sum(x_i - \bar{x})^2}{\sum(x_i - \bar{x})^2} + \frac{\sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+\]</span></p>
+<div class="fragment">
+<p>Now we have the non-random component, <span class="math inline">\(\beta_1\)</span>, by itself:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 = \beta_2 + \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 = \beta_1 + \frac{\sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+\]</span></p>
+<ul>
+<li><p>I.e., a nonrandom <span class="math inline">\(\beta_1\)</span> which is our target <em>estimand</em></p></li>
+<li><p>and an additional random term: <span class="math inline">\(\frac{\sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}\)</span></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p>A few more steps to make our proof easier later:</p>
+<ul>
+<li>Let’s take the denominator of the random fraction term in the previous equation:</li>
+</ul>
+<p><span class="math display">\[
+\begin{align}
+  \sum(u_i - \hat{u})(x_i - \bar{x}) &amp; = \sum u_i (x_i - \bar{x}) + \bar{u} \sum (x_i - \bar{x}) \\
+  &amp; = \sum u_i (x_i - \bar{x}) + \bar{u} (\sum x_i - n \bar{X}) \\
+  &amp; = \sum (x_i - \bar{x}) u_i
+\end{align}
+\]</span></p>
+<ul>
+<li>Let’s also define a new variable: <span class="math inline">\(w_i\)</span> for <em>weights</em></li>
+</ul>
+<p><span class="math display">\[
+w_i = \frac{(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><span class="note">Proving unbiasedness of simple OLS</span></p>
+<p>Now we can rewrite our estimator a bit more neatly: <span class="math display">\[
+\hat{\beta}_1 = \beta_1 + \sum{w_i u_i}
+\]</span></p>
+<p>Remember what unbiasedness means as our goal here:</p>
+<ul>
+<li>We want our estimate <span class="math inline">\(\hat{\beta_1}\)</span> to be as close to the true <span class="math inline">\(\beta_1\)</span> as possible.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>If the estimator is <span class="hi">unbiased</span>, then <span class="math display">\[
+\mathbb{E}[\hat{\beta_1}] = \beta_1
+\]</span></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p><span class="math display">\[
+\hat{\beta}_1 = \beta_1 + \sum{w_i u_i}
 \]</span></p>
 <div class="fragment">
 <p>Taking the expectation,</p>
 <p><span class="math display">\[
-\mathbb{E}[\hat{\beta_2}] = \mathbb{E}[\beta] + \mathbb{E} \left[\frac{\sum \hat{u_i} (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} \right]
+\mathbb{E}[\hat{\beta_1}] = \mathbb{E}[\beta_1] + \sum \mathbb{E}[ w_i u_i]
 \]</span></p>
 </div>
 <div class="fragment">
-<p>By <span class="hi">Rules 01</span> and <span class="hi">02</span> of expected value and <span class="note">A3</span>:</p>
-<p><span class="math display">\[
-\begin{equation*}
-  \mathbb{E}[\hat{\beta_2}] = \beta + \frac{\sum \mathbb{E}[\hat{u_i}] (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} = \beta
-\end{equation*}
-\]</span></p>
+<p>What to do from here?</p>
+<ul>
+<li>the weights are still random variables, so we can’t simplify by pulling them out of the expected value</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>But what if we could treat them as constants?</li>
+</ul>
 </div>
 </section>
-<section id="required-assumptions-1" class="slide level2" data-visibility="uncounted">
+<section class="slide level2">
+
+<p><span class="note">Proving unbiasedness of simple OLS</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If the <span class="hi">conditional expectation</span> of something is a constant, then the <em>unconditional expectation</em> will equal that same constant.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>for example, consider IQ:
+<ul>
+<li>if IQ’s expected value is 100 at every age, then the expected value will be 100 in the overall population as well!</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p><span class="note">Proving unbiasedness of simple OLS</span></p>
+<p>How can we apply the conditional expectaion rule to our proof?</p>
+<div class="fragment">
+<p>If <span class="math inline">\(\mathbb{E}[w_iu_i|x_i] =\)</span> some constant <span class="math inline">\(c\)</span>, then we know <span class="math inline">\(\mathbb{E}[w_iu_i] = c\)</span> as well.</p>
+</div>
+<div class="fragment">
+<p>Why does this help? - Recall that <span class="math inline">\(w_i\)</span> is just composed of <span class="math inline">\(x_i\)</span> and some constants, so:</p>
+<p><span class="math display">\[
+\mathbb{E}[w_iu_i|x_i] = w_i \mathbb{E}[u_i|x_i]
+\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li>And what constant is <span class="math inline">\(\mathbb{E}[u_i|x_i]\)</span> equal to?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hii">A3</span> <span class="math inline">\(\Rightarrow \mathbb{E}[u_i|x_i] = 0\)</span>!!!</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p><span class="note">Proving unbiasedness of simple OLS</span></p>
+<p>Putting it all together:</p>
+<div class="fragment">
+<ul>
+<li>we can decompose the expected value of <span class="math inline">\(\beta_1\)</span>: <span class="math display">\[
+\mathbb{E}[\hat{\beta_1}] = \beta_1 + \sum \mathbb{E}[ w_i u_i]
+\]</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>If <span class="hii">A3</span> is true, then we can apply the conditional expectation rule to show that:</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{E}[\hat{\beta_1}] = \beta_1 + 0
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong><em>So OLS is unbiased !!!</em></strong></p>
+</div>
+</section>
+<section id="required-assumptions" class="slide level2" data-visibility="uncounted">
 <h2>Required Assumptions</h2>
 <p><span class="note">A1.</span> <span class="hi">Linearity:</span> The population relationship is <span class="note"><em>linear in parameters</em></span> with an additive error term.</p>
 <p><span class="note">A2.</span> <span class="hi">Sample Variation:</span> There is variation in <span class="math inline">\(X\)</span>.</p>
 <p><span class="note">A3.</span> <span class="hi">Exogeniety:</span> The <span class="math inline">\(X\)</span> variable is <span class="note">exogenous</span></p>
-<p>☛ (3) implies <span class="note">random sampling</span>. Without it, our <span class="note">external validity</span> becomes uncertain.<sup>1</sup></p>
-<p><br></p>
 <p><span class="hi">Result:</span> <span class="fragment">OLS is unbiased.</span></p>
-<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="note">Internal Validity:</span> Relates to how well a study is conducted (does it satisfy OLS assumptions?). <br> <span class="note">External Validity:</span> Relates to how applicable the findings are to the real world.</p></li></ol></aside></section>
+</section>
 <section id="classical-assumptions-of-ols-3" class="slide level2" data-visibility="uncounted">
 <h2>Classical Assumptions of OLS</h2>
 <p><span class="note">A1.</span> <span class="hi">Linearity:</span> The population relationship is <span class="note"><em>linear in parameters</em></span> with an additive error term.</p>
@@ -758,7 +944,7 @@ Y_i = \beta_1 + \beta_2 X_i + u_i
 <h2>Heteroskedasticity <span class="ex">Ex.</span></h2>
 <p>Suppose we study the following relationship:</p>
 <p><span class="math display">\[
-\text{Luxury Expenditure}_i = \beta_1 + \beta_2 \text{Income}_i + u_i
+\text{Luxury Expenditure}_i = \beta_0 + \beta_1 \text{Income}_i + u_i
 \]</span></p>
 <p><br></p>
 <p>As income increases, variation in luxury expenditures <span class="hii">increase</span></p>
@@ -805,7 +991,7 @@ E[u_i u_j]=0, \forall i \text{ s.t. } i \neq j
 \end{align*}
 \]</span></p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p><span class="note">Notes:</span> <span class="math inline">\(\forall i = \text{for all} \: i\)</span>, <span class="math inline">\(\text{s.t.} = \text{such that}\)</span>, <span class="math inline">\(i \neq j \: \text{means} \: i \: \text{is not equal to} \: j\)</span></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="note">Notes:</span> <span class="math inline">\(\forall i = \text{for all} \: i\)</span>, <span class="math inline">\(\text{s.t.} = \text{such that}\)</span>, <span class="math inline">\(i \neq j \: \text{means} \: i \: \text{is not equal to} \: j\)</span></p></li></ol></aside></section>
 <section id="non-autocorrelation-1" class="slide level2">
 <h2>Non-Autocorrelation</h2>
 <blockquote>
@@ -820,7 +1006,7 @@ E[u_i u_j]=0, \forall i \text{ s.t. } i \neq j
 <li>Referred to as <span class="hp">clustering</span> problem.</li>
 <li>An easy solution exists where we can adjust our standard errors</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn4"><p>(e.g.&nbsp;common correlation in unobservables among individuals within a given US state)</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>(e.g.&nbsp;common correlation in unobservables among individuals within a given US state)</p></li></ol></aside></section>
 <section id="section-9" class="slide level2" data-visibility="uncounted">
 <h2></h2>
 <div class="vertical-center">
@@ -832,32 +1018,32 @@ E[u_i u_j]=0, \forall i \text{ s.t. } i \neq j
 <p><span class="note">Proof of the population variance</span></p>
 <p>By definition</p>
 <p><span class="math display">\[
-Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\hat{\beta}_2 - E(\hat{\beta}_2)\right)^2\right] = \mathbb{E}\left[\left(\hat{\beta}_2 - \beta_2\right)^2\right]
+Var(\hat{\beta}_1) = \mathbb{E}\left[\left(\hat{\beta}_1 - E(\hat{\beta}_1)\right)^2\right] = \mathbb{E}\left[\left(\hat{\beta}_1 - \beta_1\right)^2\right]
 \]</span></p>
 <div class="fragment">
-<p><span class="note">Step 1:</span> Derive an expression for <span class="math inline">\(\hat{\beta}_2 - \beta_2\)</span>:</p>
+<p><span class="note">Step 1:</span> Derive an expression for <span class="math inline">\(\hat{\beta}_2 - \beta_1\)</span>:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 - \beta_2 = \frac{\sum(y_i - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_2
+\hat{\beta}_1 - \beta_1 = \frac{\sum(y_i - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_1
 \]</span></p>
 </div>
 <div class="fragment">
 <p>Substitute for <span class="math inline">\(Y_i\)</span>:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 - \beta_2 = \frac{\sum((\beta_1 + \beta_2x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_2
+\hat{\beta}_1 - \beta_1 = \frac{\sum((\beta_0 + \beta_1x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_1
 \]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <p><span class="note">Proof of the population variance</span></p>
-<p>Substitute <span class="math inline">\(\bar{y} = \beta_1 + \beta_2\bar{x}\)</span>:</p>
+<p>Substitute <span class="math inline">\(\bar{y} = \beta_0 + \beta_1\bar{x}\)</span>:</p>
 <p><span class="math display">\[
-\hat{\beta}_2 - \beta_2 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 - \beta_1 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
 \]</span></p>
 <div class="fragment">
-<p><span class="note">Step 1:</span> Take variance <span class="math inline">\(\hat{\beta}_2 - \beta_2\)</span>:</p>
+<p><span class="note">Step 1:</span> Take variance <span class="math inline">\(\hat{\beta}_1 - \beta_1\)</span>:</p>
 <p><span class="math display">\[
-Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}\right)^2\right]
+Var(\hat{\beta}_1) = \mathbb{E}\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}\right)^2\right]
 \]</span></p>
 </div>
 </section>
@@ -865,28 +1051,55 @@ Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(
 
 <p>Square the numerator:</p>
 <p><span class="math display">\[
-Var(\hat{\beta}_2) = \mathbb{E}\left[\frac{\sum(u_i(x_i - \bar{x}))\sum(\epsilon_j(x_j - \bar{x}))}{\left(\sum(x_i - \bar{x})^2\right)^2}\right]
+Var(\hat{\beta}_1) = \mathbb{E}\left[\frac{\sum(u_i(x_i - \bar{x}))\sum(u_j(x_j - \bar{x}))}{\left(\sum(x_i - \bar{x})^2\right)^2}\right]
 \]</span></p>
 <div class="fragment">
 <p>Using <span class="note">A5</span>, we can simplify:</p>
 <p><span class="math display">\[
-Var(\hat{\beta}_2) = \frac{1}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum \mathbb{E}[u_i^2(x_i - \bar{x})^2]
+Var(\hat{\beta}_1) = \frac{1}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum \mathbb{E}[u_i^2(x_i - \bar{x})^2]
 \]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
-<p>Using <span class="note">A4</span>: <span class="math inline">\(Var(u_i) = \sigma^2\)</span>.</p>
+<p>Using <span class="note">A4</span>: <span class="math inline">\(Var(u_i) = \sigma_u^2\)</span>.</p>
 <p><span class="math display">\[
-Var(\hat{\beta}_2) = \frac{\sigma^2}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum (x_i - \bar{x})^2
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum (x_i - \bar{x})^2
 \]</span></p>
 <div class="fragment">
 <p><br></p>
 <p>Thus we arrive at the variance of the OLS slope parameter:</p>
 <p><span class="math display">\[
-Var(\hat{\beta}_2) = \frac{\sigma^2}{\sum(x_i - \bar{x})^2}
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{\sum(x_i - \bar{x})^2}
 \]</span></p>
 </div>
+</section>
+<section class="slide level2">
+
+<p>Let’s define the <span class="hi">Mean Standard Deviation</span> (MSD) as <span class="math display">\[
+MSD(x) = \frac{1}{n} \sum(x_i - \bar{x})
+\]</span></p>
+<ul>
+<li>this describes how the average amount that <span class="math inline">\(x_i\)</span> deviates from it’s mean</li>
+</ul>
+<div class="fragment">
+<p>Now rewrite the variance of the <span class="math inline">\(\hat{\beta}_1\)</span> estimator:</p>
+<p><span class="math display">\[
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{n \cdot MSD(x)}
+\]</span></p>
+<ul>
+<li>Now we can see that as the sample size increases, our estimates get tighter because we are getting closer to the population distribution.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<p><span class="math display">\[
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{n \cdot MSD(x)}
+\]</span></p>
+<ul>
+<li>Also notice that the noisier the relationship (larger <span class="math inline">\(\sigma_u^2\)</span>), the noisier our estimates get.</li>
+</ul>
 </section>
 <section id="section-10" class="slide level2" data-visibility="uncounted">
 <h2></h2>
@@ -905,8 +1118,8 @@ Var(\hat{\beta}_2) = \frac{\sigma^2}{\sum(x_i - \bar{x})^2}
 <p><span class="note">A6.</span> <span class="hi">Normality:</span> The population error term in normally distributed with mean zero and variance <span class="math inline">\(\sigma^2\)</span></p>
 </div>
 </section>
-<section id="nomality-a6." class="slide level2">
-<h2>Nomality (<span class="note">A6.</span>)</h2>
+<section id="normality-a6." class="slide level2">
+<h2>Normality (<span class="note">A6.</span>)</h2>
 <blockquote>
 <p>The population error term in normally distributed with mean zero and variance <span class="math inline">\(\sigma^2\)</span></p>
 </blockquote>
@@ -994,6 +1207,41 @@ u \sim N(0,\sigma^2)
   y_i &amp;= 2.53 + 0.57 x_i + u_i \\
 \end{align*}
 \]</span></p>
+</div>
+</section>
+<section id="behind-the-curtains" class="slide level2">
+<h2>Behind the curtains</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(pacman)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">p_load</span>(parallel)</span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a><span class="co"># Set population and sample sizes</span></span>
+<span id="cb1-5"><a href=""></a>n_p <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-6"><a href=""></a>n_s <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb1-7"><a href=""></a><span class="co"># Set the seed</span></span>
+<span id="cb1-8"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">12468</span>)</span>
+<span id="cb1-9"><a href=""></a><span class="co"># Generate data</span></span>
+<span id="cb1-10"><a href=""></a>pop_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-11"><a href=""></a>  <span class="at">i =</span> <span class="dv">3</span>,</span>
+<span id="cb1-12"><a href=""></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(n_p, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="fl">1.5</span>),</span>
+<span id="cb1-13"><a href=""></a>  <span class="at">e =</span> <span class="fu">rnorm</span>(n_p, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb1-14"><a href=""></a>  <span class="at">y =</span> i <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> x <span class="sc">+</span> e,</span>
+<span id="cb1-15"><a href=""></a>  <span class="at">row =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">sqrt</span>(n_p), <span class="at">times =</span> <span class="fu">sqrt</span>(n_p)),</span>
+<span id="cb1-16"><a href=""></a>  <span class="at">col =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">sqrt</span>(n_p), <span class="at">each =</span> <span class="fu">sqrt</span>(n_p)),</span>
+<span id="cb1-17"><a href=""></a>  <span class="at">s1 =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fu">rep</span>(T, n_s), <span class="fu">rep</span>(F, n_p <span class="sc">-</span> n_s))),</span>
+<span id="cb1-18"><a href=""></a>  <span class="at">s2 =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fu">rep</span>(T, n_s), <span class="fu">rep</span>(F, n_p <span class="sc">-</span> n_s))),</span>
+<span id="cb1-19"><a href=""></a>  <span class="at">s3 =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fu">rep</span>(T, n_s), <span class="fu">rep</span>(F, n_p <span class="sc">-</span> n_s)))</span>
+<span id="cb1-20"><a href=""></a>)</span>
+<span id="cb1-21"><a href=""></a><span class="co"># Regressions</span></span>
+<span id="cb1-22"><a href=""></a>lm0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> pop_df)</span>
+<span id="cb1-23"><a href=""></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> <span class="fu">filter</span>(pop_df, s1 <span class="sc">==</span> T))</span>
+<span id="cb1-24"><a href=""></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> <span class="fu">filter</span>(pop_df, s2 <span class="sc">==</span> T))</span>
+<span id="cb1-25"><a href=""></a>lm3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> <span class="fu">filter</span>(pop_df, s3 <span class="sc">==</span> T))</span>
+<span id="cb1-26"><a href=""></a><span class="co"># Simulation</span></span>
+<span id="cb1-27"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">12468</span>)</span>
+<span id="cb1-28"><a href=""></a>sim_df <span class="ot">&lt;-</span> <span class="fu">mclapply</span>(<span class="at">mc.cores =</span> <span class="dv">1</span>, <span class="at">X =</span> <span class="dv">1</span><span class="sc">:</span><span class="fl">1e3</span>, <span class="at">FUN =</span> <span class="cf">function</span>(x, <span class="at">size =</span> n_s) {</span>
+<span id="cb1-29"><a href=""></a>  <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> pop_df <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="at">size =</span> size)) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>()</span>
+<span id="cb1-30"><a href=""></a>}) <span class="sc">%&gt;%</span> <span class="fu">do.call</span>(rbind, .) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="population-vs.-sample-1" class="slide level2" data-visibility="uncounted">
@@ -1131,24 +1379,24 @@ u \sim N(0,\sigma^2)
 <h2>OLS Variance</h2>
 <p>Variance of the slope estimator:</p>
 <p><span class="math display">\[
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 \]</span></p>
 <ul>
 <li>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></li>
 <li>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></li>
-<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
+<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
 </ul>
 </section>
 <section id="ols-variance-1" class="slide level2" data-visibility="uncounted">
 <h2>OLS Variance</h2>
 <p>Variance of the slope estimator:</p>
 <p><span class="math display">\[
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 \]</span></p>
 <ul>
 <li><strong>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></strong></li>
 <li>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></li>
-<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
+<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1165,12 +1413,12 @@ u \sim N(0,\sigma^2)
 <h2>OLS Variance</h2>
 <p>Variance of the slope estimator:</p>
 <p><span class="math display">\[
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 \]</span></p>
 <ul>
 <li>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></li>
 <li><strong>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></strong></li>
-<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
+<li>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1187,12 +1435,12 @@ u \sim N(0,\sigma^2)
 <h2>OLS Variance</h2>
 <p>Variance of the slope estimator:</p>
 <p><span class="math display">\[
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 \]</span></p>
 <ul>
 <li>As error variance <span class="hii">increases</span>, variance of the slope estimator <span class="hii">increases</span></li>
 <li>As variation in <span class="math inline">\(X\)</span> <span class="hii">increases</span>, variance of the slope estimator <span class="hi-red">decreases</span></li>
-<li><strong>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{\Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</strong></li>
+<li><strong>Larger sample sizes exhibit more variation in <span class="math inline">\(X \implies \mathop{Var}(\hat{\beta}_2)\)</span> falls as <span class="math inline">\(n\)</span> rises.</strong></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1204,10 +1452,7 @@ u \sim N(0,\sigma^2)
 
 <p>Increase sample size (<span class="math inline">\(n\)</span>) in <span class="math inline">\(X_i\)</span> term <span class="math inline">\(u_i \sim (0,1)\)</span>, <span class="math inline">\(X_i \sim (0,1)\)</span>, <span class="math inline">\(n = 60\)</span></p>
 
-<img data-src="06-main_files/figure-revealjs/sim-scatter-iv-1.png" class="quarto-figure quarto-figure-center r-stretch" width="3000"></section>
-<section id="section-12" class="slide level2">
-<h2></h2>
-<div class="vertical-center">
+<img data-src="06-main_files/figure-revealjs/sim-scatter-iv-1.png" class="quarto-figure quarto-figure-center r-stretch" width="3000"><div class="vertical-center">
 <p>We will further this discussion next time to conduct inference.</p>
 </div>
 </section></section>

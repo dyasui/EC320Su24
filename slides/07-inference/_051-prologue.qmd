@@ -219,7 +219,7 @@ line_df <- tibble(
 ggplot() +
 geom_histogram(data = line_df, aes(intercept), fill = hp, alpha = 0.75, bins = 40) +
   geom_vline(xintercept = lm0$coefficients[1], size = 2, color = hi) +
-  scale_x_continuous(breaks = lm0$coefficients[1], labels = latex2exp::TeX(r'($\beta_0$)')) +
+  scale_x_continuous(breaks = lm0$coefficients[1], labels = "beta_0") +
   theme(axis.text.x = element_text(size = 50),
       axis.text.y = element_blank(),
       rect = element_blank(),
@@ -247,7 +247,7 @@ line_df <- tibble(
 ggplot() +
 geom_histogram(data = line_df, aes(slope), fill = hp, alpha = 0.75, bins = 40) +
   geom_vline(xintercept = lm0$coefficients[2], size = 2, color = hi) +
-  scale_x_continuous(breaks = lm0$coefficients[2], labels = latex2exp::TeX(r'($\beta_1$)')) +
+  scale_x_continuous(breaks = lm0$coefficients[2], labels = "beta_1") +
   theme(axis.text.x = element_text(size = 50),
       axis.text.y = element_blank(),
       rect = element_blank(),
@@ -320,7 +320,7 @@ line_df <- tibble(
 ggplot() +
 geom_histogram(data = line_df, aes(intercept), fill = hp, alpha = 0.75, bins = 40) +
   geom_vline(xintercept = lm0$coefficients[1], size = 2, color = hi) +
-  scale_x_continuous(breaks = lm0$coefficients[1], labels = latex2exp::TeX(r'($\beta_0$)') ) +
+  scale_x_continuous(breaks = lm0$coefficients[1], labels = "beta_0" ) +
   theme(axis.text.x = element_text(size = 50),
       axis.text.y = element_blank(),
       rect = element_blank(),
@@ -346,7 +346,7 @@ line_df <- tibble(
 ggplot() +
 geom_histogram(data = line_df, aes(slope), fill = hp, alpha = 0.75, bins = 40) +
   geom_vline(xintercept = lm0$coefficients[2], size = 2, color = hi) +
-  scale_x_continuous(breaks = lm0$coefficients[2], labels = latex2exp::TeX(r'($\beta_1$)')) +
+  scale_x_continuous(breaks = lm0$coefficients[2], labels = 'beta_1') +
   theme(axis.text.x = element_text(size = 50),
       axis.text.y = element_blank(),
       rect = element_blank(),

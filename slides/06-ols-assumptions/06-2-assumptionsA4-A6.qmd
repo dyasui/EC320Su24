@@ -179,7 +179,7 @@ theme(
 Suppose we study the following relationship:
 
 $$
-\text{Luxury Expenditure}_i = \beta_1 + \beta_2 \text{Income}_i + u_i
+\text{Luxury Expenditure}_i = \beta_0 + \beta_1 \text{Income}_i + u_i
 $$
 
 <br>
@@ -290,15 +290,15 @@ Let's take a moment to talk about the [variance]{.note} of the [OLS]{.hi} [estim
 By definition
 
 $$
-Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\hat{\beta}_2 - E(\hat{\beta}_2)\right)^2\right] = \mathbb{E}\left[\left(\hat{\beta}_2 - \beta_2\right)^2\right]
+Var(\hat{\beta}_1) = \mathbb{E}\left[\left(\hat{\beta}_1 - E(\hat{\beta}_1)\right)^2\right] = \mathbb{E}\left[\left(\hat{\beta}_1 - \beta_1\right)^2\right]
 $$
 
 . . .
 
-[Step 1:]{.note} Derive an expression for $\hat{\beta}_2 - \beta_2$:
+[Step 1:]{.note} Derive an expression for $\hat{\beta}_2 - \beta_1$:
 
 $$
-\hat{\beta}_2 - \beta_2 = \frac{\sum(y_i - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_2
+\hat{\beta}_1 - \beta_1 = \frac{\sum(y_i - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_1
 $$
 
 . . .
@@ -306,25 +306,25 @@ $$
 Substitute for $Y_i$:
 
 $$
-\hat{\beta}_2 - \beta_2 = \frac{\sum((\beta_1 + \beta_2x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_2
+\hat{\beta}_1 - \beta_1 = \frac{\sum((\beta_0 + \beta_1x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2} - \beta_1
 $$
 
 ---
 
 [Proof of the population variance]{.note}
 
-Substitute $\bar{y} = \beta_1 + \beta_2\bar{x}$:
+Substitute $\bar{y} = \beta_0 + \beta_1\bar{x}$:
 
 $$
-\hat{\beta}_2 - \beta_2 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 - \beta_1 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
 $$
 
 . . .
 
-[Step 1:]{.note} Take variance $\hat{\beta}_2 - \beta_2$:
+[Step 1:]{.note} Take variance $\hat{\beta}_1 - \beta_1$:
 
 $$
-Var(\hat{\beta}_2) = \mathbb{E}\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}\right)^2\right]
+Var(\hat{\beta}_1) = \mathbb{E}\left[\left(\frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}\right)^2\right]
 $$
 
 ---
@@ -332,7 +332,7 @@ $$
 Square the numerator:
 
 $$
-Var(\hat{\beta}_2) = \mathbb{E}\left[\frac{\sum(u_i(x_i - \bar{x}))\sum(\epsilon_j(x_j - \bar{x}))}{\left(\sum(x_i - \bar{x})^2\right)^2}\right]
+Var(\hat{\beta}_1) = \mathbb{E}\left[\frac{\sum(u_i(x_i - \bar{x}))\sum(u_j(x_j - \bar{x}))}{\left(\sum(x_i - \bar{x})^2\right)^2}\right]
 $$
 
 . . .
@@ -340,15 +340,15 @@ $$
 Using [A5]{.note}, we can simplify:
 
 $$
-Var(\hat{\beta}_2) = \frac{1}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum \mathbb{E}[u_i^2(x_i - \bar{x})^2]
+Var(\hat{\beta}_1) = \frac{1}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum \mathbb{E}[u_i^2(x_i - \bar{x})^2]
 $$
 
 ---
 
-Using [A4]{.note}: $Var(u_i) = \sigma^2$.
+Using [A4]{.note}: $Var(u_i) = \sigma_u^2$.
 
 $$
-Var(\hat{\beta}_2) = \frac{\sigma^2}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum (x_i - \bar{x})^2
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{\left(\sum(x_i - \bar{x})^2\right)^2}\sum (x_i - \bar{x})^2
 $$
 
 . . .
@@ -358,9 +358,37 @@ $$
 Thus we arrive at the variance of the OLS slope parameter:
 
 $$
-Var(\hat{\beta}_2) = \frac{\sigma^2}{\sum(x_i - \bar{x})^2}
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{\sum(x_i - \bar{x})^2}
 $$
 
+---
+
+Let's define the [Mean Standard Deviation]{.hi} (MSD) as
+$$
+MSD(x) = \frac{1}{n} \sum(x_i - \bar{x})
+$$
+
+- this describes how the average amount that $x_i$ deviates from it's mean
+
+. . .
+
+Now rewrite the variance of the $\hat{\beta}_1$ estimator:
+
+$$
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{n \cdot MSD(x)}
+$$
+
+- Now we can see that as the sample size increases, our estimates get tighter
+because we are getting closer to the population distribution.
+
+---
+
+$$
+Var(\hat{\beta}_1) = \frac{\sigma_u^2}{n \cdot MSD(x)}
+$$
+
+- Also notice that the noisier the relationship (larger $\sigma_u^2$), 
+the noisier our estimates get.
 
 ---
 

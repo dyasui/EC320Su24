@@ -15,6 +15,9 @@ name: sims
 #| include: false
 #| cache: true
 
+library(pacman)
+p_load(parallel)
+
 # Set population and sample sizes
 n_p <- 100
 n_s <- 30
@@ -86,7 +89,44 @@ $$
 \end{align*}
 $$
 
----
+## Behind the curtains
+
+```{r}
+#| echo: true
+#| eval: false
+#| cache: true
+
+library(pacman)
+p_load(parallel)
+
+# Set population and sample sizes
+n_p <- 100
+n_s <- 30
+# Set the seed
+set.seed(12468)
+# Generate data
+pop_df <- tibble(
+  i = 3,
+  x = rnorm(n_p, mean = 5, sd = 1.5),
+  e = rnorm(n_p, mean = 0, sd = 1),
+  y = i + 0.5 * x + e,
+  row = rep(1:sqrt(n_p), times = sqrt(n_p)),
+  col = rep(1:sqrt(n_p), each = sqrt(n_p)),
+  s1 = sample(x = c(rep(T, n_s), rep(F, n_p - n_s))),
+  s2 = sample(x = c(rep(T, n_s), rep(F, n_p - n_s))),
+  s3 = sample(x = c(rep(T, n_s), rep(F, n_p - n_s)))
+)
+# Regressions
+lm0 <- lm(y ~ x, data = pop_df)
+lm1 <- lm(y ~ x, data = filter(pop_df, s1 == T))
+lm2 <- lm(y ~ x, data = filter(pop_df, s2 == T))
+lm3 <- lm(y ~ x, data = filter(pop_df, s3 == T))
+# Simulation
+set.seed(12468)
+sim_df <- mclapply(mc.cores = 1, X = 1:1e3, FUN = function(x, size = n_s) {
+  lm(y ~ x, data = pop_df %>% sample_n(size = size)) %>% tidy()
+}) %>% do.call(rbind, .) %>% as_tibble()
+```
 
 ## Population *vs.* Sample {data-visibility="uncounted"}
 
@@ -341,12 +381,12 @@ theme(
 Variance of the slope estimator:
 
 $$
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 $$
 
 - As error variance [increases]{.hii}, variance of the slope estimator [increases]{.hii}
 - As variation in $X$ [increases]{.hii}, variance of the slope estimator [decreases]{.hi-red}
-- Larger sample sizes exhibit more variation in $X \implies \mathop{\Var}(\hat{\beta}_2)$ falls as $n$ rises.
+- Larger sample sizes exhibit more variation in $X \implies \mathop{Var}(\hat{\beta}_2)$ falls as $n$ rises.
 
 ---
 
@@ -355,12 +395,12 @@ $$
 Variance of the slope estimator:
 
 $$
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 $$
 
 - __As error variance [increases]{.hii}, variance of the slope estimator [increases]{.hii}__
 - As variation in $X$ [increases]{.hii}, variance of the slope estimator [decreases]{.hi-red}
-- Larger sample sizes exhibit more variation in $X \implies \mathop{\Var}(\hat{\beta}_2)$ falls as $n$ rises.
+- Larger sample sizes exhibit more variation in $X \implies \mathop{Var}(\hat{\beta}_2)$ falls as $n$ rises.
 
 ---
 
@@ -466,12 +506,12 @@ theme(
 Variance of the slope estimator:
 
 $$
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 $$
 
 - As error variance [increases]{.hii}, variance of the slope estimator [increases]{.hii}
 - __As variation in $X$ [increases]{.hii}, variance of the slope estimator [decreases]{.hi-red}__
-- Larger sample sizes exhibit more variation in $X \implies \mathop{\Var}(\hat{\beta}_2)$ falls as $n$ rises.
+- Larger sample sizes exhibit more variation in $X \implies \mathop{Var}(\hat{\beta}_2)$ falls as $n$ rises.
 
 ---
 
@@ -577,12 +617,12 @@ theme(
 Variance of the slope estimator:
 
 $$
-\mathop{\Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\mathop{Var}(\hat{\beta}_2) = \frac{\sigma^2}{\sum_{i=1}^n (X_i - \bar{X})^2}
 $$
 
 - As error variance [increases]{.hii}, variance of the slope estimator [increases]{.hii}
 - As variation in $X$ [increases]{.hii}, variance of the slope estimator [decreases]{.hi-red}
-- __Larger sample sizes exhibit more variation in $X \implies \mathop{\Var}(\hat{\beta}_2)$ falls as $n$ rises.__
+- __Larger sample sizes exhibit more variation in $X \implies \mathop{Var}(\hat{\beta}_2)$ falls as $n$ rises.__
 
 ---
 

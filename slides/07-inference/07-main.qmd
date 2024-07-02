@@ -1,0 +1,95 @@
+---
+title: "Inference"
+subtitle: "EC 320, Lecture 7"
+author: "Andrew Dickinson"
+date: last-modified
+date-format: "MM YYYY"
+self-contained: true
+format: 
+  revealjs:
+    theme: [default, ./styles.scss]
+    monobackgroundcolor: #F5F5F5
+    slide-number: true
+    footer: "EC320, Lecture 7 | Inference"
+    preview-links: auto
+    code-fold: false
+    code-copy: true
+    highlight-style: a11y-light
+    cache: true
+    html-math-method: mathjax 
+title-slide-attributes: 
+  data-background-position: left
+---
+
+
+# _Prologue_ {.inverse .note}
+
+```{r}
+#| cache: false
+pacman::p_load(hrbrthemes, fastverse, tidyverse,
+               magrittr, wooldridge, here, kableExtra,
+               ggdag, nord, latex2exp, dagitty, viridis,
+               plotly, ggforce, latex2exp, parallel, broom)
+
+
+hi = nord_palettes$polarnight[3]
+hii = nord_palettes$frost[3] 
+hp = nord_palettes$aurora[5]
+higreen = nord_palettes$aurora[4]
+hiyellow = nord_palettes$aurora[3]
+hiorange = nord_palettes$aurora[2]
+hired = nord_palettes$aurora[1]
+higrey = nord_palettes$snowstorm[1]
+
+mytheme = theme_ipsum(base_family = "Fira Sans Book", base_size = 20) +
+ theme(panel.grid.minor.x = element_blank(),
+       axis.title.x = element_text(size = 18),
+       axis.title.y = element_text(size = 18))
+
+mytheme_s = mytheme + 
+  theme(panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_blank(),
+        axis.line = element_line(color = hi))
+
+mytheme_void = theme_void(base_family = "Fira Sans Book", base_size = 20)
+
+
+campus <- get(data(campus)) %>% 
+  mutate(crime = round(crime/enroll*1000, 2),
+         police = round(police/enroll*1000, 2)) %>% 
+  filter(police < 10) %>% # remove outlier
+  select(crime, police)
+
+```
+
+{{< include _051-prologue.qmd >}}
+
+# _Inference_ {.inverse .note}
+
+{{< include _052-inference.qmd >}}
+
+# _Hypothesis testing_ {.inverse .note}
+
+{{< include _053-hypothesis.qmd >}}
+
+# _Confidence intervals_ {.inverse .note}
+
+{{< include _054-ci.qmd >}}
+
+# _An alternative_ {.inverse .note}
+
+{{< include _019-hytesting.qmd >}}
+
+```{r}
+#| include: false
+#| echo: false
+#| eval: false
+library(renderthis)
+
+renderthis::to_pdf(
+  from = "./slides/005-inference/050-main.html",
+  to = "./slides/005-inference/050-main.pdf",
+  complex_slides = TRUE
+)
+```

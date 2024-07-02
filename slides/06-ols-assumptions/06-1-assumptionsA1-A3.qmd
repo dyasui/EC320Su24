@@ -452,19 +452,7 @@ mytheme_s
 
 ---
 
-## Required Assumptions
 
-[A1.]{.note} [Linearity:]{.hi} The population relationship is [_linear in parameters_]{.note} with an additive error term.
-
-[A2.]{.note} [Sample Variation:]{.hi} There is variation in $X$.
-
-[A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
-
-. . .
-
-&#9755; (3) implies [random sampling]{.note}. [Without it, our [external validity]{.note} becomes uncertain.^[[Internal Validity:]{.note} Relates to how well a study is conducted (does it satisfy OLS assumptions?). <br> [External Validity:]{.note} Relates to how applicable the findings are to the real world.]]{.fragment}
-
----
 
 ## 
 
@@ -479,7 +467,7 @@ mytheme_s
 Suppose we have the following model
 
 $$
-Y_i = \beta_1 + \beta_2 X_i + u_i
+Y_i = \beta_0 + \beta_1 X_i + u_i
 $$
 
 . . .
@@ -487,47 +475,107 @@ $$
 The slope parameter follows as:
 
 $$
-\hat{\beta}_2 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}
 $$
 
 . . .
 
-(_As shown in section 2.3 in ItE_) that the estimator $\hat{\beta_2}$, can be broken up into a nonrandom and a random component:
+(_As shown in section 2.3 in ItE_) that the estimator $\hat{\beta_1}$, can be broken up into a nonrandom and a random component:
 
 ---
 
-[Proving unbiasedness of simple OLS]{.note}
+<!-- [Proving unbiasedness of simple OLS]{.note} -->
 
 Substitute for $y_i$:
 
 $$
-\hat{\beta}_2 = \frac{\sum((\beta_1 + \beta_2x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 = \frac{\sum((\beta_0 + \beta_1x_i + u_i) - \bar{y})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
 $$
 
 . . .
 
-Substitute $\bar{y} = \beta_1 + \beta_2\bar{x}$:
+Substitute $\bar{y} = \beta_0 + \beta_1\bar{x}$:
 
 $$
-\hat{\beta}_2 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2} + \frac{\sum(\beta_2x_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+ = \frac{\sum(\beta_0 + \beta_1x_i + u_i - \beta_0 - \beta_1\bar{x} - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
 $$
 
 . . .
 
-The non-random component, $\beta_2$, is factored out:
+$$
+= \frac{\sum[\beta_1 (x_i - \bar{x}) + (u_i - \bar{u})](x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+$$
+
+. . .
 
 $$
-\hat{\beta}_2 = \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2} + \beta_2\frac{\sum(x_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+= \frac{ \sum\beta_1(x_i - \bar{x})(x_i-\bar{x}) + \sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+$$
+
+---
+
+Now we can apply the summation rules to factor out $\beta_1$:
+$$
+\hat{\beta}_1 = \beta_1 \frac{\sum(x_i - \bar{x})^2}{\sum(x_i - \bar{x})^2} + \frac{\sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+$$
+
+. . .
+
+Now we have the non-random component, $\beta_1$, by itself:
+
+$$
+\hat{\beta}_1 = \beta_1 + \frac{\sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
+$$
+
+- I.e., a nonrandom $\beta_1$ which is our target *estimand*
+
+- and an additional random term: $\frac{\sum(u_i - \bar{u})(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}$
+
+---
+
+A few more steps to make our proof easier later:
+
+- Let's take the denominator of the random fraction term in the previous equation:
+
+$$
+\begin{align}
+  \sum(u_i - \hat{u})(x_i - \bar{x}) & = \sum u_i (x_i - \bar{x}) + \bar{u} \sum (x_i - \bar{x}) \\
+  & = \sum u_i (x_i - \bar{x}) + \bar{u} (\sum x_i - n \bar{X}) \\
+  & = \sum (x_i - \bar{x}) u_i
+\end{align}
+$$
+
+- Let's also define a new variable: $w_i$ for *weights*
+
+$$
+w_i = \frac{(x_i - \bar{x})}{\sum(x_i - \bar{x})^2}
 $$
 
 ---
 
 [Proving unbiasedness of simple OLS]{.note}
 
-[Observe]{.note} that the second term is equal to 1. Thus, we have:
+Now we can rewrite our estimator a bit more neatly:
+$$
+\hat{\beta}_1 = \beta_1 + \sum{w_i u_i}
+$$
+
+Remember what unbiasedness means as our goal here:
+
+- We want our estimate $\hat{\beta_1}$ to be as close to the true $\beta_1$ 
+as possible.
+
+. . .
+
+- If the estimator is [unbiased]{.hi}, then
+$$
+\mathbb{E}[\hat{\beta_1}] = \beta_1
+$$
+
+---
 
 $$
-\hat{\beta}_2 = \beta_2 + \frac{\sum(u_i(x_i - \bar{x}))}{\sum(x_i - \bar{x})^2}
+\hat{\beta}_1 = \beta_1 + \sum{w_i u_i}
 $$
 
 . . .
@@ -535,20 +583,85 @@ $$
 Taking the expectation, 
 
 $$
-\mathbb{E}[\hat{\beta_2}] = \mathbb{E}[\beta] + \mathbb{E} \left[\frac{\sum \hat{u_i} (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} \right]
+\mathbb{E}[\hat{\beta_1}] = \mathbb{E}[\beta_1] + \sum \mathbb{E}[ w_i u_i]
 $$
 
 . . .
 
-By [Rules 01]{.hi} and [02]{.hi} of expected value and [A3]{.note}:
+What to do from here? 
 
-$$
-\begin{equation*}
-  \mathbb{E}[\hat{\beta_2}] = \beta + \frac{\sum \mathbb{E}[\hat{u_i}] (x_i - \bar{x})}{\sum(x_i - \bar{x})^2} = \beta
-\end{equation*}
-$$
+- the weights are still random variables, so we can't simplify by pulling them out of the expected value
+
+. . . 
+
+- But what if we could treat them as constants?
 
 ---
+
+[Proving unbiasedness of simple OLS]{.note}
+
+::: {.callout-note}
+If the [conditional expectation]{.hi} of something is a constant,
+then the *unconditional expectation* will equal that same constant.
+:::
+
+. . .
+
+- for example, consider IQ:
+  - if IQ's expected value is 100 at every age,
+  then the expected value will be 100 in the overall population as well!
+
+---
+
+[Proving unbiasedness of simple OLS]{.note}
+
+How can we apply the conditional expectaion rule to our proof?
+
+. . .
+
+If $\mathbb{E}[w_iu_i|x_i] =$ some constant $c$, then we know $\mathbb{E}[w_iu_i] = c$ as well.
+
+. . .
+
+Why does this help? 
+- Recall that $w_i$ is just composed of $x_i$ and some constants, so:
+
+$$
+\mathbb{E}[w_iu_i|x_i] = w_i \mathbb{E}[u_i|x_i]
+$$
+
+. . .
+
+- And what constant is $\mathbb{E}[u_i|x_i]$ equal to?
+
+. . .
+
+- [A3]{.hii} $\Rightarrow \mathbb{E}[u_i|x_i] = 0$!!!
+
+---
+
+[Proving unbiasedness of simple OLS]{.note}
+
+Putting it all together:
+
+. . .
+
+  - we can decompose the expected value of $\beta_1$:
+$$
+\mathbb{E}[\hat{\beta_1}] = \beta_1 + \sum \mathbb{E}[ w_i u_i]
+$$
+
+. . .
+
+  - If [A3]{.hii} is true, then we can apply the conditional expectation rule to show that:
+
+$$
+\mathbb{E}[\hat{\beta_1}] = \beta_1 + 0
+$$
+
+. . .
+
+***So OLS is unbiased !!!***
 
 ## Required Assumptions {data-visibility="uncounted"}
 
@@ -558,10 +671,4 @@ $$
 
 [A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
 
-&#9755; (3) implies [random sampling]{.note}. Without it, our [external validity]{.note} becomes uncertain.^[[Internal Validity:]{.note} Relates to how well a study is conducted (does it satisfy OLS assumptions?). <br> [External Validity:]{.note} Relates to how applicable the findings are to the real world.]
-
-<br>
-
 [Result:]{.hi} [OLS is unbiased.]{.fragment}
-
-
