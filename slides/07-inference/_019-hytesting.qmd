@@ -4,6 +4,8 @@ name: hypothesis-testing
 
 ---
 
+## Hypothesis Testing
+
 ::: {.middle}
 
 Hypothesis testing is an essential tool. [Yet the traditional way of teaching hypothesis testing can be unintuitive.]{.fragment}
@@ -13,6 +15,7 @@ Hypothesis testing is an essential tool. [Yet the traditional way of teaching hy
 
 ---
 
+## Hypothesis Testing
 
 ::: {.middle}
 _If you can program, you have direct access to the fundamental ideas in statistics_
