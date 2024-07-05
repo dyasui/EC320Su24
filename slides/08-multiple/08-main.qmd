@@ -6,8 +6,8 @@ date: last-modified
 date-format: "MM YYYY"
 format: 
   revealjs:
-    theme: [default, ../styles.scss]
-    monobackgroundcolor: #F5F5F5
+    theme: [default, ./styles.scss]
+    # monobackgroundcolor: #F5F5F5
     slide-number: true
     footer: "EC320, Set 08 | Multiple linear regression"
     preview-links: auto

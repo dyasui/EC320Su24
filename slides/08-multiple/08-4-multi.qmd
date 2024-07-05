@@ -467,7 +467,7 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
 xlim(-3, 3) +
 ylim(-4, 3.4) +
 coord_equal()
@@ -525,10 +525,10 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
 annotate(
   x = 1, y = 3,
-  geom = "text", label = "Model 1", size = 9, color = hi, family = "Fira Sans", hjust = 0
+  geom = "text", label = "Model 1", size = 9, color = hi, hjust = 0
 ) +
 xlim(-3, 3) +
 ylim(-4, 3.4) +
@@ -562,10 +562,10 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
 annotate(
   x = 1, y = 3,
-  geom = "text", label = "Model 2", color = hi, size = 9, family = "Fira Sans", hjust = 0
+  geom = "text", label = "Model 2", color = hi, size = 9, hjust = 0
 ) +
 xlim(-3, 3) +
 ylim(-4, 3.4) +
@@ -719,7 +719,7 @@ geom_hline(yintercept = 0) +
 geom_vline(xintercept = 0) +
 geom_line(size = 2, alpha = 0.75, color = hired) +
 geom_line(aes(y = adj_rsq), size = 0.2, alpha = 0, color = hp) +
-ylab(latex2exp::TeX(r'($R^2$)')) +
+ylab("R-squared") +
 xlab("Number of independent variables (k)") +
 mytheme
 ```
@@ -742,7 +742,7 @@ geom_hline(yintercept = 0) +
 geom_vline(xintercept = 0) +
 geom_line(size = 2, alpha = 0.15, color = hired) +
 geom_line(aes(y = adj_rsq), size = 2, alpha = 0.85, color = hii) +
-ylab(latex2exp::TeX(r'($R^2$)')) +
+ylab("R-squared") +
 xlab("Number of independent variables (k)") +
 mytheme
 ```

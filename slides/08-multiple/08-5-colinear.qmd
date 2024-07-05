@@ -174,10 +174,10 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
   annotate(
   x = 0, y = 2.25,
-  geom = "text", label = "Scenario 1", color = hi, size = 9, family = "Fira Sans", hjust = 0
+  geom = "text", label = "Scenario 1", color = hi, size = 9, hjust = 0
 ) +
 xlim(-3, 3) +
 ylim(-4, 3) +
@@ -207,10 +207,10 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
   annotate(
   x = 0, y = 2.25,
-  geom = "text", label = "Scenario 2", color = hi, size = 9, family = "Fira Sans", hjust = 0
+  geom = "text", label = "Scenario 2", color = hi, size = 9, hjust = 0
 ) +
 xlim(-3, 3.5) +
 ylim(-4, 3) +
@@ -284,7 +284,7 @@ theme_void() +
 theme(legend.position = "none") +
 scale_fill_manual(values = venn_colors) +
 scale_color_manual(values = venn_colors) +
-geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
 xlim(-5.5, 4.5) +
 ylim(-4.5, 3) +
 coord_equal()

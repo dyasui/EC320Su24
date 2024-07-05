@@ -184,7 +184,7 @@ geom_curve(
 geom_text(
   data = dag_dt_filtered[, .(name, x, y, xend = x, yend = y)] %>% unique(),
   aes(x = x, y = y, label = name),
-  family = "Fira Sans Medium",
+  # family = "Fira Sans Medium",
   size = 8,
   color = hi,
   fontface = "bold"
@@ -280,7 +280,7 @@ geom_curve(
 geom_text(
   data = dag_dt_filtered[, .(name, x, y, xend = x, yend = y)] %>% unique(),
   aes(x = x, y = y, label = name),
-  family = "Fira Sans Medium",
+  # family = "Fira Sans Medium",
   size = 8,
   color = hi,
   fontface = "bold"
@@ -338,7 +338,7 @@ geom_curve(
 geom_text(
   data = dag_dt_modified[, .(name, x, y, xend = x, yend = y)] %>% unique(),
   aes(x = x, y = y, label = name),
-  family = "Fira Sans Medium",
+  # family = "Fira Sans Medium",
   size = 8,
   color = hi,
   fontface = "bold"
@@ -397,7 +397,7 @@ geom_curve(
 geom_text(
   data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
   aes(x = x, y = y, label = name),
-  family = "Fira Sans Medium",
+  # family = "Fira Sans Medium",
   size = 8,
   color = hi,
   fontface = "bold"
