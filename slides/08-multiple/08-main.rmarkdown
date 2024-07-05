@@ -1,0 +1,2842 @@
+---
+title: "Multiple linear regression"
+subtitle: "EC 320, Set 08"
+author: "Andrew Dickinson"
+date: last-modified
+date-format: "MM YYYY"
+format: 
+  revealjs:
+    theme: [default, ../styles.scss]
+    monobackgroundcolor: #F5F5F5
+    slide-number: true
+    footer: "EC320, Set 08 | Multiple linear regression"
+    preview-links: auto
+    code-fold: FALSE
+    code-copy: TRUE
+    highlight-style: a11y-light
+    cache: TRUE
+    html-math-method: mathjax 
+title-slide-attributes: 
+  data-background-position: left
+---
+
+
+
+<!-- ::: {.content-hidden} -->
+<!-- $$ -->
+<!-- {{< include ../_macros.tex >}} -->
+<!-- $$ -->
+<!-- ::: -->
+
+
+# _Prologue_ {.inverse .note}
+
+
+
+```{r}
+# Load packages
+pacman::p_load(
+  hrbrthemes, fastverse, tidyverse, AER,
+  magrittr, wooldridge, here, kableExtra,
+  ggdag, nord, latex2exp, dagitty, viridis, gganimate,
+  plotly, ggforce, latex2exp, parallel, broom, furrr
+  )
+
+
+hi = nord_palettes$polarnight[3]
+hii = nord_palettes$frost[3] 
+hp = nord_palettes$aurora[5]
+higreen = nord_palettes$aurora[4]
+hiyellow = nord_palettes$aurora[3]
+hiorange = nord_palettes$aurora[2]
+hired = nord_palettes$aurora[1]
+higrey = nord_palettes$snowstorm[1]
+
+mytheme = theme_ipsum(
+              # base_family = "Fira Sans Book", 
+              base_size = 20
+          ) +
+ theme(panel.grid.minor.x = element_blank(),
+       axis.title.x = element_text(size = 18),
+       axis.title.y = element_text(size = 18))
+
+mytheme_s = mytheme + 
+  theme(panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_blank(),
+        axis.line = element_line(color = hi))
+
+mytheme_void = theme_void(
+                  # base_family = "Fira Sans Book",
+                  base_size = 20
+                )
+
+data("MASchools")
+
+schools_dt = as.data.table(MASchools)
+
+# Create group variable by student expenditure
+schools_dt[exptot >= 6000, expgroup := TRUE]
+schools_dt[exptot < 6000, expgroup := FALSE]
+schools_dt[expgroup == TRUE, score4 := score4 + 30]
+schools_dt = schools_dt[!(expgroup == TRUE & score4 < 722)]
+
+election <- read_csv("election_2016.csv") %>% 
+  mutate(trump_pct = trump/totalvotes*100,
+         clinton_pct = clinton/totalvotes*100,
+         trump_margin = trump_pct - clinton_pct,
+         nonwhite = 100 - white)
+```
+
+---
+name: prologue
+---
+
+
+---
+
+::: {.middle}
+_First, a quick recap of what we've done thus far._
+:::
+
+---
+
+## The regression model
+
+We can estimate the effect of $X$ on $Y$ by estimating a [regression model:]{.hi}
+
+$$Y_i = \beta_0 + \beta_1 X_i + u_i$$
+
+- $Y_i$ is the outcome variable.
+
+
+
+- $X_i$ is the treatment variable (continuous).
+
+
+
+- $\beta_0$ is the [intercept]{.hi} parameter. $\mathop{\mathbb{E}}\left[ {Y_i | X_i=0} \right] = \beta_0$
+
+
+
+- $\beta_1$ is the [slope]{.hi} parameter, which under the correct causal setting represents marginal change in $X_i$'s effect on $Y_i$. $\frac{\partial Y_i}{\partial X_i} = \beta_1$
+
+
+
+
+- $u_i$ is an error term including all other (omitted) factors affecting $Y_i$.
+
+---
+
+## The error term
+
+$u_i$ is quite special 
+
+<br>
+
+ 
+
+Consider the [data generating process]{.note} of variable $Y_i$,
+
+
+
+- $u_i$ captures [_all unobserved relationships_]{.note} that explain variation in $Y_i$.
+
+<br>
+
+
+
+Some error will exist in all models, [our aim is to [_minimize error_]{.hi} under a set of constraints.]{.fragment} [This error is the price we are willing to accept for simplified model]{.fragment}
+
+---
+
+## The error term {data-visibility="uncounted"}
+
+[Five]{.hi} items contribute to the existence of the disturbance term:
+
+[1.]{.hi} Omission of explanatory variables
+
+[2.]{.hi} Aggregation of Variables
+
+[3.]{.hi} Model misspecificiation
+
+[4.]{.hi} Functional misspecificiation
+
+[5.]{.hi} Measurement error
+
+---
+
+## Running regressions
+
+Using an estimator with data on $X_i$ and $Y_i$, we can estimate a [fitted regression line:]{.hi}
+
+$$
+\hat{Y_i} = \hat{\beta}_0 + \hat{\beta}_1 X_i
+$$
+
+- $\hat{Y_i}$ is the [fitted value]{.hi} of $Y_i$.
+- $\hat{\beta}_0$ is the [estimated intercept]{.hi}.
+- $\hat{\beta}_1$ is the [estimated slope]{.hi}.
+
+. . .
+
+This procedure produces misses, known as [residuals]{.hi}, $Y_i - \hat{Y_i}$
+
+---
+
+## Gauss-Markov Theorem
+
+> OLS is the [Best Linear Unbiased Estimator]{.hi} ([BLUE]{.hii}) when the following assumptions hold:
+
+[A1.]{.note} [Linearity:]{.hi} The population relationship is [_linear in parameters_]{.note} with an additive error term.
+
+[A2.]{.note} [Sample Variation:]{.hi} There is variation in $X$.
+
+[A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
+
+[A4.]{.note} [Homoskedasticity:]{.hi} The error term has the same variance for each value of the independent variable 
+
+[A5.]{.note} [Non-autocorrelation:]{.hi} The values of error terms have independent distributions 
+
+---
+
+##
+
+::: {.middle}
+_Consider the following example._
+:::
+
+
+
+# [Ex.]{.ex} [Effect of class sizes on test scores]{.hi-white} {.inverse .tiny}
+
+
+
+---
+name: ex
+---
+
+
+---
+
+::: {.middle}
+[Empirical question:]{.note}
+
+: What improvement do smaller class sizes have on student test scores, if any?
+:::
+
+---
+
+## [Ex.]{.ex} [Effect of class sizes on test scores]{.hi}
+
+Estimate effect of class size on test scores with the following:
+
+$$
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + u_i
+$$
+
+<br>
+
+. . .
+
+[Data:]{.hi} Test performance and class across school districts in MA
+
+- Scores: 4th grade test scores agg. across reading, math, and science
+- Class size: Ratio of number of students to teachers
+
+<br>
+
+. . .
+
+Always plot your data first
+
+---
+
+
+```{r}
+#| fig-cap: Raw data
+#| echo: false
+#| fig.align: center
+#| fig.height: 6.75
+
+ggplot(data = schools_dt, aes(x = stratio, y = score4)) +
+  geom_point(color = hi, size = 3) +
+  labs(
+    title = "Relationship between test scores and class size",
+    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
+    y = "Test scores",
+    x = "Class size"
+  ) +
+  mytheme
+
+```
+
+
+---
+
+
+```{r}
+#| fig-cap: Fitting OLS
+#| echo: false
+#| fig.align: center
+#| fig.height: 6.75
+
+ggplot(data = schools_dt, aes(x = stratio, y = score4)) +
+  geom_point(color = hi, size = 3) +
+  geom_smooth(method = 'lm', se = FALSE, color = hp) +
+  labs(
+    title = "Relationship between test scores and class size",
+    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
+    y = "Test scores",
+    x = "Class size"
+  ) +
+  mytheme
+
+```
+
+
+---
+
+## [Ex.]{.ex} [Effect of class sizes on test scores]{.hi}
+
+Estimate effect of class size on test scores with the following:
+
+$$
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + u_i
+$$
+
+<br>
+
+[Q.]{.note} _How might smaller class sizes influence test scores?_
+
+. . .
+
+[A.]{.note} More personalized teaching, less classroom disruptions etc.
+
+. . .
+
+<br>
+
+[Q.]{.note} _What sign would we expect on $\beta_1$?_
+
+. . .
+
+[A.]{.note}  
+
+$$
+\beta_1 < 0
+$$
+
+---
+
+## 
+
+Smaller class sizes ([X]{.hi}) increases test scores ([Y]{.hi}) 
+<br>
+<br>
+
+
+```{r}
+#| label: dag-ex-setup
+#| echo: false
+#| include: false
+
+
+
+# The full DAG
+dag_full = dagify(
+  Y ~ X,
+  Y ~ U,
+  X ~ U,
+  coords = tibble(
+    name = c("Y", "X", "U"),
+    x = c(1, 3, 2),
+    y = c(2, 2, 1)
+  )
+)
+# Convert to data.table
+dag_dt = dag_full %>% fortify() %>% setDT()
+# Add indicators for paths
+dag_dt[, `:=`(
+  path1 = (name == "X" & to == "Y") | (name == "Y"),
+  path2 = (name == "X" & to == "U") | (name == "U" & to == "Y") | (name == "Y")
+)]
+# Shorten segments
+mult = 0.15
+dag_dt[, `:=`(
+  xa = x + (xend-x) * (mult),
+  ya = y + (yend-y) * (mult),
+  xb = x + (xend-x) * (1-mult),
+  yb = y + (yend-y) * (1-mult)
+)]
+```
+
+```{r}
+#| label: dag-ex-ovb-00
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
+
+# Filter data to include only D and Y nodes and the edge between them
+dag_dt_filtered <- dag_dt[((name == "X" & to == "Y") | (name %in% c("X", "Y"))),]
+
+# Plot the filtered DAG
+ggplot(
+  data = dag_dt_filtered,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt_filtered[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
+
+```
+
+
+<br>
+<br>
+
+---
+
+## [Ex.]{.ex} [Effect of class sizes on test scores]{.hi} {data-visibility="uncounted"}
+
+Estimate effect of class size on test scores with the following:
+
+$$
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + u_i
+$$
+
+<br>
+
+[Q.]{.note} _Do we think $\beta_1$ will be a good guess of the underlying population parameter?_
+
+. . .
+
+[A.]{.note} In $u_i$, several variables are correlated with class size and test scores
+
+[Such as...]{.fragment} [school funding]{.fragment .hi}[, which might affect:]{.fragment}
+
+. . .
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Textbooks
+- Computers
+:::
+
+::: {.column width="50%"}
+- Teacher salary
+- Attract high income parents
+:::
+
+::::
+
+---
+
+## {data-visibility="uncounted"}
+
+Smaller class sizes ([X]{.hi}) increases test scores ([Y]{.hi}) 
+<br>
+<br>
+
+
+```{r}
+#| label: dag-ex-ovb-00-again
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
+
+# Filter data to include only D and Y nodes and the edge between them
+dag_dt_filtered <- dag_dt[((name == "X" & to == "Y") | (name %in% c("X", "Y"))),]
+
+# Plot the filtered DAG
+ggplot(
+  data = dag_dt_filtered,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt_filtered[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
+
+```
+
+
+<br>
+<br>
+
+---
+
+## {data-visibility="uncounted"}
+
+Smaller class sizes ([X]{.hi}) increases test scores ([Y]{.hi}) along with greater school funding ([U]{.hi})
+
+
+```{r}
+#| label: dag-ex-ovb-01
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
+
+# Modify data to include only the desired edges
+dag_dt_modified <- dag_dt[2:4]
+
+# Plot the modified DAG
+ggplot(
+  data = dag_dt_modified,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt_modified[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
+
+
+```
+
+
+<br>
+<br>
+
+---
+
+## {data-visibility="uncounted"}
+
+Smaller class sizes ([X]{.hi}) increases test scores ([Y]{.hi}) along with greater school funding ([U]{.hi}). And, school funding ([U]{.hi}) is correlated with test scores ([X]{.hi}).
+
+
+<!-- DAG SLIDE -->
+
+
+```{r}
+#| label: dag-ex-ovb-02
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
+
+# Plot the full DAG
+ggplot(
+  data = dag_dt,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
+```
+
+
+. . .
+
+_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$.
+
+
+---
+
+## {data-visibility="uncounted"}
+
+::: {.vertical-center}
+_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$. [Why?]{.fragment .note}
+:::
+
+---
+
+###### {data-visibility="uncounted"}
+
+_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$. [Why?]{.note}
+
+<br>
+
+[A1.]{.note} Linearity
+
+[A2.]{.note} Sample Variation
+
+[A3.]{.note} Exogeniety
+
+[A4.]{.note} Homoskedasticity
+
+[A5.]{.note} Non-autocorrelation
+
+[A6.]{.note} Normality
+
+
+---
+
+###### {data-visibility="uncounted"}
+
+_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$. [Why?]{.note}
+
+<br>
+
+[A1.]{.note} Linearity
+
+[A2.]{.note} Sample Variation
+
+[A3.]{.note} [Exogeniety: The $X$ variable is exogenous]{.hi-red}
+
+[A4.]{.note} Homoskedasticity
+
+[A5.]{.note} Non-autocorrelation
+
+[A6.]{.note} Normality
+
+---
+
+###### {data-visibility="uncounted"}
+
+
+::: {.vertical-center}
+_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$. [Why?]{.note}
+
+<br>
+
+[A.]{.note} Because is [violates the exogeniety assumption]{.hi-red}
+
+$$
+\mathop{\mathbb{E}}\left( u|\text{Class Size} \right) \neq 0
+$$
+
+Correlation between class size and school funding ($u_i$) is not zero.
+
+:::
+
+---
+
+## {data-visibility="uncounted"}
+
+:::{.vertical-center}
+Graphically...
+:::
+
+---
+
+## 
+
+
+```{r}
+#| include: false
+#| cache: true
+
+# Setup ----------------------------------------------------------------------------------
+  # Packages
+  library(pacman)
+  p_load(ggridges)
+# Data work ------------------------------------------------------------------------------
+  # Set seed
+  set.seed(12345)
+  # Sample size
+  n <- 1e5
+  # Exogenous
+  e_good <- tibble(
+    x = runif(n = n, min = 11, max = 24),
+    e = 6000 + rnorm(n, sd = 400)
+  ) %>% mutate(x = round(x))
+  # Endogenous
+  e_bad <- tibble(
+    x = runif(n = n, min = 11, max = 24),
+    e = 10000 + rnorm(n, sd = 400) - 100 * (x + 13.5),
+  ) %>% mutate(x = round(x))
+# Figures: Joint densities ---------------------------------------------------------------
+  # The joint plot: good
+  joint_good <- ggplot(data = e_good, aes(x = e)) +
+    geom_density() +
+    mytheme
+  # The joint plot: bad
+  joint_bad <- ggplot(data = e_bad, aes(x = e)) +
+    geom_density() +
+    mytheme
+# Figures: Conditional densities ---------------------------------------------------------
+  cond_good <- ggplot(data = e_good, aes(x = e, y = as.factor(x))) +
+    geom_density_ridges_gradient(
+      aes(fill = ..x..),
+      color = "white",
+      scale = 2.5,
+      size = 0.2
+    ) +
+    # geom_vline(xintercept = 0, alpha = 0.3) +
+    scale_fill_viridis(option = "magma") +
+    xlab("School funding") +
+    ylab("Class size") +
+    mytheme +
+    theme(
+      legend.position = "none",
+      axis.title.y = element_text(vjust = 0.5, size = 22, color = hi),
+      axis.title.x = element_text(size = 22, color = hi)
+    )
+  cond_bad <- ggplot(data = e_bad, aes(x = e, y = as.factor(x))) +
+    geom_density_ridges_gradient(
+      aes(fill = ..x..),
+      color = "white",
+      scale = 2.5,
+      size = 0.2
+    ) +
+    # geom_vline(xintercept = 0, alpha = 0.3) +
+    scale_fill_viridis(option = "magma") +
+    xlab("School funding") +
+    ylab("Class size") +
+    mytheme +
+    theme(
+      legend.position = "none",
+      axis.title.y = element_text(vjust = 0.5, size = 22, color = hi),
+      axis.title.x = element_text(size = 22, color = hi)
+    )
+```
+
+
+Valid exogeniety, _i.e._, $\mathop{\mathbb{E}}\left( u \mid X \right) = 0$
+
+
+```{r}
+#| echo: false
+#| fig.height: 6
+#| fig.align: center
+#| fig-cap: "Note: This is simulated data"
+
+cond_good
+```
+
+
+---
+
+##
+
+Invalid exogeniety, _i.e._, $\mathop{\mathbb{E}}\left( u \mid X \right) \neq 0$
+
+
+```{r}
+#| echo: false
+#| fig.height: 6
+#| fig.align: center
+#| fig-cap: "Note: This is simulated data"
+
+cond_bad
+```
+
+
+
+---
+
+###### 
+
+What the actual data look like:
+
+
+```{r}
+#| echo: false
+#| fig.height: 6
+#| fig.align: center
+
+ggplot(data = schools_dt, aes(x = exptot, y = as.factor(cut(stratio, breaks = seq(11,24,1))))) +
+    geom_density_ridges_gradient(
+      aes(fill = ..x..),
+      color = "white",
+      scale = 2.5,
+      size = 0.2
+    ) +
+    # geom_vline(xintercept = 0, alpha = 0.3) +
+    scale_y_discrete(labels = seq(11, 23, 1)) +
+    scale_fill_viridis(option = "magma") +
+    xlab("School funding") +
+    ylab("Class size") +
+    mytheme +
+    theme(
+      legend.position = "none",
+      axis.title.y = element_text(vjust = 0.5, size = 22, color = hi),
+      axis.title.x = element_text(size = 22, color = hi)
+    )
+```
+
+
+---
+
+###### {data-visibility="uncounted"}
+
+What the actual data look like, as a scatter plot:
+
+
+```{r}
+#| echo: false
+#| fig.align: center
+#| fig.height: 6.75
+
+ggplot(data = schools_dt, aes(x = stratio, y = exptot)) +
+  geom_point(color = hi, size = 3) + 
+  geom_smooth(method = 'lm', se = FALSE, color = hp) +
+  labs(
+    y = "Expenditure per student",
+    x = "Class size"
+  ) + mytheme
+
+```
+
+
+---
+
+::: {.middle}
+This violation has a name. [We call it [omitted variable bias]{.note}]{.fragment}
+:::
+
+
+
+# [Omitted Variable Bias]{.ex} {.inverse .note}
+
+
+
+---
+name: ovb
+---
+
+
+---
+
+## Omitted variable bias
+
+> Bias that occurs in statistical models when a relevant variable is not included in the model.
+
+
+. . .
+
+<br>
+
+[Consequence:]{.hi-red} Leads to the incorrect estimation of the relationships between variables, which may affect the reliability of the model's predictions and inferences.
+
+<br>
+
+. . .
+
+[Solution:]{.hii} [_"Control"_]{.note} for the omitted variable(s).
+
+
+
+---
+
+## {data-visibility="uncounted"}
+
+Class funding ([U]{.hi}) [confounds]{.note} our estimates of smaller class sizes ([X]{.hi}) on test scores ([Y]{.hi}). 
+<br>
+<br>
+
+
+<!-- DAG SLIDE -->
+
+
+```{r}
+#| label: dag-ex-ovb-022-again
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
+
+# Plot the full DAG
+ggplot(
+  data = dag_dt,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
+```
+
+
+_Any unobserved variable_ that connects a [backdoor path]{.note} between class size ([X]{.hi}) and test scores ([Y]{.hi}) will [bias]{.hi} our [point estimate]{.note} of $\beta_1$.
+
+---
+
+## {data-visibility="uncounted"}
+
+Class funding ([U]{.hi}) [confounds]{.note} our estimates of smaller class sizes ([X]{.hi}) on test scores ([Y]{.hi}). Including data on school funding ([U]{.hi}) in a multiple linear regression allows us to close this backdoor path.
+
+
+```{r}
+#| label: dag-ex-ovb-033
+#| echo: FALSE
+#| fig.height: 3
+#| fig.width: 6
+#| fig-align: center
+
+# Add indicators for paths
+dag_dt[, `:=`(
+  path1 = (name == "X" & to == "Y") | (name == "Y"),
+  path2 = (name == "X" & to == "U") | (name == "U" & to == "Y") | (name == "Y")
+)]
+
+# Add alpha level
+dag_dt[, `:=`(
+  alpha = ifelse((name == "X" & to == "U") | (name == "U" & to == "X"), 0.3, 1)
+)]
+
+# Continue with the rest of your code...
+
+
+# Plot the full DAG
+ggplot(
+  data = dag_dt,
+  aes(x = x, y = y, xend = xend, yend = yend)
+) +
+geom_point(
+  size = 20,
+  fill = "white",
+  color = hi,
+  shape = 21,
+  stroke = 0.6
+) +
+geom_curve(
+  aes(x = xa, y = ya, xend = xb, yend = yb, alpha = alpha),
+  curvature = 0,
+  arrow = arrow(length = unit(0.07, "npc")),
+  color = hi,
+  size = 1.2,
+  lineend = "round"
+) +
+geom_text(
+  data = dag_dt[, .(name, x, y, xend = x, yend = y)] %>% unique(),
+  aes(x = x, y = y, label = name),
+  family = "Fira Sans Medium",
+  size = 8,
+  color = hi,
+  fontface = "bold"
+) +
+theme_void() +
+theme(
+  legend.position = "none",
+) +
+coord_cartesian(
+  xlim = c(dag_dt[, min(x)] * 0.95, dag_dt[, max(x)] * 1.05),
+  ylim = c(dag_dt[, min(y)] * 0.8, dag_dt[, max(y)] * 1.1)
+)
+```
+
+
+. . .
+
+With all backdoor paths closed, [point estimates]{.note} of $\beta_1$ will no longer be biased and will return the population parameter of interest
+
+---
+
+::: {.middle}
+_In a little more detail, we can derive the bias mathematically._
+:::
+
+---
+
+## Omitted Variable Bias
+
+Imagine we have a population model of the form:
+
+$$
+Y_i = \beta_0 + \beta_1 X_i + \beta_2 Z_i + u_i
+$$
+
+where $Z_i$ is a relevant variable that is omitted from the model.
+
+and suppose we estimate the following model:
+
+$$
+Y_i = \hat{\beta}_0 + \hat{\beta}_1 X_i + v_i
+$$
+
+where $v_i$ is the new error term that absorbs the effect of $Z_i$
+
+
+---
+
+## Omitted Variable Bias
+
+To derive the bias of $\hat{\beta}_1$, we need to understand the relationship between $Z_i$ and $X_i$. Assume that:
+
+$$
+Z_i = \gamma_0 + \gamma_1 X_i + \varepsilon_i
+$$
+
+where $\varepsilon_i$ is the part of $Z_i$ that is uncorrelated with $X_i$
+
+. . .
+
+<br>
+
+If we substitute $Z_i$ into the population model, we get:
+
+$$
+\begin{align*}
+Y_i &= \beta_0 + \beta_1 X_i + \beta_2 \left( \gamma_0 + \gamma_1 X_i + \varepsilon_i \right) + u_i \\
+    &= \beta_0 + \beta_2 \gamma_0 + \left( \beta_1 + \beta_2 \gamma_1 \right) X_i + \beta_2 \varepsilon_i + u_i
+\end{align*}
+$$
+
+---
+
+## Omitted Variable Bias
+
+We can rewrite this expression:
+
+$$
+\begin{align*}
+Y_i &= \beta_0 + \beta_1 X_i + \beta_2 \left( \gamma_0 + \gamma_1 X_i + \varepsilon_i \right) + u_i \\
+    &= \beta_0 + \beta_2 \gamma_0 + \left( \beta_1 + \beta_2 \gamma_1 \right) X_i + \beta_2 \varepsilon_i + u_i
+\end{align*}
+$$
+
+as:
+
+$$
+Y_i = \widehat{\beta}_0 + \widehat{\beta}_1 X_i + v_i
+$$
+
+where:
+
+- $\widehat{\beta}_0 = \beta_0 + \beta_2 \gamma_0$
+- $\widehat{\beta}_1 = \beta_1 + \beta_2 \gamma_1$
+- $v_i = \beta_2 \varepsilon_i + u_i$
+
+Thus, we can see how $Z_i$ will bias our estimate of $\beta_1$
+
+---
+
+## Omitted Variable Bias
+
+Recall that we define the bias of an estimator as:
+
+$$
+\mathop{\text{Bias}}_\theta \left( W \right) = \mathop{\boldsymbol{E}}\left[ W \right] - \theta
+$$
+
+. . .
+
+The bias of the estimator $\hat{\beta}_1$ is given by:
+
+$$
+\begin{align*}
+\mathop{\text{Bias}}_{\beta_1} \left( \hat{\beta}_1 \right) &= \mathop{\boldsymbol{E}}\left[ \hat{\beta}_1 \right] - \beta_1 \\
+&= \mathop{\boldsymbol{E}}\left[ \beta_1 + \beta_2 \gamma_1 \right] - \beta_1 \\
+&= \beta_2 \gamma_1
+\end{align*}
+$$
+
+---
+
+## Omitted Variable Bias
+
+Finally, we can write the bias of $\hat{\beta}_1$ in terms of the correlation between $X_i$ and $Z_i$:
+
+$$
+\gamma_1 = \frac{\text{Cov}\left( X_i, Z_i \right)}{\text{Var}\left( X_i \right)}
+$$
+
+. . .
+
+Therefore, we can write the bias of $\hat{\beta}_1$ as:
+
+$$
+\mathop{\text{Bias}}_{\beta_1} \left( \hat{\beta}_1 \right) = \beta_2 \frac{\text{Cov}\left( X_i, Z_i \right)}{\text{Var}\left( X_i \right)}
+$$
+
+---
+
+## Signing the Bias
+
+Sometimes we're stuck with omitted variable bias.
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+When this happens, we can often at least know the direction of the bias.
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 > 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) > 0}$. Then
+
+. . .
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(+)} \dfrac{\color{#EBCB8B}{(+)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] > \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased upward** (estimates are too large).
+
+. . .
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} &  \\
+ \color{#81A1C1}{\beta_2 < 0} &  &
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 < 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) > 0}$. Then
+
+. . .
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(-)} \dfrac{\color{#EBCB8B}{(+)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] < \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased downward** (estimates are too small).
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} &  \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} &
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 > 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) < 0}$. Then
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(+)} \dfrac{\color{#EBCB8B}{(-)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] < \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased downward** (estimates are too small).
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} & \text{Downward} \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} &
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias {data-visiblity="uncounted"}
+
+Begin with
+
+$$
+\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
+$$
+
+We know $\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) > 0}$. Suppose $\color{#81A1C1}{\beta_2 < 0}$ and $\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) < 0}$. Then
+
+$$
+\begin{align}
+ \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(-)} \dfrac{\color{#EBCB8B}{(-)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] > \beta_1
+\end{align}
+$$
+∴ In this case, OLS is **biased upward** (estimates are too large).
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} & \text{Downward} \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} & \text{Upward}
+\end{matrix}
+$$
+
+---
+
+## Signing the Bias
+
+Thus, in cases where we have a sense of
+
+1. the sign of $\mathop{\text{Cov}} \left( X_i,\,Z_i \right)$
+
+2. the sign of $\beta_2$
+
+we know in which direction bias pushes our estimates.
+
+**Direction of Bias**
+
+$$
+\begin{matrix}
+ \enspace & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)> 0} & \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)< 0} \\
+ \color{#81A1C1}{\beta_2 > 0} & \text{Upward} & \text{Downward} \\
+ \color{#81A1C1}{\beta_2 < 0} & \text{Downward} & \text{Upward}
+\end{matrix}
+$$
+
+
+
+# _Multiple linear regression_ {.inverse .note}
+
+
+
+---
+name: multi
+---
+
+
+---
+
+
+```{r}
+#| echo: false
+#| fig.align: center
+#| fig.height: 6.75
+
+ggplot(data = schools_dt, aes(x = stratio, y = score4)) +
+  geom_point(color = hi, size = 3) +
+  labs(
+    title = "Relationship between test scores and class size",
+    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
+    y = "Test scores",
+    x = "Class size"
+  ) +
+  mytheme
+
+```
+
+
+---
+
+
+```{r}
+#| echo: false
+#| fig.align: center
+#| fig.height: 6.75
+
+ggplot(data = schools_dt, aes(x = stratio, y = score4, group = expgroup, color = expgroup)) +
+  geom_point(size = 3) +
+  scale_color_manual(values = c(hi, hii), labels = c("Per student expenditure < $6,000", "Per student expenditure > $6,000")) +
+  # scale_x_log10() + scale_y_log10() +
+  labs(
+    title = "Relationship between test scores and class size",
+    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
+    y = "Test scores",
+    x = "Class size",
+    color = NULL
+  ) +
+  mytheme +
+  theme(
+    legend.position = c(0.8, 0.9),
+    legend.text = element_text(size = 12),
+    legend.background = element_rect(color = hi, size = 0.5)
+  )
+
+```
+
+
+
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| cache: true
+#| fig-height: 8
+#| fig-width: 10
+
+model = lm(score4 ~ stratio + exptot, data = schools_dt)
+
+# Generate points for the regression plane
+stratio_range = seq(min(schools_dt$stratio), max(schools_dt$stratio), length.out = 30)
+exptot_range = seq(min(schools_dt$exptot), max(schools_dt$exptot), length.out = 30)
+grid = expand.grid(stratio = stratio_range, exptot = exptot_range)
+grid$score4 = predict(model, newdata = grid)
+
+# Create 3D scatter plot with regression plane
+plot_ly() %>%
+  add_markers(data = schools_dt, x = ~stratio, y = ~exptot, z = ~score4,
+              marker = list(size = 3), name = 'Data points') %>%
+  add_surface(x = ~stratio_range, y = ~exptot_range, z = matrix(grid$score4, nrow = 30, ncol = 30),
+              opacity = 0.5, showscale = FALSE, name = 'Regression plane') %>%
+  layout(scene = list(
+    xaxis = list(
+      title = 'Class size',
+      backgroundcolor = "white",
+      gridcolor = "lightgrey",
+      showbackground = TRUE,
+      zerolinecolor = "lightgrey"
+    ),
+    yaxis = list(
+      title = 'School Funding',
+      backgroundcolor = "white",
+      gridcolor = "lightgrey",
+      showbackground = TRUE,
+      zerolinecolor = "lightgrey"
+    ),
+    zaxis = list(
+      title = 'Test scores',
+      backgroundcolor = "white",
+      gridcolor = "lightgrey",
+      showbackground = TRUE,
+      zerolinecolor = "lightgrey"
+    ),
+    aspectmode = "manual",
+    aspectratio = list(x = 1, y = 1, z = 0.5)
+  )) %>%
+  layout(
+    scene = list(
+      camera = list(
+        eye = list(x = 1.25, y = 1.25, z = 0.5)
+      )
+    )
+  )
+```
+
+
+
+---
+
+## Multiple linear regression
+
+[Simple linear regression]{.note} features one [dependent variable]{.hi} and one [independent variable]{.hii}:
+
+$$
+\color{#434C5E}{Y_i} = \beta_0 + \beta_1 \color{"#81A1C1"}{X_i} + u_i
+$$
+
+[Multiple linear regression]{.note} features one [dependent variable]{.hi} and multiple [independent variables]{.hii}:
+
+$$
+\color{#434C5E}{Y_i} = \beta_0 + \beta_1 \color{"#81A1C1"}{X_{1i}} + \beta_2 \color{"#81A1C1"}{X_{2i}} + \cdots + \beta_{k} \color{"#81A1C1"}{X_{ki}} + u_i
+$$
+
+. . .
+
+This serves more than one purpose. Multiple [independent variables]{.hii} improves predictions, avoids [OVB]{.hi-red}, and better explains variation in $Y$.
+
+---
+
+## Multiple linear regression [Ex.]{.ex}
+
+Controlling for [school funding]{.hi}
+
+$$
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Expenditure}_i+ u_i
+$$
+
+
+```{r}
+#| echo: false
+#| escape: false
+
+m00 = fixest::feols(score4 ~ stratio, schools_dt)
+m01 = fixest::feols(score4 ~ stratio + expreg, schools_dt)
+
+tab <- data.frame(
+  v1 = c("Intercept", "", "Class size", "", "Expenditure", ""),
+  v2 = rbind(
+    c(781.196, -3.768, ""),
+    c("(16.46)", "(0.61)", "")
+  ) %>% as.vector(),
+  v3 = rbind(
+    c(674.930, -0.960, "0.013"),
+    c("(16.46)", "(0.64)", "(0.002)")
+  ) %>% as.vector()
+) %>% kable(
+  escape = F,
+  col.names = c("independent variable", "1", "2"),
+  align = c("l", rep("c", 3)),
+  caption = ""
+) %>%
+row_spec(1:6, color = hi) %>%
+row_spec(seq(2,6,2), color = "#c2bebe") %>%
+row_spec(1:6, extra_css = "line-height: 110%;") %>%
+column_spec(1, color = "black", italic = T)
+tab %>% column_spec(2, bold = T)
+
+```
+
+
+---
+
+## Multiple linear regression [Ex.]{.ex} {data-visibility="uncounted"}
+
+Controlling for [school funding]{.hi}
+
+$$
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Expenditure}_i+ u_i
+$$
+
+
+```{r}
+#| echo: false
+#| escape: false
+
+m00 = fixest::feols(score4 ~ stratio, schools_dt)
+m01 = fixest::feols(score4 ~ stratio + expreg, schools_dt)
+
+tab <- data.frame(
+  v1 = c("Intercept", "", "Class size", "", "Expenditure", ""),
+  v2 = rbind(
+    c(781.196, -3.768, ""),
+    c("(16.46)", "(0.61)", "")
+  ) %>% as.vector(),
+  v3 = rbind(
+    c(674.930, -0.960, "0.013"),
+    c("(16.46)", "(0.64)", "(0.002)")
+  ) %>% as.vector()
+) %>% kable(
+  escape = F,
+  col.names = c("independent variable", "1", "2"),
+  align = c("l", rep("c", 3)),
+  caption = ""
+) %>%
+row_spec(1:6, color = hi) %>%
+row_spec(seq(2,6,2), color = "#c2bebe") %>%
+row_spec(1:6, extra_css = "line-height: 110%;") %>%
+column_spec(1, color = "black", italic = T)
+tab %>% column_spec(3, bold = T)
+
+```
+
+
+
+---
+
+::: {.middle}
+_How does it work?_ [We can think of it almost like demeaning.]{.fragment}
+:::
+
+---
+
+###### {data-visibility="uncounted"}
+
+
+```{r}
+#| echo: false
+#| fig.align: center
+#| fig.height: 6.75
+
+ggplot(data = schools_dt, aes(x = stratio, y = score4)) +
+  geom_point(color = hi, size = 3) +
+  labs(
+    title = "Relationship between test scores and class size",
+    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
+    y = "Test scores",
+    x = "Class size"
+  ) +
+  mytheme
+
+```
+
+
+---
+
+###### {data-visibility="uncounted"}
+
+
+```{r}
+#| echo: false
+#| fig.align: center
+#| fig.height: 6.75
+
+ggplot(data = schools_dt, aes(x = stratio, y = score4, group = expgroup, color = expgroup)) +
+  geom_point(size = 3) +
+  scale_color_manual(values = c(hi, hii), labels = c("Per student expenditure < $6,000", "Per student expenditure > $6,000")) +
+  # scale_x_log10() + scale_y_log10() +
+  labs(
+    title = "Relationship between test scores and class size",
+    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
+    y = "Test scores",
+    x = "Class size",
+    color = NULL
+  ) +
+  mytheme +
+  theme(
+    legend.position = c(0.8, 0.9),
+    legend.text = element_text(size = 12),
+    legend.background = element_rect(color = hi, size = 0.5)
+  )
+
+```
+
+
+
+---
+
+###### {data-visibility="uncounted"}
+
+![](./control.gif)
+
+```{r}
+#| include: false
+#| echo: false
+#| eval: false
+
+
+# Create the group means for each W
+schools_dt[, `:=`(mean_stratio = mean(stratio), mean_score4 = mean(score4)), by = expgroup]
+
+
+# Create six different data tables for the animation steps
+dt_list <- list(
+  #Step 1: Raw data only
+  copy(schools_dt)[, c("mean_stratio", "mean_score4") := NA],
+  #Step 2: Add x-lines
+  copy(schools_dt)[, mean_score4 := NA],
+  #Step 3: X de-meaned 
+  copy(schools_dt)[, `:=`(stratio = stratio - mean_stratio, mean_stratio = 0, mean_score4 = NA)],
+  #Step 4: Remove X lines, add Y
+  copy(schools_dt)[, `:=`(stratio = stratio - mean_stratio, mean_stratio = NA)],
+  #Step 5: Y de-meaned
+  copy(schools_dt)[, `:=`(stratio = stratio - mean_stratio, score4 = score4 - mean_score4, mean_stratio = NA, mean_score4 = 0)],
+  #Step 6: Raw demeaned data only
+  copy(schools_dt)[, `:=`(stratio = stratio - mean_stratio, score4 = score4 - mean_score4, mean_stratio = NA, mean_score4 = NA)]
+)
+
+# Add time column and rbind all data tables together
+time_labels <- c("1. Before correction", "2. Figure out what differences in class size are explained by student expenditure",
+                 "3. Remove differences in class size explained by student expenditure", "4. Figure out what differences in test scores are explained by student expenditure",
+                 "5. Remove differences in test scores explained by student expenditure", "6. After correction")
+
+for (i in seq_along(dt_list)) {
+  dt_list[[i]][, time := time_labels[i]]
+}
+
+# Combine all data tables into one
+schools_dt_full <- rbindlist(dt_list)
+
+# Create the animation
+p <- ggplot(schools_dt_full, aes(x = stratio, y = score4, , group = expgroup, color = expgroup)) +
+  geom_point(size = 2) +
+  scale_color_manual(values = c(hi, hii), labels = c("Per student expenditure < $6,000", "Per student expenditure > $6,000")) +
+  geom_vline(aes(xintercept = mean_stratio, color = as.factor(expgroup))) +
+  geom_hline(aes(yintercept = mean_score4, color = as.factor(expgroup))) +
+  guides(color = guide_legend(title = "expgroup")) +
+  labs(
+    title = 'Relationship between test scores and class size, controlling for a student expenditure \n{closest_state}',
+    subtitle = "Test scores are aggregated math, reading, and science scores among 4th graders",
+    y = "Test scores",
+    x = "Class size",
+    color = NULL
+    ) +
+  mytheme +
+  theme(
+    legend.position = c(0.8, 0.2),
+    legend.text = element_text(size = 12),
+    legend.background = element_rect(color = hi, size = 0.5)
+  ) +
+  transition_states(time, transition_length = 2, state_length = 1) +
+  ease_aes('sine-in-out')
+
+
+
+anim_save(
+  animation = p,
+  filename = "control.gif",
+  path = "./slides/006-multiple/",  # change this to your desired directory
+  width = 10.5,
+  height = 7,
+  units = "in",
+  res = 150,
+  nframes = 200
+)
+```
+
+
+[What happens to [variation]{.hi-red} in $Y$ after we account for school funding?]{.fragment}
+
+---
+
+## OLS Estimation
+
+[Residuals]{.note} are now defined as:
+
+. . .
+
+$$
+\hat{u}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki}
+$$
+
+. . .
+
+As with SLR, OLS minimizes the sum of squared residuals ([RSS]{.hi-orange}).
+
+. . .
+
+$$
+\begin{align*}
+  {\color{#D08770} RSS} &= \sum_{i = 1}^{n} (Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki})^2 \\
+                        &= \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
+\end{align*}
+$$
+
+which is a familiar expression.
+
+---
+
+## OLS Estimation
+
+To obtain [point estimates]{.note}: 
+
+$$
+\min_{\hat{\beta}_0,\, \hat{\beta}_1,\, \dots \, \hat{\beta}_k} \quad \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
+$$
+
+- Take partial derivatives of RSS with respect to each $\hat{\beta}$
+- Set each derivative equal to zero
+- Solve the system of $k+1$ equations^[$k+1$ due to the intercept.].
+
+. . .
+
+The algebra is cumbersome. We let {{< fa brands r-project >}} do the heavy lifting.
+
+---
+
+## Coefficient Interpretation
+
+[Model]{.hi}
+
+$$
+\color{}{Y_i} = \beta_0 + \beta_1 \color{}{X_{1i}} + \beta_2 \color{}{X_{2i}} + \cdots + \beta_{k} \color{}{X_{ki}} + u_i
+$$
+
+[Interpretation]{.hi}
+
+- The intercept $\hat{\beta}_0$ is the average value of $Y_i$ when all of the independent variables are equal to zero.
+- Slope parameters $\hat{\beta}_1, \dots, \hat{\beta}_{k}$ give us the change in $Y_i$ from a one-unit change in $X_j$, holding the other $X$ variables constant. 
+
+---
+
+## Algebraic properties of OLS
+
+The OLS first-order conditions yield the same properties as before.
+
+<br>
+
+[1.]{.note} Residuals sum to zero: $\sum_{i=1}^n \hat{u_i} = 0$.
+
+[2.]{.note} The sample covariance $X_i$ and the $\hat{u_i}$ is zero.
+
+[3.]{.note} The point $(\bar{X_1}, \bar{X_2}, \dots, \bar{X_k}, \bar{Y})$ is on the fitted regression "line."
+
+---
+
+## Goodness of fit
+
+Fitted values are defined similarly:
+
+$$
+\hat{Y_i} = \hat{\beta}_0 + \hat{\beta}_1 X_{1i} + \hat{\beta}_2 X_{2i} + \cdots + \hat{\beta}_{k} X_{ki}
+$$
+
+The formula for $R^2$ is the same as before:
+
+$$
+R^2 =\frac{\sum(\hat{Y_i}-\bar{Y})^2}{\sum(Y_i-\bar{Y})^2}
+$$
+
+
+---
+
+## Goodness of fit
+
+We can describe the variation explain in $Y$ with venn diagrams
+
+
+```{r}
+#| echo: false
+
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hired, hii , hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5,    1.5,   -1.0),
+  y  = c( 0.0,   -2.5,   -1.8,    2.0),
+  r  = c( 1.9,    1.5,    1.5,    1.3),
+  l  = c( "Y", "X[1]", "X[2]", "X[3]"),
+  xl = c( 0.0,   -0.5,    1.6,   -1.0),
+  yl = c( 0.0,   -2.5,   -1.9,    2.2)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+xlim(-3, 3) +
+ylim(-4, 3.4) +
+coord_equal()
+```
+
+
+
+---
+
+## Goodness of fit
+
+Suppose we have [two]{.hi} models:
+
+<br>
+
+[Model 1]{.hi} $Y_i = \beta_0 + \beta_1 X_{1i} + u_i$.
+
+[Model 2:]{.hi} $Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + v_i$
+
+<br>
+
+. . .
+
+[T/F?]{.note} Model 2 will yield a lower $R^2$ than Model 1.
+
+. . .
+
+<br>
+<br>
+
+(_Hint: Think of $R^2$ as $R^2 = 1 - \frac{\text{RSS}}{\text{TSS}}$._)
+
+---
+
+## Goodness of fit
+
+We can describe the variation explain in $Y$ with venn diagrams
+
+
+```{r}
+#| echo: false
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5),
+  y  = c( 0.0,   -2.5),
+  r  = c( 1.9,    1.5),
+  l  = c( "Y", "X[1]"),
+  xl = c( 0.0,   -0.5),
+  yl = c( 0.0,   -2.5)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+annotate(
+  x = 1, y = 3,
+  geom = "text", label = "Model 1", size = 9, color = hi, family = "Fira Sans", hjust = 0
+) +
+xlim(-3, 3) +
+ylim(-4, 3.4) +
+coord_equal()
+```
+
+
+---
+
+## Goodness of fit
+
+We can describe the variation explain in $Y$ with venn diagrams
+
+
+```{r}
+#| echo: false
+#| 
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hii, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5, -1.0),
+  y  = c( 0.0,   -2.5, 2.0),
+  r  = c( 1.9,    1.5, 1.3),
+  l  = c( "Y", "X[1]", "X[2]"),
+  xl = c( 0.0,   -0.5, -1.0),
+  yl = c( 0.0,   -2.5, 2.2)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+annotate(
+  x = 1, y = 3,
+  geom = "text", label = "Model 2", color = hi, size = 9, family = "Fira Sans", hjust = 0
+) +
+xlim(-3, 3) +
+ylim(-4, 3.4) +
+coord_equal()
+```
+
+
+---
+
+##
+
+::: {.middle}
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+<br>
+
+[Let me show you this [problem]{.hi-red} with a [simulation]{.hii}]{.fragment}
+
+:::
+
+---
+
+##
+
+::: {.middle}
+Simulate a dataset of 10,000 observations on $y$ and 1,000 random $x_k$ variables, where 
+
+$$
+y \perp x_k \quad \forall x_k \; \text{s.t.} \; k = 1, 2, \dots, 1000
+$$
+
+<br>
+
+[We have 1,000 independent variables that are [independent]{.note} to the dependent variable.]{.fragment} [Each $x_k$ has no relationship to $y$ whatsoever.]{.fragment}
+
+:::
+
+
+---
+
+[Problem:]{.hi-red} As we add variables to our model, $\color{#314f4f}{R^2}$ *mechanically* increases.
+
+[Pseudo-code:]{.mono}
+
+::: {.pseudocode}
+Generate 10,000 obs. on $y$
+
+Generate 10,000 obs. on variables $x_1$ through $x_{1000}$
+
+<br>
+
+Regressions:
+
+- LM<sub>1</sub>: Regress $y$ of $x_1$; record $R^2$
+- LM<sub>2</sub>: Regress $y$ of $x_1$ and $x_2$; record $R^2$
+- ...
+- LM<sub>1000</sub>: Regress $y$ on $x_1$, $x_2$, ..., $x_{1000}$; record $R^2$
+:::
+
+---
+
+[Problem:]{.hi-red} As we add variables to our model, $\color{#314f4f}{R^2}$ *mechanically* increases.
+
+[R]{.mono} code for the simulation:
+
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Generate data --------------------------------------------------------------
+  # Set random seed
+  set.seed(1234)
+  # Generate data
+  y <- rnorm(1e4)
+  x <- matrix(data = rnorm(1e7), nrow = 1e4)
+  x %<>% cbind(matrix(data = 1, nrow = 1e4, ncol = 1), x)
+
+# Simulation -----------------------------------------------------------------
+  # Loop across regressions
+  r_df <- mclapply(X = 1:(1e3-1), mc.cores = detectCores() - 1, FUN = function(i) {
+    # Add one additional regressor every iteration
+    tmp_reg <- lm(y ~ x[,1:(i+1)]) %>% summary()
+    # Export R2
+    data.frame(
+      k = i + 1,
+      r2 = tmp_reg %$% r.squared,
+      r2_adj = tmp_reg %$% adj.r.squared
+    )
+  }) %>% bind_rows()
+```
+
+
+---
+
+######
+
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+<br>
+
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: true
+
+# Set random seed
+set.seed(1234)
+# Generate data
+  # Generate number of rows
+  n = 1e4
+  # Generate number of regressors
+  k = 1e3
+  # Create data set
+  y = rnorm(n)
+  x = matrix(data = rnorm(1e7), nrow = n)
+  x %<>% cbind(matrix(data = 1, nrow = n, ncol = 1), x)
+
+# Run simulation
+  # Fit k models, adding 1 regressor each iteration
+  fit = parallel::mclapply(
+    1:1000,
+    function(i) {
+      # Print progress
+      print(i)
+      # Fit model
+      fit = coef(.lm.fit(x[, 1:(i + 1)], y))
+      # Calculate residuals
+      residuals = y - x[, 1:(i + 1)] %*% fit
+      # Calculate total sum of squares
+      tss = sum((y - mean(y))^2)
+      # Calculate R-squared + adjusted R-squared
+      rsq = 1 - sum(residuals^2) / tss
+      adj = 1 - ((1 - rsq) * (n - 1)) / (n - i - 1)
+      dt = data.table(
+        k = i,
+        rsq = rsq,
+        adj_rsq = adj
+      )
+      return(dt)
+    }, mc.cores = parallelly::availableCores()
+  ) %>% rbindlist()
+
+```
+
+```{r}
+#| echo: false
+#| fig.height: 6.25
+#| fig-align: center
+#| eval: true
+
+ggplot(data = fit, aes(x = k, y = rsq)) +
+geom_hline(yintercept = 0) +
+geom_vline(xintercept = 0) +
+geom_line(size = 2, alpha = 0.75, color = hired) +
+geom_line(aes(y = adj_rsq), size = 0.2, alpha = 0, color = hp) +
+ylab(latex2exp::TeX(r'($R^2$)')) +
+xlab("Number of independent variables (k)") +
+mytheme
+```
+
+
+---
+
+###### {data-visibility="uncounted"}
+
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+[One solution:]{.hii} Penalize for the number of variables, _e.g._, adjusted $R^2$:
+
+
+```{r}
+#| echo: false
+#| fig.height: 6.25
+#| fig-align: center
+#| eval: true
+ggplot(data = fit, aes(x = k, y = rsq)) +
+geom_hline(yintercept = 0) +
+geom_vline(xintercept = 0) +
+geom_line(size = 2, alpha = 0.15, color = hired) +
+geom_line(aes(y = adj_rsq), size = 2, alpha = 0.85, color = hii) +
+ylab(latex2exp::TeX(r'($R^2$)')) +
+xlab("Number of independent variables (k)") +
+mytheme
+```
+
+
+---
+
+## Goodness of fit
+
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+[One solution:]{.hii} Penalize for the number of variables, _e.g._, adjusted $R^2$:
+
+$$
+\bar{R}^2 = 1 - \dfrac{\sum_i \left( Y_i - \hat{Y}_i \right)^2/(n-k-1)}{\sum_i \left( Y_i - \bar{Y} \right)^2/(n-1)}
+$$
+
+*Note:* Adjusted $R^2$ need not be between 0 and 1.
+
+---
+
+## Goodness of fit
+
+So how do you find $R^2$ and $\bar{R^2}$ in {{< fa brands r-project >}}? [`broom::glance()`]{.fragment}
+
+. . .
+
+
+```{r}
+#| echo: true
+
+# Run model
+model = lm(score4 ~ stratio + expreg, schools_dt)
+
+# Print results as tibble
+broom::tidy(model)
+```
+
+
+<br>
+
+. . . 
+
+
+
+```{r}
+#| echo: true
+# Print R2 info as tibble
+broom::glance(model)
+```
+
+
+---
+
+## Multiple regression
+
+There are [tradeoffs]{.hi} to remember as we add/remove variables:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[Fewer variables]{.hi-red}
+
+- Explains less variation in $y$
+- Provide simple interpretations and visualizations
+- More worried about omitted-variable bias
+:::
+
+::: {.column width="50%"}
+[More variables]{.hii}
+
+- More likely to find _spurious_ relationships^[Spurious meaning _statistically significant_ by coincidence---not reflective of true, population-level relationship]
+- More difficult interpretation
+- The [variance]{.note} of our [point estimates]{.note} will be bigger
+- We still might have omitted-variable bias
+:::
+
+::::
+
+
+---
+
+## Multiple regression {data-visibility="uncounted"}
+
+There are [tradeoffs]{.hi} to remember as we add/remove variables:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[Fewer variables]{.hi-red}
+
+- Explains less variation in $y$
+- Provide simple interpretations and visualizations
+- More worried about omitted-variable bias
+:::
+
+::: {.column width="50%"}
+[More variables]{.hii}
+
+- More likely to find _spurious_ relationships^[Spurious meaning _statistically significant_ by coincidence---not reflective of true, population-level relationship]
+- More difficult interpretation
+- [The variance of our point estimates will be bigger]{.hi}
+- We still might have omitted-variable bias
+:::
+
+::::
+
+
+
+# _Multicollinearity_ {.inverse .note}
+
+
+
+---
+name: colinear
+---
+
+
+---
+
+## OLS variances
+
+Multiple regression model:
+
+$$
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_{k} X_{ki} + u_i
+$$
+
+It can be shown that the estimator $\hat{\beta}_j$ on independent variable $X_j$ is:
+
+$$
+\mathop{\text{Var}} \left( \hat{\beta_j} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_j \right)\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2},
+$$
+
+where $R^2_j$ is the $R^2$ from a regression of $X_j$ on the other independent variables and the intercept
+
+---
+
+## OLS variances
+
+$$
+\mathop{\text{Var}} \left( \hat{\beta_j} \right) = \dfrac{{\color{#81A1C1}\sigma^2}}{\left( 1 - {\color{#81A1C1}R_j^2} \right){\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}},
+$$
+
+[Moving parts:]{.hi}
+
+::: {.small}
+[[1.]{.note} [Error variance:]{.hi} As ${\color{#81A1C1}\sigma^2}$ increases, $\Var(\hat{\beta}_j)$ increases]{.fragment}
+
+[[2.]{.note} [Total variation in $X_j$:]{.hi} As ${\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}$ increases, $\Var(\hat{\beta}_j)$ decreases]{.fragment}
+
+[[3.]{.note} [Relationship across $X_i$:]{.hi} As ${\color{#81A1C1}R_j^2}$ increases, $\Var(\hat{\beta}_j)$ increases]{.fragment}
+:::
+
+<br>
+
+. . .
+
+[3.]{.note} is better known as [Multicollinearity]{.note}
+
+---
+
+## Multicollinearity
+
+> Case in which two or more independent variables in a regression model are highly correlated.
+
+. . .
+
+<br>
+
+One independent variable can predict most of the variation in another independent variable.
+
+<br>
+
+. . .
+
+[Multicollinearity]{.note} leads to [imprecise]{.hi} estimates. [Becomes difficult to distinguish between individual effects from of independent variables.]{.fragment}
+
+---
+
+## OLS Assumptions
+
+Classical assumptions for OLS change slightly for multiple OLS
+
+[A1.]{.note} [Linearity:]{.hi} The population relationship is [_linear in parameters_]{.note} with an additive error term.
+
+[A2.]{.note} [[Sample Variation:]{.hi} No $X$ variable is a perfect linear combination of the others]{.hi}
+
+[A3.]{.note} [Exogeniety:]{.hi} The $X$ variable is [exogenous]{.note} 
+
+[A4.]{.note} [Homoskedasticity:]{.hi} The error term has the same variance for each value of the independent variable 
+
+[A5.]{.note} [Non-autocorrelation:]{.hi} The values of error terms have independent distributions 
+
+---
+
+## Perfect Collinearity
+
+> Case in which two or more independent variables in a regression model are perfectly correlated.
+
+
+[Ex.]{.ex} 2016 Election
+
+OLS simultaneously cannot estimate parameters for [white]{.mono} and [nonwhite]{.mono}.
+
+. . .
+
+
+```{r}
+#| echo: true
+lm(trump_margin ~ white + nonwhite, data = election) %>% tidy()
+```
+
+
+[R]{.mono} drops perfectly collinear variables for you.
+
+---
+
+## Multicollinearity [Ex.]{.ex}
+
+Suppose that we want to understand the relationship between crime rates and poverty rates in US cities. We could estimate the model
+
+$$
+\text{Crime}_i = \beta_0 + \beta_1 \text{Poverty}_i + \beta_2 \text{Income}_i + u_i
+$$
+
+. . .
+
+Before obtaining standard errors, we need:
+
+$$
+\mathop{\text{Var}} \left( \hat{\beta}_1 \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poverty}_{i} - \overline{\text{Poverty}} \right)^2}
+$$
+
+. . .
+
+$R^2_1$ is the $R^2$ from a regression of poverty on median income:
+
+$$
+\text{Poverty}_i = \gamma_0 + \gamma_1 \text{Income}_i + v_i
+$$
+
+---
+
+## Multicollinearity
+
+[Scenario 1:]{.hi} $\text{Income}_i$ explains most variation in $\text{Poverty}_i$, then $R^2_1 \rightarrow 1$
+
+- Violates the [_no perfect collinearity_]{.note} assumption
+
+. . .
+
+[Scenario 2:]{.hi} If $\text{Income}_i$ explains no variation in $\text{Poverty}_i$, then $R^2_1 = 0$
+
+. . .
+
+[Q.]{.note} _In which scenario is the variance of the poverty coefficient smaller?_
+
+$$
+\mathop{\text{Var}} \left( \hat{\beta}_1 \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poverty}_{i} - \overline{\text{Poverty}} \right)^2}
+$$
+
+. . .
+
+[A.]{.note} [Scenario 2.]{.hi}
+
+---
+
+## Multicollinearity
+
+
+```{r}
+#| echo: false
+
+
+# Colors (order: x1, x2, y)
+venn_colors <- c(hii, hired, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.1,    0.1),
+  y  = c( 0.0,   -2.5,   -2.5),
+  r  = c( 1.9,    1.3,    1.3),
+  l  = c( "Y", "X[1]", "X[2]"),
+  xl = c( 0.0,   -1.75,    1.75),
+  yl = c( 0.0,   -2.5,   -2.5)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+  annotate(
+  x = 0, y = 2.25,
+  geom = "text", label = "Scenario 1", color = hi, size = 9, family = "Fira Sans", hjust = 0
+) +
+xlim(-3, 3) +
+ylim(-4, 3) +
+coord_equal()
+```
+
+
+---
+
+## Multicollinearity
+
+
+```{R, echo = F, dev = "svg"}
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hii, hired, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5,    2),
+  y  = c( 0.0,   -2.5,   0.5),
+  r  = c( 1.9,    1.3,    1.3),
+  l  = c( "Y", "X[1]", "X[2]"),
+  xl = c( 0.0,   -0.5,    2.5),
+  yl = c( 0.0,   -2.5,   0.5)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+  annotate(
+  x = 0, y = 2.25,
+  geom = "text", label = "Scenario 2", color = hi, size = 9, family = "Fira Sans", hjust = 0
+) +
+xlim(-3, 3.5) +
+ylim(-4, 3) +
+coord_equal()
+```
+
+
+---
+
+## Multicollinearity
+
+As the relationships between the variables increase, $R^2_j$ increases.
+
+For high $R^2_j$, $\mathop{\text{Var}} \left( \hat{\beta_j} \right)$ is large:
+
+$$
+\mathop{\text{Var}} \left( \hat{\beta_j} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_j \right)\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}
+$$
+
+. . .
+
+- Some view multicollinearity as a "problem" to be solved.
+- Either increase power ($n$) or drop correlated variables
+- [Warning:]{.note} Dropping variables can generate omitted variable bias.
+
+---
+
+## Irrelevant Variables
+
+Suppose that the true relationship between birth weight and _in utero_ exposure to toxic air pollution is 
+
+$$
+(\text{Birth Weight})_i = \beta_0 + \beta_1 \text{Pollution}_i + u_i
+$$
+
+. . .
+
+Suppose that an "analyst" estimates
+
+$$
+(\text{Birth Weight})_i = \tilde{\beta_0} + \tilde{\beta_1} \text{Pollution}_i + \tilde{\beta_2}\text{NBA}_i + u_i
+$$
+
+. . .
+
+One can show that $\mathop{\mathbb{E}} \left( \hat{\tilde{\beta_1}} \right) = \beta_1$ (*i.e.*, $\hat{\tilde{\beta_1}}$ is unbiased).
+
+However, the variances of $\hat{\tilde{\beta_1}}$ and $\hat{\beta_1}$ differ.
+
+---
+
+## Irrelevant Variables
+
+
+```{r}
+#| echo: false
+
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hired, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5,    2.3),
+  y  = c( 0.0,   -2.5,   -3),
+  r  = c( 1.9,    1.5,    1.5),
+  l  = c( "Weight", "Pollution", "NBA"),
+  xl = c( 0.0,   -0.5,    2.3),
+  yl = c( 0.0,   -2.5,   -3)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, family = "Fira Sans", parse = T) +
+xlim(-5.5, 4.5) +
+ylim(-4.5, 3) +
+coord_equal()
+```
+
+
+---
+
+## Irrelevant Variables
+
+The variance of $\hat{\beta}_1$ from estimating the "true model" is
+
+$$
+\mathop{\text{Var}} \left( \hat{\beta_1} \right) = \dfrac{\sigma^2}{\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
+$$
+
+The variance of $\hat{\tilde\beta}_1$ from estimating the model with the irrelevant variable is
+
+$$
+\mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
+$$
+
+---
+
+## Irrelevant Variables
+
+Notice that $\mathop{\text{Var}} \left( \hat{\beta_1} \right) \leq \mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right)$ since,
+
+$$
+\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
+\geq
+\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
+$$
+
+. . .
+
+<br>
+
+A tradeoff exists when including more control variables. [Make sure you have good reason for your controls because including irrelevant control variables [increase]{.hii} variances]{.fragment}
+
+---
+
+## Estimating Error Variance
+
+We cannot observe $\sigma^2$, so we must estimate it using the residuals from an estimated regression:
+
+$$
+s_u^2 = \dfrac{\sum_{i=1}^n \hat{u}_i^2}{n - k - 1}
+$$
+
+- $k+1$ is the number of parameters (one "slope" for each $X$ variable and an intercept).
+- $n - k - 1$ [=]{.mono} degrees of freedom.
+- Using the first 5 OLS assumptions, one can prove that $s_u^2$ is an unbiased estimator of $\sigma^2$.
+
+---
+
+## Standard Errors
+
+The formula for the standard error is the square root of $\mathop{\text{Var}} \left( \hat{\beta_j} \right)$:
+
+$$
+\mathop{\text{SE}}(\hat{\beta_j}) = \sqrt{ \frac{s^2_u}{(  1 - R^2_j ) \sum_{i=1}^n ( X_{ji} - \bar{X}_j )^2} }
+$$
+
+---
+
+## Multicollinearity [Ex.]{.ex}
+
+Suppose I run the following model:
+
+$$
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Lunch}_i+ u_i
+$$
+
+with the following results:
+
+
+
+```{r}
+#| echo: false
+#| escape: false
+
+m00 = lm(score4 ~ stratio + lunch, schools_dt) %>% tidy() 
+m01 = lm(score4 ~ stratio + lunch + income, schools_dt) %>% tidy()
+
+coef_fun = function(x) {
+  x %>% as.numeric() %>% round(2)
+}
+
+se_fun = function(x) {
+  x %>% as.numeric() %>% round(2) %>% paste0("(",.,")")
+}
+
+tab <- data.frame(
+  v1 = c("Intercept", "", "Class size", "", "Lunch", "", "Income", ""),
+  v2 = rbind(
+    c(m00[1,2] %>% coef_fun(), m00[2,2] %>% coef_fun(), m00[3,2] %>% coef_fun(), ""),
+    c(m00[1,3] %>% se_fun(), m00[2,3] %>% se_fun(), m00[3,3] %>% se_fun(), "")
+  ) %>% as.vector(),
+  v3 = rbind(
+    c(m01[1,2] %>% coef_fun(), m01[2,2] %>% coef_fun(), m01[3,2] %>% coef_fun(), m01[4,2] %>% coef_fun()),
+    c(m01[1,3] %>% se_fun(), m01[2,3] %>% se_fun(), m01[3,3] %>% se_fun(),  m01[4,3] %>% se_fun())
+  ) %>% as.vector()
+) %>% kable(
+  escape = F,
+  col.names = c("Explanatory variable", "1", "2"),
+  align = c("l", rep("c", 3)),
+  caption = ""
+) %>%
+row_spec(1:6, color = hi) %>%
+row_spec(seq(2,6,2), color = "#c2bebe") %>%
+row_spec(1:6, extra_css = "line-height: 110%;") %>%
+kable_styling(font_size = 24) %>%  
+column_spec(1, color = "black", italic = T)
+tab %>% column_spec(2, bold = T)
+
+```
+
+
+---
+
+## Multicollinearity [Ex.]{.ex} {data-visibility="uncounted"}
+
+Suppose I run the following model:
+
+$$
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Lunch}_i+ u_i
+$$
+
+with the following results:
+
+
+
+```{r}
+#| echo: false
+#| escape: false
+
+m00 = fixest::feols(score4 ~ stratio + lunch, schools_dt) %>% tidy()
+m01 = fixest::feols(score4 ~ stratio + lunch + income, schools_dt) %>% tidy()
+
+tab <- data.frame(
+  v1 = c("Intercept", "", "Class size", "", "Lunch", "", "Income", ""),
+  v2 = rbind(
+    c(m00[1,2] %>% coef_fun(), m00[2,2] %>% coef_fun(), m00[3,2] %>% coef_fun(), ""),
+    c(m00[1,3] %>% se_fun(), m00[2,3] %>% se_fun(), m00[3,3] %>% se_fun(), "")
+  ) %>% as.vector(),
+  v3 = rbind(
+    c(m01[1,2] %>% coef_fun(), m01[2,2] %>% coef_fun(), m01[3,2] %>% coef_fun(), m01[4,2] %>% coef_fun()),
+    c(m01[1,3] %>% se_fun(), m01[2,3] %>% se_fun(), m01[3,3] %>% se_fun(),  m01[4,3] %>% se_fun())
+  ) %>% as.vector()
+) %>% kable(
+  escape = F,
+  col.names = c("Explanatory variable", "1", "2"),
+  align = c("l", rep("c", 3)),
+  caption = ""
+) %>%
+row_spec(1:6, color = hi) %>%
+row_spec(seq(2,6,2), color = "#c2bebe") %>%
+row_spec(1:6, extra_css = "line-height: 110%;") %>%
+kable_styling(font_size = 24) %>%  
+column_spec(1, color = "black", italic = T)
+tab %>% column_spec(3, bold = T)
+
+```
+
+
+
+
+# _F Tests_ {.inverse .note}
+
+
+
+---
+name: ftest
+---
+
+
+---
+
+## *F* Tests
+
+[t tests]{.hi} allow us to test simple hypotheses involving a [single parameter]{.hii}.
+
+- _e.g._, $\beta_1 = 0$ or $\beta_2 = 1$.
+
+. . .
+
+[*F* tests]{.hi} allow us to test hypotheses that involve [multiple parameters]{.hp}.
+
+- _e.g._, $\beta_1 = \beta_2$ or $\beta_3 + \beta_4 = 1$.
+
+---
+
+## *F* Tests
+
+[Ex.]{.ex} Is money "fungible"?
+
+Economists often say that "money is fungible."
+
+We might want to test whether money received as income actually has the same effect on consumption as money received from tax credits.
+
+$$
+\text{Consumption}_i = \beta_0 + \beta_1 \text{Income}_{i} + \beta_2 \text{Credit}_i + u_i
+$$
+
+---
+
+## *F* Tests
+
+[Ex.]{.ex} Is money "fungible"?
+
+We can write our null hypothesis as
+
+$$
+H_0:\: \beta_1 = \beta_2 \iff H_0 :\: \beta_1 - \beta_2 = 0
+$$
+
+Imposing the null hypothesis gives us a [restricted model]{.hi}
+
+$$
+\text{Consumption}_i = \beta_0 + \beta_1 \text{Income}_{i} + \beta_1 \text{Credit}_i + u_i
+$$
+
+$$
+\text{Consumption}_i = \beta_0 + \beta_1 \left( \text{Income}_{i} + \text{Credit}_i \right) + u_i
+$$
+
+---
+
+## *F* Tests
+
+[Ex.]{.ex} Is money "fungible"?
+
+To test the null hypothesis $H_o :\: \beta_1 = \beta_2$ against $H_a :\: \beta_1 \neq \beta_2$,
+<br>we use the $F$ statistic:
+
+$$
+\begin{align}
+  F_{q,\,n-k-1} = \dfrac{\left(\text{RSS}_r - \text{RSS}_u\right)/q}{\text{RSS}_u/(n-k-1)}
+\end{align}
+$$
+
+which (as its name suggests) follows the $F$ distribution with $q$ numerator degrees of freedom and $n-k-1$ denominator degrees of freedom.
+
+Here, $q$ is the number of restrictions we impose via $H_0$.
+
+
+---
+
+## *F* Tests
+
+[Ex.]{.ex} Is money "fungible"?
+
+The term $\text{RSS}_r$ is the sum of squared residuals (RSS) from our [restricted model]{.hi}
+
+$$
+\text{Consumption}_i = \beta_0 + \beta_1 \left( \text{Income}_{i} + \text{Credit}_i \right) + u_i
+$$
+
+and $\text{RSS}_u$ is the sum of squared residuals (RSS) from our [unrestricted model]{.hi}
+
+$$
+\text{Consumption}_i = \beta_0 + \beta_1 \text{Income}_{i} + \beta_2 \text{Credit}_i + u_i
+$$
+
+---
+
+## *F* Tests
+
+Finally, we compare our $F$-statistic to a critical value of $F$ to test the null hypothesis.
+
+If $F$ > $F_\text{crit}$, then reject the null hypothesis at the $\alpha \times 100$ percent level.
+
+- Find $F_\text{crit}$ in a table using the desired significance level, numerator degrees of freedom, and denominator degrees of freedom.
+
+. . .
+
+[Aside:]{.note} Why are $F$-statistics always positive?
+
+---
+
+## *F* Tests
+
+RSS is usually a large cumbersome number.
+
+[Alternative:]{.hii} Calculate the $F$-statistic using $R^2$.
+
+$$
+\begin{align}
+  F = \dfrac{\left(R^2_u - R^2_r\right)/q}{ (1 - R^2_u)/(n-k-1)}
+\end{align}
+$$
+
+. . .
+
+Where does this come from?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+$\text{TSS} = \text{RSS} + \text{ESS}$
+
+$R^2 = \text{ESS}/\text{TSS}$
+
+:::
+
+::: {.column width="60%"}
+$\text{RSS}_r = \text{TSS}(1-R^2_r)$
+
+$\text{RSS}_u = \text{TSS}(1-R^2_u)$
+
+:::
+
+::::
+
+
+
+# _Fin_ {.inverse .note}
+
+
+
+```{r}
+#| include: false
+#| echo: false
+#| eval: false
+library(renderthis)
+
+renderthis::to_pdf(
+  from = "./slides/08-multiple/08-main.html",
+  to = "./slides/08-multiple/08-main.pdf",
+  complex_slides = TRUE
+)
+```

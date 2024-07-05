@@ -1,15 +1,15 @@
 ---
 title: "Multiple linear regression"
-subtitle: "EC 320, Set 07"
+subtitle: "EC 320, Set 08"
 author: "Andrew Dickinson"
 date: last-modified
-date-format: "Spring YYYY"
+date-format: "MM YYYY"
 format: 
   revealjs:
     theme: [default, ../styles.scss]
     monobackgroundcolor: #F5F5F5
     slide-number: true
-    footer: "EC320, Set 07 | Multiple linear regression"
+    footer: "EC320, Set 08 | Multiple linear regression"
     preview-links: auto
     code-fold: FALSE
     code-copy: TRUE
@@ -20,45 +20,12 @@ title-slide-attributes:
   data-background-position: left
 ---
 
-::: {.content-hidden}
-$$
-{{< include ../_macros.tex >}}
-$$
-:::
+<!-- ::: {.content-hidden} -->
+<!-- $$ -->
+<!-- {{< include ../_macros.tex >}} -->
+<!-- $$ -->
+<!-- ::: -->
 
-## Housekeeping
-
-[PS04:]{.hi}
-
-- Due date: Next Thursday (5/23) @ 11:59p
-
-. . .
-
-[Koans]{.hi}:
-
-- Due dates were moved around
-- No koans due this week
-- K08, K09, K10, and K11 are due next week  
-
-. . .
-
-[Reading:]{.hi} _(up to this point)_
-
-ItE: R, 1, 2, [3]{.hi}
-
-MM: 1, 2
-
----
-
-####
-
-![](mt-scores.png)
-
----
-
-####
-
-![](mt-questions.png)
 
 # _Prologue_ {.inverse .note}
 
@@ -81,7 +48,10 @@ hiorange = nord_palettes$aurora[2]
 hired = nord_palettes$aurora[1]
 higrey = nord_palettes$snowstorm[1]
 
-mytheme = theme_ipsum(base_family = "Fira Sans Book", base_size = 20) +
+mytheme = theme_ipsum(
+              # base_family = "Fira Sans Book", 
+              base_size = 20
+          ) +
  theme(panel.grid.minor.x = element_blank(),
        axis.title.x = element_text(size = 18),
        axis.title.y = element_text(size = 18))
@@ -92,8 +62,10 @@ mytheme_s = mytheme +
         panel.grid.major.y = element_blank(),
         axis.line = element_line(color = hi))
 
-mytheme_void = theme_void(base_family = "Fira Sans Book", base_size = 20)
-
+mytheme_void = theme_void(
+                  # base_family = "Fira Sans Book",
+                  base_size = 20
+                )
 
 data("MASchools")
 
@@ -112,27 +84,27 @@ election <- read_csv("election_2016.csv") %>%
          nonwhite = 100 - white)
 ```
 
-{{< include _061-prologue.qmd >}}
+{{< include 08-1-prologue.qmd >}}
 
 # [Ex.]{.ex} [Effect of class sizes on test scores]{.hi-white} {.inverse .tiny}
 
-{{< include _062-ex.qmd >}}
+{{< include 08-2-ex.qmd >}}
 
 # [Omitted Variable Bias]{.ex} {.inverse .note}
 
-{{< include _063-ovb.qmd >}}
+{{< include 08-3-ovb.qmd >}}
 
 # _Multiple linear regression_ {.inverse .note}
 
-{{< include _063-multi.qmd >}}
+{{< include 08-4-multi.qmd >}}
 
 # _Multicollinearity_ {.inverse .note}
 
-{{< include _064-colinear.qmd >}}
+{{< include 08-5-colinear.qmd >}}
 
 # _F Tests_ {.inverse .note}
 
-{{< include _065-ftest.qmd >}}
+{{< include 08-6-ftest.qmd >}}
 
 # _Fin_ {.inverse .note}
 
@@ -143,8 +115,8 @@ election <- read_csv("election_2016.csv") %>%
 library(renderthis)
 
 renderthis::to_pdf(
-  from = "./slides/005-inference/050-main.html",
-  to = "./slides/005-inference/050-main.pdf",
+  from = "./slides/08-multiple/08-main.html",
+  to = "./slides/08-multiple/08-main.pdf",
   complex_slides = TRUE
 )
 ```
