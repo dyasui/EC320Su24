@@ -26,6 +26,62 @@ title-slide-attributes:
 <!-- $$ -->
 <!-- ::: -->
 
+# TODO:
+
+- [ ] add in sections that better correspond to slr format
+  - [ ] mlr loigic 
+  - [ ] mlr ols derivation w/ two slopes
+  - [ ] discussion of mlr properties which reviews and connects to slr properties
+  - [ ] t-tests section before f-test (also review-oriented)
+- [ ] breakup lecture into a few different modules:
+  - 08-MLRlogic
+  - 09-MLRproperties/assumptions
+  - 10-MLRinference
+
+## Some motivation for Multiple Linear Regression (MLR)
+
+We started the class with a question: 
+
+### How to estimate the (causal) relationship between an [independent variable]{.hii} and an [outcome]{.h} we are interested in?
+
+---
+
+## Some motivation for Multiple Linear Regression (MLR)
+
+- Recall that a model is a *simplification* of the world that allows us to understand one (or a few) parts at a time and how they interact
+
+. . .
+
+- The simple linear regression model helps us focus only on the interaction we care about
+  - The *error term* captures everything about the world that isn't included in our model
+  
+---
+
+## Some motivation for Multiple Linear Regression (MLR)
+
+The simple linear regression model allowed us to get some understanding of several complicated relationships *one independent variable at a time*
+
+- The effect of police on college crime rates
+
+- The effect of educational attainment on earnings
+
+- Access to deworming medication on school attendence
+
+- Access to community colleges and educational attainment
+  
+---
+
+## Limitations of the Simple Linear Model:
+
+But the world is almost never ***monocausal***.
+
+. . . 
+
+- We will develop a framework to think through what variables should (and shouldn't) be included in our models
+
+- and how adding additional variables helps us to understand the relationships we care about
+
+---
 
 # _Prologue_ {.inverse .note}
 

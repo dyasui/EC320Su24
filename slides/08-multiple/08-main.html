@@ -426,6 +426,67 @@ Andrew Dickinson
 <!-- ::: -->
 </section>
 <section>
+<section id="todo" class="title-slide slide level1 center">
+<h1>TODO:</h1>
+<ul class="task-list">
+<li><label><input type="checkbox">add in sections that better correspond to slr format</label>
+<ul class="task-list">
+<li><label><input type="checkbox">mlr loigic</label></li>
+<li><label><input type="checkbox">mlr ols derivation w/ two slopes</label></li>
+<li><label><input type="checkbox">discussion of mlr properties which reviews and connects to slr properties</label></li>
+<li><label><input type="checkbox">t-tests section before f-test (also review-oriented)</label></li>
+</ul></li>
+<li><label><input type="checkbox">breakup lecture into a few different modules:</label>
+<ul>
+<li>08-MLRlogic</li>
+<li>09-MLRproperties/assumptions</li>
+<li>10-MLRinference</li>
+</ul></li>
+</ul>
+</section>
+<section id="some-motivation-for-multiple-linear-regression-mlr" class="slide level2">
+<h2>Some motivation for Multiple Linear Regression (MLR)</h2>
+<p>We started the class with a question:</p>
+<h3 id="how-to-estimate-the-causal-relationship-between-an-independent-variable-and-an-outcome-we-are-interested-in">How to estimate the (causal) relationship between an <span class="hii">independent variable</span> and an <span class="h">outcome</span> we are interested in?</h3>
+</section>
+<section id="some-motivation-for-multiple-linear-regression-mlr-1" class="slide level2">
+<h2>Some motivation for Multiple Linear Regression (MLR)</h2>
+<ul>
+<li>Recall that a model is a <em>simplification</em> of the world that allows us to understand one (or a few) parts at a time and how they interact</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>The simple linear regression model helps us focus only on the interaction we care about
+<ul>
+<li>The <em>error term</em> captures everything about the world that isn’t included in our model</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="some-motivation-for-multiple-linear-regression-mlr-2" class="slide level2">
+<h2>Some motivation for Multiple Linear Regression (MLR)</h2>
+<p>The simple linear regression model allowed us to get some understanding of several complicated relationships <em>one independent variable at a time</em></p>
+<ul>
+<li><p>The effect of police on college crime rates</p></li>
+<li><p>The effect of educational attainment on earnings</p></li>
+<li><p>Access to deworming medication on school attendence</p></li>
+<li><p>Access to community colleges and educational attainment</p></li>
+</ul>
+</section>
+<section id="limitations-of-the-simple-linear-model" class="slide level2">
+<h2>Limitations of the Simple Linear Model:</h2>
+<p>But the world is almost never <strong><em>monocausal</em></strong>.</p>
+<div class="fragment">
+<ul>
+<li><p>We will develop a framework to think through what variables should (and shouldn’t) be included in our models</p></li>
+<li><p>and how adding additional variables helps us to understand the relationships we care about</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
 <section id="prologue" class="title-slide slide level1 inverse note center">
 <h1><em>Prologue</em></h1>
 
@@ -970,7 +1031,7 @@ Y_i = \widehat{\beta}_0 + \widehat{\beta}_1 X_i + v_i
 <h2>Multiple linear regression <span class="ex">Ex.</span></h2>
 <p>Controlling for <span class="hi">school funding</span></p>
 <p><span class="math display">\[
-\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Expenditure}_i+ u_i
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \beta_2  \text{Expenditure}_i+ u_i
 \]</span></p>
 <div class="cell" data-escape="false">
 <div class="cell-output-display">
@@ -1386,9 +1447,9 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_{k} X_{ki} + u_
 \]</span></p>
 <p><span class="hi">Moving parts:</span></p>
 <div class="small">
-<p><span class="fragment"><span class="note">1.</span> <span class="hi">Error variance:</span> As <span class="math inline">\({\color{#81A1C1}\sigma^2}\)</span> increases, <span class="math inline">\(\Var(\hat{\beta}_j)\)</span> increases</span></p>
-<p><span class="fragment"><span class="note">2.</span> <span class="hi">Total variation in <span class="math inline">\(X_j\)</span>:</span> As <span class="math inline">\({\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}\)</span> increases, <span class="math inline">\(\Var(\hat{\beta}_j)\)</span> decreases</span></p>
-<p><span class="fragment"><span class="note">3.</span> <span class="hi">Relationship across <span class="math inline">\(X_i\)</span>:</span> As <span class="math inline">\({\color{#81A1C1}R_j^2}\)</span> increases, <span class="math inline">\(\Var(\hat{\beta}_j)\)</span> increases</span></p>
+<p><span class="fragment"><span class="note">1.</span> <span class="hi">Error variance:</span> As <span class="math inline">\({\color{#81A1C1}\sigma^2}\)</span> increases, <span class="math inline">\(Var(\hat{\beta}_j)\)</span> increases</span></p>
+<p><span class="fragment"><span class="note">2.</span> <span class="hi">Total variation in <span class="math inline">\(X_j\)</span>:</span> As <span class="math inline">\({\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}\)</span> increases, <span class="math inline">\(Var(\hat{\beta}_j)\)</span> decreases</span></p>
+<p><span class="fragment"><span class="note">3.</span> <span class="hi">Relationship across <span class="math inline">\(X_i\)</span>:</span> As <span class="math inline">\({\color{#81A1C1}R_j^2}\)</span> increases, <span class="math inline">\(Var(\hat{\beta}_j)\)</span> increases</span></p>
 </div>
 <p><br></p>
 <div class="fragment">

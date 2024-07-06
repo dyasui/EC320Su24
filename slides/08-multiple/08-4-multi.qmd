@@ -134,7 +134,7 @@ This serves more than one purpose. Multiple [independent variables]{.hii} improv
 Controlling for [school funding]{.hi}
 
 $$
-\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Expenditure}_i+ u_i
+\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \beta_2  \text{Expenditure}_i+ u_i
 $$
 
 ```{r}

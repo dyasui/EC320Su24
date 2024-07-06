@@ -31,11 +31,11 @@ $$
 [Moving parts:]{.hi}
 
 ::: {.small}
-[[1.]{.note} [Error variance:]{.hi} As ${\color{#81A1C1}\sigma^2}$ increases, $\Var(\hat{\beta}_j)$ increases]{.fragment}
+[[1.]{.note} [Error variance:]{.hi} As ${\color{#81A1C1}\sigma^2}$ increases, $Var(\hat{\beta}_j)$ increases]{.fragment}
 
-[[2.]{.note} [Total variation in $X_j$:]{.hi} As ${\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}$ increases, $\Var(\hat{\beta}_j)$ decreases]{.fragment}
+[[2.]{.note} [Total variation in $X_j$:]{.hi} As ${\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}$ increases, $Var(\hat{\beta}_j)$ decreases]{.fragment}
 
-[[3.]{.note} [Relationship across $X_i$:]{.hi} As ${\color{#81A1C1}R_j^2}$ increases, $\Var(\hat{\beta}_j)$ increases]{.fragment}
+[[3.]{.note} [Relationship across $X_i$:]{.hi} As ${\color{#81A1C1}R_j^2}$ increases, $Var(\hat{\beta}_j)$ increases]{.fragment}
 :::
 
 <br>
