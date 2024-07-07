@@ -1,0 +1,132 @@
+---
+name: derive
+---
+
+## Multiple linear regression
+
+[Simple linear regression]{.note} features one [dependent variable]{.hi} and one [independent variable]{.hii}:
+
+$$
+\color{#434C5E}{Y_i} = \beta_0 + \beta_1 \color{"#81A1C1"}{X_i} + u_i
+$$
+
+[Multiple linear regression]{.note} features one [dependent variable]{.hi} and multiple [independent variables]{.hii}:
+
+$$
+\color{#434C5E}{Y_i} = \beta_0 + \beta_1 \color{"#81A1C1"}{X_{1i}} + \beta_2 \color{"#81A1C1"}{X_{2i}} + \cdots + \beta_{k} \color{"#81A1C1"}{X_{ki}} + u_i
+$$
+
+. . .
+
+This serves more than one purpose. Multiple [independent variables]{.hii} improves predictions, avoids [OVB]{.hi-red}, and better explains variation in $Y$.
+
+---
+
+## OLS with $k$ independent variables
+
+The general form of the OLS model allows for any number of $X$'s:
+
+$$ Y_i = \beta_0 + \beta_1 X_{1i} + ... + \beta_k X_{ki} + u_i $$
+
+- we still have only one *dependent variable*, $Y_i$
+
+- but now there are $k$ many *independent variables*, $\{X_{1i}, ..., X_{ki}\}$
+
+- $\beta_0$ is the *intercept parameter*. $E[Y_i|X_{1i} = ... = X_{ki} = 0]$
+
+- $\beta_1$ through $\beta_k$ are the slope parameters for each dependent variable
+
+  - they represent the *partial change* in $Y$ for a change in $X_k$. 
+  I.e., $\frac{\delta Y_i}{\delta X_{ki}} = \beta_k$
+  
+- $u_i$ is the error term including all factors affecting $Y_i$ not included in any of the $X$'s.
+
+---
+
+## Coefficient Interpretation
+
+[Model]{.hi}
+
+$$
+\color{}{Y_i} = \beta_0 + \beta_1 \color{}{X_{1i}} + \beta_2 \color{}{X_{2i}} + \cdots + \beta_{k} \color{}{X_{ki}} + u_i
+$$
+
+[Interpretation]{.hi}
+
+- The intercept $\hat{\beta}_0$ is the average value of $Y_i$ when all of the independent variables are equal to zero.
+- Slope parameters $\hat{\beta}_1, \dots, \hat{\beta}_{k}$ give us the change in $Y_i$ from a one-unit change in $X_j$, holding the other $X$ variables constant. 
+
+---
+
+## OLS Estimation
+
+[Residuals]{.note} are now defined as:
+
+. . .
+
+$$
+\hat{u}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki}
+$$
+
+. . .
+
+As with SLR, OLS minimizes the sum of squared residuals ([RSS]{.hi-orange}).
+
+. . .
+
+$$
+\begin{align*}
+  {\color{#D08770} RSS} &= \sum_{i = 1}^{n} (Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki})^2 \\
+                        &= \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
+\end{align*}
+$$
+
+which is a familiar expression.
+
+---
+
+## OLS Estimation
+
+To obtain [point estimates]{.note}: 
+
+$$
+\min_{\hat{\beta}_0,\, \hat{\beta}_1,\, \dots \, \hat{\beta}_k} \quad \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
+$$
+
+- Take partial derivatives of RSS with respect to each $\hat{\beta}$
+- Set each derivative equal to zero
+- Solve the system of $k+1$ equations^[$k+1$ due to the intercept.].
+
+---
+
+
+## Algebraic properties of OLS
+
+The OLS first-order conditions yield the same properties as before.
+
+<br>
+
+[1.]{.note} Residuals sum to zero: $\sum_{i=1}^n \hat{u_i} = 0$.
+
+[2.]{.note} The sample covariance $X_i$ and the $\hat{u_i}$ is zero.
+
+[3.]{.note} The point $(\bar{X_1}, \bar{X_2}, \dots, \bar{X_k}, \bar{Y})$ is on the fitted regression "line."
+
+---
+
+## Goodness of fit
+
+Fitted values are defined similarly:
+
+$$
+\hat{Y_i} = \hat{\beta}_0 + \hat{\beta}_1 X_{1i} + \hat{\beta}_2 X_{2i} + \cdots + \hat{\beta}_{k} X_{ki}
+$$
+
+The formula for $R^2$ is the same as before:
+
+$$
+R^2 =\frac{\sum(\hat{Y_i}-\bar{Y})^2}{\sum(Y_i-\bar{Y})^2}
+$$
+
+
+---

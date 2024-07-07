@@ -87,13 +87,25 @@ But the world is almost never ***monocausal***.
 
 ```{r}
 # Load packages
-pacman::p_load(
-  hrbrthemes, fastverse, tidyverse, AER,
-  magrittr, wooldridge, here, kableExtra,
-  ggdag, nord, latex2exp, dagitty, viridis, gganimate,
-  plotly, ggforce, latex2exp, parallel, broom, furrr
-  )
-
+library(hrbrthemes)
+library(fastverse)
+library(tidyverse)
+library(AER)
+library(magrittr)
+library(wooldridge)
+library(here)
+library(kableExtra)
+library(ggdag)
+library(nord)
+library(dagitty)
+library(viridis)
+library(gganimate)
+library(plotly)
+library(ggforce)  
+library(parallel)
+library(broom)
+library(furrr)
+library(ggridges)
 
 hi = nord_palettes$polarnight[3]
 hii = nord_palettes$frost[3] 
@@ -142,25 +154,31 @@ election <- read_csv("election_2016.csv") %>%
 
 {{< include 08-1-prologue.qmd >}}
 
-# [Ex.]{.ex} [Effect of class sizes on test scores]{.hi-white} {.inverse .tiny}
+# []{.ex} {.inverse .note}
 
-{{< include 08-2-ex.qmd >}}
+{{< include 08-2-mlrmodel.qmd >}}
+
+{{< include 08-3-derivation.qmd >}}
 
 # [Omitted Variable Bias]{.ex} {.inverse .note}
 
-{{< include 08-3-ovb.qmd >}}
+<!-- {{< include 08-3-ovb.qmd >}} -->
 
 # _Multiple linear regression_ {.inverse .note}
 
 {{< include 08-4-multi.qmd >}}
 
+# [Ex.]{.ex} [Effect of class sizes on test scores]{.hi-white} {.inverse .tiny}
+
+<!-- {{< include 08-2-ex.qmd >}} -->
+
 # _Multicollinearity_ {.inverse .note}
 
-{{< include 08-5-colinear.qmd >}}
+<!-- {{< include 08-5-colinear.qmd >}} -->
 
 # _F Tests_ {.inverse .note}
 
-{{< include 08-6-ftest.qmd >}}
+<!-- {{< include 08-6-ftest.qmd >}} -->
 
 # _Fin_ {.inverse .note}
 

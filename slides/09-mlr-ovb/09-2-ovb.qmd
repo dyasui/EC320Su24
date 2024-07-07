@@ -216,10 +216,7 @@ Y_i &= \beta_0 + \beta_1 X_i + \beta_2 \left( \gamma_0 + \gamma_1 X_i + \varepsi
 $$
 
 as:
-
-$$
-Y_i = \widehat{\beta}_0 + \widehat{\beta}_1 X_i + v_i
-$$
+$Y_i = \widehat{\beta}_0 + \widehat{\beta}_1 X_i + v_i$
 
 where:
 

@@ -1,0 +1,406 @@
+---
+name: adjRsquared
+---
+
+## Goodness of fit
+
+We can describe the variation explain in $Y$ with venn diagrams
+
+```{r}
+#| echo: false
+
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hired, hii , hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5,    1.5,   -1.0),
+  y  = c( 0.0,   -2.5,   -1.8,    2.0),
+  r  = c( 1.9,    1.5,    1.5,    1.3),
+  l  = c( "Y", "X[1]", "X[2]", "X[3]"),
+  xl = c( 0.0,   -0.5,    1.6,   -1.0),
+  yl = c( 0.0,   -2.5,   -1.9,    2.2)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
+xlim(-3, 3) +
+ylim(-4, 3.4) +
+coord_equal()
+```
+
+
+---
+
+## Goodness of fit
+
+Suppose we have [two]{.hi} models:
+
+<br>
+
+[Model 1]{.hi} $Y_i = \beta_0 + \beta_1 X_{1i} + u_i$.
+
+[Model 2:]{.hi} $Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + v_i$
+
+<br>
+
+. . .
+
+[T/F?]{.note} Model 2 will yield a lower $R^2$ than Model 1.
+
+. . .
+
+<br>
+<br>
+
+(_Hint: Think of $R^2$ as $R^2 = 1 - \frac{\text{RSS}}{\text{TSS}}$._)
+
+---
+
+## Goodness of fit
+
+We can describe the variation explain in $Y$ with venn diagrams
+
+```{r}
+#| echo: false
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5),
+  y  = c( 0.0,   -2.5),
+  r  = c( 1.9,    1.5),
+  l  = c( "Y", "X[1]"),
+  xl = c( 0.0,   -0.5),
+  yl = c( 0.0,   -2.5)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
+annotate(
+  x = 1, y = 3,
+  geom = "text", label = "Model 1", size = 9, color = hi, hjust = 0
+) +
+xlim(-3, 3) +
+ylim(-4, 3.4) +
+coord_equal()
+```
+
+---
+
+## Goodness of fit
+
+We can describe the variation explain in $Y$ with venn diagrams
+
+```{r}
+#| echo: false
+#| 
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hii, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5, -1.0),
+  y  = c( 0.0,   -2.5, 2.0),
+  r  = c( 1.9,    1.5, 1.3),
+  l  = c( "Y", "X[1]", "X[2]"),
+  xl = c( 0.0,   -0.5, -1.0),
+  yl = c( 0.0,   -2.5, 2.2)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
+annotate(
+  x = 1, y = 3,
+  geom = "text", label = "Model 2", color = hi, size = 9, hjust = 0
+) +
+xlim(-3, 3) +
+ylim(-4, 3.4) +
+coord_equal()
+```
+
+---
+
+##
+
+::: {.middle}
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+<br>
+
+[Let me show you this [problem]{.hi-red} with a [simulation]{.hii}]{.fragment}
+
+:::
+
+---
+
+##
+
+::: {.middle}
+Simulate a dataset of 10,000 observations on $y$ and 1,000 random $x_k$ variables, where 
+
+$$
+y \perp x_k \quad \forall x_k \; \text{s.t.} \; k = 1, 2, \dots, 1000
+$$
+
+<br>
+
+[We have 1,000 independent variables that are [independent]{.note} to the dependent variable.]{.fragment} [Each $x_k$ has no relationship to $y$ whatsoever.]{.fragment}
+
+:::
+
+
+---
+
+[Problem:]{.hi-red} As we add variables to our model, $\color{#314f4f}{R^2}$ *mechanically* increases.
+
+[Pseudo-code:]{.mono}
+
+::: {.pseudocode}
+Generate 10,000 obs. on $y$
+
+Generate 10,000 obs. on variables $x_1$ through $x_{1000}$
+
+<br>
+
+Regressions:
+
+- LM<sub>1</sub>: Regress $y$ of $x_1$; record $R^2$
+- LM<sub>2</sub>: Regress $y$ of $x_1$ and $x_2$; record $R^2$
+- ...
+- LM<sub>1000</sub>: Regress $y$ on $x_1$, $x_2$, ..., $x_{1000}$; record $R^2$
+:::
+
+---
+
+[Problem:]{.hi-red} As we add variables to our model, $\color{#314f4f}{R^2}$ *mechanically* increases.
+
+[R]{.mono} code for the simulation:
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Generate data --------------------------------------------------------------
+  # Set random seed
+  set.seed(1234)
+  # Generate data
+  y <- rnorm(1e4)
+  x <- matrix(data = rnorm(1e7), nrow = 1e4)
+  x %<>% cbind(matrix(data = 1, nrow = 1e4, ncol = 1), x)
+
+# Simulation -----------------------------------------------------------------
+  # Loop across regressions
+  r_df <- mclapply(X = 1:(1e3-1), mc.cores = detectCores() - 1, FUN = function(i) {
+    # Add one additional regressor every iteration
+    tmp_reg <- lm(y ~ x[,1:(i+1)]) %>% summary()
+    # Export R2
+    data.frame(
+      k = i + 1,
+      r2 = tmp_reg %$% r.squared,
+      r2_adj = tmp_reg %$% adj.r.squared
+    )
+  }) %>% bind_rows()
+```
+
+---
+
+######
+
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+<br>
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: true
+
+# Set random seed
+set.seed(1234)
+# Generate data
+  # Generate number of rows
+  n = 1e4
+  # Generate number of regressors
+  k = 1e3
+  # Create data set
+  y = rnorm(n)
+  x = matrix(data = rnorm(1e7), nrow = n)
+  x %<>% cbind(matrix(data = 1, nrow = n, ncol = 1), x)
+
+# Run simulation
+  # Fit k models, adding 1 regressor each iteration
+  fit = parallel::mclapply(
+    1:1000,
+    function(i) {
+      # Print progress
+      print(i)
+      # Fit model
+      fit = coef(.lm.fit(x[, 1:(i + 1)], y))
+      # Calculate residuals
+      residuals = y - x[, 1:(i + 1)] %*% fit
+      # Calculate total sum of squares
+      tss = sum((y - mean(y))^2)
+      # Calculate R-squared + adjusted R-squared
+      rsq = 1 - sum(residuals^2) / tss
+      adj = 1 - ((1 - rsq) * (n - 1)) / (n - i - 1)
+      dt = data.table(
+        k = i,
+        rsq = rsq,
+        adj_rsq = adj
+      )
+      return(dt)
+    }, mc.cores = parallelly::availableCores()
+  ) %>% rbindlist()
+
+```
+
+```{r}
+#| echo: false
+#| fig.height: 6.25
+#| fig-align: center
+#| eval: true
+
+ggplot(data = fit, aes(x = k, y = rsq)) +
+geom_hline(yintercept = 0) +
+geom_vline(xintercept = 0) +
+geom_line(size = 2, alpha = 0.75, color = hired) +
+geom_line(aes(y = adj_rsq), size = 0.2, alpha = 0, color = hp) +
+ylab("R-squared") +
+xlab("Number of independent variables (k)") +
+mytheme
+```
+
+---
+
+###### {data-visibility="uncounted"}
+
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+[One solution:]{.hii} Penalize for the number of variables, _e.g._, adjusted $R^2$:
+
+```{r}
+#| echo: false
+#| fig.height: 6.25
+#| fig-align: center
+#| eval: true
+ggplot(data = fit, aes(x = k, y = rsq)) +
+geom_hline(yintercept = 0) +
+geom_vline(xintercept = 0) +
+geom_line(size = 2, alpha = 0.15, color = hired) +
+geom_line(aes(y = adj_rsq), size = 2, alpha = 0.85, color = hii) +
+ylab("R-squared") +
+xlab("Number of independent variables (k)") +
+mytheme
+```
+
+---
+
+## Goodness of fit
+
+[Problem:]{.hi-red} As we add variables to our model, $R^2$ *mechanically* increases.
+
+[One solution:]{.hii} Penalize for the number of variables, _e.g._, adjusted $R^2$:
+
+$$
+\bar{R}^2 = 1 - \dfrac{\sum_i \left( Y_i - \hat{Y}_i \right)^2/(n-k-1)}{\sum_i \left( Y_i - \bar{Y} \right)^2/(n-1)}
+$$
+
+*Note:* Adjusted $R^2$ need not be between 0 and 1.
+
+---
+
+## Goodness of fit
+
+So how do you find $R^2$ and $\bar{R^2}$ in {{< fa brands r-project >}}? [`broom::glance()`]{.fragment}
+
+. . .
+
+```{r}
+#| echo: true
+
+# Run model
+model = lm(score4 ~ stratio + expreg, schools_dt)
+
+# Print results as tibble
+broom::tidy(model)
+```
+
+<br>
+
+. . . 
+
+
+```{r}
+#| echo: true
+# Print R2 info as tibble
+broom::glance(model)
+```
+
+---
+
+## Multiple regression
+
+There are [tradeoffs]{.hi} to remember as we add/remove variables:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[Fewer variables]{.hi-red}
+
+- Explains less variation in $y$
+- Provide simple interpretations and visualizations
+- More worried about omitted-variable bias
+:::
+
+::: {.column width="50%"}
+[More variables]{.hii}
+
+- More likely to find _spurious_ relationships^[Spurious meaning _statistically significant_ by coincidence---not reflective of true, population-level relationship]
+- More difficult interpretation
+- The [variance]{.note} of our [point estimates]{.note} will be bigger
+- We still might have omitted-variable bias
+:::
+
+::::
+
+
+---
+
+## Multiple regression {data-visibility="uncounted"}
+
+There are [tradeoffs]{.hi} to remember as we add/remove variables:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+[Fewer variables]{.hi-red}
+
+- Explains less variation in $y$
+- Provide simple interpretations and visualizations
+- More worried about omitted-variable bias
+:::
+
+::: {.column width="50%"}
+[More variables]{.hii}
+
+- More likely to find _spurious_ relationships^[Spurious meaning _statistically significant_ by coincidence---not reflective of true, population-level relationship]
+- More difficult interpretation
+- [The variance of our point estimates will be bigger]{.hi}
+- We still might have omitted-variable bias
+:::
+
+::::

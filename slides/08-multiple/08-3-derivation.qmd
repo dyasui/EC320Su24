@@ -1,0 +1,116 @@
+---
+name: derivation
+---
+
+## Deriving Multiple Linear Regression Estimators
+
+We've already derived $\hat{\beta}$ estimators for single linear regression with one independent variable $X$.
+
+. . . 
+
+In multiple regression, we can have any number of $X$'s, but to illustrate we will first look at a model with two dependent variables, $X_1$ and $X_2$.
+
+## MLR with two independent variables
+
+$$ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i $$
+
+. . .
+
+Just like single linear regression, our estimates ($\hat{\beta}$) give us the 
+fitted values:
+
+$$ \hat{Y_i} = \hat{\beta_0} + \hat{\beta_1} X_{1i} + \hat{\beta_2} X_{2i} $$
+
+So our residuals become:
+
+$$ \hat{u_i} = Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i} $$
+
+---
+
+## Deriving Multiple Linear Regression Estimators
+
+Our objective when choosing $\hat{\beta}$'s is to minimize the Residual Sum of Squares:
+
+$$
+\begin{equation}
+\min_{\{\hat{\beta_0},\hat{\beta_1},\hat{\beta_2}\}} 
+\sum_i (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i})^2 
+\end{equation}
+$$
+
+. . . 
+
+Recall that the first order conditions are the partial derivatives for each $\hat{\beta}$ set equal to zero.
+
+## Deriving Multiple Linear Regression Estimators
+
+To find the coordinate $(\hat{\beta_0}^*, \hat{\beta_1}^*, \hat{\beta_2}^*) \in \mathbb{R}^3$ which produces a best-fit line
+we need to solve a sytem of *three* first order conditions and *three* unknowns:
+
+$$ \frac{\delta RSS}{\delta \hat{\beta_0}} = -2 \sum_i (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i}) = 0$$
+
+$$ \frac{\delta RSS}{\delta \hat{\beta_1}} = -2 \sum_i X_{1i} (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i}) = 0$$
+
+$$ \frac{\delta RSS}{\delta \hat{\beta_2}} = -2 \sum_i X_{2i} (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i}) = 0$$
+
+---
+
+## Deriving Multiple Linear Regression Estimators
+
+Let's start by rearranging the $\frac{\delta RSS}{\delta \hat{\beta_0}} = 0$ FOC:
+
+$$ \sum_i Y_i - n \hat{\beta_0} - \hat{\beta_1} \sum_i X_{1i} - \hat{\beta_2} \sum_i X_{2i} = 0 $$
+
+and rearranging again to get the intercept estimator:
+
+$$ \hat{\beta_0} = \bar{Y} - \hat{\beta_1} \bar{X_1} - \hat{\beta_2} \bar{X_2} $$
+
+. . .
+
+- we've verified the property of the best-fit line passing through the sample averages 
+
+---
+
+## MLR Normal Form Equations
+
+Using the intercept estimator form and the other FOC's, 
+algebra can be used to obtain the estimator $\hat{\beta_1}$:
+
+$$
+\hat{\beta_1} = 
+\frac{ \sum_i(X_{1i} - \bar{X_1})(Y_i - \bar{Y}) \sum_i(X_{2i} - \bar{X_2})^2 }
+{ \sum_i(X_{1i} - \bar{X_1})^2 \sum_i(X_{2i} - \bar{X_2})^2 - \left(\sum_i(X_{1i} - \bar{X_1})(X_{1i} - \bar{X_1})\right)^2 }
+$$
+
+. . .
+
+The normal form for $\hat{\beta_2}$ takes the same form, but swapping $X_1$ and $X_2$.
+
+---
+
+## Deriving the OLS estimators for $k$ variables
+
+Is in principle the same process we went through with two independent variables
+
+but the algebra gets tedious.
+
+. . .
+
+If you take Linear Algebra, then you will have the tools to keep track of linear systems of equations with lots of dimensions.
+
+## Normal Form Equations (matrix form)
+
+Regression models are written in matrix form:
+
+$$ y = \mathbf{X}\beta $$
+
+- where the first column of the matrix $\mathbf{X}$ is ones (these are the intercepts)
+
+. . .
+
+Then the vector of estimates is:
+
+$$ \hat{\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'y$$
+
+Don't worry about remembering this notation, but if you have had linear algebra, 
+try to see if you can figure out how this connects to our earlier versions of the normal form equations.

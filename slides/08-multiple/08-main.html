@@ -7,9 +7,7 @@
 <link href="08-main_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="08-main_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="08-main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="08-main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<link href="08-main_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="08-main_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+<link href="08-main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Andrew Dickinson">
@@ -31,71 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #767676;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
-    div.sourceCode
-      { color: #545454; background-color: #fefefe; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #545454; } /* Normal */
-    code span.al { color: #7928a1; } /* Alert */
-    code span.an { color: #696969; } /* Annotation */
-    code span.at { color: #a55a00; } /* Attribute */
-    code span.bn { color: #7928a1; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #d91e18; } /* ControlFlow */
-    code span.ch { color: #008000; } /* Char */
-    code span.cn { color: #d91e18; } /* Constant */
-    code span.co { color: #696969; } /* Comment */
-    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
-    code span.do { color: #696969; font-style: italic; } /* Documentation */
-    code span.dt { color: #7928a1; } /* DataType */
-    code span.dv { color: #7928a1; } /* DecVal */
-    code span.er { color: #7928a1; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #a55a00; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #696969; } /* Information */
-    code span.kw { color: #d91e18; } /* Keyword */
-    code span.op { color: #00769e; } /* Operator */
-    code span.ot { color: #d91e18; } /* Other */
-    code span.pp { color: #7928a1; } /* Preprocessor */
-    code span.sc { color: #00769e; } /* SpecialChar */
-    code span.ss { color: #008000; } /* SpecialString */
-    code span.st { color: #008000; } /* String */
-    code span.va { color: #a55a00; } /* Variable */
-    code span.vs { color: #008000; } /* VerbatimString */
-    code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="08-main_files/libs/revealjs/dist/theme/quarto.css">
   <link href="08-main_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -387,13 +320,12 @@
       margin-right: 0; 
     }
   </style>
-  <link href="08-main_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-  <script src="08-main_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="08-main_files/libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
   <script src="08-main_files/libs/plotly-binding-4.10.4/plotly.js"></script>
   <script src="08-main_files/libs/typedarray-0.1/typedarray.min.js"></script>
   <script src="08-main_files/libs/jquery-3.5.1/jquery.min.js"></script>
-  <link href="08-main_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-  <script src="08-main_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+  <link href="08-main_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+  <script src="08-main_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
   <link href="08-main_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
   <script src="08-main_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
   <script src="08-main_files/libs/kePrint-0.0.1/kePrint.js"></script>
@@ -500,7 +432,7 @@ Andrew Dickinson
 <section id="the-regression-model" class="slide level2">
 <h2>The regression model</h2>
 <p>We can estimate the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> by estimating a <span class="hi">regression model:</span></p>
-<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_i + u_i\]</span></p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_i + u_i\]</span> . . .</p>
 <ul>
 <li><p><span class="math inline">\(Y_i\)</span> is the outcome variable.</p></li>
 <li><p><span class="math inline">\(X_i\)</span> is the treatment variable (continuous).</p></li>
@@ -554,466 +486,215 @@ Andrew Dickinson
 <p><span class="note">A3.</span> <span class="hi">Exogeniety:</span> The <span class="math inline">\(X\)</span> variable is <span class="note">exogenous</span></p>
 <p><span class="note">A4.</span> <span class="hi">Homoskedasticity:</span> The error term has the same variance for each value of the independent variable</p>
 <p><span class="note">A5.</span> <span class="hi">Non-autocorrelation:</span> The values of error terms have independent distributions</p>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<div class="middle">
-<p><em>Consider the following example.</em></p>
-</div>
 </section></section>
 <section>
-<section id="ex.-effect-of-class-sizes-on-test-scores" class="title-slide slide level1 inverse tiny center">
-<h1><span class="ex">Ex.</span> <span class="hi-white">Effect of class sizes on test scores</span></h1>
+<section id="section" class="title-slide slide level1 inverse note center">
+<h1><span class="ex"></span></h1>
 
 </section>
-<section class="slide level2">
-
-<div class="middle">
-<dl>
-<dt><span class="note">Empirical question:</span></dt>
-<dd>
-<p>What improvement do smaller class sizes have on student test scores, if any?</p>
-</dd>
-</dl>
+<section id="multiple-linear-regression" class="slide level2">
+<h2>Multiple linear regression</h2>
+<p><span class="note">Simple linear regression</span> features one <span class="hi">dependent variable</span> and one <span class="hii">independent variable</span>:</p>
+<p><span class="math display">\[
+\color{#434C5E}{Y_i} = \beta_0 + \beta_1 \color{"#81A1C1"}{X_i} + u_i
+\]</span></p>
+<p><span class="note">Multiple linear regression</span> features one <span class="hi">dependent variable</span> and multiple <span class="hii">independent variables</span>:</p>
+<p><span class="math display">\[
+\color{#434C5E}{Y_i} = \beta_0 + \beta_1 \color{"#81A1C1"}{X_{1i}} + \beta_2 \color{"#81A1C1"}{X_{2i}} + \cdots + \beta_{k} \color{"#81A1C1"}{X_{ki}} + u_i
+\]</span></p>
+<div class="fragment">
+<p>This serves more than one purpose. Multiple <span class="hii">independent variables</span> improves predictions, avoids <span class="hi-red">OVB</span>, and better explains variation in <span class="math inline">\(Y\)</span>.</p>
 </div>
 </section>
-<section id="ex.-effect-of-class-sizes-on-test-scores-1" class="slide level2">
-<h2><span class="ex">Ex.</span> <span class="hi">Effect of class sizes on test scores</span></h2>
-<p>Estimate effect of class size on test scores with the following:</p>
-<p><span class="math display">\[
-\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + u_i
-\]</span></p>
-<p><br></p>
-<div class="fragment">
-<p><span class="hi">Data:</span> Test performance and class across school districts in MA</p>
+<section id="the-regression-model-with-k-independent-variables" class="slide level2">
+<h2>The regression model with <span class="math inline">\(k\)</span> independent variables</h2>
+<p>The general form of the OLS model allows for any number of <span class="math inline">\(X\)</span>’s:</p>
+<p><span class="math display">\[ Y_i = \beta_0 + \beta_1 X_{1i} + ... + \beta_k X_{ki} + u_i \]</span></p>
 <ul>
-<li>Scores: 4th grade test scores agg. across reading, math, and science</li>
-<li>Class size: Ratio of number of students to teachers</li>
-</ul>
-<p><br></p>
-</div>
-<div class="fragment">
-<p>Always plot your data first</p>
-</div>
-</section>
-<section class="slide level2">
-
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Raw data</p></section>
-<section class="slide level2">
-
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Fitting OLS</p></section>
-<section id="ex.-effect-of-class-sizes-on-test-scores-2" class="slide level2">
-<h2><span class="ex">Ex.</span> <span class="hi">Effect of class sizes on test scores</span></h2>
-<p>Estimate effect of class size on test scores with the following:</p>
-<p><span class="math display">\[
-\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + u_i
-\]</span></p>
-<p><br></p>
-<p><span class="note">Q.</span> <em>How might smaller class sizes influence test scores?</em></p>
-<div class="fragment">
-<p><span class="note">A.</span> More personalized teaching, less classroom disruptions etc.</p>
-</div>
-<div class="fragment">
-<p><br></p>
-<p><span class="note">Q.</span> <em>What sign would we expect on <span class="math inline">\(\beta_1\)</span>?</em></p>
-</div>
-<div class="fragment">
-<p><span class="note">A.</span></p>
-<p><span class="math display">\[
-\beta_1 &lt; 0
-\]</span></p>
-</div>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<p>Smaller class sizes (<span class="hi">X</span>) increases test scores (<span class="hi">Y</span>) <br> <br></p>
-
-<img data-src="08-main_files/figure-revealjs/dag-ex-ovb-00-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"><p><br> <br></p>
-</section>
-<section id="ex.-effect-of-class-sizes-on-test-scores-3" class="slide level2" data-visibility="uncounted">
-<h2><span class="ex">Ex.</span> <span class="hi">Effect of class sizes on test scores</span></h2>
-<p>Estimate effect of class size on test scores with the following:</p>
-<p><span class="math display">\[
-\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + u_i
-\]</span></p>
-<p><br></p>
-<p><span class="note">Q.</span> <em>Do we think <span class="math inline">\(\beta_1\)</span> will be a good guess of the underlying population parameter?</em></p>
-<div class="fragment">
-<p><span class="note">A.</span> In <span class="math inline">\(u_i\)</span>, several variables are correlated with class size and test scores</p>
-<p><span class="fragment">Such as…</span> <span class="fragment hi">school funding</span><span class="fragment">, which might affect:</span></p>
-</div>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
+<li><p>we still have only one <em>dependent variable</em>, <span class="math inline">\(Y_i\)</span></p></li>
+<li><p>but now there are <span class="math inline">\(k\)</span> many <em>independent variables</em>, <span class="math inline">\(\{X_{1i}, ..., X_{ki}\}\)</span></p></li>
+<li><p><span class="math inline">\(\beta_0\)</span> is the <em>intercept parameter</em>. <span class="math inline">\(E[Y_i|X_{1i} = ... = X_{ki} = 0]\)</span></p></li>
+<li><p><span class="math inline">\(\beta_1\)</span> through <span class="math inline">\(\beta_k\)</span> are the slope parameters for each dependent variable</p>
 <ul>
-<li>Textbooks</li>
-<li>Computers</li>
+<li>they represent the <em>partial change</em> in <span class="math inline">\(Y\)</span> for a change in <span class="math inline">\(X_k\)</span>. I.e., <span class="math inline">\(\frac{\delta Y_i}{\delta X_{ki}} = \beta_k\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(u_i\)</span> is the error term including all factors affecting <span class="math inline">\(Y_i\)</span> not included in any of the <span class="math inline">\(X\)</span>’s.</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Teacher salary</li>
-<li>Attract high income parents</li>
-</ul>
-</div>
-</div>
-</div>
 </section>
-<section id="section-2" class="slide level2" data-visibility="uncounted">
-<h2></h2>
-<p>Smaller class sizes (<span class="hi">X</span>) increases test scores (<span class="hi">Y</span>) <br> <br></p>
-
-<img data-src="08-main_files/figure-revealjs/dag-ex-ovb-00-again-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"><p><br> <br></p>
-</section>
-<section id="section-3" class="slide level2" data-visibility="uncounted">
-<h2></h2>
-<p>Smaller class sizes (<span class="hi">X</span>) increases test scores (<span class="hi">Y</span>) along with greater school funding (<span class="hi">U</span>)</p>
-
-<img data-src="08-main_files/figure-revealjs/dag-ex-ovb-01-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"><p><br> <br></p>
-</section>
-<section id="section-4" class="slide level2" data-visibility="uncounted">
-<h2></h2>
-<p>Smaller class sizes (<span class="hi">X</span>) increases test scores (<span class="hi">Y</span>) along with greater school funding (<span class="hi">U</span>). And, school funding (<span class="hi">U</span>) is correlated with test scores (<span class="hi">X</span>).</p>
-<!-- DAG SLIDE -->
-
-<img data-src="08-main_files/figure-revealjs/dag-ex-ovb-02-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"><div class="fragment">
-<p><em>Any unobserved variable</em> that connects a <span class="note">backdoor path</span> between class size (<span class="hi">X</span>) and test scores (<span class="hi">Y</span>) will <span class="hi">bias</span> our <span class="note">point estimate</span> of <span class="math inline">\(\beta_1\)</span>.</p>
-</div>
-</section>
-<section id="section-5" class="slide level2" data-visibility="uncounted">
-<h2></h2>
-<div class="vertical-center">
-<p><em>Any unobserved variable</em> that connects a <span class="note">backdoor path</span> between class size (<span class="hi">X</span>) and test scores (<span class="hi">Y</span>) will <span class="hi">bias</span> our <span class="note">point estimate</span> of <span class="math inline">\(\beta_1\)</span>. <span class="fragment note">Why?</span></p>
-</div>
-</section>
-<section class="slide level2">
-
-<h6 data-visibility="uncounted" id="section-6"></h6>
-<p><em>Any unobserved variable</em> that connects a <span class="note">backdoor path</span> between class size (<span class="hi">X</span>) and test scores (<span class="hi">Y</span>) will <span class="hi">bias</span> our <span class="note">point estimate</span> of <span class="math inline">\(\beta_1\)</span>. <span class="note">Why?</span></p>
-<p><br></p>
-<p><span class="note">A1.</span> Linearity</p>
-<p><span class="note">A2.</span> Sample Variation</p>
-<p><span class="note">A3.</span> Exogeniety</p>
-<p><span class="note">A4.</span> Homoskedasticity</p>
-<p><span class="note">A5.</span> Non-autocorrelation</p>
-<p><span class="note">A6.</span> Normality</p>
-</section>
-<section class="slide level2">
-
-<h6 data-visibility="uncounted" id="section-7"></h6>
-<p><em>Any unobserved variable</em> that connects a <span class="note">backdoor path</span> between class size (<span class="hi">X</span>) and test scores (<span class="hi">Y</span>) will <span class="hi">bias</span> our <span class="note">point estimate</span> of <span class="math inline">\(\beta_1\)</span>. <span class="note">Why?</span></p>
-<p><br></p>
-<p><span class="note">A1.</span> Linearity</p>
-<p><span class="note">A2.</span> Sample Variation</p>
-<p><span class="note">A3.</span> <span class="hi-red">Exogeniety: The <span class="math inline">\(X\)</span> variable is exogenous</span></p>
-<p><span class="note">A4.</span> Homoskedasticity</p>
-<p><span class="note">A5.</span> Non-autocorrelation</p>
-<p><span class="note">A6.</span> Normality</p>
-</section>
-<section class="slide level2">
-
-<h6 data-visibility="uncounted" id="section-8"></h6>
-<div class="vertical-center">
-<p><em>Any unobserved variable</em> that connects a <span class="note">backdoor path</span> between class size (<span class="hi">X</span>) and test scores (<span class="hi">Y</span>) will <span class="hi">bias</span> our <span class="note">point estimate</span> of <span class="math inline">\(\beta_1\)</span>. <span class="note">Why?</span></p>
-<p><br></p>
-<p><span class="note">A.</span> Because is <span class="hi-red">violates the exogeniety assumption</span></p>
+<section id="coefficient-interpretation" class="slide level2">
+<h2>Coefficient Interpretation</h2>
+<p><span class="hi">Model</span></p>
 <p><span class="math display">\[
-\mathop{\mathbb{E}}\left( u|\text{Class Size} \right) \neq 0
+\color{}{Y_i} = \beta_0 + \beta_1 \color{}{X_{1i}} + \beta_2 \color{}{X_{2i}} + \cdots + \beta_{k} \color{}{X_{ki}} + u_i
 \]</span></p>
-<p>Correlation between class size and school funding (<span class="math inline">\(u_i\)</span>) is not zero.</p>
+<p><span class="hi">Interpretation</span></p>
+<ul>
+<li>The intercept <span class="math inline">\(\hat{\beta}_0\)</span> is the average value of <span class="math inline">\(Y_i\)</span> when all of the independent variables are equal to zero.</li>
+<li>Slope parameters <span class="math inline">\(\hat{\beta}_1, \dots, \hat{\beta}_{k}\)</span> give us the change in <span class="math inline">\(Y_i\)</span> from a one-unit change in <span class="math inline">\(X_j\)</span>, holding the other <span class="math inline">\(X\)</span> variables constant.</li>
+</ul>
+</section>
+<section id="ols-estimation" class="slide level2">
+<h2>OLS Estimation</h2>
+<p><span class="note">Residuals</span> are now defined as:</p>
+<div class="fragment">
+<p><span class="math display">\[
+\hat{u}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>As with SLR, OLS minimizes the sum of squared residuals (<span class="hi-orange">RSS</span>).</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{align*}
+  {\color{#D08770} RSS} &amp;= \sum_{i = 1}^{n} (Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki})^2 \\
+                        &amp;= \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
+\end{align*}
+\]</span></p>
+<p>which is a familiar expression.</p>
 </div>
 </section>
-<section id="section-9" class="slide level2" data-visibility="uncounted">
-<h2></h2>
-<div class="vertical-center">
-<p>Graphically…</p>
+<section id="ols-estimation-1" class="slide level2">
+<h2>OLS Estimation</h2>
+<p>To obtain <span class="note">point estimates</span>:</p>
+<p><span class="math display">\[
+\min_{\hat{\beta}_0,\, \hat{\beta}_1,\, \dots \, \hat{\beta}_k} \quad \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
+\]</span></p>
+<ul>
+<li>Take partial derivatives of RSS with respect to each <span class="math inline">\(\hat{\beta}\)</span></li>
+<li>Set each derivative equal to zero</li>
+<li>Solve the system of <span class="math inline">\(k+1\)</span> equations<sup>1</sup>.</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="math inline">\(k+1\)</span> due to the intercept.</p></li></ol></aside></section>
+<section id="algebraic-properties-of-ols" class="slide level2">
+<h2>Algebraic properties of OLS</h2>
+<p>The OLS first-order conditions yield the same properties as before.</p>
+<p><br></p>
+<p><span class="note">1.</span> Residuals sum to zero: <span class="math inline">\(\sum_{i=1}^n \hat{u_i} = 0\)</span>.</p>
+<p><span class="note">2.</span> The sample covariance <span class="math inline">\(X_i\)</span> and the <span class="math inline">\(\hat{u_i}\)</span> is zero.</p>
+<p><span class="note">3.</span> The point <span class="math inline">\((\bar{X_1}, \bar{X_2}, \dots, \bar{X_k}, \bar{Y})\)</span> is on the fitted regression “line.”</p>
+</section>
+<section id="goodness-of-fit" class="slide level2">
+<h2>Goodness of fit</h2>
+<p>Fitted values are defined similarly:</p>
+<p><span class="math display">\[
+\hat{Y_i} = \hat{\beta}_0 + \hat{\beta}_1 X_{1i} + \hat{\beta}_2 X_{2i} + \cdots + \hat{\beta}_{k} X_{ki}
+\]</span></p>
+<p>The formula for <span class="math inline">\(R^2\)</span> is the same as before:</p>
+<p><span class="math display">\[
+R^2 =\frac{\sum(\hat{Y_i}-\bar{Y})^2}{\sum(Y_i-\bar{Y})^2}
+\]</span></p>
+</section>
+<section id="deriving-multiple-linear-regression-estimators" class="slide level2">
+<h2>Deriving Multiple Linear Regression Estimators</h2>
+<p>We’ve already derived <span class="math inline">\(\hat{\beta}\)</span> estimators for single linear regression with one independent variable <span class="math inline">\(X\)</span>.</p>
+<div class="fragment">
+<p>In multiple regression, we can have any number of <span class="math inline">\(X\)</span>’s, but to illustrate we will first look at a model with two dependent variables, <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>.</p>
 </div>
 </section>
-<section id="section-10" class="slide level2">
-<h2></h2>
-<p>Valid exogeniety, <em>i.e.</em>, <span class="math inline">\(\mathop{\mathbb{E}}\left( u \mid X \right) = 0\)</span></p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Note: This is simulated data</p></section>
-<section id="section-11" class="slide level2">
-<h2></h2>
-<p>Invalid exogeniety, <em>i.e.</em>, <span class="math inline">\(\mathop{\mathbb{E}}\left( u \mid X \right) \neq 0\)</span></p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Note: This is simulated data</p></section>
-<section class="slide level2">
-
-<h6 id="section-12"></h6>
-<p>What the actual data look like:</p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section class="slide level2">
-
-<h6 data-visibility="uncounted" id="section-13"></h6>
-<p>What the actual data look like, as a scatter plot:</p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section class="slide level2">
-
-<div class="middle">
-<p>This violation has a name. <span class="fragment">We call it <span class="note">omitted variable bias</span></span></p>
+<section id="mlr-with-two-independent-variables" class="slide level2">
+<h2>MLR with two independent variables</h2>
+<p><span class="math display">\[ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + u_i \]</span></p>
+<div class="fragment">
+<p>Just like single linear regression, our estimates (<span class="math inline">\(\hat{\beta}\)</span>) give us the fitted values:</p>
+<p><span class="math display">\[ \hat{Y_i} = \hat{\beta_0} + \hat{\beta_1} X_{1i} + \hat{\beta_2} X_{2i} \]</span></p>
+<p>So our residuals become:</p>
+<p><span class="math display">\[ \hat{u_i} = Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i} \]</span></p>
+</div>
+</section>
+<section id="deriving-multiple-linear-regression-estimators-1" class="slide level2">
+<h2>Deriving Multiple Linear Regression Estimators</h2>
+<p>Our objective when choosing <span class="math inline">\(\hat{\beta}\)</span>’s is to minimize the Residual Sum of Squares:</p>
+<p><span class="math display">\[
+\begin{equation}
+\min_{\{\hat{\beta_0},\hat{\beta_1},\hat{\beta_2}\}}
+\sum_i (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i})^2
+\end{equation}
+\]</span></p>
+<div class="fragment">
+<p>Recall that the first order conditions are the partial derivatives for each <span class="math inline">\(\hat{\beta}\)</span> set equal to zero.</p>
+</div>
+</section>
+<section id="deriving-multiple-linear-regression-estimators-2" class="slide level2">
+<h2>Deriving Multiple Linear Regression Estimators</h2>
+<p>To find the coordinate <span class="math inline">\((\hat{\beta_0}^*, \hat{\beta_1}^*, \hat{\beta_2}^*) \in \mathbb{R}^3\)</span> which produces a best-fit line we need to solve a sytem of <em>three</em> first order conditions and <em>three</em> unknowns:</p>
+<p><span class="math display">\[ \frac{\delta RSS}{\delta \hat{\beta_0}} = -2 \sum_i (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i}) = 0\]</span></p>
+<p><span class="math display">\[ \frac{\delta RSS}{\delta \hat{\beta_1}} = -2 \sum_i X_{1i} (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i}) = 0\]</span></p>
+<p><span class="math display">\[ \frac{\delta RSS}{\delta \hat{\beta_2}} = -2 \sum_i X_{2i} (Y_i - \hat{\beta_0} - \hat{\beta_1} X_{1i} - \hat{\beta_2} X_{2i}) = 0\]</span></p>
+</section>
+<section id="deriving-multiple-linear-regression-estimators-3" class="slide level2">
+<h2>Deriving Multiple Linear Regression Estimators</h2>
+<p>Let’s start by rearranging the <span class="math inline">\(\frac{\delta RSS}{\delta \hat{\beta_0}} = 0\)</span> FOC:</p>
+<p><span class="math display">\[ \sum_i Y_i - n \hat{\beta_0} - \hat{\beta_1} \sum_i X_{1i} - \hat{\beta_2} \sum_i X_{2i} = 0 \]</span></p>
+<p>and rearranging again to get the intercept estimator:</p>
+<p><span class="math display">\[ \hat{\beta_0} = \bar{Y} - \hat{\beta_1} \bar{X_1} - \hat{\beta_2} \bar{X_2} \]</span></p>
+<div class="fragment">
+<ul>
+<li>we’ve verified the property of the best-fit line passing through the sample averages</li>
+</ul>
+</div>
+</section>
+<section id="mlr-normal-form-equations" class="slide level2">
+<h2>MLR Normal Form Equations</h2>
+<p>Using the intercept estimator form and the other FOC’s, algebra can be used to obtain the estimator <span class="math inline">\(\hat{\beta_1}\)</span>:</p>
+<p><span class="math display">\[
+\hat{\beta_1} =
+\frac{ \sum_i(X_{1i} - \bar{X_1})(Y_i - \bar{Y}) \sum_i(X_{2i} - \bar{X_2})^2 }
+{ \sum_i(X_{1i} - \bar{X_1})^2 \sum_i(X_{2i} - \bar{X_2})^2 - \left(\sum_i(X_{1i} - \bar{X_1})(X_{1i} - \bar{X_1})\right)^2 }
+\]</span></p>
+<div class="fragment">
+<p>The normal form for <span class="math inline">\(\hat{\beta_2}\)</span> takes the same form, but swapping <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>.</p>
+</div>
+</section>
+<section id="deriving-the-ols-estimators-for-k-variables" class="slide level2">
+<h2>Deriving the OLS estimators for <span class="math inline">\(k\)</span> variables</h2>
+<p>Is in principle the same process we went through with two independent variables</p>
+<p>but the algebra gets tedious.</p>
+<div class="fragment">
+<p>If you take Linear Algebra, then you will have the tools to keep track of linear systems of equations with lots of dimensions.</p>
+</div>
+</section>
+<section id="normal-form-equations-matrix-form" class="slide level2">
+<h2>Normal Form Equations (matrix form)</h2>
+<p>Regression models are written in matrix form:</p>
+<p><span class="math display">\[ y = \mathbf{X}\beta \]</span></p>
+<ul>
+<li>where the first column of the matrix <span class="math inline">\(\mathbf{X}\)</span> is ones (these are the intercepts)</li>
+</ul>
+<div class="fragment">
+<p>Then the vector of estimates is:</p>
+<p><span class="math display">\[ \hat{\beta} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'y\]</span></p>
+<p>Don’t worry about remembering this notation, but if you have had linear algebra, try to see if you can figure out how this connects to our earlier versions of the normal form equations.</p>
 </div>
 </section></section>
-<section>
 <section id="omitted-variable-bias" class="title-slide slide level1 inverse note center">
 <h1><span class="ex">Omitted Variable Bias</span></h1>
+<!-- {{< include 08-3-ovb.qmd >}} -->
+</section>
 
-</section>
-<section id="omitted-variable-bias-1" class="slide level2">
-<h2>Omitted variable bias</h2>
-<blockquote>
-<p>Bias that occurs in statistical models when a relevant variable is not included in the model.</p>
-</blockquote>
-<div class="fragment">
-<p><br></p>
-<p><span class="hi-red">Consequence:</span> Leads to the incorrect estimation of the relationships between variables, which may affect the reliability of the model’s predictions and inferences.</p>
-<p><br></p>
-</div>
-<div class="fragment">
-<p><span class="hii">Solution:</span> <span class="note"><em>“Control”</em></span> for the omitted variable(s).</p>
-</div>
-</section>
-<section id="section-14" class="slide level2" data-visibility="uncounted">
-<h2></h2>
-<p>Class funding (<span class="hi">U</span>) <span class="note">confounds</span> our estimates of smaller class sizes (<span class="hi">X</span>) on test scores (<span class="hi">Y</span>). <br> <br></p>
-<!-- DAG SLIDE -->
-
-<img data-src="08-main_files/figure-revealjs/dag-ex-ovb-022-again-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"><p><em>Any unobserved variable</em> that connects a <span class="note">backdoor path</span> between class size (<span class="hi">X</span>) and test scores (<span class="hi">Y</span>) will <span class="hi">bias</span> our <span class="note">point estimate</span> of <span class="math inline">\(\beta_1\)</span>.</p>
-</section>
-<section id="section-15" class="slide level2" data-visibility="uncounted">
-<h2></h2>
-<p>Class funding (<span class="hi">U</span>) <span class="note">confounds</span> our estimates of smaller class sizes (<span class="hi">X</span>) on test scores (<span class="hi">Y</span>). Including data on school funding (<span class="hi">U</span>) in a multiple linear regression allows us to close this backdoor path.</p>
-
-<img data-src="08-main_files/figure-revealjs/dag-ex-ovb-033-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"><div class="fragment">
-<p>With all backdoor paths closed, <span class="note">point estimates</span> of <span class="math inline">\(\beta_1\)</span> will no longer be biased and will return the population parameter of interest</p>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="middle">
-<p><em>In a little more detail, we can derive the bias mathematically.</em></p>
-</div>
-</section>
-<section id="omitted-variable-bias-2" class="slide level2">
-<h2>Omitted Variable Bias</h2>
-<p>Imagine we have a population model of the form:</p>
-<p><span class="math display">\[
-Y_i = \beta_0 + \beta_1 X_i + \beta_2 Z_i + u_i
-\]</span></p>
-<p>where <span class="math inline">\(Z_i\)</span> is a relevant variable that is omitted from the model.</p>
-<p>and suppose we estimate the following model:</p>
-<p><span class="math display">\[
-Y_i = \hat{\beta}_0 + \hat{\beta}_1 X_i + v_i
-\]</span></p>
-<p>where <span class="math inline">\(v_i\)</span> is the new error term that absorbs the effect of <span class="math inline">\(Z_i\)</span></p>
-</section>
-<section id="omitted-variable-bias-3" class="slide level2">
-<h2>Omitted Variable Bias</h2>
-<p>To derive the bias of <span class="math inline">\(\hat{\beta}_1\)</span>, we need to understand the relationship between <span class="math inline">\(Z_i\)</span> and <span class="math inline">\(X_i\)</span>. Assume that:</p>
-<p><span class="math display">\[
-Z_i = \gamma_0 + \gamma_1 X_i + \varepsilon_i
-\]</span></p>
-<p>where <span class="math inline">\(\varepsilon_i\)</span> is the part of <span class="math inline">\(Z_i\)</span> that is uncorrelated with <span class="math inline">\(X_i\)</span></p>
-<div class="fragment">
-<p><br></p>
-<p>If we substitute <span class="math inline">\(Z_i\)</span> into the population model, we get:</p>
-<p><span class="math display">\[
-\begin{align*}
-Y_i &amp;= \beta_0 + \beta_1 X_i + \beta_2 \left( \gamma_0 + \gamma_1 X_i + \varepsilon_i \right) + u_i \\
-    &amp;= \beta_0 + \beta_2 \gamma_0 + \left( \beta_1 + \beta_2 \gamma_1 \right) X_i + \beta_2 \varepsilon_i + u_i
-\end{align*}
-\]</span></p>
-</div>
-</section>
-<section id="omitted-variable-bias-4" class="slide level2">
-<h2>Omitted Variable Bias</h2>
-<p>We can rewrite this expression:</p>
-<p><span class="math display">\[
-\begin{align*}
-Y_i &amp;= \beta_0 + \beta_1 X_i + \beta_2 \left( \gamma_0 + \gamma_1 X_i + \varepsilon_i \right) + u_i \\
-    &amp;= \beta_0 + \beta_2 \gamma_0 + \left( \beta_1 + \beta_2 \gamma_1 \right) X_i + \beta_2 \varepsilon_i + u_i
-\end{align*}
-\]</span></p>
-<p>as:</p>
-<p><span class="math display">\[
-Y_i = \widehat{\beta}_0 + \widehat{\beta}_1 X_i + v_i
-\]</span></p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(\widehat{\beta}_0 = \beta_0 + \beta_2 \gamma_0\)</span></li>
-<li><span class="math inline">\(\widehat{\beta}_1 = \beta_1 + \beta_2 \gamma_1\)</span></li>
-<li><span class="math inline">\(v_i = \beta_2 \varepsilon_i + u_i\)</span></li>
-</ul>
-<p>Thus, we can see how <span class="math inline">\(Z_i\)</span> will bias our estimate of <span class="math inline">\(\beta_1\)</span></p>
-</section>
-<section id="omitted-variable-bias-5" class="slide level2">
-<h2>Omitted Variable Bias</h2>
-<p>Recall that we define the bias of an estimator as:</p>
-<p><span class="math display">\[
-\mathop{\text{Bias}}_\theta \left( W \right) = \mathop{\boldsymbol{E}}\left[ W \right] - \theta
-\]</span></p>
-<div class="fragment">
-<p>The bias of the estimator <span class="math inline">\(\hat{\beta}_1\)</span> is given by:</p>
-<p><span class="math display">\[
-\begin{align*}
-\mathop{\text{Bias}}_{\beta_1} \left( \hat{\beta}_1 \right) &amp;= \mathop{\boldsymbol{E}}\left[ \hat{\beta}_1 \right] - \beta_1 \\
-&amp;= \mathop{\boldsymbol{E}}\left[ \beta_1 + \beta_2 \gamma_1 \right] - \beta_1 \\
-&amp;= \beta_2 \gamma_1
-\end{align*}
-\]</span></p>
-</div>
-</section>
-<section id="omitted-variable-bias-6" class="slide level2">
-<h2>Omitted Variable Bias</h2>
-<p>Finally, we can write the bias of <span class="math inline">\(\hat{\beta}_1\)</span> in terms of the correlation between <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Z_i\)</span>:</p>
-<p><span class="math display">\[
-\gamma_1 = \frac{\text{Cov}\left( X_i, Z_i \right)}{\text{Var}\left( X_i \right)}
-\]</span></p>
-<div class="fragment">
-<p>Therefore, we can write the bias of <span class="math inline">\(\hat{\beta}_1\)</span> as:</p>
-<p><span class="math display">\[
-\mathop{\text{Bias}}_{\beta_1} \left( \hat{\beta}_1 \right) = \beta_2 \frac{\text{Cov}\left( X_i, Z_i \right)}{\text{Var}\left( X_i \right)}
-\]</span></p>
-</div>
-</section>
-<section id="signing-the-bias" class="slide level2">
-<h2>Signing the Bias</h2>
-<p>Sometimes we’re stuck with omitted variable bias.</p>
-<p><span class="math display">\[
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
-\]</span></p>
-<p>When this happens, we can often at least know the direction of the bias.</p>
-</section>
-<section id="signing-the-bias-1" class="slide level2" data-visiblity="uncounted">
-<h2>Signing the Bias</h2>
-<p>Begin with</p>
-<p><span class="math display">\[
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
-\]</span></p>
-<p>We know <span class="math inline">\(\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) &gt; 0}\)</span>. Suppose <span class="math inline">\(\color{#81A1C1}{\beta_2 &gt; 0}\)</span> and <span class="math inline">\(\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) &gt; 0}\)</span>. Then</p>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{align}
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(+)} \dfrac{\color{#EBCB8B}{(+)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] &gt; \beta_1
-\end{align}
-\]</span> ∴ In this case, OLS is <strong>biased upward</strong> (estimates are too large).</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{matrix}
-\enspace &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&gt; 0} &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&lt; 0} \\
-\color{#81A1C1}{\beta_2 &gt; 0} &amp; \text{Upward} &amp;  \\
-\color{#81A1C1}{\beta_2 &lt; 0} &amp;  &amp;
-\end{matrix}
-\]</span></p>
-</div>
-</section>
-<section id="signing-the-bias-2" class="slide level2" data-visiblity="uncounted">
-<h2>Signing the Bias</h2>
-<p>Begin with</p>
-<p><span class="math display">\[
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
-\]</span></p>
-<p>We know <span class="math inline">\(\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) &gt; 0}\)</span>. Suppose <span class="math inline">\(\color{#81A1C1}{\beta_2 &lt; 0}\)</span> and <span class="math inline">\(\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) &gt; 0}\)</span>. Then</p>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{align}
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(-)} \dfrac{\color{#EBCB8B}{(+)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] &lt; \beta_1
-\end{align}
-\]</span> ∴ In this case, OLS is <strong>biased downward</strong> (estimates are too small).</p>
-<p><span class="math display">\[
-\begin{matrix}
-\enspace &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&gt; 0} &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&lt; 0} \\
-\color{#81A1C1}{\beta_2 &gt; 0} &amp; \text{Upward} &amp;  \\
-\color{#81A1C1}{\beta_2 &lt; 0} &amp; \text{Downward} &amp;
-\end{matrix}
-\]</span></p>
-</div>
-</section>
-<section id="signing-the-bias-3" class="slide level2" data-visiblity="uncounted">
-<h2>Signing the Bias</h2>
-<p>Begin with</p>
-<p><span class="math display">\[
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
-\]</span></p>
-<p>We know <span class="math inline">\(\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) &gt; 0}\)</span>. Suppose <span class="math inline">\(\color{#81A1C1}{\beta_2 &gt; 0}\)</span> and <span class="math inline">\(\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) &lt; 0}\)</span>. Then</p>
-<p><span class="math display">\[
-\begin{align}
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(+)} \dfrac{\color{#EBCB8B}{(-)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] &lt; \beta_1
-\end{align}
-\]</span> ∴ In this case, OLS is <strong>biased downward</strong> (estimates are too small).</p>
-<p><span class="math display">\[
-\begin{matrix}
-\enspace &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&gt; 0} &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&lt; 0} \\
-\color{#81A1C1}{\beta_2 &gt; 0} &amp; \text{Upward} &amp; \text{Downward} \\
-\color{#81A1C1}{\beta_2 &lt; 0} &amp; \text{Downward} &amp;
-\end{matrix}
-\]</span></p>
-</section>
-<section id="signing-the-bias-4" class="slide level2" data-visiblity="uncounted">
-<h2>Signing the Bias</h2>
-<p>Begin with</p>
-<p><span class="math display">\[
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \beta_2 \dfrac{ \mathop{\text{Cov}} \left( X_i,\, Z_i \right)}{\mathop{\text{Var}} \left( X_i \right)}
-\]</span></p>
-<p>We know <span class="math inline">\(\color{#8FBCBB}{\mathop{\text{Var}} \left( X_i \right) &gt; 0}\)</span>. Suppose <span class="math inline">\(\color{#81A1C1}{\beta_2 &lt; 0}\)</span> and <span class="math inline">\(\color{#EBCB8B}{\mathop{\text{Cov}} \left( X_i,\,Z_i \right) &lt; 0}\)</span>. Then</p>
-<p><span class="math display">\[
-\begin{align}
-\mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] = \beta_1 + \color{#81A1C1}{(-)} \dfrac{\color{#EBCB8B}{(-)}}{\color{#8FBCBB}{(+)}} \implies \mathop{\boldsymbol{E}} \left[ \hat{\beta}_1 \right] &gt; \beta_1
-\end{align}
-\]</span> ∴ In this case, OLS is <strong>biased upward</strong> (estimates are too large).</p>
-<p><span class="math display">\[
-\begin{matrix}
-\enspace &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&gt; 0} &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&lt; 0} \\
-\color{#81A1C1}{\beta_2 &gt; 0} &amp; \text{Upward} &amp; \text{Downward} \\
-\color{#81A1C1}{\beta_2 &lt; 0} &amp; \text{Downward} &amp; \text{Upward}
-\end{matrix}
-\]</span></p>
-</section>
-<section id="signing-the-bias-5" class="slide level2">
-<h2>Signing the Bias</h2>
-<p>Thus, in cases where we have a sense of</p>
-<ol type="1">
-<li><p>the sign of <span class="math inline">\(\mathop{\text{Cov}} \left( X_i,\,Z_i \right)\)</span></p></li>
-<li><p>the sign of <span class="math inline">\(\beta_2\)</span></p></li>
-</ol>
-<p>we know in which direction bias pushes our estimates.</p>
-<p><strong>Direction of Bias</strong></p>
-<p><span class="math display">\[
-\begin{matrix}
-\enspace &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&gt; 0} &amp; \color{#EBCB8B}{\text{Cov}(X_i,\,Z_i)&lt; 0} \\
-\color{#81A1C1}{\beta_2 &gt; 0} &amp; \text{Upward} &amp; \text{Downward} \\
-\color{#81A1C1}{\beta_2 &lt; 0} &amp; \text{Downward} &amp; \text{Upward}
-\end{matrix}
-\]</span></p>
-</section></section>
 <section>
-<section id="multiple-linear-regression" class="title-slide slide level1 inverse note center">
+<section id="multiple-linear-regression-1" class="title-slide slide level1 inverse note center">
 <h1><em>Multiple linear regression</em></h1>
 
 </section>
 <section class="slide level2">
 
 
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="08-main_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section class="slide level2">
 
 
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="08-main_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section class="slide level2">
 
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-22a5762e244030787a6c" style="width:960px;height:768px;"></div>
-<script type="application/json" data-for="htmlwidget-22a5762e244030787a6c">{"x":{"visdat":{"dcd63372b2d6":["function () ","plotlyVisDat"],"dcd65c783fcf":["function () ","data"]},"cur_data":"dcd65c783fcf","attrs":{"dcd65c783fcf":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"z":{},"type":"scatter3d","mode":"markers","marker":{"size":3},"name":"Data points","inherit":true},"dcd65c783fcf.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"z":[[702.47400711120815,704.83947565710253,707.2049442029969,709.57041274889127,711.93588129478564,714.30134984068002,716.66681838657439,719.03228693246876,721.39775547836314,723.76322402425762,726.128692570152,728.49416111604637,730.85962966194074,733.22509820783512,735.59056675372949,737.95603529962386,740.32150384551824,742.68697239141261,745.05244093730698,747.41790948320136,749.78337802909573,752.1488465749901,754.51431512088448,756.87978366677885,759.24525221267322,761.6107207585676,763.97618930446208,766.34165785035646,768.70712639625083,771.0725949421452],[702.00387262280879,704.36934116870316,706.73480971459753,709.1002782604919,711.46574680638628,713.83121535228065,716.19668389817502,718.5621524440694,720.92762098996377,723.29308953585814,725.65855808175263,728.024026627647,730.38949517354138,732.75496371943575,735.12043226533012,737.4859008112245,739.85136935711887,742.21683790301324,744.58230644890762,746.94777499480199,749.31324354069636,751.67871208659074,754.04418063248511,756.40964917837948,758.77511772427397,761.14058627016834,763.50605481606271,765.87152336195709,768.23699190785146,770.60246045374583],[701.53373813440953,703.89920668030391,706.26467522619828,708.63014377209265,710.99561231798702,713.3610808638814,715.72654940977577,718.09201795567014,720.45748650156452,722.82295504745889,725.18842359335338,727.55389213924775,729.91936068514212,732.2848292310365,734.65029777693087,737.01576632282524,739.38123486871962,741.74670341461399,744.11217196050836,746.47764050640274,748.84310905229711,751.20857759819148,753.57404614408586,755.93951468998023,758.30498323587472,760.67045178176909,763.03592032766346,765.40138887355783,767.76685741945221,770.13232596534658],[701.06360364601016,703.42907219190454,705.79454073779891,708.16000928369328,710.52547782958766,712.89094637548203,715.2564149213764,717.62188346727078,719.98735201316515,722.35282055905964,724.71828910495401,727.08375765084838,729.44922619674276,731.81469474263713,734.1801632885315,736.54563183442588,738.91110038032025,741.27656892621462,743.642037472109,746.00750601800337,748.37297456389774,750.73844310979212,753.10391165568649,755.46938020158086,757.83484874747523,760.20031729336961,762.56578583926409,764.93125438515847,767.29672293105284,769.66219147694721],[700.59346915761091,702.95893770350528,705.32440624939966,707.68987479529403,710.0553433411884,712.42081188708278,714.78628043297715,717.15174897887152,719.5172175247659,721.88268607066038,724.24815461655476,726.61362316244913,728.9790917083435,731.34456025423788,733.71002880013225,736.07549734602662,738.440965891921,740.80643443781537,743.17190298370974,745.53737152960412,747.90284007549849,750.26830862139286,752.63377716728723,754.99924571318161,757.36471425907598,759.73018280497035,762.09565135086484,764.46111989675921,766.82658844265359,769.19205698854796],[700.12333466921154,702.48880321510592,704.85427176100029,707.21974030689466,709.58520885278904,711.95067739868341,714.31614594457778,716.68161449047216,719.04708303636653,721.4125515822609,723.77802012815539,726.14348867404976,728.50895721994414,730.87442576583851,733.23989431173288,735.60536285762726,737.97083140352163,740.336299949416,742.70176849531038,745.06723704120475,747.43270558709912,749.79817413299349,752.16364267888787,754.52911122478224,756.89457977067673,759.2600483165711,761.62551686246547,763.99098540835985,766.35645395425422,768.72192250014859],[699.65320018081218,702.01866872670655,704.38413727260092,706.7496058184953,709.11507436438967,711.48054291028404,713.84601145617842,716.21148000207279,718.57694854796716,720.94241709386165,723.30788563975602,725.6733541856504,728.03882273154477,730.40429127743914,732.76975982333352,735.13522836922789,737.50069691512226,739.86616546101664,742.23163400691101,744.59710255280538,746.96257109869975,749.32803964459413,751.6935081904885,754.05897673638287,756.42444528227725,758.78991382817162,761.15538237406611,763.52085091996048,765.88631946585485,768.25178801174923],[699.18306569241292,701.5485342383073,703.91400278420167,706.27947133009604,708.64493987599042,711.01040842188479,713.37587696777916,715.74134551367354,718.10681405956791,720.4722826054624,722.83775115135677,725.20321969725114,727.56868824314552,729.93415678903989,732.29962533493426,734.66509388082864,737.03056242672301,739.39603097261738,741.76149951851176,744.12696806440613,746.4924366103005,748.85790515619487,751.22337370208925,753.58884224798362,755.95431079387799,758.31977933977237,760.68524788566685,763.05071643156123,765.4161849774556,767.78165352334997],[698.71293120401356,701.07839974990793,703.4438682958023,705.80933684169668,708.17480538759105,710.54027393348542,712.9057424793798,715.27121102527417,717.63667957116854,720.00214811706292,722.3676166629574,724.73308520885178,727.09855375474615,729.46402230064052,731.8294908465349,734.19495939242927,736.56042793832364,738.92589648421801,741.29136503011239,743.65683357600676,746.02230212190113,748.38777066779551,750.75323921368988,753.11870775958425,755.48417630547874,757.84964485137311,760.21511339726749,762.58058194316186,764.94605048905623,767.31151903495061],[698.24279671561419,700.60826526150856,702.97373380740294,705.33920235329731,707.70467089919168,710.07013944508606,712.43560799098043,714.8010765368748,717.16654508276918,719.53201362866366,721.89748217455804,724.26295072045241,726.62841926634678,728.99388781224116,731.35935635813553,733.7248249040299,736.09029344992427,738.45576199581865,740.82123054171302,743.18669908760739,745.55216763350177,747.91763617939614,750.28310472529051,752.64857327118489,755.01404181707926,757.37951036297363,759.74497890886812,762.11044745476249,764.47591600065687,766.84138454655124],[697.77266222721494,700.13813077310931,702.50359931900368,704.86906786489806,707.23453641079243,709.6000049566868,711.96547350258118,714.33094204847555,716.69641059436992,719.06187914026441,721.42734768615878,723.79281623205316,726.15828477794753,728.5237533238419,730.88922186973628,733.25469041563065,735.62015896152502,737.98562750741939,740.35109605331377,742.71656459920814,745.08203314510251,747.44750169099689,749.81297023689126,752.17843878278563,754.54390732868001,756.90937587457438,759.27484442046887,761.64031296636324,764.00578151225761,766.37125005815199],[697.30252773881557,699.66799628470994,702.03346483060432,704.39893337649869,706.76440192239306,709.12987046828744,711.49533901418181,713.86080756007618,716.22627610597056,718.59174465186493,720.95721319775942,723.32268174365379,725.68815028954816,728.05361883544253,730.41908738133691,732.78455592723128,735.15002447312565,737.51549301902003,739.8809615649144,742.24643011080877,744.61189865670315,746.97736720259752,749.34283574849189,751.70830429438627,754.07377284028075,756.43924138617513,758.8047099320695,761.17017847796387,763.53564702385825,765.90111556975262],[696.8323932504162,699.19786179631058,701.56333034220495,703.92879888809932,706.2942674339937,708.65973597988807,711.02520452578244,713.39067307167682,715.75614161757119,718.12161016346568,720.48707870936005,722.85254725525442,725.21801580114879,727.58348434704317,729.94895289293754,732.31442143883191,734.67988998472629,737.04535853062066,739.41082707651503,741.77629562240941,744.14176416830378,746.50723271419815,748.87270126009253,751.2381698059869,753.60363835188127,755.96910689777565,758.33457544367013,760.70004398956451,763.06551253545888,765.43098108135325],[696.36225876201695,698.72772730791132,701.0931958538057,703.45866439970007,705.82413294559444,708.18960149148882,710.55507003738319,712.92053858327756,715.28600712917194,717.65147567506642,720.0169442209608,722.38241276685517,724.74788131274954,727.11334985864391,729.47881840453829,731.84428695043266,734.20975549632703,736.57522404222141,738.94069258811578,741.30616113401015,743.67162967990453,746.0370982257989,748.40256677169327,750.76803531758765,753.13350386348202,755.49897240937639,757.86444095527088,760.22990950116525,762.59537804705963,764.960846592954],[695.89212427361758,698.25759281951196,700.62306136540633,702.9885299113007,705.35399845719508,707.71946700308945,710.08493554898382,712.45040409487819,714.81587264077257,717.18134118666694,719.54680973256143,721.9122782784558,724.27774682435017,726.64321537024455,729.00868391613892,731.37415246203329,733.73962100792767,736.10508955382204,738.47055809971641,740.83602664561079,743.20149519150516,745.56696373739953,747.93243228329391,750.29790082918828,752.66336937508277,755.02883792097714,757.39430646687151,759.75977501276589,762.12524355866026,764.49071210455463],[695.42198978521822,697.78745833111259,700.15292687700696,702.51839542290134,704.88386396879571,707.24933251469008,709.61480106058445,711.98026960647883,714.3457381523732,716.71120669826769,719.07667524416206,721.44214379005643,723.80761233595081,726.17308088184518,728.53854942773955,730.90401797363393,733.2694865195283,735.63495506542267,738.00042361131705,740.36589215721142,742.73136070310579,745.09682924900017,747.46229779489454,749.82776634078891,752.19323488668329,754.55870343257766,756.92417197847215,759.28964052436652,761.65510907026089,764.02057761615526],[694.95185529681896,697.31732384271334,699.68279238860771,702.04826093450208,704.41372948039646,706.77919802629083,709.1446665721852,711.51013511807957,713.87560366397395,716.24107220986843,718.60654075576281,720.97200930165718,723.33747784755155,725.70294639344593,728.0684149393403,730.43388348523467,732.79935203112905,735.16482057702342,737.53028912291779,739.89575766881217,742.26122621470654,744.62669476060091,746.99216330649529,749.35763185238966,751.72310039828403,754.08856894417841,756.45403749007289,758.81950603596727,761.18497458186164,763.55044312775601],[694.4817208084196,696.84718935431397,699.21265790020834,701.57812644610271,703.94359499199709,706.30906353789146,708.67453208378583,711.04000062968021,713.40546917557458,715.77093772146895,718.13640626736344,720.50187481325781,722.86734335915219,725.23281190504656,727.59828045094093,729.96374899683531,732.32921754272968,734.69468608862405,737.06015463451843,739.4256231804128,741.79109172630717,744.15656027220155,746.52202881809592,748.88749736399029,751.25296590988478,753.61843445577915,755.98390300167353,758.3493715475679,760.71484009346227,763.08030863935664],[694.01158632002023,696.3770548659146,698.74252341180897,701.10799195770335,703.47346050359772,705.83892904949209,708.20439759538647,710.56986614128084,712.93533468717521,715.3008032330697,717.66627177896407,720.03174032485845,722.39720887075282,724.76267741664719,727.12814596254157,729.49361450843594,731.85908305433031,734.22455160022469,736.59002014611906,738.95548869201343,741.32095723790781,743.68642578380218,746.05189432969655,748.41736287559092,750.7828314214853,753.14829996737967,755.51376851327416,757.87923705916853,760.2447056050629,762.61017415095728],[693.54145183162098,695.90692037751535,698.27238892340972,700.63785746930409,703.00332601519847,705.36879456109284,707.73426310698721,710.09973165288159,712.46520019877596,714.83066874467045,717.19613729056482,719.56160583645919,721.92707438235357,724.29254292824794,726.65801147414231,729.02348002003669,731.38894856593106,733.75441711182543,736.11988565771981,738.48535420361418,740.85082274950855,743.21629129540293,745.5817598412973,747.94722838719167,750.31269693308604,752.67816547898042,755.0436340248749,757.40910257076928,759.77457111666365,762.14003966255802],[693.07131734322161,695.43678588911598,697.80225443501035,700.16772298090473,702.5331915267991,704.89866007269347,707.26412861858785,709.62959716448222,711.99506571037659,714.36053425627097,716.72600280216545,719.09147134805983,721.4569398939542,723.82240843984857,726.18787698574295,728.55334553163732,730.91881407753169,733.28428262342607,735.64975116932044,738.01521971521481,740.38068826110919,742.74615680700356,745.11162535289793,747.4770938987923,749.84256244468679,752.20803099058116,754.57349953647554,756.93896808236991,759.30443662826428,761.66990517415866],[692.60118285482224,694.96665140071661,697.33211994661099,699.69758849250536,702.06305703839973,704.42852558429411,706.79399413018848,709.15946267608285,711.52493122197723,713.89039976787171,716.25586831376609,718.62133685966046,720.98680540555483,723.35227395144921,725.71774249734358,728.08321104323795,730.44867958913233,732.8141481350267,735.17961668092107,737.54508522681544,739.91055377270982,742.27602231860419,744.64149086449856,747.00695941039294,749.37242795628731,751.73789650218168,754.10336504807617,756.46883359397054,758.83430213986492,761.19977068575929],[692.13104836642299,694.49651691231736,696.86198545821173,699.22745400410611,701.59292255000048,703.95839109589485,706.32385964178923,708.6893281876836,711.05479673357797,713.42026527947246,715.78573382536683,718.15120237126121,720.51667091715558,722.88213946304995,725.24760800894433,727.6130765548387,729.97854510073307,732.34401364662745,734.70948219252182,737.07495073841619,739.44041928431056,741.80588783020494,744.17135637609931,746.53682492199368,748.90229346788806,751.26776201378243,753.63323055967692,755.99869910557129,758.36416765146566,760.72963619736004],[691.66091387802362,694.02638242391799,696.39185096981237,698.75731951570674,701.12278806160111,703.48825660749549,705.85372515338986,708.21919369928423,710.58466224517861,712.95013079107298,715.31559933696747,717.68106788286184,720.04653642875621,722.41200497465059,724.77747352054496,727.14294206643933,729.50841061233371,731.87387915822808,734.23934770412245,736.60481625001682,738.9702847959112,741.33575334180557,743.70122188769994,746.06669043359432,748.4321589794888,750.79762752538318,753.16309607127755,755.52856461717192,757.8940331630663,760.25950170896067],[691.19077938962425,693.55624793551863,695.921716481413,698.28718502730737,700.65265357320175,703.01812211909612,705.38359066499049,707.74905921088487,710.11452775677924,712.47999630267373,714.8454648485681,717.21093339446247,719.57640194035685,721.94187048625122,724.30733903214559,726.67280757803996,729.03827612393434,731.40374466982871,733.76921321572308,736.13468176161746,738.50015030751183,740.8656188534062,743.23108739930058,745.59655594519495,747.96202449108932,750.3274930369837,752.69296158287818,755.05843012877256,757.42389867466693,759.7893672205613],[690.720644901225,693.08611344711937,695.45158199301375,697.81705053890812,700.18251908480249,702.54798763069687,704.91345617659124,707.27892472248561,709.64439326837999,712.00986181427447,714.37533036016885,716.74079890606322,719.10626745195759,721.47173599785197,723.83720454374634,726.20267308964071,728.56814163553508,730.93361018142946,733.29907872732383,735.6645472732182,738.03001581911258,740.39548436500695,742.76095291090132,745.1264214567957,747.49189000269007,749.85735854858444,752.22282709447893,754.5882956403733,756.95376418626768,759.31923273216205],[690.25051041282563,692.61597895872001,694.98144750461438,697.34691605050875,699.71238459640313,702.0778531422975,704.44332168819187,706.80879023408625,709.17425877998062,711.53972732587499,713.90519587176948,716.27066441766385,718.63613296355823,721.0016015094526,723.36707005534697,725.73253860124134,728.09800714713572,730.46347569303009,732.82894423892446,735.19441278481884,737.55988133071321,739.92534987660758,742.29081842250196,744.65628696839633,747.02175551429082,749.38722406018519,751.75269260607956,754.11816115197394,756.48362969786831,758.84909824376268],[689.78037592442627,692.14584447032064,694.51131301621501,696.87678156210939,699.24225010800376,701.60771865389813,703.97318719979251,706.33865574568688,708.70412429158125,711.06959283747574,713.43506138337011,715.80052992926448,718.16599847515886,720.53146702105323,722.8969355669476,725.26240411284198,727.62787265873635,729.99334120463072,732.3588097505251,734.72427829641947,737.08974684231384,739.45521538820822,741.82068393410259,744.18615247999696,746.55162102589134,748.91708957178571,751.2825581176802,753.64802666357457,756.01349520946894,758.37896375536332],[689.31024143602701,691.67570998192139,694.04117852781576,696.40664707371013,698.77211561960451,701.13758416549888,703.50305271139325,705.86852125728763,708.233989803182,710.59945834907649,712.96492689497086,715.33039544086523,717.6958639867596,720.06133253265398,722.42680107854835,724.79226962444272,727.1577381703371,729.52320671623147,731.88867526212584,734.25414380802022,736.61961235391459,738.98508089980896,741.35054944570334,743.71601799159771,746.08148653749208,748.44695508338646,750.81242362928094,753.17789217517532,755.54336072106969,757.90882926696406],[688.84010694762765,691.20557549352202,693.57104403941639,695.93651258531077,698.30198113120514,700.66744967709951,703.03291822299389,705.39838676888826,707.76385531478263,710.129323860677,712.49479240657149,714.86026095246586,717.22572949836024,719.59119804425461,721.95666659014898,724.32213513604336,726.68760368193773,729.0530722278321,731.41854077372648,733.78400931962085,736.14947786551522,738.5149464114096,740.88041495730397,743.24588350319834,745.61135204909283,747.9768205949872,750.34228914088158,752.70775768677595,755.07322623267032,757.4386947785647]],"type":"surface","x":{},"y":{},"opacity":0.5,"showscale":false,"name":"Regression plane","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Class size","backgroundcolor":"white","gridcolor":"lightgrey","showbackground":true,"zerolinecolor":"lightgrey"},"yaxis":{"title":"School Funding","backgroundcolor":"white","gridcolor":"lightgrey","showbackground":true,"zerolinecolor":"lightgrey"},"zaxis":{"title":"Test scores","backgroundcolor":"white","gridcolor":"lightgrey","showbackground":true,"zerolinecolor":"lightgrey"},"aspectmode":"manual","aspectratio":{"x":1,"y":1,"z":0.5},"camera":{"eye":{"x":1.25,"y":1.25,"z":0.5}}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[19,22.600000381469727,19.299999237060547,17.899999618530273,17.5,15.699999809265137,17.100000381469727,16.799999237060547,17.299999237060547,20.5,15.600000381469727,15.5,11.399999618530273,17.600000381469727,14.800000190734863,19.600000381469727,17.299999237060547,20.100000381469727,14.899999618530273,17,19.299999237060547,18.700000762939453,20.5,18.700000762939453,17.700000762939453,17.100000381469727,17.600000381469727,17.100000381469727,19.100000381469727,13.399999618530273,15.800000190734863,13.5,13.899999618530273,16.899999618530273,16,17.600000381469727,12,17.200000762939453,21,17.100000381469727,13.699999809265137,18.5,15.699999809265137,17,16.600000381469727,16.899999618530273,17.600000381469727,16.600000381469727,16.899999618530273,16.100000381469727,17.700000762939453,17.600000381469727,18,19.299999237060547,17.899999618530273,14.899999618530273,15.800000190734863,19.399999618530273,14.5,16.799999237060547,17.799999237060547,16.600000381469727,16.700000762939453,18.5,19.200000762939453,17.299999237060547,14.899999618530273,14,22,19.799999237060547,17,17.299999237060547,15.100000381469727,17.399999618530273,15.199999809265137,15.699999809265137,16.5,19.200000762939453,16.700000762939453,16.700000762939453,15.600000381469727,14.199999809265137,16.899999618530273,21.299999237060547,22,17.799999237060547,17.899999618530273,17.399999618530273,17.399999618530273,16.299999237060547,16.700000762939453,19.600000381469727,23.5,19.100000381469727,21.399999618530273,13.300000190734863,18.399999618530273,14.5,20.799999237060547,14,15.399999618530273,11.899999618530273,16,15.199999809265137,21.5,18,19.100000381469727,20.5,16.299999237060547,18.399999618530273,14.5,17.5,16,16.399999618530273,17.899999618530273,16.799999237060547,18.200000762939453,16.600000381469727,16.600000381469727,16.299999237060547,17.399999618530273,17.299999237060547,21.5,21.600000381469727,19.200000762939453,13.100000381469727,19.600000381469727,19,18.799999237060547,18.299999237060547,15.199999809265137,17,17,20.899999618530273,15.300000190734863,17,20.600000381469727,13.399999618530273,19.899999618530273,18.899999618530273,14.5,18.100000381469727,15,19.799999237060547,19.100000381469727,19.700000762939453,16.799999237060547,17.200000762939453,13.899999618530273,15.600000381469727,19.5,17,19.799999237060547,17.799999237060547,21,16.399999618530273,18.100000381469727,19.100000381469727,15.699999809265137,17.799999237060547,18.100000381469727,15.199999809265137,18.799999237060547,16.5,13.899999618530273,16.799999237060547,16.399999618530273,19.299999237060547,16.600000381469727,15.100000381469727,16.899999618530273,20,16.899999618530273,15.199999809265137,19.100000381469727,16.5,19.5,15.699999809265137,16.700000762939453,20.799999237060547,19.299999237060547,14.100000381469727,18,14.199999809265137,20,19.899999618530273,16.899999618530273,18.399999618530273,18.100000381469727,14.600000381469727,17,17.899999618530273,15.899999618530273,18.200000762939453,15.100000381469727,15.300000190734863,12.600000381469727,15.100000381469727,13.199999809265137,21.899999618530273,16.399999618530273,19.5,19.100000381469727,20.399999618530273,15.600000381469727,19.200000762939453,13.300000190734863,18.200000762939453,15.300000190734863,16.600000381469727,17.600000381469727,15.5,16.899999618530273,16.600000381469727,18.399999618530273,16.600000381469727,19.200000762939453],"y":[4646,4930,4281,4826,4824,6454,5537,6405,5649,4814,5210,5615,7389,5323,7234,5048,6065,3930,6121,4961,4901,5203,4196,4042,4929,5313,5161,4544,5449,4976,7386,6117,9868,5948,5912,4757,8162,5034,5257,5357,5290,5026,6174,6595,4318,5824,4709,6132,4677,4552,6197,4738,5555,4480,4801,6349,4803,4515,7722,4718,4664,4982,5769,5133,5147,5354,6549,4127,4427,4382,4735,5608,5086,4687,4310,4689,4996,3940,4671,6006,6196,5672,5772,5126,3465,5062,5229,4880,6006,5205,5331,4344,3593,5449,5520,5430,4567,7812,4321,4781,6753,8679,5812,5781,5456,4552,4265,5289,5984,4906,7075,4562,5987,5391,5638,4699,4505,5257,5110,6305,4867,5421,4592,4711,4080,5323,5426,5252,4952,4661,5126,6664,6267,5564,5932,6790,4336,5386,4943,3906,4681,4993,5698,4478,4450,4328,6286,6060,6858,4329,4873,5048,4990,4659,4997,5073,5892,5096,5703,5130,5108,5156,5648,4772,5017,4445,4906,3922,5343,4899,5879,5467,5148,5275,5733,4775,4290,5531,5154,5326,5018,7046,4719,6738,4499,4402,5860,4039,4875,7589,5223,4772,7078,6691,5401,7176,8190,4734,5383,4567,5886,4977,4604,4214,8623,4937,7521,5250,5371,5640,5412,3868,6264,4805,5712,5727,4751],"z":[714,731,704,704,701,744,725,747,702,701,713,707,733,704,751,708,758,710,761,713,710,702,724,723,722,711,718,704,678,708,755,746,722,720,739,699,725,715,672,684,715,707,754,761,735,709,707,742,708,710,763,704,724,694,729,748,695,720,740,700,707,703,682,710,677,721,739,729,711,688,716,703,715,700,707,693,727,705,715,769,734,715,719,706,706,711,713,716,738,707,713,709,699,707,666,715,708,757,697,692,770,750,730,713,676,701,703,672,737,694,752,714,717,713,705,726,696,698,738,723,713,714,708,697,719,703,702,698,719,724,709,751,759,680,719,767,725,685,711,716,715,736,701,729,711,701,757,750,752,696,694,720,688,707,705,713,689,715,707,723,698,729,734,700,728,702,691,700,723,693,677,707,715,718,729,716,719,714,692,693,713,761,717,741,715,709,714,717,723,731,680,694,726,752,690,764,751,724,716,691,720,694,734,706,753,702,752,707,698,717,715,696,767,704,721,693,720],"type":"scatter3d","mode":"markers","marker":{"color":"rgba(31,119,180,1)","size":3,"line":{"color":"rgba(31,119,180,1)"}},"name":"Data points","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null},{"colorbar":{"title":"score4","ticklen":2},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666665","rgba(70,19,97,1)"],["0.083333333333333","rgba(72,32,111,1)"],["0.124999999999999","rgba(71,45,122,1)"],["0.166666666666666","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666666","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.500000000000001","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333334","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875000000000001","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"z":[[702.47400711120815,704.83947565710253,707.2049442029969,709.57041274889127,711.93588129478564,714.30134984068002,716.66681838657439,719.03228693246876,721.39775547836314,723.76322402425762,726.128692570152,728.49416111604637,730.85962966194074,733.22509820783512,735.59056675372949,737.95603529962386,740.32150384551824,742.68697239141261,745.05244093730698,747.41790948320136,749.78337802909573,752.1488465749901,754.51431512088448,756.87978366677885,759.24525221267322,761.6107207585676,763.97618930446208,766.34165785035646,768.70712639625083,771.0725949421452],[702.00387262280879,704.36934116870316,706.73480971459753,709.1002782604919,711.46574680638628,713.83121535228065,716.19668389817502,718.5621524440694,720.92762098996377,723.29308953585814,725.65855808175263,728.024026627647,730.38949517354138,732.75496371943575,735.12043226533012,737.4859008112245,739.85136935711887,742.21683790301324,744.58230644890762,746.94777499480199,749.31324354069636,751.67871208659074,754.04418063248511,756.40964917837948,758.77511772427397,761.14058627016834,763.50605481606271,765.87152336195709,768.23699190785146,770.60246045374583],[701.53373813440953,703.89920668030391,706.26467522619828,708.63014377209265,710.99561231798702,713.3610808638814,715.72654940977577,718.09201795567014,720.45748650156452,722.82295504745889,725.18842359335338,727.55389213924775,729.91936068514212,732.2848292310365,734.65029777693087,737.01576632282524,739.38123486871962,741.74670341461399,744.11217196050836,746.47764050640274,748.84310905229711,751.20857759819148,753.57404614408586,755.93951468998023,758.30498323587472,760.67045178176909,763.03592032766346,765.40138887355783,767.76685741945221,770.13232596534658],[701.06360364601016,703.42907219190454,705.79454073779891,708.16000928369328,710.52547782958766,712.89094637548203,715.2564149213764,717.62188346727078,719.98735201316515,722.35282055905964,724.71828910495401,727.08375765084838,729.44922619674276,731.81469474263713,734.1801632885315,736.54563183442588,738.91110038032025,741.27656892621462,743.642037472109,746.00750601800337,748.37297456389774,750.73844310979212,753.10391165568649,755.46938020158086,757.83484874747523,760.20031729336961,762.56578583926409,764.93125438515847,767.29672293105284,769.66219147694721],[700.59346915761091,702.95893770350528,705.32440624939966,707.68987479529403,710.0553433411884,712.42081188708278,714.78628043297715,717.15174897887152,719.5172175247659,721.88268607066038,724.24815461655476,726.61362316244913,728.9790917083435,731.34456025423788,733.71002880013225,736.07549734602662,738.440965891921,740.80643443781537,743.17190298370974,745.53737152960412,747.90284007549849,750.26830862139286,752.63377716728723,754.99924571318161,757.36471425907598,759.73018280497035,762.09565135086484,764.46111989675921,766.82658844265359,769.19205698854796],[700.12333466921154,702.48880321510592,704.85427176100029,707.21974030689466,709.58520885278904,711.95067739868341,714.31614594457778,716.68161449047216,719.04708303636653,721.4125515822609,723.77802012815539,726.14348867404976,728.50895721994414,730.87442576583851,733.23989431173288,735.60536285762726,737.97083140352163,740.336299949416,742.70176849531038,745.06723704120475,747.43270558709912,749.79817413299349,752.16364267888787,754.52911122478224,756.89457977067673,759.2600483165711,761.62551686246547,763.99098540835985,766.35645395425422,768.72192250014859],[699.65320018081218,702.01866872670655,704.38413727260092,706.7496058184953,709.11507436438967,711.48054291028404,713.84601145617842,716.21148000207279,718.57694854796716,720.94241709386165,723.30788563975602,725.6733541856504,728.03882273154477,730.40429127743914,732.76975982333352,735.13522836922789,737.50069691512226,739.86616546101664,742.23163400691101,744.59710255280538,746.96257109869975,749.32803964459413,751.6935081904885,754.05897673638287,756.42444528227725,758.78991382817162,761.15538237406611,763.52085091996048,765.88631946585485,768.25178801174923],[699.18306569241292,701.5485342383073,703.91400278420167,706.27947133009604,708.64493987599042,711.01040842188479,713.37587696777916,715.74134551367354,718.10681405956791,720.4722826054624,722.83775115135677,725.20321969725114,727.56868824314552,729.93415678903989,732.29962533493426,734.66509388082864,737.03056242672301,739.39603097261738,741.76149951851176,744.12696806440613,746.4924366103005,748.85790515619487,751.22337370208925,753.58884224798362,755.95431079387799,758.31977933977237,760.68524788566685,763.05071643156123,765.4161849774556,767.78165352334997],[698.71293120401356,701.07839974990793,703.4438682958023,705.80933684169668,708.17480538759105,710.54027393348542,712.9057424793798,715.27121102527417,717.63667957116854,720.00214811706292,722.3676166629574,724.73308520885178,727.09855375474615,729.46402230064052,731.8294908465349,734.19495939242927,736.56042793832364,738.92589648421801,741.29136503011239,743.65683357600676,746.02230212190113,748.38777066779551,750.75323921368988,753.11870775958425,755.48417630547874,757.84964485137311,760.21511339726749,762.58058194316186,764.94605048905623,767.31151903495061],[698.24279671561419,700.60826526150856,702.97373380740294,705.33920235329731,707.70467089919168,710.07013944508606,712.43560799098043,714.8010765368748,717.16654508276918,719.53201362866366,721.89748217455804,724.26295072045241,726.62841926634678,728.99388781224116,731.35935635813553,733.7248249040299,736.09029344992427,738.45576199581865,740.82123054171302,743.18669908760739,745.55216763350177,747.91763617939614,750.28310472529051,752.64857327118489,755.01404181707926,757.37951036297363,759.74497890886812,762.11044745476249,764.47591600065687,766.84138454655124],[697.77266222721494,700.13813077310931,702.50359931900368,704.86906786489806,707.23453641079243,709.6000049566868,711.96547350258118,714.33094204847555,716.69641059436992,719.06187914026441,721.42734768615878,723.79281623205316,726.15828477794753,728.5237533238419,730.88922186973628,733.25469041563065,735.62015896152502,737.98562750741939,740.35109605331377,742.71656459920814,745.08203314510251,747.44750169099689,749.81297023689126,752.17843878278563,754.54390732868001,756.90937587457438,759.27484442046887,761.64031296636324,764.00578151225761,766.37125005815199],[697.30252773881557,699.66799628470994,702.03346483060432,704.39893337649869,706.76440192239306,709.12987046828744,711.49533901418181,713.86080756007618,716.22627610597056,718.59174465186493,720.95721319775942,723.32268174365379,725.68815028954816,728.05361883544253,730.41908738133691,732.78455592723128,735.15002447312565,737.51549301902003,739.8809615649144,742.24643011080877,744.61189865670315,746.97736720259752,749.34283574849189,751.70830429438627,754.07377284028075,756.43924138617513,758.8047099320695,761.17017847796387,763.53564702385825,765.90111556975262],[696.8323932504162,699.19786179631058,701.56333034220495,703.92879888809932,706.2942674339937,708.65973597988807,711.02520452578244,713.39067307167682,715.75614161757119,718.12161016346568,720.48707870936005,722.85254725525442,725.21801580114879,727.58348434704317,729.94895289293754,732.31442143883191,734.67988998472629,737.04535853062066,739.41082707651503,741.77629562240941,744.14176416830378,746.50723271419815,748.87270126009253,751.2381698059869,753.60363835188127,755.96910689777565,758.33457544367013,760.70004398956451,763.06551253545888,765.43098108135325],[696.36225876201695,698.72772730791132,701.0931958538057,703.45866439970007,705.82413294559444,708.18960149148882,710.55507003738319,712.92053858327756,715.28600712917194,717.65147567506642,720.0169442209608,722.38241276685517,724.74788131274954,727.11334985864391,729.47881840453829,731.84428695043266,734.20975549632703,736.57522404222141,738.94069258811578,741.30616113401015,743.67162967990453,746.0370982257989,748.40256677169327,750.76803531758765,753.13350386348202,755.49897240937639,757.86444095527088,760.22990950116525,762.59537804705963,764.960846592954],[695.89212427361758,698.25759281951196,700.62306136540633,702.9885299113007,705.35399845719508,707.71946700308945,710.08493554898382,712.45040409487819,714.81587264077257,717.18134118666694,719.54680973256143,721.9122782784558,724.27774682435017,726.64321537024455,729.00868391613892,731.37415246203329,733.73962100792767,736.10508955382204,738.47055809971641,740.83602664561079,743.20149519150516,745.56696373739953,747.93243228329391,750.29790082918828,752.66336937508277,755.02883792097714,757.39430646687151,759.75977501276589,762.12524355866026,764.49071210455463],[695.42198978521822,697.78745833111259,700.15292687700696,702.51839542290134,704.88386396879571,707.24933251469008,709.61480106058445,711.98026960647883,714.3457381523732,716.71120669826769,719.07667524416206,721.44214379005643,723.80761233595081,726.17308088184518,728.53854942773955,730.90401797363393,733.2694865195283,735.63495506542267,738.00042361131705,740.36589215721142,742.73136070310579,745.09682924900017,747.46229779489454,749.82776634078891,752.19323488668329,754.55870343257766,756.92417197847215,759.28964052436652,761.65510907026089,764.02057761615526],[694.95185529681896,697.31732384271334,699.68279238860771,702.04826093450208,704.41372948039646,706.77919802629083,709.1446665721852,711.51013511807957,713.87560366397395,716.24107220986843,718.60654075576281,720.97200930165718,723.33747784755155,725.70294639344593,728.0684149393403,730.43388348523467,732.79935203112905,735.16482057702342,737.53028912291779,739.89575766881217,742.26122621470654,744.62669476060091,746.99216330649529,749.35763185238966,751.72310039828403,754.08856894417841,756.45403749007289,758.81950603596727,761.18497458186164,763.55044312775601],[694.4817208084196,696.84718935431397,699.21265790020834,701.57812644610271,703.94359499199709,706.30906353789146,708.67453208378583,711.04000062968021,713.40546917557458,715.77093772146895,718.13640626736344,720.50187481325781,722.86734335915219,725.23281190504656,727.59828045094093,729.96374899683531,732.32921754272968,734.69468608862405,737.06015463451843,739.4256231804128,741.79109172630717,744.15656027220155,746.52202881809592,748.88749736399029,751.25296590988478,753.61843445577915,755.98390300167353,758.3493715475679,760.71484009346227,763.08030863935664],[694.01158632002023,696.3770548659146,698.74252341180897,701.10799195770335,703.47346050359772,705.83892904949209,708.20439759538647,710.56986614128084,712.93533468717521,715.3008032330697,717.66627177896407,720.03174032485845,722.39720887075282,724.76267741664719,727.12814596254157,729.49361450843594,731.85908305433031,734.22455160022469,736.59002014611906,738.95548869201343,741.32095723790781,743.68642578380218,746.05189432969655,748.41736287559092,750.7828314214853,753.14829996737967,755.51376851327416,757.87923705916853,760.2447056050629,762.61017415095728],[693.54145183162098,695.90692037751535,698.27238892340972,700.63785746930409,703.00332601519847,705.36879456109284,707.73426310698721,710.09973165288159,712.46520019877596,714.83066874467045,717.19613729056482,719.56160583645919,721.92707438235357,724.29254292824794,726.65801147414231,729.02348002003669,731.38894856593106,733.75441711182543,736.11988565771981,738.48535420361418,740.85082274950855,743.21629129540293,745.5817598412973,747.94722838719167,750.31269693308604,752.67816547898042,755.0436340248749,757.40910257076928,759.77457111666365,762.14003966255802],[693.07131734322161,695.43678588911598,697.80225443501035,700.16772298090473,702.5331915267991,704.89866007269347,707.26412861858785,709.62959716448222,711.99506571037659,714.36053425627097,716.72600280216545,719.09147134805983,721.4569398939542,723.82240843984857,726.18787698574295,728.55334553163732,730.91881407753169,733.28428262342607,735.64975116932044,738.01521971521481,740.38068826110919,742.74615680700356,745.11162535289793,747.4770938987923,749.84256244468679,752.20803099058116,754.57349953647554,756.93896808236991,759.30443662826428,761.66990517415866],[692.60118285482224,694.96665140071661,697.33211994661099,699.69758849250536,702.06305703839973,704.42852558429411,706.79399413018848,709.15946267608285,711.52493122197723,713.89039976787171,716.25586831376609,718.62133685966046,720.98680540555483,723.35227395144921,725.71774249734358,728.08321104323795,730.44867958913233,732.8141481350267,735.17961668092107,737.54508522681544,739.91055377270982,742.27602231860419,744.64149086449856,747.00695941039294,749.37242795628731,751.73789650218168,754.10336504807617,756.46883359397054,758.83430213986492,761.19977068575929],[692.13104836642299,694.49651691231736,696.86198545821173,699.22745400410611,701.59292255000048,703.95839109589485,706.32385964178923,708.6893281876836,711.05479673357797,713.42026527947246,715.78573382536683,718.15120237126121,720.51667091715558,722.88213946304995,725.24760800894433,727.6130765548387,729.97854510073307,732.34401364662745,734.70948219252182,737.07495073841619,739.44041928431056,741.80588783020494,744.17135637609931,746.53682492199368,748.90229346788806,751.26776201378243,753.63323055967692,755.99869910557129,758.36416765146566,760.72963619736004],[691.66091387802362,694.02638242391799,696.39185096981237,698.75731951570674,701.12278806160111,703.48825660749549,705.85372515338986,708.21919369928423,710.58466224517861,712.95013079107298,715.31559933696747,717.68106788286184,720.04653642875621,722.41200497465059,724.77747352054496,727.14294206643933,729.50841061233371,731.87387915822808,734.23934770412245,736.60481625001682,738.9702847959112,741.33575334180557,743.70122188769994,746.06669043359432,748.4321589794888,750.79762752538318,753.16309607127755,755.52856461717192,757.8940331630663,760.25950170896067],[691.19077938962425,693.55624793551863,695.921716481413,698.28718502730737,700.65265357320175,703.01812211909612,705.38359066499049,707.74905921088487,710.11452775677924,712.47999630267373,714.8454648485681,717.21093339446247,719.57640194035685,721.94187048625122,724.30733903214559,726.67280757803996,729.03827612393434,731.40374466982871,733.76921321572308,736.13468176161746,738.50015030751183,740.8656188534062,743.23108739930058,745.59655594519495,747.96202449108932,750.3274930369837,752.69296158287818,755.05843012877256,757.42389867466693,759.7893672205613],[690.720644901225,693.08611344711937,695.45158199301375,697.81705053890812,700.18251908480249,702.54798763069687,704.91345617659124,707.27892472248561,709.64439326837999,712.00986181427447,714.37533036016885,716.74079890606322,719.10626745195759,721.47173599785197,723.83720454374634,726.20267308964071,728.56814163553508,730.93361018142946,733.29907872732383,735.6645472732182,738.03001581911258,740.39548436500695,742.76095291090132,745.1264214567957,747.49189000269007,749.85735854858444,752.22282709447893,754.5882956403733,756.95376418626768,759.31923273216205],[690.25051041282563,692.61597895872001,694.98144750461438,697.34691605050875,699.71238459640313,702.0778531422975,704.44332168819187,706.80879023408625,709.17425877998062,711.53972732587499,713.90519587176948,716.27066441766385,718.63613296355823,721.0016015094526,723.36707005534697,725.73253860124134,728.09800714713572,730.46347569303009,732.82894423892446,735.19441278481884,737.55988133071321,739.92534987660758,742.29081842250196,744.65628696839633,747.02175551429082,749.38722406018519,751.75269260607956,754.11816115197394,756.48362969786831,758.84909824376268],[689.78037592442627,692.14584447032064,694.51131301621501,696.87678156210939,699.24225010800376,701.60771865389813,703.97318719979251,706.33865574568688,708.70412429158125,711.06959283747574,713.43506138337011,715.80052992926448,718.16599847515886,720.53146702105323,722.8969355669476,725.26240411284198,727.62787265873635,729.99334120463072,732.3588097505251,734.72427829641947,737.08974684231384,739.45521538820822,741.82068393410259,744.18615247999696,746.55162102589134,748.91708957178571,751.2825581176802,753.64802666357457,756.01349520946894,758.37896375536332],[689.31024143602701,691.67570998192139,694.04117852781576,696.40664707371013,698.77211561960451,701.13758416549888,703.50305271139325,705.86852125728763,708.233989803182,710.59945834907649,712.96492689497086,715.33039544086523,717.6958639867596,720.06133253265398,722.42680107854835,724.79226962444272,727.1577381703371,729.52320671623147,731.88867526212584,734.25414380802022,736.61961235391459,738.98508089980896,741.35054944570334,743.71601799159771,746.08148653749208,748.44695508338646,750.81242362928094,753.17789217517532,755.54336072106969,757.90882926696406],[688.84010694762765,691.20557549352202,693.57104403941639,695.93651258531077,698.30198113120514,700.66744967709951,703.03291822299389,705.39838676888826,707.76385531478263,710.129323860677,712.49479240657149,714.86026095246586,717.22572949836024,719.59119804425461,721.95666659014898,724.32213513604336,726.68760368193773,729.0530722278321,731.41854077372648,733.78400931962085,736.14947786551522,738.5149464114096,740.88041495730397,743.24588350319834,745.61135204909283,747.9768205949872,750.34228914088158,752.70775768677595,755.07322623267032,757.4386947785647]],"type":"surface","x":[11.399999618530273,11.817241010994747,12.23448240345922,12.651723795923694,13.068965188388166,13.48620658085264,13.903447973317114,14.320689365781586,14.73793075824606,15.155172150710534,15.572413543175006,15.98965493563948,16.406896328103954,16.824137720568427,17.241379113032899,17.658620505497375,18.075861897961847,18.493103290426319,18.910344682890795,19.327586075355267,19.744827467819739,20.162068860284215,20.579310252748687,20.99655164521316,21.413793037677635,21.831034430142108,22.24827582260658,22.665517215071056,23.082758607535528,23.5],"y":[3465,3685.7931034482758,3906.5862068965516,4127.3793103448279,4348.1724137931033,4568.9655172413795,4789.7586206896558,5010.5517241379312,5231.3448275862065,5452.1379310344828,5672.9310344827591,5893.7241379310344,6114.5172413793107,6335.310344827587,6556.1034482758623,6776.8965517241377,6997.6896551724139,7218.4827586206902,7439.2758620689656,7660.0689655172418,7880.8620689655172,8101.6551724137935,8322.4482758620688,8543.2413793103442,8764.0344827586214,8984.8275862068967,9205.6206896551739,9426.4137931034493,9647.2068965517246,9868],"opacity":0.5,"name":"Regression plane","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cbddf1f36d06ef49852f" style="width:960px;height:768px;"></div>
+<script type="application/json" data-for="htmlwidget-cbddf1f36d06ef49852f">{"x":{"visdat":{"20fab731e0f9d4":["function () ","plotlyVisDat"],"20fab7735334e8":["function () ","data"]},"cur_data":"20fab7735334e8","attrs":{"20fab7735334e8":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"z":{},"type":"scatter3d","mode":"markers","marker":{"size":3},"name":"Data points","inherit":true},"20fab7735334e8.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"z":[[702.474007111208,704.839475657103,707.204944202997,709.570412748891,711.935881294786,714.30134984068,716.666818386574,719.032286932469,721.397755478363,723.763224024258,726.128692570152,728.494161116046,730.859629661941,733.225098207835,735.590566753729,737.956035299624,740.321503845518,742.686972391413,745.052440937307,747.417909483201,749.783378029096,752.14884657499,754.514315120884,756.879783666779,759.245252212673,761.610720758568,763.976189304462,766.341657850356,768.707126396251,771.072594942145],[702.003872622809,704.369341168703,706.734809714598,709.100278260492,711.465746806386,713.831215352281,716.196683898175,718.562152444069,720.927620989964,723.293089535858,725.658558081753,728.024026627647,730.389495173541,732.754963719436,735.12043226533,737.485900811224,739.851369357119,742.216837903013,744.582306448908,746.947774994802,749.313243540696,751.678712086591,754.044180632485,756.409649178379,758.775117724274,761.140586270168,763.506054816063,765.871523361957,768.236991907851,770.602460453746],[701.53373813441,703.899206680304,706.264675226198,708.630143772093,710.995612317987,713.361080863881,715.726549409776,718.09201795567,720.457486501565,722.822955047459,725.188423593353,727.553892139248,729.919360685142,732.284829231036,734.650297776931,737.015766322825,739.38123486872,741.746703414614,744.112171960508,746.477640506403,748.843109052297,751.208577598191,753.574046144086,755.93951468998,758.304983235875,760.670451781769,763.035920327663,765.401388873558,767.766857419452,770.132325965347],[701.06360364601,703.429072191905,705.794540737799,708.160009283693,710.525477829588,712.890946375482,715.256414921376,717.621883467271,719.987352013165,722.35282055906,724.718289104954,727.083757650848,729.449226196743,731.814694742637,734.180163288532,736.545631834426,738.91110038032,741.276568926215,743.642037472109,746.007506018003,748.372974563898,750.738443109792,753.103911655686,755.469380201581,757.834848747475,760.20031729337,762.565785839264,764.931254385158,767.296722931053,769.662191476947],[700.593469157611,702.958937703505,705.3244062494,707.689874795294,710.055343341188,712.420811887083,714.786280432977,717.151748978872,719.517217524766,721.88268607066,724.248154616555,726.613623162449,728.979091708344,731.344560254238,733.710028800132,736.075497346027,738.440965891921,740.806434437815,743.17190298371,745.537371529604,747.902840075498,750.268308621393,752.633777167287,754.999245713182,757.364714259076,759.73018280497,762.095651350865,764.461119896759,766.826588442654,769.192056988548],[700.123334669212,702.488803215106,704.854271761,707.219740306895,709.585208852789,711.950677398683,714.316145944578,716.681614490472,719.047083036367,721.412551582261,723.778020128155,726.14348867405,728.508957219944,730.874425765839,733.239894311733,735.605362857627,737.970831403522,740.336299949416,742.70176849531,745.067237041205,747.432705587099,749.798174132993,752.163642678888,754.529111224782,756.894579770677,759.260048316571,761.625516862465,763.99098540836,766.356453954254,768.721922500149],[699.653200180812,702.018668726707,704.384137272601,706.749605818495,709.11507436439,711.480542910284,713.846011456178,716.211480002073,718.576948547967,720.942417093862,723.307885639756,725.67335418565,728.038822731545,730.404291277439,732.769759823334,735.135228369228,737.500696915122,739.866165461017,742.231634006911,744.597102552805,746.9625710987,749.328039644594,751.693508190489,754.058976736383,756.424445282277,758.789913828172,761.155382374066,763.52085091996,765.886319465855,768.251788011749],[699.183065692413,701.548534238307,703.914002784202,706.279471330096,708.64493987599,711.010408421885,713.375876967779,715.741345513674,718.106814059568,720.472282605462,722.837751151357,725.203219697251,727.568688243146,729.93415678904,732.299625334934,734.665093880829,737.030562426723,739.396030972617,741.761499518512,744.126968064406,746.492436610301,748.857905156195,751.223373702089,753.588842247984,755.954310793878,758.319779339772,760.685247885667,763.050716431561,765.416184977456,767.78165352335],[698.712931204014,701.078399749908,703.443868295802,705.809336841697,708.174805387591,710.540273933485,712.90574247938,715.271211025274,717.636679571169,720.002148117063,722.367616662957,724.733085208852,727.098553754746,729.464022300641,731.829490846535,734.194959392429,736.560427938324,738.925896484218,741.291365030112,743.656833576007,746.022302121901,748.387770667796,750.75323921369,753.118707759584,755.484176305479,757.849644851373,760.215113397267,762.580581943162,764.946050489056,767.311519034951],[698.242796715614,700.608265261509,702.973733807403,705.339202353297,707.704670899192,710.070139445086,712.43560799098,714.801076536875,717.166545082769,719.532013628664,721.897482174558,724.262950720452,726.628419266347,728.993887812241,731.359356358136,733.72482490403,736.090293449924,738.455761995819,740.821230541713,743.186699087607,745.552167633502,747.917636179396,750.283104725291,752.648573271185,755.014041817079,757.379510362974,759.744978908868,762.110447454762,764.475916000657,766.841384546551],[697.772662227215,700.138130773109,702.503599319004,704.869067864898,707.234536410792,709.600004956687,711.965473502581,714.330942048476,716.69641059437,719.061879140264,721.427347686159,723.792816232053,726.158284777948,728.523753323842,730.889221869736,733.254690415631,735.620158961525,737.985627507419,740.351096053314,742.716564599208,745.082033145103,747.447501690997,749.812970236891,752.178438782786,754.54390732868,756.909375874574,759.274844420469,761.640312966363,764.005781512258,766.371250058152],[697.302527738816,699.66799628471,702.033464830604,704.398933376499,706.764401922393,709.129870468287,711.495339014182,713.860807560076,716.226276105971,718.591744651865,720.957213197759,723.322681743654,725.688150289548,728.053618835443,730.419087381337,732.784555927231,735.150024473126,737.51549301902,739.880961564914,742.246430110809,744.611898656703,746.977367202598,749.342835748492,751.708304294386,754.073772840281,756.439241386175,758.804709932069,761.170178477964,763.535647023858,765.901115569753],[696.832393250416,699.197861796311,701.563330342205,703.928798888099,706.294267433994,708.659735979888,711.025204525782,713.390673071677,715.756141617571,718.121610163466,720.48707870936,722.852547255254,725.218015801149,727.583484347043,729.948952892938,732.314421438832,734.679889984726,737.045358530621,739.410827076515,741.776295622409,744.141764168304,746.507232714198,748.872701260093,751.238169805987,753.603638351881,755.969106897776,758.33457544367,760.700043989565,763.065512535459,765.430981081353],[696.362258762017,698.727727307911,701.093195853806,703.4586643997,705.824132945594,708.189601491489,710.555070037383,712.920538583278,715.286007129172,717.651475675066,720.016944220961,722.382412766855,724.74788131275,727.113349858644,729.478818404538,731.844286950433,734.209755496327,736.575224042221,738.940692588116,741.30616113401,743.671629679905,746.037098225799,748.402566771693,750.768035317588,753.133503863482,755.498972409376,757.864440955271,760.229909501165,762.59537804706,764.960846592954],[695.892124273618,698.257592819512,700.623061365406,702.988529911301,705.353998457195,707.719467003089,710.084935548984,712.450404094878,714.815872640773,717.181341186667,719.546809732561,721.912278278456,724.27774682435,726.643215370245,729.008683916139,731.374152462033,733.739621007928,736.105089553822,738.470558099716,740.836026645611,743.201495191505,745.5669637374,747.932432283294,750.297900829188,752.663369375083,755.028837920977,757.394306466872,759.759775012766,762.12524355866,764.490712104555],[695.421989785218,697.787458331113,700.152926877007,702.518395422901,704.883863968796,707.24933251469,709.614801060584,711.980269606479,714.345738152373,716.711206698268,719.076675244162,721.442143790056,723.807612335951,726.173080881845,728.53854942774,730.904017973634,733.269486519528,735.634955065423,738.000423611317,740.365892157211,742.731360703106,745.096829249,747.462297794895,749.827766340789,752.193234886683,754.558703432578,756.924171978472,759.289640524367,761.655109070261,764.020577616155],[694.951855296819,697.317323842713,699.682792388608,702.048260934502,704.413729480396,706.779198026291,709.144666572185,711.51013511808,713.875603663974,716.241072209868,718.606540755763,720.972009301657,723.337477847552,725.702946393446,728.06841493934,730.433883485235,732.799352031129,735.164820577023,737.530289122918,739.895757668812,742.261226214707,744.626694760601,746.992163306495,749.35763185239,751.723100398284,754.088568944178,756.454037490073,758.819506035967,761.184974581862,763.550443127756],[694.48172080842,696.847189354314,699.212657900208,701.578126446103,703.943594991997,706.309063537891,708.674532083786,711.04000062968,713.405469175575,715.770937721469,718.136406267363,720.501874813258,722.867343359152,725.232811905047,727.598280450941,729.963748996835,732.32921754273,734.694686088624,737.060154634518,739.425623180413,741.791091726307,744.156560272202,746.522028818096,748.88749736399,751.252965909885,753.618434455779,755.983903001674,758.349371547568,760.714840093462,763.080308639357],[694.01158632002,696.377054865915,698.742523411809,701.107991957703,703.473460503598,705.838929049492,708.204397595386,710.569866141281,712.935334687175,715.30080323307,717.666271778964,720.031740324858,722.397208870753,724.762677416647,727.128145962542,729.493614508436,731.85908305433,734.224551600225,736.590020146119,738.955488692013,741.320957237908,743.686425783802,746.051894329697,748.417362875591,750.782831421485,753.14829996738,755.513768513274,757.879237059169,760.244705605063,762.610174150957],[693.541451831621,695.906920377515,698.27238892341,700.637857469304,703.003326015198,705.368794561093,707.734263106987,710.099731652882,712.465200198776,714.83066874467,717.196137290565,719.561605836459,721.927074382354,724.292542928248,726.658011474142,729.023480020037,731.388948565931,733.754417111825,736.11988565772,738.485354203614,740.850822749509,743.216291295403,745.581759841297,747.947228387192,750.312696933086,752.67816547898,755.043634024875,757.409102570769,759.774571116664,762.140039662558],[693.071317343222,695.436785889116,697.80225443501,700.167722980905,702.533191526799,704.898660072693,707.264128618588,709.629597164482,711.995065710377,714.360534256271,716.726002802165,719.09147134806,721.456939893954,723.822408439849,726.187876985743,728.553345531637,730.918814077532,733.284282623426,735.64975116932,738.015219715215,740.380688261109,742.746156807004,745.111625352898,747.477093898792,749.842562444687,752.208030990581,754.573499536476,756.93896808237,759.304436628264,761.669905174159],[692.601182854822,694.966651400717,697.332119946611,699.697588492505,702.0630570384,704.428525584294,706.793994130188,709.159462676083,711.524931221977,713.890399767872,716.255868313766,718.62133685966,720.986805405555,723.352273951449,725.717742497344,728.083211043238,730.448679589132,732.814148135027,735.179616680921,737.545085226815,739.91055377271,742.276022318604,744.641490864499,747.006959410393,749.372427956287,751.737896502182,754.103365048076,756.468833593971,758.834302139865,761.199770685759],[692.131048366423,694.496516912317,696.861985458212,699.227454004106,701.59292255,703.958391095895,706.323859641789,708.689328187684,711.054796733578,713.420265279472,715.785733825367,718.151202371261,720.516670917156,722.88213946305,725.247608008944,727.613076554839,729.978545100733,732.344013646627,734.709482192522,737.074950738416,739.440419284311,741.805887830205,744.171356376099,746.536824921994,748.902293467888,751.267762013782,753.633230559677,755.998699105571,758.364167651466,760.72963619736],[691.660913878024,694.026382423918,696.391850969812,698.757319515707,701.122788061601,703.488256607495,705.85372515339,708.219193699284,710.584662245179,712.950130791073,715.315599336967,717.681067882862,720.046536428756,722.412004974651,724.777473520545,727.142942066439,729.508410612334,731.873879158228,734.239347704122,736.604816250017,738.970284795911,741.335753341806,743.7012218877,746.066690433594,748.432158979489,750.797627525383,753.163096071278,755.528564617172,757.894033163066,760.259501708961],[691.190779389624,693.556247935519,695.921716481413,698.287185027307,700.652653573202,703.018122119096,705.38359066499,707.749059210885,710.114527756779,712.479996302674,714.845464848568,717.210933394462,719.576401940357,721.941870486251,724.307339032146,726.67280757804,729.038276123934,731.403744669829,733.769213215723,736.134681761617,738.500150307512,740.865618853406,743.231087399301,745.596555945195,747.962024491089,750.327493036984,752.692961582878,755.058430128773,757.423898674667,759.789367220561],[690.720644901225,693.086113447119,695.451581993014,697.817050538908,700.182519084802,702.547987630697,704.913456176591,707.278924722486,709.64439326838,712.009861814274,714.375330360169,716.740798906063,719.106267451958,721.471735997852,723.837204543746,726.202673089641,728.568141635535,730.933610181429,733.299078727324,735.664547273218,738.030015819113,740.395484365007,742.760952910901,745.126421456796,747.49189000269,749.857358548584,752.222827094479,754.588295640373,756.953764186268,759.319232732162],[690.250510412826,692.61597895872,694.981447504614,697.346916050509,699.712384596403,702.077853142297,704.443321688192,706.808790234086,709.174258779981,711.539727325875,713.905195871769,716.270664417664,718.636132963558,721.001601509453,723.367070055347,725.732538601241,728.098007147136,730.46347569303,732.828944238924,735.194412784819,737.559881330713,739.925349876608,742.290818422502,744.656286968396,747.021755514291,749.387224060185,751.75269260608,754.118161151974,756.483629697868,758.849098243763],[689.780375924426,692.145844470321,694.511313016215,696.876781562109,699.242250108004,701.607718653898,703.973187199793,706.338655745687,708.704124291581,711.069592837476,713.43506138337,715.800529929264,718.165998475159,720.531467021053,722.896935566948,725.262404112842,727.627872658736,729.993341204631,732.358809750525,734.724278296419,737.089746842314,739.455215388208,741.820683934103,744.186152479997,746.551621025891,748.917089571786,751.28255811768,753.648026663575,756.013495209469,758.378963755363],[689.310241436027,691.675709981921,694.041178527816,696.40664707371,698.772115619605,701.137584165499,703.503052711393,705.868521257288,708.233989803182,710.599458349076,712.964926894971,715.330395440865,717.69586398676,720.061332532654,722.426801078548,724.792269624443,727.157738170337,729.523206716231,731.888675262126,734.25414380802,736.619612353915,738.985080899809,741.350549445703,743.716017991598,746.081486537492,748.446955083386,750.812423629281,753.177892175175,755.54336072107,757.908829266964],[688.840106947628,691.205575493522,693.571044039416,695.936512585311,698.301981131205,700.6674496771,703.032918222994,705.398386768888,707.763855314783,710.129323860677,712.494792406571,714.860260952466,717.22572949836,719.591198044255,721.956666590149,724.322135136043,726.687603681938,729.053072227832,731.418540773726,733.784009319621,736.149477865515,738.51494641141,740.880414957304,743.245883503198,745.611352049093,747.976820594987,750.342289140882,752.707757686776,755.07322623267,757.438694778565]],"type":"surface","x":{},"y":{},"opacity":0.5,"showscale":false,"name":"Regression plane","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Class size","backgroundcolor":"white","gridcolor":"lightgrey","showbackground":true,"zerolinecolor":"lightgrey"},"yaxis":{"title":"School Funding","backgroundcolor":"white","gridcolor":"lightgrey","showbackground":true,"zerolinecolor":"lightgrey"},"zaxis":{"title":"Test scores","backgroundcolor":"white","gridcolor":"lightgrey","showbackground":true,"zerolinecolor":"lightgrey"},"aspectmode":"manual","aspectratio":{"x":1,"y":1,"z":0.5},"camera":{"eye":{"x":1.25,"y":1.25,"z":0.5}}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[19,22.6000003814697,19.2999992370605,17.8999996185303,17.5,15.6999998092651,17.1000003814697,16.7999992370605,17.2999992370605,20.5,15.6000003814697,15.5,11.3999996185303,17.6000003814697,14.8000001907349,19.6000003814697,17.2999992370605,20.1000003814697,14.8999996185303,17,19.2999992370605,18.7000007629395,20.5,18.7000007629395,17.7000007629395,17.1000003814697,17.6000003814697,17.1000003814697,19.1000003814697,13.3999996185303,15.8000001907349,13.5,13.8999996185303,16.8999996185303,16,17.6000003814697,12,17.2000007629395,21,17.1000003814697,13.6999998092651,18.5,15.6999998092651,17,16.6000003814697,16.8999996185303,17.6000003814697,16.6000003814697,16.8999996185303,16.1000003814697,17.7000007629395,17.6000003814697,18,19.2999992370605,17.8999996185303,14.8999996185303,15.8000001907349,19.3999996185303,14.5,16.7999992370605,17.7999992370605,16.6000003814697,16.7000007629395,18.5,19.2000007629395,17.2999992370605,14.8999996185303,14,22,19.7999992370605,17,17.2999992370605,15.1000003814697,17.3999996185303,15.1999998092651,15.6999998092651,16.5,19.2000007629395,16.7000007629395,16.7000007629395,15.6000003814697,14.1999998092651,16.8999996185303,21.2999992370605,22,17.7999992370605,17.8999996185303,17.3999996185303,17.3999996185303,16.2999992370605,16.7000007629395,19.6000003814697,23.5,19.1000003814697,21.3999996185303,13.3000001907349,18.3999996185303,14.5,20.7999992370605,14,15.3999996185303,11.8999996185303,16,15.1999998092651,21.5,18,19.1000003814697,20.5,16.2999992370605,18.3999996185303,14.5,17.5,16,16.3999996185303,17.8999996185303,16.7999992370605,18.2000007629395,16.6000003814697,16.6000003814697,16.2999992370605,17.3999996185303,17.2999992370605,21.5,21.6000003814697,19.2000007629395,13.1000003814697,19.6000003814697,19,18.7999992370605,18.2999992370605,15.1999998092651,17,17,20.8999996185303,15.3000001907349,17,20.6000003814697,13.3999996185303,19.8999996185303,18.8999996185303,14.5,18.1000003814697,15,19.7999992370605,19.1000003814697,19.7000007629395,16.7999992370605,17.2000007629395,13.8999996185303,15.6000003814697,19.5,17,19.7999992370605,17.7999992370605,21,16.3999996185303,18.1000003814697,19.1000003814697,15.6999998092651,17.7999992370605,18.1000003814697,15.1999998092651,18.7999992370605,16.5,13.8999996185303,16.7999992370605,16.3999996185303,19.2999992370605,16.6000003814697,15.1000003814697,16.8999996185303,20,16.8999996185303,15.1999998092651,19.1000003814697,16.5,19.5,15.6999998092651,16.7000007629395,20.7999992370605,19.2999992370605,14.1000003814697,18,14.1999998092651,20,19.8999996185303,16.8999996185303,18.3999996185303,18.1000003814697,14.6000003814697,17,17.8999996185303,15.8999996185303,18.2000007629395,15.1000003814697,15.3000001907349,12.6000003814697,15.1000003814697,13.1999998092651,21.8999996185303,16.3999996185303,19.5,19.1000003814697,20.3999996185303,15.6000003814697,19.2000007629395,13.3000001907349,18.2000007629395,15.3000001907349,16.6000003814697,17.6000003814697,15.5,16.8999996185303,16.6000003814697,18.3999996185303,16.6000003814697,19.2000007629395],"y":[4646,4930,4281,4826,4824,6454,5537,6405,5649,4814,5210,5615,7389,5323,7234,5048,6065,3930,6121,4961,4901,5203,4196,4042,4929,5313,5161,4544,5449,4976,7386,6117,9868,5948,5912,4757,8162,5034,5257,5357,5290,5026,6174,6595,4318,5824,4709,6132,4677,4552,6197,4738,5555,4480,4801,6349,4803,4515,7722,4718,4664,4982,5769,5133,5147,5354,6549,4127,4427,4382,4735,5608,5086,4687,4310,4689,4996,3940,4671,6006,6196,5672,5772,5126,3465,5062,5229,4880,6006,5205,5331,4344,3593,5449,5520,5430,4567,7812,4321,4781,6753,8679,5812,5781,5456,4552,4265,5289,5984,4906,7075,4562,5987,5391,5638,4699,4505,5257,5110,6305,4867,5421,4592,4711,4080,5323,5426,5252,4952,4661,5126,6664,6267,5564,5932,6790,4336,5386,4943,3906,4681,4993,5698,4478,4450,4328,6286,6060,6858,4329,4873,5048,4990,4659,4997,5073,5892,5096,5703,5130,5108,5156,5648,4772,5017,4445,4906,3922,5343,4899,5879,5467,5148,5275,5733,4775,4290,5531,5154,5326,5018,7046,4719,6738,4499,4402,5860,4039,4875,7589,5223,4772,7078,6691,5401,7176,8190,4734,5383,4567,5886,4977,4604,4214,8623,4937,7521,5250,5371,5640,5412,3868,6264,4805,5712,5727,4751],"z":[714,731,704,704,701,744,725,747,702,701,713,707,733,704,751,708,758,710,761,713,710,702,724,723,722,711,718,704,678,708,755,746,722,720,739,699,725,715,672,684,715,707,754,761,735,709,707,742,708,710,763,704,724,694,729,748,695,720,740,700,707,703,682,710,677,721,739,729,711,688,716,703,715,700,707,693,727,705,715,769,734,715,719,706,706,711,713,716,738,707,713,709,699,707,666,715,708,757,697,692,770,750,730,713,676,701,703,672,737,694,752,714,717,713,705,726,696,698,738,723,713,714,708,697,719,703,702,698,719,724,709,751,759,680,719,767,725,685,711,716,715,736,701,729,711,701,757,750,752,696,694,720,688,707,705,713,689,715,707,723,698,729,734,700,728,702,691,700,723,693,677,707,715,718,729,716,719,714,692,693,713,761,717,741,715,709,714,717,723,731,680,694,726,752,690,764,751,724,716,691,720,694,734,706,753,702,752,707,698,717,715,696,767,704,721,693,720],"type":"scatter3d","mode":"markers","marker":{"color":"rgba(31,119,180,1)","size":3,"line":{"color":"rgba(31,119,180,1)"}},"name":"Data points","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null},{"colorbar":{"title":"score4","ticklen":2},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666665","rgba(70,19,97,1)"],["0.083333333333333","rgba(72,32,111,1)"],["0.124999999999999","rgba(71,45,122,1)"],["0.166666666666666","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666666","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.500000000000001","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333334","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875000000000001","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"z":[[702.474007111208,704.839475657103,707.204944202997,709.570412748891,711.935881294786,714.30134984068,716.666818386574,719.032286932469,721.397755478363,723.763224024258,726.128692570152,728.494161116046,730.859629661941,733.225098207835,735.590566753729,737.956035299624,740.321503845518,742.686972391413,745.052440937307,747.417909483201,749.783378029096,752.14884657499,754.514315120884,756.879783666779,759.245252212673,761.610720758568,763.976189304462,766.341657850356,768.707126396251,771.072594942145],[702.003872622809,704.369341168703,706.734809714598,709.100278260492,711.465746806386,713.831215352281,716.196683898175,718.562152444069,720.927620989964,723.293089535858,725.658558081753,728.024026627647,730.389495173541,732.754963719436,735.12043226533,737.485900811224,739.851369357119,742.216837903013,744.582306448908,746.947774994802,749.313243540696,751.678712086591,754.044180632485,756.409649178379,758.775117724274,761.140586270168,763.506054816063,765.871523361957,768.236991907851,770.602460453746],[701.53373813441,703.899206680304,706.264675226198,708.630143772093,710.995612317987,713.361080863881,715.726549409776,718.09201795567,720.457486501565,722.822955047459,725.188423593353,727.553892139248,729.919360685142,732.284829231036,734.650297776931,737.015766322825,739.38123486872,741.746703414614,744.112171960508,746.477640506403,748.843109052297,751.208577598191,753.574046144086,755.93951468998,758.304983235875,760.670451781769,763.035920327663,765.401388873558,767.766857419452,770.132325965347],[701.06360364601,703.429072191905,705.794540737799,708.160009283693,710.525477829588,712.890946375482,715.256414921376,717.621883467271,719.987352013165,722.35282055906,724.718289104954,727.083757650848,729.449226196743,731.814694742637,734.180163288532,736.545631834426,738.91110038032,741.276568926215,743.642037472109,746.007506018003,748.372974563898,750.738443109792,753.103911655686,755.469380201581,757.834848747475,760.20031729337,762.565785839264,764.931254385158,767.296722931053,769.662191476947],[700.593469157611,702.958937703505,705.3244062494,707.689874795294,710.055343341188,712.420811887083,714.786280432977,717.151748978872,719.517217524766,721.88268607066,724.248154616555,726.613623162449,728.979091708344,731.344560254238,733.710028800132,736.075497346027,738.440965891921,740.806434437815,743.17190298371,745.537371529604,747.902840075498,750.268308621393,752.633777167287,754.999245713182,757.364714259076,759.73018280497,762.095651350865,764.461119896759,766.826588442654,769.192056988548],[700.123334669212,702.488803215106,704.854271761,707.219740306895,709.585208852789,711.950677398683,714.316145944578,716.681614490472,719.047083036367,721.412551582261,723.778020128155,726.14348867405,728.508957219944,730.874425765839,733.239894311733,735.605362857627,737.970831403522,740.336299949416,742.70176849531,745.067237041205,747.432705587099,749.798174132993,752.163642678888,754.529111224782,756.894579770677,759.260048316571,761.625516862465,763.99098540836,766.356453954254,768.721922500149],[699.653200180812,702.018668726707,704.384137272601,706.749605818495,709.11507436439,711.480542910284,713.846011456178,716.211480002073,718.576948547967,720.942417093862,723.307885639756,725.67335418565,728.038822731545,730.404291277439,732.769759823334,735.135228369228,737.500696915122,739.866165461017,742.231634006911,744.597102552805,746.9625710987,749.328039644594,751.693508190489,754.058976736383,756.424445282277,758.789913828172,761.155382374066,763.52085091996,765.886319465855,768.251788011749],[699.183065692413,701.548534238307,703.914002784202,706.279471330096,708.64493987599,711.010408421885,713.375876967779,715.741345513674,718.106814059568,720.472282605462,722.837751151357,725.203219697251,727.568688243146,729.93415678904,732.299625334934,734.665093880829,737.030562426723,739.396030972617,741.761499518512,744.126968064406,746.492436610301,748.857905156195,751.223373702089,753.588842247984,755.954310793878,758.319779339772,760.685247885667,763.050716431561,765.416184977456,767.78165352335],[698.712931204014,701.078399749908,703.443868295802,705.809336841697,708.174805387591,710.540273933485,712.90574247938,715.271211025274,717.636679571169,720.002148117063,722.367616662957,724.733085208852,727.098553754746,729.464022300641,731.829490846535,734.194959392429,736.560427938324,738.925896484218,741.291365030112,743.656833576007,746.022302121901,748.387770667796,750.75323921369,753.118707759584,755.484176305479,757.849644851373,760.215113397267,762.580581943162,764.946050489056,767.311519034951],[698.242796715614,700.608265261509,702.973733807403,705.339202353297,707.704670899192,710.070139445086,712.43560799098,714.801076536875,717.166545082769,719.532013628664,721.897482174558,724.262950720452,726.628419266347,728.993887812241,731.359356358136,733.72482490403,736.090293449924,738.455761995819,740.821230541713,743.186699087607,745.552167633502,747.917636179396,750.283104725291,752.648573271185,755.014041817079,757.379510362974,759.744978908868,762.110447454762,764.475916000657,766.841384546551],[697.772662227215,700.138130773109,702.503599319004,704.869067864898,707.234536410792,709.600004956687,711.965473502581,714.330942048476,716.69641059437,719.061879140264,721.427347686159,723.792816232053,726.158284777948,728.523753323842,730.889221869736,733.254690415631,735.620158961525,737.985627507419,740.351096053314,742.716564599208,745.082033145103,747.447501690997,749.812970236891,752.178438782786,754.54390732868,756.909375874574,759.274844420469,761.640312966363,764.005781512258,766.371250058152],[697.302527738816,699.66799628471,702.033464830604,704.398933376499,706.764401922393,709.129870468287,711.495339014182,713.860807560076,716.226276105971,718.591744651865,720.957213197759,723.322681743654,725.688150289548,728.053618835443,730.419087381337,732.784555927231,735.150024473126,737.51549301902,739.880961564914,742.246430110809,744.611898656703,746.977367202598,749.342835748492,751.708304294386,754.073772840281,756.439241386175,758.804709932069,761.170178477964,763.535647023858,765.901115569753],[696.832393250416,699.197861796311,701.563330342205,703.928798888099,706.294267433994,708.659735979888,711.025204525782,713.390673071677,715.756141617571,718.121610163466,720.48707870936,722.852547255254,725.218015801149,727.583484347043,729.948952892938,732.314421438832,734.679889984726,737.045358530621,739.410827076515,741.776295622409,744.141764168304,746.507232714198,748.872701260093,751.238169805987,753.603638351881,755.969106897776,758.33457544367,760.700043989565,763.065512535459,765.430981081353],[696.362258762017,698.727727307911,701.093195853806,703.4586643997,705.824132945594,708.189601491489,710.555070037383,712.920538583278,715.286007129172,717.651475675066,720.016944220961,722.382412766855,724.74788131275,727.113349858644,729.478818404538,731.844286950433,734.209755496327,736.575224042221,738.940692588116,741.30616113401,743.671629679905,746.037098225799,748.402566771693,750.768035317588,753.133503863482,755.498972409376,757.864440955271,760.229909501165,762.59537804706,764.960846592954],[695.892124273618,698.257592819512,700.623061365406,702.988529911301,705.353998457195,707.719467003089,710.084935548984,712.450404094878,714.815872640773,717.181341186667,719.546809732561,721.912278278456,724.27774682435,726.643215370245,729.008683916139,731.374152462033,733.739621007928,736.105089553822,738.470558099716,740.836026645611,743.201495191505,745.5669637374,747.932432283294,750.297900829188,752.663369375083,755.028837920977,757.394306466872,759.759775012766,762.12524355866,764.490712104555],[695.421989785218,697.787458331113,700.152926877007,702.518395422901,704.883863968796,707.24933251469,709.614801060584,711.980269606479,714.345738152373,716.711206698268,719.076675244162,721.442143790056,723.807612335951,726.173080881845,728.53854942774,730.904017973634,733.269486519528,735.634955065423,738.000423611317,740.365892157211,742.731360703106,745.096829249,747.462297794895,749.827766340789,752.193234886683,754.558703432578,756.924171978472,759.289640524367,761.655109070261,764.020577616155],[694.951855296819,697.317323842713,699.682792388608,702.048260934502,704.413729480396,706.779198026291,709.144666572185,711.51013511808,713.875603663974,716.241072209868,718.606540755763,720.972009301657,723.337477847552,725.702946393446,728.06841493934,730.433883485235,732.799352031129,735.164820577023,737.530289122918,739.895757668812,742.261226214707,744.626694760601,746.992163306495,749.35763185239,751.723100398284,754.088568944178,756.454037490073,758.819506035967,761.184974581862,763.550443127756],[694.48172080842,696.847189354314,699.212657900208,701.578126446103,703.943594991997,706.309063537891,708.674532083786,711.04000062968,713.405469175575,715.770937721469,718.136406267363,720.501874813258,722.867343359152,725.232811905047,727.598280450941,729.963748996835,732.32921754273,734.694686088624,737.060154634518,739.425623180413,741.791091726307,744.156560272202,746.522028818096,748.88749736399,751.252965909885,753.618434455779,755.983903001674,758.349371547568,760.714840093462,763.080308639357],[694.01158632002,696.377054865915,698.742523411809,701.107991957703,703.473460503598,705.838929049492,708.204397595386,710.569866141281,712.935334687175,715.30080323307,717.666271778964,720.031740324858,722.397208870753,724.762677416647,727.128145962542,729.493614508436,731.85908305433,734.224551600225,736.590020146119,738.955488692013,741.320957237908,743.686425783802,746.051894329697,748.417362875591,750.782831421485,753.14829996738,755.513768513274,757.879237059169,760.244705605063,762.610174150957],[693.541451831621,695.906920377515,698.27238892341,700.637857469304,703.003326015198,705.368794561093,707.734263106987,710.099731652882,712.465200198776,714.83066874467,717.196137290565,719.561605836459,721.927074382354,724.292542928248,726.658011474142,729.023480020037,731.388948565931,733.754417111825,736.11988565772,738.485354203614,740.850822749509,743.216291295403,745.581759841297,747.947228387192,750.312696933086,752.67816547898,755.043634024875,757.409102570769,759.774571116664,762.140039662558],[693.071317343222,695.436785889116,697.80225443501,700.167722980905,702.533191526799,704.898660072693,707.264128618588,709.629597164482,711.995065710377,714.360534256271,716.726002802165,719.09147134806,721.456939893954,723.822408439849,726.187876985743,728.553345531637,730.918814077532,733.284282623426,735.64975116932,738.015219715215,740.380688261109,742.746156807004,745.111625352898,747.477093898792,749.842562444687,752.208030990581,754.573499536476,756.93896808237,759.304436628264,761.669905174159],[692.601182854822,694.966651400717,697.332119946611,699.697588492505,702.0630570384,704.428525584294,706.793994130188,709.159462676083,711.524931221977,713.890399767872,716.255868313766,718.62133685966,720.986805405555,723.352273951449,725.717742497344,728.083211043238,730.448679589132,732.814148135027,735.179616680921,737.545085226815,739.91055377271,742.276022318604,744.641490864499,747.006959410393,749.372427956287,751.737896502182,754.103365048076,756.468833593971,758.834302139865,761.199770685759],[692.131048366423,694.496516912317,696.861985458212,699.227454004106,701.59292255,703.958391095895,706.323859641789,708.689328187684,711.054796733578,713.420265279472,715.785733825367,718.151202371261,720.516670917156,722.88213946305,725.247608008944,727.613076554839,729.978545100733,732.344013646627,734.709482192522,737.074950738416,739.440419284311,741.805887830205,744.171356376099,746.536824921994,748.902293467888,751.267762013782,753.633230559677,755.998699105571,758.364167651466,760.72963619736],[691.660913878024,694.026382423918,696.391850969812,698.757319515707,701.122788061601,703.488256607495,705.85372515339,708.219193699284,710.584662245179,712.950130791073,715.315599336967,717.681067882862,720.046536428756,722.412004974651,724.777473520545,727.142942066439,729.508410612334,731.873879158228,734.239347704122,736.604816250017,738.970284795911,741.335753341806,743.7012218877,746.066690433594,748.432158979489,750.797627525383,753.163096071278,755.528564617172,757.894033163066,760.259501708961],[691.190779389624,693.556247935519,695.921716481413,698.287185027307,700.652653573202,703.018122119096,705.38359066499,707.749059210885,710.114527756779,712.479996302674,714.845464848568,717.210933394462,719.576401940357,721.941870486251,724.307339032146,726.67280757804,729.038276123934,731.403744669829,733.769213215723,736.134681761617,738.500150307512,740.865618853406,743.231087399301,745.596555945195,747.962024491089,750.327493036984,752.692961582878,755.058430128773,757.423898674667,759.789367220561],[690.720644901225,693.086113447119,695.451581993014,697.817050538908,700.182519084802,702.547987630697,704.913456176591,707.278924722486,709.64439326838,712.009861814274,714.375330360169,716.740798906063,719.106267451958,721.471735997852,723.837204543746,726.202673089641,728.568141635535,730.933610181429,733.299078727324,735.664547273218,738.030015819113,740.395484365007,742.760952910901,745.126421456796,747.49189000269,749.857358548584,752.222827094479,754.588295640373,756.953764186268,759.319232732162],[690.250510412826,692.61597895872,694.981447504614,697.346916050509,699.712384596403,702.077853142297,704.443321688192,706.808790234086,709.174258779981,711.539727325875,713.905195871769,716.270664417664,718.636132963558,721.001601509453,723.367070055347,725.732538601241,728.098007147136,730.46347569303,732.828944238924,735.194412784819,737.559881330713,739.925349876608,742.290818422502,744.656286968396,747.021755514291,749.387224060185,751.75269260608,754.118161151974,756.483629697868,758.849098243763],[689.780375924426,692.145844470321,694.511313016215,696.876781562109,699.242250108004,701.607718653898,703.973187199793,706.338655745687,708.704124291581,711.069592837476,713.43506138337,715.800529929264,718.165998475159,720.531467021053,722.896935566948,725.262404112842,727.627872658736,729.993341204631,732.358809750525,734.724278296419,737.089746842314,739.455215388208,741.820683934103,744.186152479997,746.551621025891,748.917089571786,751.28255811768,753.648026663575,756.013495209469,758.378963755363],[689.310241436027,691.675709981921,694.041178527816,696.40664707371,698.772115619605,701.137584165499,703.503052711393,705.868521257288,708.233989803182,710.599458349076,712.964926894971,715.330395440865,717.69586398676,720.061332532654,722.426801078548,724.792269624443,727.157738170337,729.523206716231,731.888675262126,734.25414380802,736.619612353915,738.985080899809,741.350549445703,743.716017991598,746.081486537492,748.446955083386,750.812423629281,753.177892175175,755.54336072107,757.908829266964],[688.840106947628,691.205575493522,693.571044039416,695.936512585311,698.301981131205,700.6674496771,703.032918222994,705.398386768888,707.763855314783,710.129323860677,712.494792406571,714.860260952466,717.22572949836,719.591198044255,721.956666590149,724.322135136043,726.687603681938,729.053072227832,731.418540773726,733.784009319621,736.149477865515,738.51494641141,740.880414957304,743.245883503198,745.611352049093,747.976820594987,750.342289140882,752.707757686776,755.07322623267,757.438694778565]],"type":"surface","x":[11.3999996185303,11.8172410109947,12.2344824034592,12.6517237959237,13.0689651883882,13.4862065808526,13.9034479733171,14.3206893657816,14.7379307582461,15.1551721507105,15.572413543175,15.9896549356395,16.406896328104,16.8241377205684,17.2413791130329,17.6586205054974,18.0758618979618,18.4931032904263,18.9103446828908,19.3275860753553,19.7448274678197,20.1620688602842,20.5793102527487,20.9965516452132,21.4137930376776,21.8310344301421,22.2482758226066,22.6655172150711,23.0827586075355,23.5],"y":[3465,3685.79310344828,3906.58620689655,4127.37931034483,4348.1724137931,4568.96551724138,4789.75862068966,5010.55172413793,5231.34482758621,5452.13793103448,5672.93103448276,5893.72413793103,6114.51724137931,6335.31034482759,6556.10344827586,6776.89655172414,6997.68965517241,7218.48275862069,7439.27586206897,7660.06896551724,7880.86206896552,8101.65517241379,8322.44827586207,8543.24137931034,8764.03448275862,8984.8275862069,9205.62068965517,9426.41379310345,9647.20689655172,9868],"opacity":0.5,"name":"Regression plane","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="multiple-linear-regression-1" class="slide level2">
+<section id="multiple-linear-regression-2" class="slide level2">
 <h2>Multiple linear regression</h2>
 <p><span class="note">Simple linear regression</span> features one <span class="hi">dependent variable</span> and one <span class="hii">independent variable</span>:</p>
 <p><span class="math display">\[
@@ -1147,718 +828,35 @@ Y_i = \widehat{\beta}_0 + \widehat{\beta}_1 X_i + v_i
 </section>
 <section class="slide level2">
 
-<h6 data-visibility="uncounted" id="section-16"></h6>
+<h6 data-visibility="uncounted" id="section-1"></h6>
 
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="08-main_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section class="slide level2">
 
-<h6 data-visibility="uncounted" id="section-17"></h6>
+<h6 data-visibility="uncounted" id="section-2"></h6>
 
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="08-main_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section class="slide level2">
 
-<h6 data-visibility="uncounted" id="section-18"></h6>
+<h6 data-visibility="uncounted" id="section-3"></h6>
 
 <img data-src="./control.gif" class="r-stretch"><p><span class="fragment">What happens to <span class="hi-red">variation</span> in <span class="math inline">\(Y\)</span> after we account for school funding?</span></p>
+</section></section>
+<section id="ex.-effect-of-class-sizes-on-test-scores" class="title-slide slide level1 inverse tiny center">
+<h1><span class="ex">Ex.</span> <span class="hi-white">Effect of class sizes on test scores</span></h1>
+<!-- {{< include 08-2-ex.qmd >}} -->
 </section>
-<section id="ols-estimation" class="slide level2">
-<h2>OLS Estimation</h2>
-<p><span class="note">Residuals</span> are now defined as:</p>
-<div class="fragment">
-<p><span class="math display">\[
-\hat{u}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki}
-\]</span></p>
-</div>
-<div class="fragment">
-<p>As with SLR, OLS minimizes the sum of squared residuals (<span class="hi-orange">RSS</span>).</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{align*}
-  {\color{#D08770} RSS} &amp;= \sum_{i = 1}^{n} (Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_{1i} - \hat{\beta}_2 X_{2i} - \cdots - \hat{\beta}_{k} X_{ki})^2 \\
-                        &amp;= \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
-\end{align*}
-\]</span></p>
-<p>which is a familiar expression.</p>
-</div>
-</section>
-<section id="ols-estimation-1" class="slide level2">
-<h2>OLS Estimation</h2>
-<p>To obtain <span class="note">point estimates</span>:</p>
-<p><span class="math display">\[
-\min_{\hat{\beta}_0,\, \hat{\beta}_1,\, \dots \, \hat{\beta}_k} \quad \color{#D08770}{\sum_{i=1}^n \hat{u}_i^2}
-\]</span></p>
-<ul>
-<li>Take partial derivatives of RSS with respect to each <span class="math inline">\(\hat{\beta}\)</span></li>
-<li>Set each derivative equal to zero</li>
-<li>Solve the system of <span class="math inline">\(k+1\)</span> equations<sup>1</sup>.</li>
-</ul>
-<div class="fragment">
-<p>The algebra is cumbersome. We let <i class="fa-brands fa-r-project" aria-label="r-project"></i> do the heavy lifting.</p>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="math inline">\(k+1\)</span> due to the intercept.</p></li></ol></aside></section>
-<section id="coefficient-interpretation" class="slide level2">
-<h2>Coefficient Interpretation</h2>
-<p><span class="hi">Model</span></p>
-<p><span class="math display">\[
-\color{}{Y_i} = \beta_0 + \beta_1 \color{}{X_{1i}} + \beta_2 \color{}{X_{2i}} + \cdots + \beta_{k} \color{}{X_{ki}} + u_i
-\]</span></p>
-<p><span class="hi">Interpretation</span></p>
-<ul>
-<li>The intercept <span class="math inline">\(\hat{\beta}_0\)</span> is the average value of <span class="math inline">\(Y_i\)</span> when all of the independent variables are equal to zero.</li>
-<li>Slope parameters <span class="math inline">\(\hat{\beta}_1, \dots, \hat{\beta}_{k}\)</span> give us the change in <span class="math inline">\(Y_i\)</span> from a one-unit change in <span class="math inline">\(X_j\)</span>, holding the other <span class="math inline">\(X\)</span> variables constant.</li>
-</ul>
-</section>
-<section id="algebraic-properties-of-ols" class="slide level2">
-<h2>Algebraic properties of OLS</h2>
-<p>The OLS first-order conditions yield the same properties as before.</p>
-<p><br></p>
-<p><span class="note">1.</span> Residuals sum to zero: <span class="math inline">\(\sum_{i=1}^n \hat{u_i} = 0\)</span>.</p>
-<p><span class="note">2.</span> The sample covariance <span class="math inline">\(X_i\)</span> and the <span class="math inline">\(\hat{u_i}\)</span> is zero.</p>
-<p><span class="note">3.</span> The point <span class="math inline">\((\bar{X_1}, \bar{X_2}, \dots, \bar{X_k}, \bar{Y})\)</span> is on the fitted regression “line.”</p>
-</section>
-<section id="goodness-of-fit" class="slide level2">
-<h2>Goodness of fit</h2>
-<p>Fitted values are defined similarly:</p>
-<p><span class="math display">\[
-\hat{Y_i} = \hat{\beta}_0 + \hat{\beta}_1 X_{1i} + \hat{\beta}_2 X_{2i} + \cdots + \hat{\beta}_{k} X_{ki}
-\]</span></p>
-<p>The formula for <span class="math inline">\(R^2\)</span> is the same as before:</p>
-<p><span class="math display">\[
-R^2 =\frac{\sum(\hat{Y_i}-\bar{Y})^2}{\sum(Y_i-\bar{Y})^2}
-\]</span></p>
-</section>
-<section id="goodness-of-fit-1" class="slide level2">
-<h2>Goodness of fit</h2>
-<p>We can describe the variation explain in <span class="math inline">\(Y\)</span> with venn diagrams</p>
 
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
-<section id="goodness-of-fit-2" class="slide level2">
-<h2>Goodness of fit</h2>
-<p>Suppose we have <span class="hi">two</span> models:</p>
-<p><br></p>
-<p><span class="hi">Model 1</span> <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{1i} + u_i\)</span>.</p>
-<p><span class="hi">Model 2:</span> <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + v_i\)</span></p>
-<p><br></p>
-<div class="fragment">
-<p><span class="note">T/F?</span> Model 2 will yield a lower <span class="math inline">\(R^2\)</span> than Model 1.</p>
-</div>
-<div class="fragment">
-<p><br> <br></p>
-<p>(<em>Hint: Think of <span class="math inline">\(R^2\)</span> as <span class="math inline">\(R^2 = 1 - \frac{\text{RSS}}{\text{TSS}}\)</span>.</em>)</p>
-</div>
-</section>
-<section id="goodness-of-fit-3" class="slide level2">
-<h2>Goodness of fit</h2>
-<p>We can describe the variation explain in <span class="math inline">\(Y\)</span> with venn diagrams</p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
-<section id="goodness-of-fit-4" class="slide level2">
-<h2>Goodness of fit</h2>
-<p>We can describe the variation explain in <span class="math inline">\(Y\)</span> with venn diagrams</p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"></section>
-<section id="section-19" class="slide level2">
-<h2></h2>
-<div class="middle">
-<p><span class="hi-red">Problem:</span> As we add variables to our model, <span class="math inline">\(R^2\)</span> <em>mechanically</em> increases.</p>
-<p><br></p>
-<p><span class="fragment">Let me show you this <span class="hi-red">problem</span> with a <span class="hii">simulation</span></span></p>
-</div>
-</section>
-<section id="section-20" class="slide level2">
-<h2></h2>
-<div class="middle">
-<p>Simulate a dataset of 10,000 observations on <span class="math inline">\(y\)</span> and 1,000 random <span class="math inline">\(x_k\)</span> variables, where</p>
-<p><span class="math display">\[
-y \perp x_k \quad \forall x_k \; \text{s.t.} \; k = 1, 2, \dots, 1000
-\]</span></p>
-<p><br></p>
-<p><span class="fragment">We have 1,000 independent variables that are <span class="note">independent</span> to the dependent variable.</span> <span class="fragment">Each <span class="math inline">\(x_k\)</span> has no relationship to <span class="math inline">\(y\)</span> whatsoever.</span></p>
-</div>
-</section>
-<section class="slide level2">
-
-<p><span class="hi-red">Problem:</span> As we add variables to our model, <span class="math inline">\(\color{#314f4f}{R^2}\)</span> <em>mechanically</em> increases.</p>
-<p><span class="mono">Pseudo-code:</span></p>
-<div class="pseudocode">
-<p>Generate 10,000 obs. on <span class="math inline">\(y\)</span></p>
-<p>Generate 10,000 obs. on variables <span class="math inline">\(x_1\)</span> through <span class="math inline">\(x_{1000}\)</span></p>
-<p><br></p>
-<p>Regressions:</p>
-<ul>
-<li>LM<sub>1</sub>: Regress <span class="math inline">\(y\)</span> of <span class="math inline">\(x_1\)</span>; record <span class="math inline">\(R^2\)</span></li>
-<li>LM<sub>2</sub>: Regress <span class="math inline">\(y\)</span> of <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>; record <span class="math inline">\(R^2\)</span></li>
-<li>…</li>
-<li>LM<sub>1000</sub>: Regress <span class="math inline">\(y\)</span> on <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, …, <span class="math inline">\(x_{1000}\)</span>; record <span class="math inline">\(R^2\)</span></li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-
-<p><span class="hi-red">Problem:</span> As we add variables to our model, <span class="math inline">\(\color{#314f4f}{R^2}\)</span> <em>mechanically</em> increases.</p>
-<p><span class="mono">R</span> code for the simulation:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Generate data --------------------------------------------------------------</span></span>
-<span id="cb1-2"><a href=""></a>  <span class="co"># Set random seed</span></span>
-<span id="cb1-3"><a href=""></a>  <span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb1-4"><a href=""></a>  <span class="co"># Generate data</span></span>
-<span id="cb1-5"><a href=""></a>  y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e4</span>)</span>
-<span id="cb1-6"><a href=""></a>  x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="fu">rnorm</span>(<span class="fl">1e7</span>), <span class="at">nrow =</span> <span class="fl">1e4</span>)</span>
-<span id="cb1-7"><a href=""></a>  x <span class="sc">%&lt;&gt;%</span> <span class="fu">cbind</span>(<span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="fl">1e4</span>, <span class="at">ncol =</span> <span class="dv">1</span>), x)</span>
-<span id="cb1-8"><a href=""></a></span>
-<span id="cb1-9"><a href=""></a><span class="co"># Simulation -----------------------------------------------------------------</span></span>
-<span id="cb1-10"><a href=""></a>  <span class="co"># Loop across regressions</span></span>
-<span id="cb1-11"><a href=""></a>  r_df <span class="ot">&lt;-</span> <span class="fu">mclapply</span>(<span class="at">X =</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fl">1e3</span><span class="dv">-1</span>), <span class="at">mc.cores =</span> <span class="fu">detectCores</span>() <span class="sc">-</span> <span class="dv">1</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) {</span>
-<span id="cb1-12"><a href=""></a>    <span class="co"># Add one additional regressor every iteration</span></span>
-<span id="cb1-13"><a href=""></a>    tmp_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x[,<span class="dv">1</span><span class="sc">:</span>(i<span class="sc">+</span><span class="dv">1</span>)]) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
-<span id="cb1-14"><a href=""></a>    <span class="co"># Export R2</span></span>
-<span id="cb1-15"><a href=""></a>    <span class="fu">data.frame</span>(</span>
-<span id="cb1-16"><a href=""></a>      <span class="at">k =</span> i <span class="sc">+</span> <span class="dv">1</span>,</span>
-<span id="cb1-17"><a href=""></a>      <span class="at">r2 =</span> tmp_reg <span class="sc">%$%</span> r.squared,</span>
-<span id="cb1-18"><a href=""></a>      <span class="at">r2_adj =</span> tmp_reg <span class="sc">%$%</span> adj.r.squared</span>
-<span id="cb1-19"><a href=""></a>    )</span>
-<span id="cb1-20"><a href=""></a>  }) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section class="slide level2">
-
-<h6 id="section-21"></h6>
-<p><span class="hi-red">Problem:</span> As we add variables to our model, <span class="math inline">\(R^2\)</span> <em>mechanically</em> increases.</p>
-<p><br></p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section class="slide level2">
-
-<h6 data-visibility="uncounted" id="section-22"></h6>
-<p><span class="hi-red">Problem:</span> As we add variables to our model, <span class="math inline">\(R^2\)</span> <em>mechanically</em> increases.</p>
-<p><span class="hii">One solution:</span> Penalize for the number of variables, <em>e.g.</em>, adjusted <span class="math inline">\(R^2\)</span>:</p>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="goodness-of-fit-5" class="slide level2">
-<h2>Goodness of fit</h2>
-<p><span class="hi-red">Problem:</span> As we add variables to our model, <span class="math inline">\(R^2\)</span> <em>mechanically</em> increases.</p>
-<p><span class="hii">One solution:</span> Penalize for the number of variables, <em>e.g.</em>, adjusted <span class="math inline">\(R^2\)</span>:</p>
-<p><span class="math display">\[
-\bar{R}^2 = 1 - \dfrac{\sum_i \left( Y_i - \hat{Y}_i \right)^2/(n-k-1)}{\sum_i \left( Y_i - \bar{Y} \right)^2/(n-1)}
-\]</span></p>
-<p><em>Note:</em> Adjusted <span class="math inline">\(R^2\)</span> need not be between 0 and 1.</p>
-</section>
-<section id="goodness-of-fit-6" class="slide level2">
-<h2>Goodness of fit</h2>
-<p>So how do you find <span class="math inline">\(R^2\)</span> and <span class="math inline">\(\bar{R^2}\)</span> in <i class="fa-brands fa-r-project" aria-label="r-project"></i>? <span class="fragment"><code>broom::glance()</code></span></p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Run model</span></span>
-<span id="cb2-2"><a href=""></a>model <span class="ot">=</span> <span class="fu">lm</span>(score4 <span class="sc">~</span> stratio <span class="sc">+</span> expreg, schools_dt)</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="co"># Print results as tibble</span></span>
-<span id="cb2-5"><a href=""></a>broom<span class="sc">::</span><span class="fu">tidy</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 5
-  term        estimate std.error statistic   p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept) 675.      16.5         41.0  2.65e-103
-2 stratio      -0.960    0.644       -1.49 1.37e-  1
-3 expreg        0.0126   0.00160      7.83 2.19e- 13</code></pre>
-</div>
-</div>
-<p><br></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Print R2 info as tibble</span></span>
-<span id="cb4-2"><a href=""></a>broom<span class="sc">::</span><span class="fu">glance</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
-      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1     0.341         0.335  17.2      55.5 3.92e-20     2  -924. 1856. 1870.
-# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="multiple-regression" class="slide level2">
-<h2>Multiple regression</h2>
-<p>There are <span class="hi">tradeoffs</span> to remember as we add/remove variables:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="hi-red">Fewer variables</span></p>
-<ul>
-<li>Explains less variation in <span class="math inline">\(y\)</span></li>
-<li>Provide simple interpretations and visualizations</li>
-<li>More worried about omitted-variable bias</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><span class="hii">More variables</span></p>
-<ul>
-<li>More likely to find <em>spurious</em> relationships<sup>1</sup></li>
-<li>More difficult interpretation</li>
-<li>The <span class="note">variance</span> of our <span class="note">point estimates</span> will be bigger</li>
-<li>We still might have omitted-variable bias</li>
-</ul>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Spurious meaning <em>statistically significant</em> by coincidence—not reflective of true, population-level relationship</p></li></ol></aside></section>
-<section id="multiple-regression-1" class="slide level2" data-visibility="uncounted">
-<h2>Multiple regression</h2>
-<p>There are <span class="hi">tradeoffs</span> to remember as we add/remove variables:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="hi-red">Fewer variables</span></p>
-<ul>
-<li>Explains less variation in <span class="math inline">\(y\)</span></li>
-<li>Provide simple interpretations and visualizations</li>
-<li>More worried about omitted-variable bias</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><span class="hii">More variables</span></p>
-<ul>
-<li>More likely to find <em>spurious</em> relationships<sup>1</sup></li>
-<li>More difficult interpretation</li>
-<li><span class="hi">The variance of our point estimates will be bigger</span></li>
-<li>We still might have omitted-variable bias</li>
-</ul>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Spurious meaning <em>statistically significant</em> by coincidence—not reflective of true, population-level relationship</p></li></ol></aside></section></section>
-<section>
 <section id="multicollinearity" class="title-slide slide level1 inverse note center">
 <h1><em>Multicollinearity</em></h1>
+<!-- {{< include 08-5-colinear.qmd >}} -->
+</section>
 
-</section>
-<section id="ols-variances" class="slide level2">
-<h2>OLS variances</h2>
-<p>Multiple regression model:</p>
-<p><span class="math display">\[
-Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_{k} X_{ki} + u_i
-\]</span></p>
-<p>It can be shown that the estimator <span class="math inline">\(\hat{\beta}_j\)</span> on independent variable <span class="math inline">\(X_j\)</span> is:</p>
-<p><span class="math display">\[
-\mathop{\text{Var}} \left( \hat{\beta_j} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_j \right)\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2},
-\]</span></p>
-<p>where <span class="math inline">\(R^2_j\)</span> is the <span class="math inline">\(R^2\)</span> from a regression of <span class="math inline">\(X_j\)</span> on the other independent variables and the intercept</p>
-</section>
-<section id="ols-variances-1" class="slide level2">
-<h2>OLS variances</h2>
-<p><span class="math display">\[
-\mathop{\text{Var}} \left( \hat{\beta_j} \right) = \dfrac{{\color{#81A1C1}\sigma^2}}{\left( 1 - {\color{#81A1C1}R_j^2} \right){\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}},
-\]</span></p>
-<p><span class="hi">Moving parts:</span></p>
-<div class="small">
-<p><span class="fragment"><span class="note">1.</span> <span class="hi">Error variance:</span> As <span class="math inline">\({\color{#81A1C1}\sigma^2}\)</span> increases, <span class="math inline">\(Var(\hat{\beta}_j)\)</span> increases</span></p>
-<p><span class="fragment"><span class="note">2.</span> <span class="hi">Total variation in <span class="math inline">\(X_j\)</span>:</span> As <span class="math inline">\({\color{#BF616A}\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}\)</span> increases, <span class="math inline">\(Var(\hat{\beta}_j)\)</span> decreases</span></p>
-<p><span class="fragment"><span class="note">3.</span> <span class="hi">Relationship across <span class="math inline">\(X_i\)</span>:</span> As <span class="math inline">\({\color{#81A1C1}R_j^2}\)</span> increases, <span class="math inline">\(Var(\hat{\beta}_j)\)</span> increases</span></p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p><span class="note">3.</span> is better known as <span class="note">Multicollinearity</span></p>
-</div>
-</section>
-<section id="multicollinearity-1" class="slide level2">
-<h2>Multicollinearity</h2>
-<blockquote>
-<p>Case in which two or more independent variables in a regression model are highly correlated.</p>
-</blockquote>
-<div class="fragment">
-<p><br></p>
-<p>One independent variable can predict most of the variation in another independent variable.</p>
-<p><br></p>
-</div>
-<div class="fragment">
-<p><span class="note">Multicollinearity</span> leads to <span class="hi">imprecise</span> estimates. <span class="fragment">Becomes difficult to distinguish between individual effects from of independent variables.</span></p>
-</div>
-</section>
-<section id="ols-assumptions" class="slide level2">
-<h2>OLS Assumptions</h2>
-<p>Classical assumptions for OLS change slightly for multiple OLS</p>
-<p><span class="note">A1.</span> <span class="hi">Linearity:</span> The population relationship is <span class="note"><em>linear in parameters</em></span> with an additive error term.</p>
-<p><span class="note">A2.</span> <span class="hi"><span class="hi">Sample Variation:</span> No <span class="math inline">\(X\)</span> variable is a perfect linear combination of the others</span></p>
-<p><span class="note">A3.</span> <span class="hi">Exogeniety:</span> The <span class="math inline">\(X\)</span> variable is <span class="note">exogenous</span></p>
-<p><span class="note">A4.</span> <span class="hi">Homoskedasticity:</span> The error term has the same variance for each value of the independent variable</p>
-<p><span class="note">A5.</span> <span class="hi">Non-autocorrelation:</span> The values of error terms have independent distributions</p>
-</section>
-<section id="perfect-collinearity" class="slide level2">
-<h2>Perfect Collinearity</h2>
-<blockquote>
-<p>Case in which two or more independent variables in a regression model are perfectly correlated.</p>
-</blockquote>
-<p><span class="ex">Ex.</span> 2016 Election</p>
-<p>OLS simultaneously cannot estimate parameters for <span class="mono">white</span> and <span class="mono">nonwhite</span>.</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">lm</span>(trump_margin <span class="sc">~</span> white <span class="sc">+</span> nonwhite, <span class="at">data =</span> election) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 5
-  term        estimate std.error statistic    p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
-1 (Intercept)  -40.7      1.95       -20.9  6.82e- 91
-2 white          0.910    0.0238      38.2  1.51e-262
-3 nonwhite      NA       NA           NA   NA        </code></pre>
-</div>
-</div>
-<p><span class="mono">R</span> drops perfectly collinear variables for you.</p>
-</div>
-</section>
-<section id="multicollinearity-ex." class="slide level2">
-<h2>Multicollinearity <span class="ex">Ex.</span></h2>
-<p>Suppose that we want to understand the relationship between crime rates and poverty rates in US cities. We could estimate the model</p>
-<p><span class="math display">\[
-\text{Crime}_i = \beta_0 + \beta_1 \text{Poverty}_i + \beta_2 \text{Income}_i + u_i
-\]</span></p>
-<div class="fragment">
-<p>Before obtaining standard errors, we need:</p>
-<p><span class="math display">\[
-\mathop{\text{Var}} \left( \hat{\beta}_1 \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poverty}_{i} - \overline{\text{Poverty}} \right)^2}
-\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math inline">\(R^2_1\)</span> is the <span class="math inline">\(R^2\)</span> from a regression of poverty on median income:</p>
-<p><span class="math display">\[
-\text{Poverty}_i = \gamma_0 + \gamma_1 \text{Income}_i + v_i
-\]</span></p>
-</div>
-</section>
-<section id="multicollinearity-2" class="slide level2">
-<h2>Multicollinearity</h2>
-<p><span class="hi">Scenario 1:</span> <span class="math inline">\(\text{Income}_i\)</span> explains most variation in <span class="math inline">\(\text{Poverty}_i\)</span>, then <span class="math inline">\(R^2_1 \rightarrow 1\)</span></p>
-<ul>
-<li>Violates the <span class="note"><em>no perfect collinearity</em></span> assumption</li>
-</ul>
-<div class="fragment">
-<p><span class="hi">Scenario 2:</span> If <span class="math inline">\(\text{Income}_i\)</span> explains no variation in <span class="math inline">\(\text{Poverty}_i\)</span>, then <span class="math inline">\(R^2_1 = 0\)</span></p>
-</div>
-<div class="fragment">
-<p><span class="note">Q.</span> <em>In which scenario is the variance of the poverty coefficient smaller?</em></p>
-<p><span class="math display">\[
-\mathop{\text{Var}} \left( \hat{\beta}_1 \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poverty}_{i} - \overline{\text{Poverty}} \right)^2}
-\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="note">A.</span> <span class="hi">Scenario 2.</span></p>
-</div>
-</section>
-<section id="multicollinearity-3" class="slide level2">
-<h2>Multicollinearity</h2>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
-<section id="multicollinearity-4" class="slide level2">
-<h2>Multicollinearity</h2>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-35-1.svg" width="960" class="r-stretch"></section>
-<section id="multicollinearity-5" class="slide level2">
-<h2>Multicollinearity</h2>
-<p>As the relationships between the variables increase, <span class="math inline">\(R^2_j\)</span> increases.</p>
-<p>For high <span class="math inline">\(R^2_j\)</span>, <span class="math inline">\(\mathop{\text{Var}} \left( \hat{\beta_j} \right)\)</span> is large:</p>
-<p><span class="math display">\[
-\mathop{\text{Var}} \left( \hat{\beta_j} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_j \right)\sum_{i=1}^n \left( X_{ji} - \bar{X}_j \right)^2}
-\]</span></p>
-<div class="fragment">
-<ul>
-<li>Some view multicollinearity as a “problem” to be solved.</li>
-<li>Either increase power (<span class="math inline">\(n\)</span>) or drop correlated variables</li>
-<li><span class="note">Warning:</span> Dropping variables can generate omitted variable bias.</li>
-</ul>
-</div>
-</section>
-<section id="irrelevant-variables" class="slide level2">
-<h2>Irrelevant Variables</h2>
-<p>Suppose that the true relationship between birth weight and <em>in utero</em> exposure to toxic air pollution is</p>
-<p><span class="math display">\[
-(\text{Birth Weight})_i = \beta_0 + \beta_1 \text{Pollution}_i + u_i
-\]</span></p>
-<div class="fragment">
-<p>Suppose that an “analyst” estimates</p>
-<p><span class="math display">\[
-(\text{Birth Weight})_i = \tilde{\beta_0} + \tilde{\beta_1} \text{Pollution}_i + \tilde{\beta_2}\text{NBA}_i + u_i
-\]</span></p>
-</div>
-<div class="fragment">
-<p>One can show that <span class="math inline">\(\mathop{\mathbb{E}} \left( \hat{\tilde{\beta_1}} \right) = \beta_1\)</span> (<em>i.e.</em>, <span class="math inline">\(\hat{\tilde{\beta_1}}\)</span> is unbiased).</p>
-<p>However, the variances of <span class="math inline">\(\hat{\tilde{\beta_1}}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> differ.</p>
-</div>
-</section>
-<section id="irrelevant-variables-1" class="slide level2">
-<h2>Irrelevant Variables</h2>
-
-<img data-src="08-main_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"></section>
-<section id="irrelevant-variables-2" class="slide level2">
-<h2>Irrelevant Variables</h2>
-<p>The variance of <span class="math inline">\(\hat{\beta}_1\)</span> from estimating the “true model” is</p>
-<p><span class="math display">\[
-\mathop{\text{Var}} \left( \hat{\beta_1} \right) = \dfrac{\sigma^2}{\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
-\]</span></p>
-<p>The variance of <span class="math inline">\(\hat{\tilde\beta}_1\)</span> from estimating the model with the irrelevant variable is</p>
-<p><span class="math display">\[
-\mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
-\]</span></p>
-</section>
-<section id="irrelevant-variables-3" class="slide level2">
-<h2>Irrelevant Variables</h2>
-<p>Notice that <span class="math inline">\(\mathop{\text{Var}} \left( \hat{\beta_1} \right) \leq \mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right)\)</span> since,</p>
-<p><span class="math display">\[
-\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
-\geq
-\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
-\]</span></p>
-<div class="fragment">
-<p><br></p>
-<p>A tradeoff exists when including more control variables. <span class="fragment">Make sure you have good reason for your controls because including irrelevant control variables <span class="hii">increase</span> variances</span></p>
-</div>
-</section>
-<section id="estimating-error-variance" class="slide level2">
-<h2>Estimating Error Variance</h2>
-<p>We cannot observe <span class="math inline">\(\sigma^2\)</span>, so we must estimate it using the residuals from an estimated regression:</p>
-<p><span class="math display">\[
-s_u^2 = \dfrac{\sum_{i=1}^n \hat{u}_i^2}{n - k - 1}
-\]</span></p>
-<ul>
-<li><span class="math inline">\(k+1\)</span> is the number of parameters (one “slope” for each <span class="math inline">\(X\)</span> variable and an intercept).</li>
-<li><span class="math inline">\(n - k - 1\)</span> <span class="mono">=</span> degrees of freedom.</li>
-<li>Using the first 5 OLS assumptions, one can prove that <span class="math inline">\(s_u^2\)</span> is an unbiased estimator of <span class="math inline">\(\sigma^2\)</span>.</li>
-</ul>
-</section>
-<section id="standard-errors" class="slide level2">
-<h2>Standard Errors</h2>
-<p>The formula for the standard error is the square root of <span class="math inline">\(\mathop{\text{Var}} \left( \hat{\beta_j} \right)\)</span>:</p>
-<p><span class="math display">\[
-\mathop{\text{SE}}(\hat{\beta_j}) = \sqrt{ \frac{s^2_u}{(  1 - R^2_j ) \sum_{i=1}^n ( X_{ji} - \bar{X}_j )^2} }
-\]</span></p>
-</section>
-<section id="multicollinearity-ex.-1" class="slide level2">
-<h2>Multicollinearity <span class="ex">Ex.</span></h2>
-<p>Suppose I run the following model:</p>
-<p><span class="math display">\[
-\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Lunch}_i+ u_i
-\]</span></p>
-<p>with the following results:</p>
-<div class="cell" data-escape="false">
-<div class="cell-output-display">
-<div>
-<table class="table" data-quarto-postprocess="true" style="font-size: 24px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Explanatory variable</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">1</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-style: italic; color: black !important;">Intercept</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-weight: bold;">782.72</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%;">743.03</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-style: italic; color: black !important;"></td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-weight: bold;">(8.53)</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%;">(9.3)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-style: italic; color: black !important;">Class size</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-weight: bold;">-3.14</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%;">-2.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-style: italic; color: black !important;"></td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-weight: bold;">(0.49)</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%;">(0.44)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-style: italic; color: black !important;">Lunch</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-weight: bold;">-0.85</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%;">-0.48</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-style: italic; color: black !important;"></td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-weight: bold;">(0.08)</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%;">(0.09)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; font-style: italic; color: black !important;">Income</td>
-<td style="text-align: center; font-weight: bold;"></td>
-<td style="text-align: center;">1.51</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; font-style: italic; color: black !important;"></td>
-<td style="text-align: center; font-weight: bold;"></td>
-<td style="text-align: center;">(0.2)</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</div>
-</section>
-<section id="multicollinearity-ex.-2" class="slide level2" data-visibility="uncounted">
-<h2>Multicollinearity <span class="ex">Ex.</span></h2>
-<p>Suppose I run the following model:</p>
-<p><span class="math display">\[
-\text{Scores}_i = \beta_0 + \beta_1 \text{Class Size}_i + \text{Lunch}_i+ u_i
-\]</span></p>
-<p>with the following results:</p>
-<div class="cell" data-escape="false">
-<div class="cell-output-display">
-<div>
-<table class="table" data-quarto-postprocess="true" style="font-size: 24px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Explanatory variable</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">1</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-style: italic; color: black !important;">Intercept</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%;">782.72</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-weight: bold;">743.03</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-style: italic; color: black !important;"></td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%;">(8.53)</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-weight: bold;">(9.3)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-style: italic; color: black !important;">Class size</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%;">-3.14</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-weight: bold;">-2.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-style: italic; color: black !important;"></td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%;">(0.49)</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-weight: bold;">(0.44)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-style: italic; color: black !important;">Lunch</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%;">-0.85</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; line-height: 110%; font-weight: bold;">-0.48</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-style: italic; color: black !important;"></td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%;">(0.08)</td>
-<td style="text-align: center; color: rgba(67, 76, 94, 255) !important; color: rgba(194, 190, 190, 255) !important; line-height: 110%; font-weight: bold;">(0.09)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; font-style: italic; color: black !important;">Income</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center; font-weight: bold;">1.51</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; font-style: italic; color: black !important;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center; font-weight: bold;">(0.2)</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</div>
-</section></section>
-<section>
 <section id="f-tests" class="title-slide slide level1 inverse note center">
 <h1><em>F Tests</em></h1>
+<!-- {{< include 08-6-ftest.qmd >}} -->
+</section>
 
-</section>
-<section id="f-tests-1" class="slide level2">
-<h2><em>F</em> Tests</h2>
-<p><span class="hi">t tests</span> allow us to test simple hypotheses involving a <span class="hii">single parameter</span>.</p>
-<ul>
-<li><em>e.g.</em>, <span class="math inline">\(\beta_1 = 0\)</span> or <span class="math inline">\(\beta_2 = 1\)</span>.</li>
-</ul>
-<div class="fragment">
-<p><span class="hi"><em>F</em> tests</span> allow us to test hypotheses that involve <span class="hp">multiple parameters</span>.</p>
-<ul>
-<li><em>e.g.</em>, <span class="math inline">\(\beta_1 = \beta_2\)</span> or <span class="math inline">\(\beta_3 + \beta_4 = 1\)</span>.</li>
-</ul>
-</div>
-</section>
-<section id="f-tests-2" class="slide level2">
-<h2><em>F</em> Tests</h2>
-<p><span class="ex">Ex.</span> Is money “fungible”?</p>
-<p>Economists often say that “money is fungible.”</p>
-<p>We might want to test whether money received as income actually has the same effect on consumption as money received from tax credits.</p>
-<p><span class="math display">\[
-\text{Consumption}_i = \beta_0 + \beta_1 \text{Income}_{i} + \beta_2 \text{Credit}_i + u_i
-\]</span></p>
-</section>
-<section id="f-tests-3" class="slide level2">
-<h2><em>F</em> Tests</h2>
-<p><span class="ex">Ex.</span> Is money “fungible”?</p>
-<p>We can write our null hypothesis as</p>
-<p><span class="math display">\[
-H_0:\: \beta_1 = \beta_2 \iff H_0 :\: \beta_1 - \beta_2 = 0
-\]</span></p>
-<p>Imposing the null hypothesis gives us a <span class="hi">restricted model</span></p>
-<p><span class="math display">\[
-\text{Consumption}_i = \beta_0 + \beta_1 \text{Income}_{i} + \beta_1 \text{Credit}_i + u_i
-\]</span></p>
-<p><span class="math display">\[
-\text{Consumption}_i = \beta_0 + \beta_1 \left( \text{Income}_{i} + \text{Credit}_i \right) + u_i
-\]</span></p>
-</section>
-<section id="f-tests-4" class="slide level2">
-<h2><em>F</em> Tests</h2>
-<p><span class="ex">Ex.</span> Is money “fungible”?</p>
-<p>To test the null hypothesis <span class="math inline">\(H_o :\: \beta_1 = \beta_2\)</span> against <span class="math inline">\(H_a :\: \beta_1 \neq \beta_2\)</span>, <br>we use the <span class="math inline">\(F\)</span> statistic:</p>
-<p><span class="math display">\[
-\begin{align}
-  F_{q,\,n-k-1} = \dfrac{\left(\text{RSS}_r - \text{RSS}_u\right)/q}{\text{RSS}_u/(n-k-1)}
-\end{align}
-\]</span></p>
-<p>which (as its name suggests) follows the <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(q\)</span> numerator degrees of freedom and <span class="math inline">\(n-k-1\)</span> denominator degrees of freedom.</p>
-<p>Here, <span class="math inline">\(q\)</span> is the number of restrictions we impose via <span class="math inline">\(H_0\)</span>.</p>
-</section>
-<section id="f-tests-5" class="slide level2">
-<h2><em>F</em> Tests</h2>
-<p><span class="ex">Ex.</span> Is money “fungible”?</p>
-<p>The term <span class="math inline">\(\text{RSS}_r\)</span> is the sum of squared residuals (RSS) from our <span class="hi">restricted model</span></p>
-<p><span class="math display">\[
-\text{Consumption}_i = \beta_0 + \beta_1 \left( \text{Income}_{i} + \text{Credit}_i \right) + u_i
-\]</span></p>
-<p>and <span class="math inline">\(\text{RSS}_u\)</span> is the sum of squared residuals (RSS) from our <span class="hi">unrestricted model</span></p>
-<p><span class="math display">\[
-\text{Consumption}_i = \beta_0 + \beta_1 \text{Income}_{i} + \beta_2 \text{Credit}_i + u_i
-\]</span></p>
-</section>
-<section id="f-tests-6" class="slide level2">
-<h2><em>F</em> Tests</h2>
-<p>Finally, we compare our <span class="math inline">\(F\)</span>-statistic to a critical value of <span class="math inline">\(F\)</span> to test the null hypothesis.</p>
-<p>If <span class="math inline">\(F\)</span> &gt; <span class="math inline">\(F_\text{crit}\)</span>, then reject the null hypothesis at the <span class="math inline">\(\alpha \times 100\)</span> percent level.</p>
-<ul>
-<li>Find <span class="math inline">\(F_\text{crit}\)</span> in a table using the desired significance level, numerator degrees of freedom, and denominator degrees of freedom.</li>
-</ul>
-<div class="fragment">
-<p><span class="note">Aside:</span> Why are <span class="math inline">\(F\)</span>-statistics always positive?</p>
-</div>
-</section>
-<section id="f-tests-7" class="slide level2">
-<h2><em>F</em> Tests</h2>
-<p>RSS is usually a large cumbersome number.</p>
-<p><span class="hii">Alternative:</span> Calculate the <span class="math inline">\(F\)</span>-statistic using <span class="math inline">\(R^2\)</span>.</p>
-<p><span class="math display">\[
-\begin{align}
-  F = \dfrac{\left(R^2_u - R^2_r\right)/q}{ (1 - R^2_u)/(n-k-1)}
-\end{align}
-\]</span></p>
-<div class="fragment">
-<p>Where does this come from?</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><span class="math inline">\(\text{TSS} = \text{RSS} + \text{ESS}\)</span></p>
-<p><span class="math inline">\(R^2 = \text{ESS}/\text{TSS}\)</span></p>
-</div><div class="column" style="width:60%;">
-<p><span class="math inline">\(\text{RSS}_r = \text{TSS}(1-R^2_r)\)</span></p>
-<p><span class="math inline">\(\text{RSS}_u = \text{TSS}(1-R^2_u)\)</span></p>
-</div>
-</div>
-</div>
-</section></section>
 <section id="fin" class="title-slide slide level1 inverse note center">
 <h1><em>Fin</em></h1>
 <div class="quarto-auto-generated-content">

@@ -1,0 +1,133 @@
+---
+title: "Multiple Linear Regression and Omitted Variable Bias"
+subtitle: "EC 320, Set 09"
+author: "Andrew Dickinson"
+date: last-modified
+date-format: "MM YYYY"
+format: 
+  revealjs:
+    theme: [default, ./styles.scss]
+    # monobackgroundcolor: #F5F5F5
+    slide-number: true
+    footer: "EC320, Set 09 | Omitted Variable Bias"
+    preview-links: auto
+    code-fold: FALSE
+    code-copy: TRUE
+    highlight-style: a11y-light
+    cache: TRUE
+    html-math-method: mathjax 
+title-slide-attributes: 
+  data-background-position: left
+---
+
+<!-- ::: {.content-hidden} -->
+<!-- $$ -->
+<!-- {{< include ../_macros.tex >}} -->
+<!-- $$ -->
+<!-- ::: -->
+
+
+```{r}
+# Load packages
+library(hrbrthemes)
+library(fastverse)
+library(tidyverse)
+library(AER)
+library(magrittr)
+library(wooldridge)
+library(here)
+library(kableExtra)
+library(ggdag)
+library(nord)
+library(dagitty)
+library(viridis)
+library(gganimate)
+library(plotly)
+library(ggforce)  
+library(parallel)
+library(broom)
+library(furrr)
+library(ggridges)
+
+hi = nord_palettes$polarnight[3]
+hii = nord_palettes$frost[3] 
+hp = nord_palettes$aurora[5]
+higreen = nord_palettes$aurora[4]
+hiyellow = nord_palettes$aurora[3]
+hiorange = nord_palettes$aurora[2]
+hired = nord_palettes$aurora[1]
+higrey = nord_palettes$snowstorm[1]
+
+mytheme = theme_ipsum(
+              # base_family = "Fira Sans Book", 
+              base_size = 20
+          ) +
+ theme(panel.grid.minor.x = element_blank(),
+       axis.title.x = element_text(size = 18),
+       axis.title.y = element_text(size = 18))
+
+mytheme_s = mytheme + 
+  theme(panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_blank(),
+        axis.line = element_line(color = hi))
+
+mytheme_void = theme_void(
+                  # base_family = "Fira Sans Book",
+                  base_size = 20
+                )
+
+data("MASchools")
+
+schools_dt = as.data.table(MASchools)
+
+# Create group variable by student expenditure
+schools_dt[exptot >= 6000, expgroup := TRUE]
+schools_dt[exptot < 6000, expgroup := FALSE]
+schools_dt[expgroup == TRUE, score4 := score4 + 30]
+schools_dt = schools_dt[!(expgroup == TRUE & score4 < 722)]
+
+election <- read_csv("election_2016.csv") %>% 
+  mutate(trump_pct = trump/totalvotes*100,
+         clinton_pct = clinton/totalvotes*100,
+         trump_margin = trump_pct - clinton_pct,
+         nonwhite = 100 - white)
+```
+
+
+# [Ex.]{.ex} [Effect of class sizes on test scores]{.hi-white} {.inverse .tiny}
+
+{{< include 09-1-ex.qmd >}}
+
+# [Omitted Variable Bias]{.ex} {.inverse .note}
+
+{{< include 09-2-ovb.qmd >}}
+
+# _Multiple linear regression_ {.inverse .note}
+
+{{< include 09-3-multi.qmd >}}
+
+# _Adjusted R-squared_ {.inverse .note}
+
+{{< include 09-4-adjRsquared.qmd >}}
+
+<!-- # _Multicollinearity_ {.inverse .note} -->
+
+<!-- {{< include 08-5-colinear.qmd >}} -->
+
+<!-- # _F Tests_ {.inverse .note} -->
+
+<!-- {{< include 08-6-ftest.qmd >}} -->
+
+```{r}
+#| include: false
+#| echo: false
+#| eval: false
+library(renderthis)
+
+renderthis::to_pdf(
+  from = "./slides/09-mlr-ovb/09-mlr-ovb.html",
+  to = "./slides/09-multiple/09-main.pdf",
+  complex_slides = TRUE
+)
+```
