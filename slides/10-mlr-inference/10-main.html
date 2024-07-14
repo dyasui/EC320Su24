@@ -8,7 +8,7 @@
 <link href="10-main_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="10-main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="10-main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-1.5.43">
 
   <meta name="author" content="Andrew Dickinson">
   <title>Multiple Linear Regression - Inference</title>
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -626,8 +626,7 @@ s_u^2 = \dfrac{\sum_{i=1}^n \hat{u}_i^2}{n - k - 1}
 <p>with the following results:</p>
 <div class="cell" data-escape="false">
 <div class="cell-output-display">
-<div>
-<table class="table" data-quarto-postprocess="true" style="font-size: 24px; margin-left: auto; margin-right: auto;">
+<table class="table caption-top" data-quarto-postprocess="true" style="font-size: 24px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Explanatory variable</th>
@@ -682,7 +681,6 @@ s_u^2 = \dfrac{\sum_{i=1}^n \hat{u}_i^2}{n - k - 1}
 
 </div>
 </div>
-</div>
 </section>
 <section id="multicollinearity-ex.-2" class="slide level2" data-visibility="uncounted">
 <h2>Multicollinearity <span class="ex">Ex.</span></h2>
@@ -693,8 +691,7 @@ s_u^2 = \dfrac{\sum_{i=1}^n \hat{u}_i^2}{n - k - 1}
 <p>with the following results:</p>
 <div class="cell" data-escape="false">
 <div class="cell-output-display">
-<div>
-<table class="table" data-quarto-postprocess="true" style="font-size: 24px; margin-left: auto; margin-right: auto;">
+<table class="table caption-top" data-quarto-postprocess="true" style="font-size: 24px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Explanatory variable</th>
@@ -749,6 +746,55 @@ s_u^2 = \dfrac{\sum_{i=1}^n \hat{u}_i^2}{n - k - 1}
 
 </div>
 </div>
+</section></section>
+<section>
+<section id="irrelevant-variables-4" class="title-slide slide level1 inverse note center">
+<h1><em>Irrelevant Variables</em></h1>
+
+</section>
+<section id="irrelevant-variables-5" class="slide level2">
+<h2>Irrelevant Variables</h2>
+<p>Suppose that the true relationship between birth weight and <em>in utero</em> exposure to toxic air pollution is</p>
+<p><span class="math display">\[
+(\text{Birth Weight})_i = \beta_0 + \beta_1 \text{Pollution}_i + u_i
+\]</span></p>
+<div class="fragment">
+<p>Suppose that an “analyst” estimates</p>
+<p><span class="math display">\[
+(\text{Birth Weight})_i = \tilde{\beta_0} + \tilde{\beta_1} \text{Pollution}_i + \tilde{\beta_2}\text{NBA}_i + u_i
+\]</span></p>
+</div>
+<div class="fragment">
+<p>One can show that <span class="math inline">\(\mathop{\mathbb{E}} \left( \hat{\tilde{\beta_1}} \right) = \beta_1\)</span> (<em>i.e.</em>, <span class="math inline">\(\hat{\tilde{\beta_1}}\)</span> is unbiased).</p>
+<p>However, the variances of <span class="math inline">\(\hat{\tilde{\beta_1}}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> differ.</p>
+</div>
+</section>
+<section id="irrelevant-variables-6" class="slide level2">
+<h2>Irrelevant Variables</h2>
+
+<img data-src="10-main_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="irrelevant-variables-7" class="slide level2">
+<h2>Irrelevant Variables</h2>
+<p>The variance of <span class="math inline">\(\hat{\beta}_1\)</span> from estimating the “true model” is</p>
+<p><span class="math display">\[
+\mathop{\text{Var}} \left( \hat{\beta_1} \right) = \dfrac{\sigma^2}{\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
+\]</span></p>
+<p>The variance of <span class="math inline">\(\hat{\tilde\beta}_1\)</span> from estimating the model with the irrelevant variable is</p>
+<p><span class="math display">\[
+\mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
+\]</span></p>
+</section>
+<section id="irrelevant-variables-8" class="slide level2">
+<h2>Irrelevant Variables</h2>
+<p>Notice that <span class="math inline">\(\mathop{\text{Var}} \left( \hat{\beta_1} \right) \leq \mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right)\)</span> since,</p>
+<p><span class="math display">\[
+\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
+\geq
+\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
+\]</span></p>
+<div class="fragment">
+<p><br></p>
+<p>A tradeoff exists when including more control variables. <span class="fragment">Make sure you have good reason for your controls because including irrelevant control variables <span class="hii">increase</span> variances</span></p>
 </div>
 </section></section>
 <section>
@@ -799,11 +845,11 @@ H_0:\: \beta_1 = \beta_2 \iff H_0 :\: \beta_1 - \beta_2 = 0
 <p>To test the null hypothesis <span class="math inline">\(H_o :\: \beta_1 = \beta_2\)</span> against <span class="math inline">\(H_a :\: \beta_1 \neq \beta_2\)</span>, <br>we use the <span class="math inline">\(F\)</span> statistic:</p>
 <p><span class="math display">\[
 \begin{align}
-  F_{q,\,n-k-1} = \dfrac{\left(\text{RSS}_r - \text{RSS}_u\right)/q}{\text{RSS}_u/(n-k-1)}
+  F_{q,\,n-k-1} = \dfrac{\left(\text{RSS}_r - \text{RSS}_u\right)/(n-k)}{\text{RSS}_u/(k-1)}
 \end{align}
 \]</span></p>
-<p>which (as its name suggests) follows the <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(q\)</span> numerator degrees of freedom and <span class="math inline">\(n-k-1\)</span> denominator degrees of freedom.</p>
-<p>Here, <span class="math inline">\(q\)</span> is the number of restrictions we impose via <span class="math inline">\(H_0\)</span>.</p>
+<p>which (as its name suggests) follows the <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(n-k\)</span> numerator degrees of freedom and <span class="math inline">\(k-1\)</span> denominator degrees of freedom.</p>
+<p>Here, <span class="math inline">\(k\)</span> is the number of parameters in the <em>unrestricted</em> model and in this case <span class="math inline">\(1\)</span> is the number of parameters in the <em>restricted</em> model.</p>
 </section>
 <section id="f-tests-5" class="slide level2">
 <h2><em>F</em> Tests</h2>
@@ -834,7 +880,7 @@ H_0:\: \beta_1 = \beta_2 \iff H_0 :\: \beta_1 - \beta_2 = 0
 <p><span class="hii">Alternative:</span> Calculate the <span class="math inline">\(F\)</span>-statistic using <span class="math inline">\(R^2\)</span>.</p>
 <p><span class="math display">\[
 \begin{align}
-  F = \dfrac{\left(R^2_u - R^2_r\right)/q}{ (1 - R^2_u)/(n-k-1)}
+  F = \dfrac{\left(R^2_u - R^2_r\right)/k-1}{ (1 - R^2_u)/(n-k)}
 \end{align}
 \]</span></p>
 <div class="fragment">
@@ -1138,18 +1184,7 @@ H_0:\: \beta_1 = \beta_2 \iff H_0 :\: \beta_1 - \beta_2 = 0
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1181,7 +1216,29 @@ H_0:\: \beta_1 = \beta_2 \iff H_0 :\: \beta_1 - \beta_2 = 0
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1189,7 +1246,7 @@ H_0:\: \beta_1 = \beta_2 \iff H_0 :\: \beta_1 - \beta_2 = 0
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

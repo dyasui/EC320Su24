@@ -63,13 +63,13 @@ To test the null hypothesis $H_o :\: \beta_1 = \beta_2$ against $H_a :\: \beta_1
 
 $$
 \begin{align}
-  F_{q,\,n-k-1} = \dfrac{\left(\text{RSS}_r - \text{RSS}_u\right)/q}{\text{RSS}_u/(n-k-1)}
+  F_{q,\,n-k-1} = \dfrac{\left(\text{RSS}_r - \text{RSS}_u\right)/(n-k)}{\text{RSS}_u/(k-1)}
 \end{align}
 $$
 
-which (as its name suggests) follows the $F$ distribution with $q$ numerator degrees of freedom and $n-k-1$ denominator degrees of freedom.
+which (as its name suggests) follows the $F$ distribution with $n-k$ numerator degrees of freedom and $k-1$ denominator degrees of freedom.
 
-Here, $q$ is the number of restrictions we impose via $H_0$.
+Here, $k$ is the number of parameters in the *unrestricted* model and in this case $1$ is the number of parameters in the *restricted* model.
 
 
 ---
@@ -114,7 +114,7 @@ RSS is usually a large cumbersome number.
 
 $$
 \begin{align}
-  F = \dfrac{\left(R^2_u - R^2_r\right)/q}{ (1 - R^2_u)/(n-k-1)}
+  F = \dfrac{\left(R^2_u - R^2_r\right)/k-1}{ (1 - R^2_u)/(n-k)}
 \end{align}
 $$
 

@@ -1,0 +1,90 @@
+---
+name: irrelevant-vars
+---
+
+## Irrelevant Variables
+
+Suppose that the true relationship between birth weight and _in utero_ exposure to toxic air pollution is 
+
+$$
+(\text{Birth Weight})_i = \beta_0 + \beta_1 \text{Pollution}_i + u_i
+$$
+
+. . .
+
+Suppose that an "analyst" estimates
+
+$$
+(\text{Birth Weight})_i = \tilde{\beta_0} + \tilde{\beta_1} \text{Pollution}_i + \tilde{\beta_2}\text{NBA}_i + u_i
+$$
+
+. . .
+
+One can show that $\mathop{\mathbb{E}} \left( \hat{\tilde{\beta_1}} \right) = \beta_1$ (*i.e.*, $\hat{\tilde{\beta_1}}$ is unbiased).
+
+However, the variances of $\hat{\tilde{\beta_1}}$ and $\hat{\beta_1}$ differ.
+
+---
+
+## Irrelevant Variables
+
+```{r}
+#| echo: false
+
+# Colors (order: x1, x2, x3, y)
+venn_colors <- c(hp, hired, hi)
+# Locations of circles
+venn_df <- tibble(
+  x  = c( 0.0,   -0.5,    2.3),
+  y  = c( 0.0,   -2.5,   -3),
+  r  = c( 1.9,    1.5,    1.5),
+  l  = c( "Weight", "Pollution", "NBA"),
+  xl = c( 0.0,   -0.5,    2.3),
+  yl = c( 0.0,   -2.5,   -3)
+)
+# Venn
+ggplot(data = venn_df, aes(x0 = x, y0 = y, r = r, fill = l, color = l)) +
+geom_circle(alpha = 0.3, size = 0.75) +
+theme_void() +
+theme(legend.position = "none") +
+scale_fill_manual(values = venn_colors) +
+scale_color_manual(values = venn_colors) +
+geom_text(aes(x = xl, y = yl, label = l), size = 9, parse = T) +
+xlim(-5.5, 4.5) +
+ylim(-4.5, 3) +
+coord_equal()
+```
+
+---
+
+## Irrelevant Variables
+
+The variance of $\hat{\beta}_1$ from estimating the "true model" is
+
+$$
+\mathop{\text{Var}} \left( \hat{\beta_1} \right) = \dfrac{\sigma^2}{\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
+$$
+
+The variance of $\hat{\tilde\beta}_1$ from estimating the model with the irrelevant variable is
+
+$$
+\mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right) = \dfrac{\sigma^2}{\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Pollution}_{i} - \overline{\text{Pollution}} \right)^2}
+$$
+
+---
+
+## Irrelevant Variables
+
+Notice that $\mathop{\text{Var}} \left( \hat{\beta_1} \right) \leq \mathop{\text{Var}} \left( \hat{\tilde{\beta_1}} \right)$ since,
+
+$$
+\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
+\geq
+\left( 1 - R^2_1 \right)\sum_{i=1}^n \left( \text{Poll.}_{i} - \overline{\text{Poll.}} \right)^2
+$$
+
+. . .
+
+<br>
+
+A tradeoff exists when including more control variables. [Make sure you have good reason for your controls because including irrelevant control variables [increase]{.hii} variances]{.fragment}

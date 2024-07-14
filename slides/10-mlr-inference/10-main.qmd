@@ -97,11 +97,15 @@ election <- read_csv("election_2016.csv") %>%
 
 # _Multicollinearity_ {.inverse .note}
 
-{{< include 08-5-colinear.qmd >}}
+{{< include 10-1-colinear.qmd >}}
+
+# _Irrelevant Variables_ {.inverse .note}
+
+{{< include 10-2-irrelevant-vars.qmd >}}
 
 # _F Tests_ {.inverse .note}
 
-{{< include 08-6-ftest.qmd >}}
+{{< include 10-3-ftest.qmd >}}
 
 # _Fin_ {.inverse .note}
 
