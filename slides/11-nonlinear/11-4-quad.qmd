@@ -277,4 +277,6 @@ anscombe_m %>%
 
 ## Datasaurus Dozen
 
-![](./figures/datasaurus-dozen.png){fig-align="center"}
+![](./figures/datasaurus-dozen.png){fig-align="center"}[^1]
+
+[^1]: from [*Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing*, Matejka and Fitzmaurice (2017)](https://dl.acm.org/doi/10.1145/3025453.3025912)
