@@ -1,0 +1,76 @@
+---
+title: "Nonlinear models"
+subtitle: "EC 320, Lecture 11"
+author: "Andrew Dickinson"
+date: last-modified
+date-format: "MM YYYY"
+format: 
+  revealjs:
+    theme: [default, ./styles.scss]
+    monobackgroundcolor: #F5F5F5
+    slide-number: true
+    footer: "EC320, Lecture 11 | Nonlinear models"
+    preview-links: auto
+    code-fold: FALSE
+    code-copy: TRUE
+    highlight-style: a11y-light
+    cache: FALSE
+    html-math-method: mathjax 
+title-slide-attributes: 
+  data-background-position: left
+---
+
+```{r}
+# Load packages
+pacman::p_load(
+  hrbrthemes, fastverse, tidyverse, AER,
+  magrittr, wooldridge, here, kableExtra,
+  ggdag, nord, latex2exp, dagitty, viridis, scales, cplot,
+  plotly, ggforce, latex2exp, parallel, broom, gapminder
+  )
+
+
+hi = nord_palettes$polarnight[3]
+hii = nord_palettes$frost[3] 
+hp = nord_palettes$aurora[5]
+higreen = nord_palettes$aurora[4]
+hiyellow = nord_palettes$aurora[3]
+hiorange = nord_palettes$aurora[2]
+hired = nord_palettes$aurora[1]
+higrey = nord_palettes$snowstorm[1]
+
+mytheme = theme_ipsum( base_size = 20) +
+ theme(panel.grid.minor.x = element_blank(),
+       axis.title.x = element_text(size = 18),
+       axis.title.y = element_text(size = 18))
+
+mytheme_s = mytheme + 
+  theme(panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_blank(),
+        axis.line = element_line(color = hi))
+
+mytheme_void = theme_void( base_size = 20)
+
+
+# Returns education data
+wage2 <- get('wage2')
+# MI school funding and test scores data
+meap01 <- get('meap01') %>% 
+  mutate(exppp = exppp/1000)
+
+
+
+```
+
+{{< include 11-1-prologue.qmd >}}
+
+{{< include 11-2-nonlinear.qmd >}}
+
+# _Logarithms_ {.note .inverse}
+
+{{< include 11-3-logs.qmd >}}
+
+# _Quadratic terms_ {.note .inverse}
+
+{{< include 11-4-quad.qmd >}}

@@ -1,9 +1,9 @@
 ---
 title: "Categorical variables and interactions"
-subtitle: "EC 320, Set 09"
+subtitle: "EC 320, Lecture 12"
 author: "Andrew Dickinson"
 date: last-modified
-date-format: "Spring YYYY"
+date-format: "MM YYYY"
 format: 
   revealjs:
     theme: [default, ../styles.scss]
