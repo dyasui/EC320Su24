@@ -6,10 +6,10 @@ date: last-modified
 date-format: "MM YYYY"
 format: 
   revealjs:
-    theme: [default, ../styles.scss]
+    theme: [default, ./styles.scss]
     monobackgroundcolor: #F5F5F5
     slide-number: true
-    footer: "EC320, Set 09 | Categorical variables and interactions"
+    footer: "EC320, Lecture 12 | Categorical variables and interactions"
     preview-links: auto
     code-fold: FALSE
     code-copy: TRUE
@@ -19,44 +19,6 @@ format:
 title-slide-attributes: 
   data-background-position: left
 ---
-
-::: {.content-hidden}
-$$
-{{< include ../_macros.tex >}}
-$$
-:::
-
-# _Prologue_ {.inverse .note}
-
-## Housekeeping 
-
-:::: {.columns}
-
-::: {.column width="50%"}
-[PS04]{.hi}: 
-
-- Due tomorrow @11:59pm
-
-[PS05:]{.hi}
-
-- Posted yesterday
-- Due Thursday, 05/30
-
-:::
-
-::: {.column width="50%"}
-
-[Reading:]{.hi} _(up to this point)_
-
-ItE: R, 1, 2, 3, 4, [5]{.hi}
-
-MM: 1, 2
-
-
-:::
-
-::::
-
 
 ```{r}
 # Load packages
@@ -110,20 +72,20 @@ meap01 <- get('meap01') %>%
 
 # Categorical variables {.inverse .note}
 
-{{< include _081-slr.qmd >}}
+{{< include 12-1-slr.qmd >}}
 
 # Omitted variables {.inverse .note}
 
-{{< include _082-ovb.qmd >}}
+{{< include 12-2-ovb.qmd >}}
 
 # [Ex.]{.ex} Card (1995). {.inverse}
 
-{{< include _083-categorical-ex.qmd >}}
+{{< include 12-3-categorical-ex.qmd >}}
 
 # Interactive relationships {.inverse .note}
 
-{{< include _084-interaction.qmd >}}
+{{< include 12-4-interaction.qmd >}}
 
 # [Ex.]{.ex} Policy intervention {.inverse}
 
-{{< include _085-ex-policy.qmd >}}
+{{< include 12-5-ex-policy.qmd >}}
