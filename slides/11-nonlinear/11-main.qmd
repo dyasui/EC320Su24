@@ -65,7 +65,7 @@ meap01 <- get('meap01') %>%
 
 {{< include 11-1-prologue.qmd >}}
 
-{{< include 11-2-nonlinear.qmd >}}
+<!-- {{< include 11-2-nonlinear.qmd >}} -->
 
 # _Logarithms_ {.note .inverse}
 

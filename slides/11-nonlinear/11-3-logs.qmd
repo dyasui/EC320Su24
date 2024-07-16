@@ -543,14 +543,14 @@ mytheme
 #| fig-align: center
 
 cont_interp <- tibble(
-  model = c("Level-level <br> \\(Y_i = \\beta_0 + \\beta_1 X_i + u_i\\)",
-             "Log-level <br> \\(\\log(Y_i) = \\beta_0 + \\beta_1 X_i + u_i\\)",
-             "Log-log <br> \\(\\log(Y_i) = \\beta_0 + \\beta_1 \\log(X_i) + u_i\\)",
-             "Level-log <br> \\(Y_i = \\beta_0 + \\beta_1 \\log(X_i) + u_i\\)"),
-  interp = c("\\(\\Delta Y = \\beta_1 \\cdot \\Delta X\\) <br> A one-unit increase in \\(X\\) leads to a <br> \\(\\beta_1\\)-unit increase in \\(Y\\)",
-             "\\(\\%\\Delta Y = 100 \\cdot \\beta_1 \\cdot \\Delta X\\) <br> A one-unit increase in \\(X\\) leads to a <br> \\(\\beta_1 \\cdot 100\\)-percent increase in \\(Y\\)",
-             "\\(\\%\\Delta Y = \\beta_1 \\cdot \\%\\Delta X\\) <br> A one-percent increase in \\(X\\) leads to a <br> \\(\\beta_1\\)-percent increase in \\(Y\\)",
-             "\\(\\Delta Y = (\\beta_1 \\div 100) \\cdot \\%\\Delta X\\) <br> A one-percent increase in \\(X\\) leads to a <br> \\(\\beta_1 \\div 100\\)-unit increase in \\(Y\\)")
+  model = c("Level-level \n \\(Y_i = \\beta_0 + \\beta_1 X_i + u_i\\)",
+             "Log-level  \\(\\log(Y_i) = \\beta_0 + \\beta_1 X_i + u_i\\)",
+             "Log-log  \\(\\log(Y_i) = \\beta_0 + \\beta_1 \\log(X_i) + u_i\\)",
+             "Level-log  \\(Y_i = \\beta_0 + \\beta_1 \\log(X_i) + u_i\\)"),
+  interp = c("\\(\\Delta Y = \\beta_1 \\cdot \\Delta X\\)  A one-unit increase in \\(X\\) leads to a  \\(\\beta_1\\)-unit increase in \\(Y\\)",
+             "\\(\\%\\Delta Y = 100 \\cdot \\beta_1 \\cdot \\Delta X\\)  A one-unit increase in \\(X\\) leads to a  \\(\\beta_1 \\cdot 100\\)-percent increase in \\(Y\\)",
+             "\\(\\%\\Delta Y = \\beta_1 \\cdot \\%\\Delta X\\)  A one-percent increase in \\(X\\) leads to a  \\(\\beta_1\\)-percent increase in \\(Y\\)",
+             "\\(\\Delta Y = (\\beta_1 \\div 100) \\cdot \\%\\Delta X\\)  A one-percent increase in \\(X\\) leads to a  \\(\\beta_1 \\div 100\\)-unit increase in \\(Y\\)")
 ) %>% 
   kable(
   escape = F,
